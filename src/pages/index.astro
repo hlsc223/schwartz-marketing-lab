@@ -87,14 +87,18 @@ const faqs = [
   canonicalPath="/"
   schema={organizationSchema()}
 >
-  <section class="hero">
+  <section id="hero" class="hero">
     <div class="hero__frame">
-      <h1>Drive revenue<br />through <span class="hero__accent">AEO.</span></h1>
-      <p class="hero__sub">
-        Traditional B2B marketing agencies are stuck in the past. We build brand awareness and
-        drive sales with modern solutions for AEO, SEO, and content marketing.
-      </p>
-      <a href="/contact" class="button">Find out how →</a>
+      <div class="hero__content">
+        <h1>Drive revenue<br />through <span class="hero__accent">AEO.</span></h1>
+        <div class="hero__body">
+          <p class="hero__sub">
+            Traditional B2B marketing agencies are stuck in the past. We build brand awareness and
+            drive sales with modern solutions for AEO, SEO, and content marketing.
+          </p>
+          <a href="/contact" class="button">Find out how ↗</a>
+        </div>
+      </div>
       <div class="hero__rule">
         <span class="hero__rule-line"></span>
         <span class="hero__rule-label">Schwartz Marketing Lab</span>
@@ -188,71 +192,161 @@ const faqs = [
     color: var(--color-accent);
   }
 
-  /* ---------- Hero ---------- */
+  /* ---------- Hero ----------
+     Values ported directly from the legacy client/src/components/Hero.tsx —
+     this is a full-bleed poster frame (mx-3 sm:mx-5 md:mx-8), not a centered
+     card in a max-width container. The frame has a visible border-foreground/70
+     line on top/left/right only; the bottom edge is intentionally open and the
+     rule-bar below straddles it. */
 
   .hero {
-    padding: 0 24px;
+    padding: 0;
   }
 
   .hero__frame {
-    max-width: var(--content-max-width);
-    margin: 0 auto;
-    border-top: var(--border-frame);
-    border-left: var(--border-frame);
-    border-right: var(--border-frame);
-    padding: clamp(48px, 9vw, 96px) clamp(24px, 5vw, 56px) 0;
+    margin: clamp(24px, 4vw, 40px) var(--edge-pad) 64px;
+    border-top: 1px solid rgba(23, 23, 23, 0.7);
+    border-left: 1px solid rgba(23, 23, 23, 0.7);
+    border-right: 1px solid rgba(23, 23, 23, 0.7);
+    padding: 0 24px;
     position: relative;
+    min-height: calc(100vh - 12rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .hero__frame { padding: 0 40px; }
+  }
+
+  @media (min-width: 768px) {
+    .hero__frame { padding: 0 56px; }
+  }
+
+  @media (min-width: 1024px) {
+    .hero__frame { padding: 0 80px; }
+  }
+
+  .hero__content {
+    padding: 48px 0;
+  }
+
+  @media (min-width: 768px) {
+    .hero__content { padding: 64px 0; }
   }
 
   .hero h1 {
-    font-size: clamp(40px, 8vw, 112px);
-    letter-spacing: -0.01em;
+    font-size: 52px;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .hero h1 { font-size: 72px; }
+  }
+
+  @media (min-width: 768px) {
+    .hero h1 { font-size: 96px; }
+  }
+
+  @media (min-width: 1024px) {
+    .hero h1 { font-size: 124px; }
+  }
+
+  @media (min-width: 1280px) {
+    .hero h1 { font-size: 144px; }
   }
 
   .hero__accent {
     color: var(--color-accent);
   }
 
+  .hero__body {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .hero__body { margin-top: 48px; gap: 40px; }
+  }
+
   .hero__sub {
-    max-width: 640px;
-    margin: 28px 0 36px;
-    font-size: 18px;
-    color: var(--color-text-muted);
+    max-width: 448px;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--color-text);
+  }
+
+  @media (min-width: 768px) {
+    .hero__sub { font-size: 18px; }
+  }
+
+  @media (min-width: 1024px) {
+    .hero__sub { font-size: 19px; }
+  }
+
+  .hero__body .button {
+    align-self: flex-start;
   }
 
   .hero__rule {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(50%);
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 24px 0;
-    margin-top: 56px;
-    border-top: var(--border-hairline);
+    overflow: hidden;
   }
 
   .hero__rule-line {
     height: 1px;
-    width: 32px;
-    background: rgba(23, 23, 23, 0.3);
+    background: rgba(23, 23, 23, 0.7);
+    width: 40px;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 640px) {
+    .hero__rule-line { width: 56px; }
+  }
+
+  @media (min-width: 768px) {
+    .hero__rule-line { width: 80px; }
+  }
+
+  @media (min-width: 1024px) {
+    .hero__rule-line { width: 112px; }
   }
 
   .hero__rule-line--grow {
     flex: 1;
+    width: auto;
+    min-width: 16px;
   }
 
   .hero__rule-label {
-    font-size: 12px;
+    font-size: 11px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-text-muted);
+    letter-spacing: 0.24em;
+    color: var(--color-text);
+    padding: 0 12px;
     white-space: nowrap;
+    line-height: 1;
   }
 
-  @media (max-width: 640px) {
-    .hero__rule {
-      flex-wrap: wrap;
-    }
-    .hero__rule-line--grow {
-      display: none;
+  @media (min-width: 640px) {
+    .hero__rule-label {
+      font-size: 13px;
+      letter-spacing: 0.28em;
+      padding: 0 20px;
     }
   }
 

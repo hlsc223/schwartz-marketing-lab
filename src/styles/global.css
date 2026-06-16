@@ -30,6 +30,19 @@
 
   /* Spacing / layout */
   --content-max-width: 1200px;
+
+  /* Edge padding used by the header and hero frame to match the live site's
+     full-bleed poster layout (mx-3 sm:mx-5 md:mx-8 in the legacy Tailwind code)
+     — these are NOT centered in a max-width container, they hug the viewport edge. */
+  --edge-pad: 12px;
+}
+
+@media (min-width: 640px) {
+  :root { --edge-pad: 20px; }
+}
+
+@media (min-width: 768px) {
+  :root { --edge-pad: 32px; }
 }
 
 *, *::before, *::after {

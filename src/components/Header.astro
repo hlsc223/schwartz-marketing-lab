@@ -8,7 +8,7 @@ const navLinks = [
 ---
 
 <header class="site-header">
-  <div class="wrapper site-header__inner">
+  <div class="site-header__inner">
     <a href="/" class="site-header__logo">S<span class="site-header__dot">.</span>LAB</a>
     <nav class="site-header__nav" aria-label="Primary">
       <ul>
@@ -16,8 +16,9 @@ const navLinks = [
           <li><a href={link.href}>{link.label}</a></li>
         ))}
       </ul>
+      <span class="site-header__divider" aria-hidden="true"></span>
+      <a href="/contact" class="button button--cobalt site-header__cta">Free strategy call</a>
     </nav>
-    <a href="/contact" class="button button--cobalt site-header__cta">Free strategy call</a>
   </div>
 </header>
 
@@ -34,23 +35,31 @@ const navLinks = [
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding: 16px var(--edge-pad);
   }
 
   .site-header__logo {
     font-family: var(--font-heading);
     font-weight: 900;
     font-size: 28px;
+    line-height: 1;
     letter-spacing: -0.01em;
+    flex-shrink: 0;
   }
 
   .site-header__dot {
     color: var(--color-accent);
   }
 
+  .site-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
   .site-header__nav ul {
     display: flex;
+    align-items: center;
     gap: 32px;
     list-style: none;
     margin: 0;
@@ -59,7 +68,7 @@ const navLinks = [
 
   .site-header__nav a {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     position: relative;
   }
 
@@ -78,14 +87,21 @@ const navLinks = [
     width: 100%;
   }
 
+  .site-header__divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(23, 23, 23, 0.2);
+  }
+
   .site-header__cta {
     font-size: 14px;
     white-space: nowrap;
-    padding: 10px 22px;
+    padding: 8px 20px;
   }
 
   @media (max-width: 760px) {
-    .site-header__nav {
+    .site-header__nav ul,
+    .site-header__divider {
       display: none;
     }
   }
