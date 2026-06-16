@@ -132,7 +132,7 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
   <!-- ============ HERO — ported from Hero.tsx ============ -->
   <section id="hero" class="relative bg-background text-foreground">
     <div
-      class="relative mx-3 sm:mx-5 md:mx-8 mt-8 md:mt-10 mb-10 md:mb-14 border-t border-l border-r border-foreground/70 px-6 sm:px-10 md:px-14 lg:px-20 flex flex-col justify-center"
+      class="relative mx-3 sm:mx-5 md:mx-8 mt-2 md:mt-6 mb-10 md:mb-14 border-t border-l border-r border-foreground/70 px-6 sm:px-10 md:px-14 lg:px-20 flex flex-col justify-center"
       style="min-height: calc(100vh - 9rem);"
     >
       <div
@@ -243,13 +243,13 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
       <ul class="border-t border-foreground/85">
         {services.map((s) => (
           <li class="border-b border-foreground/85">
-            <a href={s.href} class="service-row group block relative outline-none">
+            <a href={s.href} class="service-row group block relative outline-none focus-visible:outline-none">
               <span
                 aria-hidden="true"
-                class="pointer-events-none absolute left-0 top-0 bottom-0 w-[3px] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out"
+                class="pointer-events-none absolute left-0 top-0 bottom-0 w-[3px] origin-top scale-y-0 group-hover:scale-y-100 group-focus-visible:scale-y-100 transition-transform duration-300 ease-out"
                 style="background-color: hsl(var(--cobalt));"
               ></span>
-              <div class="grid grid-cols-12 gap-4 md:gap-6 items-baseline py-8 md:py-10 px-3 md:px-5 transition-colors duration-300 group-hover:bg-foreground/[0.03]">
+              <div class="grid grid-cols-12 gap-4 md:gap-6 items-baseline py-8 md:py-10 px-3 md:px-5 transition-colors duration-300 group-hover:bg-foreground/[0.03] group-focus-visible:bg-foreground/[0.05] group-focus-visible:ring-2 group-focus-visible:ring-[hsl(var(--cobalt))] group-focus-visible:ring-inset">
                 <div class="col-span-2 md:col-span-1">
                   <span class="font-sans text-[13px] md:text-[14px] font-semibold tracking-[0.2em] uppercase text-foreground/55">{s.number}</span>
                 </div>
@@ -263,7 +263,10 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
                   <p class="font-serif text-[16px] md:text-[17px] leading-[1.5] text-foreground/80 m-0">{s.promise}</p>
                 </div>
                 <div class="hidden md:flex col-span-1 justify-end">
-                  <span class="service-row__arrow text-2xl text-foreground transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true">↗</span>
+                  <svg
+                    class="service-row__arrow w-7 h-7 text-foreground transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 group-focus-visible:translate-x-1 group-focus-visible:-translate-y-1"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                  ><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
                 </div>
               </div>
             </a>
@@ -289,7 +292,8 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
           </p>
         </div>
         <a href="/portfolio" class="case-cta--light hidden md:inline-flex items-center gap-1.5 font-sans font-bold text-[11px] tracking-[0.1em] uppercase shrink-0 mt-1 transition-colors" style="color: hsl(var(--background) / 0.3);">
-          View all work ↗
+          View all work
+          <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
         </a>
       </div>
 
@@ -303,7 +307,8 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
             <div class="mb-4" style="border-top: 1px solid hsl(var(--foreground) / 0.08);"></div>
             <p class="font-serif leading-[1.6] flex-1 mb-6" style="font-size: 14px; color: hsl(var(--foreground) / 0.58);">{study.description}</p>
             <a href={study.href} class="case-cta--dark inline-flex items-center gap-1.5 font-sans font-bold tracking-[0.1em] uppercase transition-colors" style="font-size: 10px; color: hsl(var(--foreground) / 0.35);">
-              View case study ↗
+              View case study
+              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </a>
           </div>
         ))}
@@ -311,7 +316,8 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
 
       <div class="mt-8 md:hidden">
         <a href="/portfolio" class="inline-flex items-center gap-1.5 font-sans font-bold text-[11px] tracking-[0.1em] uppercase" style="color: hsl(var(--background) / 0.4);">
-          View all work ↗
+          View all work
+          <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
         </a>
       </div>
     </div>
@@ -332,7 +338,9 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
               <span class="font-sans font-semibold text-base md:text-lg text-foreground transition-colors group-hover:text-foreground/80">{f.question}</span>
               <span class="faq-item__icon flex-shrink-0 w-6 h-6 flex items-center justify-center" style="color: hsl(var(--cobalt));" aria-hidden="true"></span>
             </summary>
-            <p class="font-serif text-base text-foreground/70 leading-relaxed pb-6 max-w-2xl">{f.answer}</p>
+            <div class="faq-item__content">
+              <p class="font-serif text-base text-foreground/70 leading-relaxed pb-6 max-w-2xl">{f.answer}</p>
+            </div>
           </details>
         ))}
       </div>
@@ -363,6 +371,60 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
       }, 2000);
     }
   }
+
+  // FAQ open/close animation — legacy used framer-motion's AnimatePresence to
+  // animate height 0 -> auto on the answer wrapper. Native <details>/<summary>
+  // has no animatable height by default (the browser just shows/hides the
+  // content in one frame), so this progressively enhances the same markup:
+  // the <details>/<summary>/<p> structure stays exactly as rendered — nothing
+  // is removed from the DOM and no content is hidden behind JS — this script
+  // only smooths the existing open/close transition with an inline height
+  // animation. With JS disabled, or for a crawler that doesn't run it, the
+  // native <details> behavior (instant show/hide, content always present in
+  // the DOM) works exactly as before.
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    const content = item.querySelector('.faq-item__content');
+    if (!content) return;
+    const summary = item.querySelector('summary');
+    if (!summary) return;
+    let animating = false;
+
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (animating) return;
+
+      if (item.hasAttribute('open')) {
+        // Closing: animate from current height down to 0, then remove [open].
+        animating = true;
+        const startHeight = content.scrollHeight;
+        content.style.height = startHeight + 'px';
+        requestAnimationFrame(() => {
+          content.style.height = '0px';
+        });
+        content.addEventListener('transitionend', function onEnd() {
+          content.removeEventListener('transitionend', onEnd);
+          item.removeAttribute('open');
+          content.style.height = '';
+          animating = false;
+        }, { once: true });
+      } else {
+        // Opening: set [open] so content renders, animate from 0 to its
+        // natural height, then clear the inline height so it stays fluid.
+        animating = true;
+        item.setAttribute('open', '');
+        const targetHeight = content.scrollHeight;
+        content.style.height = '0px';
+        requestAnimationFrame(() => {
+          content.style.height = targetHeight + 'px';
+        });
+        content.addEventListener('transitionend', function onEnd() {
+          content.removeEventListener('transitionend', onEnd);
+          content.style.height = '';
+          animating = false;
+        }, { once: true });
+      }
+    });
+  });
 </script>
 
 <style>
@@ -375,7 +437,8 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
   .service-row__arrow {
     /* legacy: group-hover:text-[hsl(var(--cobalt))] */
   }
-  .service-row:hover .service-row__arrow {
+  .service-row:hover .service-row__arrow,
+  .service-row:focus-visible .service-row__arrow {
     color: hsl(var(--cobalt));
   }
 
@@ -407,6 +470,19 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
   }
   .faq-item[open] .faq-item__icon::after {
     transform: rotate(90deg) scale(0);
+  }
+
+  /* FAQ answer height animation — matches the legacy 0.25s easeInOut timing
+     used by framer-motion's AnimatePresence transition. The JS in the
+     <script> block sets an explicit inline height before/after toggling
+     [open] so this transition has a concrete value to animate between. */
+  .faq-item__content {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.25s ease-in-out;
+  }
+  .faq-item[open] .faq-item__content {
+    height: auto;
   }
 
   /* Print fallback for the rotating hero word — ported verbatim from the
