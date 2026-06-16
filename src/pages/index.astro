@@ -1,676 +1,419 @@
 ---
+// Homepage — ported directly from the legacy Replit repo's component tree:
+//   client/src/pages/Home.tsx (section order, FAQ copy, document title)
+//   client/src/components/Hero.tsx
+//   client/src/components/TestimonialsSection.tsx
+//   client/src/components/ServicesSection.tsx
+//   client/src/components/CaseStudiesSection.tsx
+//   client/src/components/FaqSection.tsx
+// See the migration write-up for the full per-section reuse/port/rewrite/remove
+// breakdown. Header/Footer live in their own .astro components (also ported).
 import Layout from '../layouts/Layout.astro';
 import { organizationSchema } from '../lib/schema';
 
+// Reused verbatim from ServicesSection.tsx
 const services = [
   {
     number: '01',
     title: 'AEO & GEO',
-    description: 'Track and control how you appear in ChatGPT, Claude, and Google AI Overviews.',
+    promise: 'Track and control how you appear in ChatGPT, Claude, and Google AI Overviews.',
     href: '/services/answer-engine-optimization',
   },
   {
     number: '02',
     title: 'PR & Media',
-    description: 'Amplify your narrative and build trust through reputable third-party publications.',
+    promise: 'Amplify your narrative and build trust through reputable third-party publications.',
     href: '/services/pr-media',
   },
   {
     number: '03',
     title: 'Executive Authority',
-    description: 'Establish a credible voice through ghostwriting and strategic positioning.',
+    promise: 'Establish a credible voice through ghostwriting and strategic positioning.',
     href: '/services/executive-authority',
   },
   {
     number: '04',
-    title: 'Content Systems',
-    description: 'Build scalable content programs that compound visibility, trust, and demand.',
+    title: 'Content<br />Systems',
+    promise: 'Build scalable content programs that compound visibility, trust, and demand.',
     href: '/services/content-systems',
   },
 ];
 
+// Reused verbatim from TestimonialsSection.tsx
 const testimonials = [
   {
     quote:
       "We saw a 43% lift in share of voice and 37% improvement in visibility in just two months. Quinn's content and strategic direction have been integral to our growth.",
     name: 'Natasha Zapanta',
-    title: 'Lifecycle Marketing & Marketing Ops · Nooks',
+    role: 'Lifecycle Marketing & Marketing Ops',
+    company: 'Nooks',
   },
   {
     quote:
       'He helped us show up credibly alongside more established companies while the AI visibility landscape was changing quickly.',
     name: 'Brandon Brown',
-    title: 'CEO & Co-Founder · Joymore (formerly @ Search Party)',
+    role: 'CEO & Co-Founder · Joymore (formerly @ Search Party)',
+    company: '',
   },
   {
     quote:
       "He brings a rare and valuable blend of strategic thinking and hands-on execution. I'd jump at the chance to work with him again.",
     name: 'Olivia McNaughten',
-    title: 'Director, Product GTM · ShopMy (formerly @ Grin)',
+    role: 'Director, Product GTM · ShopMy (formerly @ GRIN)',
+    company: '',
   },
 ];
 
+// Reused verbatim from CaseStudiesSection.tsx — including the literal "#"
+// hrefs on individual cards, which is what the legacy source itself uses
+// (no dedicated case-study detail pages exist yet there either).
 const caseStudies = [
   {
-    client: 'Nooks',
+    client: 'NOOKS',
     headline: '43% Share of Voice Growth',
-    stat: '+37% visibility in 60 days',
+    supporting: '+37% Visibility in 60 Days',
     description: 'Increased visibility across AI discovery systems for an AI-native sales platform.',
+    href: '#',
   },
   {
-    client: 'Search Party',
+    client: 'SEARCH PARTY',
     headline: 'Top 4 Across High-Intent AI Prompts',
-    stat: '3K+ newsletter subscribers',
+    supporting: '3K+ Newsletter Subscribers',
     description: 'Built category authority before launch and earned visibility alongside established AI search leaders.',
+    href: '#',
   },
   {
-    client: 'Grin',
+    client: 'GRIN',
     headline: 'One Report. A Quarter of Content.',
-    stat: 'Consumer research → content engine',
+    supporting: 'Consumer Research → Content Engine',
     description: 'Turned original consumer research into a narrative platform powering content, earned media, and market positioning.',
+    href: '#',
   },
 ];
 
+// Reused verbatim from client/src/pages/Home.tsx's HOME_FAQ array — this is
+// the finalized, live copy (previously this file had older placeholder text).
 const faqs = [
-  { question: 'What does Schwartz Marketing Lab actually do?', answer: 'We help B2B brands get found across traditional search and AI discovery systems through AEO, SEO, content strategy, and authority building.' },
-  { question: 'How is this different from hiring a content agency?', answer: 'We combine SEO, AEO, GEO, and authority building into one discoverability system rather than producing content in isolation from how it gets found.' },
-  { question: 'Do you work with early-stage companies or only established brands?', answer: 'Both — engagements are scoped to where a company is in building authority and visibility, not company size alone.' },
-  { question: 'What is AEO/GEO and why does it matter?', answer: 'AEO (answer engine optimization) and GEO (generative engine optimization) are the practices of making your brand discoverable and citable inside AI tools like ChatGPT, Claude, and Google AI Overviews — channels traditional SEO alone doesn’t cover.' },
-  { question: 'What does a typical engagement look like?', answer: 'Every engagement starts with strategy: an audit of current visibility, a positioning review, and a plan aligned to your specific growth goals.' },
-  { question: 'Do you offer one-off projects or only retainers?', answer: 'Both, depending on the goal — some work is project-based, some is an ongoing growth partnership.' },
+  {
+    question: 'What does Schwartz Marketing Lab actually do?',
+    answer: 'Schwartz Marketing Lab helps B2B companies increase visibility, authority, and demand through AEO/GEO, SEO, executive thought leadership, PR, and scalable content systems. Think of us as a strategic content partner, not a traditional marketing agency.',
+  },
+  {
+    question: 'How is this different from hiring a content agency?',
+    answer: "Most content agencies focus on output. We focus on outcomes. Every recommendation, article, campaign, and placement is tied to a business objective — whether that's AI visibility, category authority, pipeline growth, or market positioning.",
+  },
+  {
+    question: 'Do you work with early-stage companies or only established brands?',
+    answer: "Both. The work looks different at each stage, but the approach is the same: understand the business goal, build a system, execute well. We've worked with funded startups and growth-stage B2B companies alike.",
+  },
+  {
+    question: 'What is AEO/GEO and why does it matter?',
+    answer: 'Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) help companies appear in AI-generated answers from ChatGPT, Claude, Perplexity, and Google AI Overviews. As more buyers rely on AI systems for research and recommendations, visibility in these environments is becoming as important as traditional search rankings.',
+  },
+  {
+    question: 'What does a typical engagement look like?',
+    answer: 'It starts with a discovery conversation and audit. From there, we build a roadmap and move into execution — content production, optimization, and reporting on a regular cadence. Depending on the engagement, that may include strategy, research, content production, executive thought leadership, AI visibility initiatives, or distribution.',
+  },
+  {
+    question: 'Do you offer one-off projects or only retainers?',
+    answer: 'Both. Audits, strategy documents, and specific content deliverables are available as standalone projects. Retainers are for clients who want continuous execution and momentum.',
+  },
 ];
+
+const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
 ---
 
 <Layout
-  title="AEO Agency & Content Strategy | Schwartz Marketing Lab"
+  title="Schwartz Marketing Lab | Content Strategist & Brand Storyteller"
   description="Schwartz Marketing Lab helps B2B brands get found in AI search, Google, and modern discovery — through AEO, SEO, content strategy, and authority building."
   canonicalPath="/"
   schema={organizationSchema()}
 >
-  <section id="hero" class="hero">
-    <div class="hero__frame">
-      <div class="hero__content">
-        <h1>Drive revenue<br />through <span class="hero__accent">AEO.</span></h1>
-        <div class="hero__body">
-          <p class="hero__sub">
+  <!-- ============ HERO — ported from Hero.tsx ============ -->
+  <section id="hero" class="relative bg-background text-foreground">
+    <div
+      class="relative mx-3 sm:mx-5 md:mx-8 mt-8 md:mt-10 mb-10 md:mb-14 border-t border-l border-r border-foreground/70 px-6 sm:px-10 md:px-14 lg:px-20 flex flex-col justify-center"
+      style="min-height: calc(100vh - 9rem);"
+    >
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0"
+        style="background: radial-gradient(60% 55% at 35% 38%, rgba(20,20,20,0.045) 0%, rgba(20,20,20,0) 70%);"
+      ></div>
+
+      <div class="flex flex-col py-12 md:py-16">
+        <h1
+          class="font-sans font-black text-foreground text-[52px] sm:text-[72px] md:text-[96px] lg:text-[124px] xl:text-[144px] leading-[0.95] tracking-[-0.045em] m-0"
+          aria-label="Drive revenue through AEO."
+        >
+          Drive revenue<br />
+          <span class="inline-flex items-baseline gap-[0.18em]">
+            through
+            <span class="inline-grid" style="color: hsl(var(--cobalt));" data-rotating-words>
+              <span style="grid-area: 1/1; visibility: hidden;" aria-hidden="true">content.</span>
+              <span style="grid-area: 1/1;">AEO.</span>
+              {words.map((word, i) => (
+                <span
+                  aria-hidden="true"
+                  data-word={i}
+                  style={`grid-area: 1/1; background: hsl(var(--background)); opacity: ${i === 0 ? 1 : 0}; transform: translateY(${i === 0 ? '0' : '10px'});`}
+                  class="transition-[opacity,transform] duration-300"
+                >{word}</span>
+              ))}
+            </span>
+          </span>
+        </h1>
+
+        <div class="mt-10 md:mt-12 flex flex-col gap-8 md:gap-10">
+          <p class="font-serif text-foreground text-base md:text-lg lg:text-[19px] leading-[1.55] max-w-md">
             Traditional B2B marketing agencies are stuck in the past. We build brand awareness and
             drive sales with modern solutions for AEO, SEO, and content marketing.
           </p>
-          <a href="/contact" class="button">Find out how ↗</a>
+          <div class="flex-shrink-0">
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 text-base font-sans font-semibold rounded-none border-2 border-foreground bg-foreground text-background px-7 py-3.5 transition-colors hover:bg-background hover:text-foreground"
+            >
+              Find out how
+              <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="hero__rule">
-        <span class="hero__rule-line"></span>
-        <span class="hero__rule-label">Schwartz Marketing Lab</span>
-        <span class="hero__rule-line hero__rule-line--grow"></span>
-        <span class="hero__rule-label">AEO · SEO · Content</span>
-        <span class="hero__rule-line"></span>
+
+      <div class="absolute left-0 right-0 bottom-0 flex items-center translate-y-1/2 overflow-hidden">
+        <div class="h-px bg-foreground/70 w-10 sm:w-14 md:w-20 lg:w-28 shrink-0"></div>
+        <div class="font-sans text-[11px] sm:text-[13px] font-semibold tracking-[0.24em] sm:tracking-[0.28em] uppercase text-foreground px-3 sm:px-5 leading-none whitespace-nowrap">
+          Schwartz Marketing Lab
+        </div>
+        <div class="h-px bg-foreground/70 flex-1 min-w-[16px]"></div>
+        <div class="font-sans text-[11px] sm:text-[13px] font-semibold tracking-[0.24em] sm:tracking-[0.28em] uppercase text-foreground px-3 sm:px-5 leading-none whitespace-nowrap">
+          AEO · SEO · Content
+        </div>
+        <div class="h-px bg-foreground/70 w-10 sm:w-14 md:w-20 lg:w-28 shrink-0"></div>
       </div>
     </div>
   </section>
 
-  <section class="testimonials wrapper">
-    <p class="eyebrow">What clients say</p>
-    <h2>Proof, not <span class="text-accent">promises</span>.</h2>
-    <div class="testimonials__grid">
-      {testimonials.map((t) => (
-        <figure class="testimonial">
-          <div class="testimonial__mark" aria-hidden="true">&ldquo;</div>
-          <blockquote>{t.quote}</blockquote>
-          <figcaption>
-            <span class="testimonial__name">{t.name}</span>
-            <span class="testimonial__title">{t.title}</span>
-          </figcaption>
-        </figure>
-      ))}
-    </div>
-  </section>
-
-  <section id="focus" class="services wrapper">
-    <p class="eyebrow">What I do</p>
-    <h2>Four ways to get <span class="text-accent">found</span>.</h2>
-    <ul class="services__list">
-      {services.map((s) => (
-        <li class="service-row">
-          <a class="service-row__link" href={s.href}>
-            <span class="service-row__number">{s.number}</span>
-            <h3 class="service-row__title">{s.title}</h3>
-            <p class="service-row__promise">{s.description}</p>
-            <span class="service-row__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </section>
-
-  <section class="case-studies">
-    <div class="wrapper case-studies__inner">
-      <div class="case-studies__header">
-        <div>
-          <p class="eyebrow eyebrow--on-dark">Case studies</p>
-          <h2 class="case-studies__heading">Results that hold up.</h2>
-          <p class="case-studies__sub">Three ways S.LAB turns strategy into measurable growth.</p>
+  <!-- ============ TESTIMONIALS — ported from TestimonialsSection.tsx ============ -->
+  <section id="testimonials" class="relative bg-background text-foreground py-24 md:py-32">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div class="mb-24 md:mb-28 max-w-3xl">
+        <div class="font-sans text-[13px] font-semibold tracking-[0.28em] uppercase text-foreground mb-6">
+          What clients say
         </div>
-        <a href="/portfolio" class="case-studies__view-all">View all work ↗</a>
+        <h2 class="font-sans font-black text-foreground text-[40px] sm:text-[56px] md:text-[72px] lg:text-[88px] leading-[0.95] tracking-[-0.04em] m-0">
+          Proof, not <span style="color: hsl(var(--cobalt));">promises</span>.
+        </h2>
       </div>
-      <div class="case-studies__grid">
-        {caseStudies.map((c) => (
-          <article class="case-study">
-            <p class="case-study__client">{c.client}</p>
-            <div class="case-study__rule"></div>
-            <p class="case-study__headline">{c.headline}</p>
-            <p class="case-study__stat">{c.stat}</p>
-            <div class="case-study__rule"></div>
-            <p class="case-study__description">{c.description}</p>
-            <span class="case-study__cta">View case study ↗</span>
-          </article>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 border-t border-foreground/[0.08] pt-14 md:pt-16">
+        {testimonials.map((t) => (
+          <figure class="flex flex-col">
+            <div aria-hidden="true" class="font-sans font-black text-[52px] md:text-[62px] leading-[0.7] mb-4" style="color: hsl(var(--cobalt) / 0.45);">
+              &ldquo;
+            </div>
+            <blockquote class="font-serif text-[17px] md:text-[18px] leading-[1.55] text-foreground mb-6">
+              {t.quote}
+            </blockquote>
+            <figcaption class="mt-auto pt-4 border-t border-foreground/85">
+              <div class="font-sans text-[12px] font-semibold tracking-[0.24em] uppercase text-foreground">{t.name}</div>
+              <div class="font-sans text-[12px] font-medium tracking-[0.18em] uppercase text-foreground/65 mt-1">
+                {t.role ? `${t.role}${t.company ? ` · ${t.company}` : ''}` : t.company}
+              </div>
+            </figcaption>
+          </figure>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="faq wrapper">
-    <p class="eyebrow">FAQ</p>
-    <h2>Common questions.</h2>
-    <div class="faq__list">
-      {faqs.map((f) => (
-        <details class="faq__item">
-          <summary>{f.question}<span class="faq__icon" aria-hidden="true"></span></summary>
-          <p>{f.answer}</p>
-        </details>
-      ))}
+  <!-- ============ SERVICES — ported from ServicesSection.tsx ============ -->
+  <section id="focus" class="relative bg-background text-foreground py-24 md:py-32">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div class="mb-16 md:mb-20 max-w-3xl">
+        <div class="font-sans text-[13px] font-semibold tracking-[0.28em] uppercase text-foreground mb-6">
+          What I do
+        </div>
+        <h2 class="font-sans font-black text-foreground text-[40px] sm:text-[56px] md:text-[72px] lg:text-[88px] leading-[0.95] tracking-[-0.04em] m-0">
+          Four ways to get <span style="color: hsl(var(--cobalt));">found</span>.
+        </h2>
+      </div>
+
+      <ul class="border-t border-foreground/85">
+        {services.map((s) => (
+          <li class="border-b border-foreground/85">
+            <a href={s.href} class="service-row group block relative outline-none">
+              <span
+                aria-hidden="true"
+                class="pointer-events-none absolute left-0 top-0 bottom-0 w-[3px] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out"
+                style="background-color: hsl(var(--cobalt));"
+              ></span>
+              <div class="grid grid-cols-12 gap-4 md:gap-6 items-baseline py-8 md:py-10 px-3 md:px-5 transition-colors duration-300 group-hover:bg-foreground/[0.03]">
+                <div class="col-span-2 md:col-span-1">
+                  <span class="font-sans text-[13px] md:text-[14px] font-semibold tracking-[0.2em] uppercase text-foreground/55">{s.number}</span>
+                </div>
+                <div class="col-span-10 md:col-span-5">
+                  <h3
+                    class="font-sans font-black text-foreground text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] leading-[1] tracking-[-0.025em] m-0"
+                    set:html={s.title}
+                  />
+                </div>
+                <div class="col-span-12 md:col-span-5 mt-3 md:mt-0">
+                  <p class="font-serif text-[16px] md:text-[17px] leading-[1.5] text-foreground/80 m-0">{s.promise}</p>
+                </div>
+                <div class="hidden md:flex col-span-1 justify-end">
+                  <span class="service-row__arrow text-2xl text-foreground transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true">↗</span>
+                </div>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ CASE STUDIES (dark band) — ported from CaseStudiesSection.tsx ============ -->
+  <section id="case-studies" class="bg-foreground" style="padding: 72px clamp(20px, 5vw, 64px) 80px;">
+    <div class="max-w-[1100px] mx-auto">
+      <div class="flex items-start justify-between mb-10 gap-6">
+        <div>
+          <p class="font-sans font-bold tracking-[0.28em] uppercase mb-3" style="font-size: 11px; color: hsl(var(--cobalt));">
+            Case Studies
+          </p>
+          <h2 class="font-sans font-black leading-[0.95] tracking-[-0.04em]" style="font-size: clamp(30px, 4vw, 48px); color: hsl(var(--background));">
+            Results that hold up.
+          </h2>
+          <p class="font-serif mt-3 leading-snug" style="font-size: 15px; color: hsl(var(--background) / 0.45); max-width: 360px;">
+            Three ways S.LAB turns strategy into measurable growth.
+          </p>
+        </div>
+        <a href="/portfolio" class="case-cta--light hidden md:inline-flex items-center gap-1.5 font-sans font-bold text-[11px] tracking-[0.1em] uppercase shrink-0 mt-1 transition-colors" style="color: hsl(var(--background) / 0.3);">
+          View all work ↗
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {caseStudies.map((study) => (
+          <div class="flex flex-col bg-background" style="padding: 28px 26px 24px;">
+            <p class="font-sans font-black leading-none tracking-[-0.02em] text-foreground mb-5" style="font-size: 13px;">{study.client}</p>
+            <div class="mb-5" style="border-top: 1px solid hsl(var(--foreground) / 0.08);"></div>
+            <p class="font-sans font-black leading-[1.02] tracking-[-0.035em] text-foreground mb-3" style="font-size: clamp(30px, 3.8vw, 46px);">{study.headline}</p>
+            <p class="font-sans font-bold tracking-[0.18em] uppercase mb-5" style="font-size: 10px; color: hsl(var(--cobalt));">{study.supporting}</p>
+            <div class="mb-4" style="border-top: 1px solid hsl(var(--foreground) / 0.08);"></div>
+            <p class="font-serif leading-[1.6] flex-1 mb-6" style="font-size: 14px; color: hsl(var(--foreground) / 0.58);">{study.description}</p>
+            <a href={study.href} class="case-cta--dark inline-flex items-center gap-1.5 font-sans font-bold tracking-[0.1em] uppercase transition-colors" style="font-size: 10px; color: hsl(var(--foreground) / 0.35);">
+              View case study ↗
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-8 md:hidden">
+        <a href="/portfolio" class="inline-flex items-center gap-1.5 font-sans font-bold text-[11px] tracking-[0.1em] uppercase" style="color: hsl(var(--background) / 0.4);">
+          View all work ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ — ported from FaqSection.tsx ============ -->
+  <section class="py-24 border-t border-foreground/10">
+    <div class="px-6 sm:px-10 md:px-14 lg:px-20 max-w-[1100px] mx-auto">
+      <div class="mb-12">
+        <p class="font-sans text-xs font-semibold tracking-[0.22em] uppercase text-foreground/50 mb-3">FAQ</p>
+        <h2 class="font-sans font-black text-[28px] md:text-[36px] leading-[1.05] tracking-tight text-foreground">Common questions.</h2>
+      </div>
+
+      <div class="divide-y divide-foreground/10">
+        {faqs.map((f) => (
+          <details class="faq-item group">
+            <summary class="w-full flex items-center justify-between gap-6 py-6 cursor-pointer list-none">
+              <span class="font-sans font-semibold text-base md:text-lg text-foreground transition-colors group-hover:text-foreground/80">{f.question}</span>
+              <span class="faq-item__icon flex-shrink-0 w-6 h-6 flex items-center justify-center" style="color: hsl(var(--cobalt));" aria-hidden="true"></span>
+            </summary>
+            <p class="font-serif text-base text-foreground/70 leading-relaxed pb-6 max-w-2xl">{f.answer}</p>
+          </details>
+        ))}
+      </div>
     </div>
   </section>
 </Layout>
 
-<style>
-  section {
-    padding: 64px 24px;
-  }
-
-  .text-accent {
-    color: var(--color-accent);
-  }
-
-  /* ---------- Hero ----------
-     Values ported directly from the legacy client/src/components/Hero.tsx —
-     this is a full-bleed poster frame (mx-3 sm:mx-5 md:mx-8), not a centered
-     card in a max-width container. The frame has a visible border-foreground/70
-     line on top/left/right only; the bottom edge is intentionally open and the
-     rule-bar below straddles it. */
-
-  .hero {
-    padding: 0;
-  }
-
-  .hero__frame {
-    margin: clamp(24px, 4vw, 40px) var(--edge-pad) 64px;
-    border-top: 1px solid rgba(23, 23, 23, 0.7);
-    border-left: 1px solid rgba(23, 23, 23, 0.7);
-    border-right: 1px solid rgba(23, 23, 23, 0.7);
-    padding: 0 24px;
-    position: relative;
-    min-height: calc(100vh - 12rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  @media (min-width: 640px) {
-    .hero__frame { padding: 0 40px; }
-  }
-
-  @media (min-width: 768px) {
-    .hero__frame { padding: 0 56px; }
-  }
-
-  @media (min-width: 1024px) {
-    .hero__frame { padding: 0 80px; }
-  }
-
-  .hero__content {
-    padding: 48px 0;
-  }
-
-  @media (min-width: 768px) {
-    .hero__content { padding: 64px 0; }
-  }
-
-  .hero h1 {
-    font-size: 52px;
-    line-height: 0.95;
-    letter-spacing: -0.045em;
-    margin: 0;
-  }
-
-  @media (min-width: 640px) {
-    .hero h1 { font-size: 72px; }
-  }
-
-  @media (min-width: 768px) {
-    .hero h1 { font-size: 96px; }
-  }
-
-  @media (min-width: 1024px) {
-    .hero h1 { font-size: 124px; }
-  }
-
-  @media (min-width: 1280px) {
-    .hero h1 { font-size: 144px; }
-  }
-
-  .hero__accent {
-    color: var(--color-accent);
-  }
-
-  .hero__body {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  @media (min-width: 768px) {
-    .hero__body { margin-top: 48px; gap: 40px; }
-  }
-
-  .hero__sub {
-    max-width: 448px;
-    margin: 0;
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.55;
-    color: var(--color-text);
-  }
-
-  @media (min-width: 768px) {
-    .hero__sub { font-size: 18px; }
-  }
-
-  @media (min-width: 1024px) {
-    .hero__sub { font-size: 19px; }
-  }
-
-  .hero__body .button {
-    align-self: flex-start;
-  }
-
-  .hero__rule {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: translateY(50%);
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  .hero__rule-line {
-    height: 1px;
-    background: rgba(23, 23, 23, 0.7);
-    width: 40px;
-    flex-shrink: 0;
-  }
-
-  @media (min-width: 640px) {
-    .hero__rule-line { width: 56px; }
-  }
-
-  @media (min-width: 768px) {
-    .hero__rule-line { width: 80px; }
-  }
-
-  @media (min-width: 1024px) {
-    .hero__rule-line { width: 112px; }
-  }
-
-  .hero__rule-line--grow {
-    flex: 1;
-    width: auto;
-    min-width: 16px;
-  }
-
-  .hero__rule-label {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.24em;
-    color: var(--color-text);
-    padding: 0 12px;
-    white-space: nowrap;
-    line-height: 1;
-  }
-
-  @media (min-width: 640px) {
-    .hero__rule-label {
-      font-size: 13px;
-      letter-spacing: 0.28em;
-      padding: 0 20px;
+<script>
+  // Rewrite for Astro: legacy Hero.tsx cycles WORDS via React state + setInterval.
+  // Same DOM result here via plain JS, gated on prefers-reduced-motion exactly
+  // as the legacy `useReducedMotion()` check does.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) {
+    const wordEls = Array.from(document.querySelectorAll('[data-rotating-words] [data-word]'));
+    let index = 0;
+    if (wordEls.length > 1) {
+      setInterval(() => {
+        const current = wordEls[index];
+        current.style.opacity = '0';
+        current.style.transform = 'translateY(-8px)';
+        const next = (index + 1) % wordEls.length;
+        wordEls[next].style.transform = 'translateY(10px)';
+        setTimeout(() => {
+          wordEls[next].style.opacity = '1';
+          wordEls[next].style.transform = 'translateY(0)';
+        }, 30);
+        index = next;
+      }, 2000);
     }
   }
+</script>
 
-  /* ---------- Eyebrow ---------- */
-
-  .eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 13px;
-    color: var(--color-text-muted);
-    margin: 0 0 12px;
-  }
-
-  .eyebrow--on-dark {
-    color: rgba(244, 241, 231, 0.55);
-  }
-
-  /* ---------- Testimonials ---------- */
-
-  .testimonials h2 {
-    font-size: clamp(32px, 6vw, 64px);
-  }
-
-  .testimonials__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 0;
-    margin-top: 40px;
-    border-top: var(--border-hairline);
-  }
-
-  .testimonial {
-    padding: 32px 28px 0;
-    margin: 0;
-    border-right: var(--border-hairline);
-  }
-
-  .testimonial:last-child {
-    border-right: none;
-  }
-
-  .testimonial__mark {
-    font-family: var(--font-heading);
-    font-size: 56px;
-    line-height: 1;
-    color: var(--color-accent);
-    margin-bottom: 8px;
-  }
-
-  .testimonial blockquote {
-    margin: 0 0 24px;
-    font-style: italic;
-    font-size: 17px;
-    line-height: 1.5;
-  }
-
-  .testimonial figcaption {
-    border-top: 1px solid rgba(23, 23, 23, 0.85);
-    padding-top: 14px;
-    padding-bottom: 28px;
-  }
-
-  .testimonial__name {
-    display: block;
-    font-weight: 600;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .testimonial__title {
-    display: block;
-    font-size: 12px;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    margin-top: 4px;
-  }
-
-  /* ---------- Services ---------- */
-
-  .services h2 {
-    font-size: clamp(32px, 6vw, 64px);
-  }
-
-  .services__list {
-    list-style: none;
-    margin: 40px 0 0;
-    padding: 0;
-    border-top: 1px solid rgba(23, 23, 23, 0.85);
-  }
-
-  .service-row {
-    border-bottom: 1px solid rgba(23, 23, 23, 0.85);
-    position: relative;
-  }
-
-  .service-row__link {
-    display: grid;
-    grid-template-columns: 48px 1fr 1fr 32px;
-    align-items: center;
-    gap: 24px;
-    padding: 28px 0;
-    position: relative;
-    padding-left: 16px;
-  }
-
-  .service-row__link::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: var(--color-accent);
-    transform: scaleY(0);
-    transform-origin: center;
-    transition: transform 0.2s ease;
-  }
-
-  .service-row__link:hover::before {
-    transform: scaleY(1);
-  }
-
-  .service-row__number {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    color: var(--color-text-muted);
-    font-size: 14px;
-  }
-
-  .service-row__title {
-    margin: 0;
-    font-size: 22px;
-  }
-
-  .service-row__promise {
-    margin: 0;
-    color: var(--color-text-muted);
-    font-size: 15px;
-  }
+<style>
+  /* Values Tailwind's JIT class list can't express as utilities directly are
+     kept here — same approach the legacy code uses (className for layout,
+     small CSS rules for the plus/minus icon, hover color swaps that need a
+     CSS variable target, etc). Everything else lives as literal Tailwind
+     classes above. */
 
   .service-row__arrow {
-    justify-self: end;
-    font-size: 20px;
-    transition: transform 0.2s ease, color 0.2s ease;
+    /* legacy: group-hover:text-[hsl(var(--cobalt))] */
+  }
+  .service-row:hover .service-row__arrow {
+    color: hsl(var(--cobalt));
   }
 
-  .service-row__link:hover .service-row__arrow {
-    transform: translate(4px, -4px);
-    color: var(--color-accent);
+  .case-cta--light:hover {
+    color: hsl(var(--background) / 0.75);
+  }
+  .case-cta--dark:hover {
+    color: hsl(var(--foreground));
   }
 
-  @media (max-width: 760px) {
-    .service-row__link {
-      grid-template-columns: 32px 1fr 32px;
-    }
-    .service-row__promise {
-      display: none;
-    }
-  }
-
-  /* ---------- Case studies (dark band) ---------- */
-
-  .case-studies {
-    background: var(--color-text);
-    color: var(--color-bg);
-    padding: 72px 0 80px;
-  }
-
-  .case-studies__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-
-  .case-studies__heading {
-    color: var(--color-bg);
-    font-size: clamp(32px, 6vw, 64px);
-    margin: 0 0 12px;
-  }
-
-  .case-studies__sub {
-    max-width: 480px;
-    color: rgba(244, 241, 231, 0.65);
-    margin: 0;
-  }
-
-  .case-studies__view-all {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-bg);
-    white-space: nowrap;
-    border-bottom: 1px solid rgba(244, 241, 231, 0.4);
-    padding-bottom: 4px;
-  }
-
-  .case-studies__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    margin-top: 48px;
-  }
-
-  .case-study {
-    background: var(--color-bg);
-    color: var(--color-text);
-    padding: 32px 28px;
-    margin: 0;
-  }
-
-  .case-study__client {
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: 13px;
-    color: var(--color-text-muted);
-    margin: 0 0 16px;
-  }
-
-  .case-study__rule {
-    border-top: var(--border-hairline);
-    margin: 16px 0;
-  }
-
-  .case-study__headline {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: clamp(24px, 3.2vw, 36px);
-    line-height: 1.1;
-    margin: 0 0 12px;
-  }
-
-  .case-study__stat {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 0.03em;
-    color: var(--color-accent);
-    margin: 0;
-  }
-
-  .case-study__description {
-    margin: 0;
-    color: var(--color-text-muted);
-  }
-
-  .case-study__cta {
-    display: inline-block;
-    margin-top: 20px;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-  }
-
-  /* ---------- FAQ ---------- */
-
-  .faq h2 {
-    font-size: clamp(32px, 6vw, 64px);
-  }
-
-  .faq__list {
-    margin-top: 32px;
-    border-top: 1px solid rgba(23, 23, 23, 0.1);
-  }
-
-  .faq__item {
-    border-bottom: 1px solid rgba(23, 23, 23, 0.1);
-    padding: 22px 0;
-  }
-
-  .faq__item summary {
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 18px;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .faq__item summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq__icon {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    margin-left: 16px;
-  }
-
-  .faq__icon::before,
-  .faq__icon::after {
+  /* FAQ plus/minus icon — ported behavior from FaqSection.tsx's Plus/Minus
+     lucide-react swap, drawn in CSS since lucide isn't installed in Astro. */
+  .faq-item__icon::before,
+  .faq-item__icon::after {
     content: '';
-    position: absolute;
-    background: var(--color-accent);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    display: block;
+    background: currentColor;
   }
-
-  .faq__icon::before {
+  .faq-item__icon::before {
     width: 14px;
     height: 2px;
   }
-
-  .faq__icon::after {
+  .faq-item__icon::after {
     width: 2px;
     height: 14px;
+    position: absolute;
     transition: transform 0.2s ease;
   }
-
-  .faq__item[open] .faq__icon::after {
-    transform: translate(-50%, -50%) rotate(90deg) scale(0);
+  .faq-item[open] .faq-item__icon::after {
+    transform: rotate(90deg) scale(0);
   }
 
-  .faq__item p {
-    margin: 16px 0 0;
-    color: var(--color-text-muted);
-    max-width: 65ch;
+  /* Print fallback for the rotating hero word — ported verbatim from the
+     legacy @media print rule in index.css. */
+  @media print {
+    [data-rotating-words] [data-word] {
+      opacity: 0 !important;
+    }
   }
 </style>

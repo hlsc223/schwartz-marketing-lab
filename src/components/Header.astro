@@ -1,108 +1,174 @@
 ---
-const navLinks = [
-  { label: 'Services', href: '/#focus' },
-  { label: 'Resources', href: '/blog' },
-  { label: 'Packages', href: '/packages' },
-  { label: 'About', href: '/about' },
+// Ported from client/src/components/Navbar.tsx in the legacy Replit repo.
+// See the migration write-up for the full reuse/port/rewrite/remove breakdown.
+//
+// Reused directly: the `services` and `otherLinks` data, the Wordmark markup,
+// and the literal Tailwind className strings for the bar, dropdown panel,
+// nav links, divider, and CTA pill.
+//
+// Rewritten for Astro (no React/client state available by default):
+//   - Services dropdown: CSS `group-hover`/`group-focus-within` instead of
+//     onMouseEnter/onMouseLeave + setTimeout debounce + AnimatePresence.
+//   - Scroll-triggered bg-background/95 + backdrop-blur-md treatment: a small
+//     vanilla <script> toggling a class, instead of a scroll-state useState.
+//   - position: sticky instead of the legacy's fixed. The legacy nav is
+//     out-of-flow (fixed), which is why Hero.tsx adds mt-20/md:mt-24 to its
+//     frame to clear it. Every other already-shipped page in this Astro
+//     project (service pages, About, Packages, Contact, blog) was built
+//     assuming the header is sticky/in-flow and reserves layout space.
+//     Switching the shared Header to fixed would push all of those pages'
+//     content up underneath it — a regression outside today's homepage
+//     scope. Sticky preserves the existing layout contract for every other
+//     page while still matching the legacy nav's visual scroll behavior.
+//   - Mobile menu: a checkbox-driven CSS toggle instead of useState, with the
+//     nested Services/Resources accordions flattened to single links (no
+//     framer-motion height animation).
+//   - ArrowUpRight icon: replaced with the ↗ glyph already used elsewhere on
+//     this site instead of pulling in lucide-react.
+//
+// Intentionally removed (scope boundary, not a fidelity gap):
+//   - Resources dropdown's "Case Studies" and "Guides" items — those pages
+//     have not been migrated yet, so linking to them would 404. Resources is
+//     a flat link to /blog (which exists) until those pages are built and
+//     this gets revisited.
+//   - InlineEditable / TanStack Query / Express PATCH endpoints — depended on
+//     the Replit CMS+backend being removed in this migration.
+const services = [
+  {
+    name: 'SEO & AEO',
+    description: 'Track and control how you appear in ChatGPT, Claude, and Google AIO.',
+    href: '/services/answer-engine-optimization',
+  },
+  {
+    name: 'PR & Media',
+    description: 'Amplify your narrative and build trust via reputable third-party publications.',
+    href: '/services/pr-media',
+  },
+  {
+    name: 'Executive Authority',
+    description: 'Establish a credible voice through ghostwriting and strategic positioning.',
+    href: '/services/executive-authority',
+  },
+  {
+    name: 'Content Systems',
+    description: 'End-to-end content strategy and execution for every stage of the funnel.',
+    href: '/services/content-systems',
+  },
+];
+
+const otherLinks = [
+  { name: 'Resources', href: '/blog' },
+  { name: 'Packages', href: '/packages' },
+  { name: 'Newsletter', href: 'https://quinn-does-content.beehiiv.com/', external: true },
+  { name: 'About', href: '/about' },
 ];
 ---
 
-<header class="site-header">
-  <div class="site-header__inner">
-    <a href="/" class="site-header__logo">S<span class="site-header__dot">.</span>LAB</a>
-    <nav class="site-header__nav" aria-label="Primary">
-      <ul>
-        {navLinks.map((link) => (
-          <li><a href={link.href}>{link.label}</a></li>
+<header id="site-header" class="sticky top-0 left-0 right-0 z-50 bg-background py-4 transition-all duration-300">
+  <div class="relative px-3 sm:px-5 md:px-8 flex items-center justify-between">
+    <a href="/" class="flex-shrink-0 relative z-10 cursor-pointer">
+      <span
+        class="font-sans font-black text-[28px] md:text-[30px] leading-none text-foreground transition-colors duration-200 hover:text-[hsl(var(--cobalt))]"
+        style="letter-spacing: -0.01em;"
+      >S<span style="color: hsl(var(--cobalt));">.</span>LAB</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8 relative z-10">
+      <div class="relative group">
+        <a
+          href="/#focus"
+          class="flex items-center gap-1 text-sm font-semibold text-foreground cursor-pointer transition-colors relative font-sans"
+        >
+          Services
+          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: hsl(var(--cobalt));"></span>
+        </a>
+
+        <div
+          class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity duration-150 absolute top-full right-0 mt-3 w-[520px] z-50"
+          style="background: hsl(var(--card)); border-top: 2px solid hsl(var(--cobalt)); box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06));"
+        >
+          <div class="grid grid-cols-2">
+            {services.map((service, i) => (
+              <a
+                href={service.href}
+                class="block px-5 py-5 group/item relative transition-colors duration-150 hover:bg-background"
+                style={{
+                  borderRight: i % 2 === 0 ? '1px solid hsl(var(--foreground) / 0.07)' : 'none',
+                  borderBottom: i < 2 ? '1px solid hsl(var(--foreground) / 0.07)' : 'none',
+                }}
+              >
+                <p class="font-sans font-black leading-none" style="font-size: 9px; letter-spacing: 0.2em; color: hsl(var(--cobalt)); opacity: 0.5;">0{i + 1}</p>
+                <div class="flex items-start justify-between gap-2 mt-2.5">
+                  <p class="text-[13px] font-bold text-foreground font-sans group-hover/item:text-[hsl(var(--cobalt))] transition-colors leading-snug">{service.name}</p>
+                  <span class="text-xs flex-shrink-0 mt-0.5 opacity-0 group-hover/item:opacity-100 transition-opacity" style="color: hsl(var(--cobalt));">↗</span>
+                </div>
+                <p class="text-[11px] leading-relaxed mt-1.5 text-muted-foreground">{service.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {otherLinks.map((link) => (
+        <a
+          href={link.href}
+          target={link.external ? '_blank' : undefined}
+          rel={link.external ? 'noopener noreferrer' : undefined}
+          class="text-sm font-semibold text-foreground cursor-pointer transition-colors relative group/link font-sans"
+        >
+          {link.name}
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover/link:w-full" style="background-color: hsl(var(--cobalt));"></span>
+        </a>
+      ))}
+
+      <div class="w-px h-[18px] bg-foreground/20" aria-hidden="true"></div>
+
+      <a
+        href="/contact"
+        class="inline-flex items-center text-sm font-sans font-semibold rounded-none border-2 px-5 py-2 transition-colors hover:[background-color:hsl(var(--cobalt-deep))] hover:[border-color:hsl(var(--cobalt-deep))]"
+        style="background-color: hsl(var(--cobalt)); border-color: hsl(var(--cobalt)); color: hsl(var(--primary-foreground));"
+      >
+        Free strategy call
+      </a>
+    </div>
+
+    <div class="md:hidden">
+      <input type="checkbox" id="mobile-menu-toggle" class="hidden peer" />
+      <label for="mobile-menu-toggle" class="p-2 text-foreground cursor-pointer block">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </label>
+      <div class="hidden peer-checked:flex md:hidden absolute top-full left-0 right-0 bg-background border-b border-foreground/10 flex-col p-4 gap-1">
+        <a href="/#focus" class="text-lg font-medium py-3 border-b border-foreground/10 text-foreground font-sans block">Services</a>
+        {otherLinks.map((link) => (
+          <a
+            href={link.href}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener noreferrer' : undefined}
+            class="text-lg font-medium py-3 border-b border-foreground/10 text-foreground font-sans block"
+          >
+            {link.name}
+          </a>
         ))}
-      </ul>
-      <span class="site-header__divider" aria-hidden="true"></span>
-      <a href="/contact" class="button button--cobalt site-header__cta">Free strategy call</a>
-    </nav>
+        <a href="/contact" class="text-lg font-medium py-3 font-sans block" style="color: hsl(var(--cobalt));">Free strategy call</a>
+      </div>
+    </div>
   </div>
 </header>
 
-<style>
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: var(--color-bg);
-  }
-
-  .site-header__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 16px var(--edge-pad);
-  }
-
-  .site-header__logo {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 28px;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    flex-shrink: 0;
-  }
-
-  .site-header__dot {
-    color: var(--color-accent);
-  }
-
-  .site-header__nav {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-
-  .site-header__nav ul {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .site-header__nav a {
-    font-size: 14px;
-    font-weight: 700;
-    position: relative;
-  }
-
-  .site-header__nav a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0;
-    height: 2px;
-    background: var(--color-accent);
-    transition: width 0.2s ease;
-  }
-
-  .site-header__nav a:hover::after {
-    width: 100%;
-  }
-
-  .site-header__divider {
-    width: 1px;
-    height: 18px;
-    background: rgba(23, 23, 23, 0.2);
-  }
-
-  .site-header__cta {
-    font-size: 14px;
-    white-space: nowrap;
-    padding: 8px 20px;
-  }
-
-  @media (max-width: 760px) {
-    .site-header__nav ul,
-    .site-header__divider {
-      display: none;
+<script>
+  // Rewrite for Astro: legacy used a `scrolled` useState toggled by a scroll
+  // listener; same DOM result here via a class toggle, no client framework.
+  const header = document.getElementById('site-header');
+  const onScroll = () => {
+    if (!header) return;
+    if (window.scrollY > 50) {
+      header.classList.remove('bg-background', 'py-4');
+      header.classList.add('bg-background/95', 'backdrop-blur-md', 'py-3');
+    } else {
+      header.classList.remove('bg-background/95', 'backdrop-blur-md', 'py-3');
+      header.classList.add('bg-background', 'py-4');
     }
-  }
-</style>
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>

@@ -1,97 +1,71 @@
 ---
+// Ported from client/src/components/Footer.tsx in the legacy Replit repo.
+// See the migration write-up for the full reuse/port/rewrite/remove breakdown.
+//
+// Reused directly: wordmark markup, literal Tailwind className strings,
+// tagline copy, copyright line.
+//
+// Rewritten for Astro:
+//   - Legacy branches on `isHome` (wouter useLocation) to choose between
+//     react-scroll <Link> (smooth-scroll anchors) and wouter <Link> (routed
+//     hrefs) for the same nav items. Astro has no client router, so this is
+//     a single static <a> per link — '/#focus' style hrefs work as plain
+//     anchor links on every page (browser handles the in-page scroll on the
+//     homepage, and the cross-page navigate-then-scroll on every other page).
+//   - InlineEditable tagline (TanStack Query + Express PATCH /api/footer-content)
+//     removed — depended on the Replit CMS/backend being removed in this
+//     migration. Tagline is now the same static fallback copy the legacy
+//     component itself falls back to when the CMS has no override
+//     ("Modern marketing built for discovery.") — this is the live default,
+//     not a guess; the previous version of this file had the wrong string
+//     ("AEO. SEO. Content.") which has been corrected.
+//
+// Two link targets needed a decision because they don't resolve cleanly even
+// in the legacy site:
+//   - "Work" smooth-scrolls to id="work", but no element with that id exists
+//     anywhere in Home.tsx's render tree (verified against the homepage
+//     component tree) — it's a pre-existing dead anchor in the legacy site.
+//     The closest faithful equivalent is the case-studies section (the
+//     "Work" you'd actually expect this link to reach), which has
+//     id="case-studies" in this Astro port. Pointed there instead of
+//     reproducing the broken anchor.
+//   - "Articles" links to /articles, which has never been built in this
+//     Astro project (confirmed: no /articles or /portfolio route exists in
+//     src/pages/). Unlike the "Work" case, this isn't an in-page anchor that
+//     just no-ops — it's a hard 404. Omitted until an Articles page exists
+//     rather than shipping a dead route; revisit when that page is in scope.
 const footerLinks = [
   { label: 'Services', href: '/#focus' },
-  { label: 'Work', href: '/portfolio' },
+  { label: 'Work', href: '/#case-studies' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Articles', href: '/articles' },
   { label: 'Contact', href: '/contact' },
 ];
 
+const tagline = 'Modern marketing built for discovery.';
 const year = new Date().getFullYear();
 ---
 
-<footer class="site-footer">
-  <div class="wrapper site-footer__inner">
-    <div class="site-footer__brand">
-      <p class="site-footer__logo">S<span class="site-footer__dot">.</span>LAB</p>
-      <p class="site-footer__tagline">AEO. SEO. Content.</p>
-      <p class="site-footer__copyright">© {year} All rights reserved.</p>
+<footer class="bg-background" style="border-top: 1px solid hsl(var(--foreground) / 0.12); padding-top: 40px; padding-bottom: 32px;">
+  <div class="max-w-[1100px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-5" style="padding-left: clamp(24px, 5vw, 64px); padding-right: clamp(24px, 5vw, 64px);">
+
+    <div>
+      <a href="/" class="inline-flex items-baseline gap-2.5 cursor-pointer text-foreground font-sans">
+        <span class="font-sans font-black text-base tracking-[-0.02em] text-foreground/90">
+          S<span style="color: hsl(var(--cobalt));">.</span>LAB
+        </span>
+        <span class="text-[10px] font-bold tracking-[0.22em] uppercase text-foreground/45">
+          Schwartz Marketing Lab
+        </span>
+      </a>
+      <p class="text-[12px] text-foreground/50 mt-1.5 font-serif">{tagline}</p>
+      <p class="text-[11px] text-foreground/30 mt-1">© {year} All rights reserved.</p>
     </div>
-    <nav class="site-footer__nav" aria-label="Footer">
-      <ul>
-        {footerLinks.map((link) => (
-          <li><a href={link.href}>{link.label}</a></li>
-        ))}
-      </ul>
+
+    <nav class="flex gap-6 text-[11px] font-bold tracking-[0.1em] uppercase text-foreground/55 font-sans" aria-label="Footer">
+      {footerLinks.map((link) => (
+        <a href={link.href} class="hover:text-foreground cursor-pointer transition-colors">{link.label}</a>
+      ))}
     </nav>
+
   </div>
 </footer>
-
-<style>
-  .site-footer {
-    border-top: 1px solid rgba(23, 23, 23, 0.12);
-    margin-top: 80px;
-  }
-
-  .site-footer__inner {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 32px 24px;
-  }
-
-  @media (min-width: 760px) {
-    .site-footer__inner {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-  }
-
-  .site-footer__brand {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .site-footer__logo {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 18px;
-    margin: 0;
-  }
-
-  .site-footer__dot {
-    color: var(--color-accent);
-  }
-
-  .site-footer__tagline {
-    margin: 0;
-    font-size: 13px;
-    color: var(--color-text-muted);
-  }
-
-  .site-footer__copyright {
-    margin: 0;
-    font-size: 11px;
-    color: rgba(23, 23, 23, 0.3);
-  }
-
-  .site-footer__nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .site-footer__nav a {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-</style>

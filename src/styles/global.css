@@ -5,6 +5,13 @@
 @import '@fontsource/inter/700.css';
 @import '@fontsource/inter/900.css';
 
+/* Tailwind's base layer (Preflight) is intentionally NOT included — see the
+   corePlugins.preflight: false comment in tailwind.config.mjs. Only
+   components/utilities are emitted, so ported Tailwind classNames from the
+   legacy homepage components work without resetting every other page. */
+@tailwind components;
+@tailwind utilities;
+
 /* NOTE: 'Switzer' is a licensed font (Swiss Typefaces), not available via Google Fonts/Fontsource.
    Until you supply licensed Switzer .woff2 files (and we add an @font-face block + put the
    files in public/fonts), headings fall back to Inter at weight 900, which is a close visual
@@ -43,6 +50,61 @@
 
 @media (min-width: 768px) {
   :root { --edge-pad: 32px; }
+}
+
+/* ---------------------------------------------------------------------
+   Legacy token block — ported verbatim (same variable names, same HSL
+   component values) from client/src/index.css's :root in the Replit repo.
+   These power the Tailwind utility classes (bg-background, text-foreground,
+   border-foreground/70, text-muted-foreground, etc.) used by homepage
+   sections ported directly from Hero.tsx / Navbar.tsx / TestimonialsSection.tsx
+   / ServicesSection.tsx / CaseStudiesSection.tsx / FaqSection.tsx / Footer.tsx.
+   Kept separate from this file's pre-existing --color-* tokens (used by
+   every other already-shipped page) rather than replacing them, so nothing
+   outside the homepage-parity scope is affected. */
+:root {
+  --background: 46 37% 93%;
+  --foreground: 0 0% 9%;
+  --card: 46 28% 88%;
+  --card-foreground: 0 0% 9%;
+  --popover: 46 37% 93%;
+  --popover-foreground: 0 0% 9%;
+  --primary: 226 73% 58%;
+  --primary-foreground: 46 37% 93%;
+  --secondary: 46 28% 88%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 46 28% 88%;
+  --muted-foreground: 0 0% 36%;
+  --accent: 226 73% 58%;
+  --accent-foreground: 46 37% 93%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 46 37% 93%;
+  --border: 0 0% 9%;
+  --input: 0 0% 9%;
+  --ring: 226 73% 58%;
+  --radius: 0.5rem;
+  --cobalt: 226 73% 58%;
+  --cobalt-deep: 226 60% 48%;
+  --violet: 258 70% 62%;
+  --green: 150 50% 38%;
+  --navy: 222 46% 19%;
+  --font-display: 'Switzer', 'Inter', system-ui, sans-serif;
+}
+
+/* Paper-grain noise texture — ported verbatim from the legacy body::before
+   rule (client/src/index.css @layer base). This is a site-wide effect on
+   the live Replit site (visible on every page, not just the homepage), so
+   adding it here is additive/parity-improving rather than a homepage-only
+   change that risks inconsistency with already-shipped pages. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 *, *::before, *::after {
