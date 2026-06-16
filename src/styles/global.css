@@ -1,9 +1,6 @@
 @import '@fontsource/lora/400.css';
 @import '@fontsource/lora/500.css';
 @import '@fontsource/lora/600.css';
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/700.css';
-@import '@fontsource/inter/900.css';
 
 /* Tailwind's base layer (Preflight) is intentionally NOT included — see the
    corePlugins.preflight: false comment in tailwind.config.mjs. Only
@@ -12,10 +9,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* NOTE: 'Switzer' is a licensed font (Swiss Typefaces), not available via Google Fonts/Fontsource.
-   Until you supply licensed Switzer .woff2 files (and we add an @font-face block + put the
-   files in public/fonts), headings fall back to Inter at weight 900, which is a close visual
-   match. Tell me if you have the Switzer files and I'll wire up self-hosting properly. */
+/* Switzer — self-hosted, licensed font (Swiss Typefaces), matching the
+   weights the live Replit site actually loads from Fontshare
+   (https://api.fontshare.com/v2/css?f[]=switzer@400,500,700,900&display=swap).
+   Files converted from the supplied .otf license files to .woff2 and placed
+   in public/fonts/switzer/. 'Inter' is kept only as a last-resort system
+   fallback in the font-family stack below, not self-hosted/imported anymore. */
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer/Switzer-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer/Switzer-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer/Switzer-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer/Switzer-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Color tokens — exact values from legacy client/src/index.css :root */
