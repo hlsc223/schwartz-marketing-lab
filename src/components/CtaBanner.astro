@@ -1,0 +1,52 @@
+---
+interface Props {
+  heading: string;
+  body: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const { heading, body, ctaLabel = 'Book a strategy call', ctaHref = '/contact' } = Astro.props;
+---
+
+<section class="cta-banner">
+  <h2>{heading}</h2>
+  <p>{body}</p>
+  <a class="cta-button" href={ctaHref}>{ctaLabel}</a>
+</section>
+
+<style>
+  .cta-banner {
+    border: var(--border-frame);
+    padding: 3rem 2rem;
+    margin: 4rem 0;
+    text-align: center;
+  }
+
+  .cta-banner h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin: 0 0 1rem;
+  }
+
+  .cta-banner p {
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    margin: 0 auto 1.75rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    border: 1px solid var(--color-text);
+    padding: 0.85rem 1.75rem;
+    font-family: var(--font-body);
+    text-decoration: none;
+    color: var(--color-text);
+    background: transparent;
+  }
+
+  .cta-button:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+</style>

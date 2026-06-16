@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { personSchema } from '../lib/schema';
+
+const schema = personSchema({
+  name: 'Quinn Schwartz',
+  jobTitle: 'Founder, Schwartz Marketing Lab',
+  description:
+    'Quinn Schwartz is a former journalist and AEO strategist who built Schwartz Marketing Lab to help B2B companies get found in AI search and modern discovery systems.',
+});
+---
+
+<Layout
+  title="About Schwartz Marketing Lab — AEO & Content Strategy Agency"
+  description="Quinn Schwartz is a former journalist and AEO strategist who built Schwartz Marketing Lab to help B2B companies get found in AI search and modern discovery systems."
+  canonicalPath="/about"
+  schema={schema}
+>
+  <div class="wrapper">
+    <section class="page-hero">
+      <span class="eyebrow">About</span>
+      <h1>A better kind of agency.</h1>
+      <p class="intro">
+        Schwartz Marketing Lab was built on a simple premise: the way people find information has changed faster
+        than most agencies have adapted. Discovery now happens across Google, ChatGPT, Perplexity, and Claude — not
+        just one search box — and the strategy behind getting found needs to reflect that.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>A journalism background, applied to discoverability</h2>
+      <p>
+        Before founding Schwartz Marketing Lab, Quinn Schwartz worked as a journalist, writing more than 1,000
+        bylines and earning Keystone Press awards along the way. That background shapes how the agency approaches
+        content: every piece is built to hold up under the same scrutiny a journalist would apply — is this
+        accurate, is this specific, does this actually add information the reader didn't already have.
+      </p>
+      <p>
+        That standard turns out to matter more, not less, in an AI search environment. Systems like ChatGPT and
+        Perplexity reward content that demonstrates real expertise and penalize content that simply restates
+        what's already been said elsewhere. A journalism background is, in practice, training for exactly the kind
+        of writing AEO rewards.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Why "AEO agency" and not something broader</h2>
+      <p>
+        Schwartz Marketing Lab doesn't try to be a full-service marketing agency, and intentionally doesn't claim
+        categories like paid media or product-led growth that other firms own more credibly. The focus is
+        narrower and more specific: helping B2B brands become discoverable and citable across both traditional
+        search and AI answer engines, through SEO, AEO, content strategy, and authority building working together
+        rather than as separate line items.
+      </p>
+    </section>
+
+    <RelatedLinks
+      heading="What this looks like in practice"
+      links={[
+        {
+          label: 'AEO & GEO',
+          href: '/services/answer-engine-optimization',
+          description: 'Getting found in ChatGPT, Perplexity, and AI Overviews.',
+        },
+        {
+          label: 'Content Systems',
+          href: '/services/content-systems',
+          description: 'Content built to compound, not just to publish.',
+        },
+        {
+          label: 'Executive Authority',
+          href: '/services/executive-authority',
+          description: 'LinkedIn and owned-channel authority building.',
+        },
+      ]}
+    />
+
+    <CtaBanner
+      heading="Want to talk through your specific situation?"
+      body="Book a call and we'll walk through where your brand stands today and where the highest-leverage opportunities are."
+    />
+  </div>
+</Layout>

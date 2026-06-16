@@ -1,0 +1,151 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import { faqPageSchema } from '../../lib/schema';
+
+const faqs = [
+  {
+    question: 'What is thought leadership PR?',
+    answer:
+      "Thought leadership PR is the practice of earning media coverage, press features, and speaking opportunities based on an executive's expertise and point of view, rather than on a company's product announcements. It positions the executive as a credible industry voice through third-party validation — press, podcasts, and publications — instead of only through what the company says about itself.",
+  },
+  {
+    question: 'How is thought leadership PR different from traditional PR?',
+    answer:
+      "Traditional PR is typically built around announcements — funding rounds, product launches, partnerships — and is measured by coverage volume. Thought leadership PR is built around an executive's expertise and ideas, and is measured by whether it builds durable credibility and visibility that outlasts any single news cycle. The two can coexist, but they require different pitches, different outlets, and different success metrics.",
+  },
+  {
+    question: 'How do you get executives featured in press and podcasts?',
+    answer:
+      'Placement starts with a clear, specific point of view the executive can speak to — generic availability for "any topic" rarely gets picked up. From there, we pitch targeted journalists, podcast hosts, and publications where that specific expertise is relevant, building relationships over time rather than relying on one-off cold pitches.',
+  },
+  {
+    question: "What's the difference between earned media and paid media?",
+    answer:
+      "Earned media is coverage or features that a publication or host chooses to run because the content has independent value to their audience — no payment is involved. Paid media is advertising or sponsored placement. Earned media carries more credibility precisely because it isn't bought, which is why it's central to thought leadership positioning.",
+  },
+  {
+    question: 'Do I need a strong LinkedIn presence before pursuing PR?',
+    answer:
+      "It helps significantly. Journalists and podcast hosts often check an executive's existing public presence before booking them, and a credible LinkedIn history makes pitches easier to land. Owned-channel authority and earned-media coverage reinforce each other — see our work on Executive Authority for the owned-channel side of this.",
+  },
+  {
+    question: 'How long does it take to get media placements?',
+    answer:
+      "Initial smaller placements — niche podcasts, trade press commentary — can happen within a few weeks of a clear pitch angle being defined. Larger, tier-one placements typically take longer and depend on relationship-building and the strength of the executive's existing public profile. Set expectations around credibility-building over months, not a guaranteed press hit on a fixed timeline.",
+  },
+];
+---
+
+<Layout
+  title="Thought Leadership PR & Earned Media | Schwartz Marketing Lab"
+  description="Thought leadership PR for B2B executives and founders. Media placements, expert commentary, and earned media coverage that build lasting authority."
+  canonicalPath="/services/pr-media"
+  schema={faqPageSchema(faqs)}
+>
+  <div class="wrapper">
+    <section class="page-hero">
+      <span class="eyebrow">PR &amp; Media</span>
+      <h1>Thought Leadership PR for B2B Executives</h1>
+      <p class="intro">
+        Authority built through channels you don't own — press features, podcast appearances, and expert
+        commentary — carries a kind of credibility that owned content can't replicate on its own. We help B2B
+        executives earn that coverage.
+      </p>
+      <div class="hero-cta">
+        <a class="button" href="/packages">See how we work with clients</a>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>What Is Thought Leadership PR?</h2>
+      <p>
+        Thought leadership PR is earned media coverage built around an executive's expertise and point of view,
+        rather than around company announcements. It's the discipline of getting an executive's thinking in front
+        of new audiences through journalists, podcast hosts, and publications who choose to feature them because
+        the perspective has independent value — not because it was paid for.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Thought Leadership PR vs. Traditional PR: The Difference</h2>
+      <p>
+        Traditional PR centers on company news — funding, launches, partnerships — and is pitched around timing
+        and announcements. Thought leadership PR centers on a person's expertise and ideas, and it doesn't require
+        a news hook to be relevant. The two can run in parallel, but conflating them leads to pitches that are
+        either too promotional for an editorial outlet or too vague to be newsworthy.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Earned Media vs. Owned Content: Why Both Matter</h2>
+      <p>
+        Owned content — what you publish on LinkedIn or your own site — builds a foundation of demonstrated
+        expertise. Earned media validates that expertise through an independent third party, which carries more
+        weight with audiences who are inherently skeptical of self-promotion. Brands that only invest in one side
+        of this miss the reinforcing effect of having both: owned content makes pitches more credible, and earned
+        coverage gives owned content more to reference.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>How We Build Your Executive Visibility</h2>
+      <p>
+        We start by defining a specific, ownable point of view the executive can speak to — not a list of generic
+        topics — and use that to build a target list of journalists, podcast hosts, and publications where the
+        fit is genuine. Outreach is relationship-driven and targeted rather than mass-pitched, because a handful of
+        well-placed features outperform a high volume of low-relevance mentions.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Where We Place You: Media, Podcasts, Publications</h2>
+      <p>
+        Placements span trade press relevant to the executive's industry, tier-one business media for broader
+        credibility, and industry podcasts that reach a focused, high-intent audience. The right mix depends on
+        where the executive's actual buyers and peers pay attention — chasing broad reach at the expense of
+        relevance produces coverage that looks good but does little for credibility with the audience that
+        matters.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Who This Is For</h2>
+      <p>
+        This is built for B2B executives and founders who already have, or are actively building, a credible
+        owned-channel presence and are ready to extend that authority through third-party validation. If owned
+        authority isn't established yet, <a href="/services/executive-authority">Executive Authority</a> is
+        usually the right starting point.
+      </p>
+    </section>
+
+    <FaqAccordion items={faqs} />
+
+    <RelatedLinks
+      links={[
+        {
+          label: 'Executive Authority',
+          href: '/services/executive-authority',
+          description: 'Build the owned-channel foundation PR amplifies.',
+        },
+        {
+          label: 'Work With Me',
+          href: '/packages',
+          description: 'See how PR fits into a full engagement.',
+        },
+        {
+          label: 'About',
+          href: '/about',
+          description: 'The journalism background behind the strategy.',
+        },
+      ]}
+    />
+
+    <CtaBanner
+      heading="Ready to build earned authority?"
+      body="We'll help you find the point of view that earns coverage — and the outlets where it actually matters."
+    />
+  </div>
+</Layout>

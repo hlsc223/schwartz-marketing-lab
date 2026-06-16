@@ -1,0 +1,78 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqItem[];
+  heading?: string;
+}
+
+const { items, heading = 'Frequently asked questions' } = Astro.props;
+---
+
+<section class="faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">{heading}</h2>
+  <div class="faq-list">
+    {items.map((item) => (
+      <details class="faq-item">
+        <summary>{item.question}</summary>
+        <p>{item.answer}</p>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  .faq {
+    border-top: var(--border-frame);
+    padding: 4rem 0;
+  }
+
+  .faq h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin: 0 0 2rem;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: var(--border-frame);
+    padding: 1.25rem 0;
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.05rem;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::before {
+    content: '+';
+    display: inline-block;
+    width: 1.25rem;
+    color: var(--color-accent);
+  }
+
+  .faq-item[open] summary::before {
+    content: '−';
+  }
+
+  .faq-item p {
+    margin: 0.75rem 0 0 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 65ch;
+  }
+</style>

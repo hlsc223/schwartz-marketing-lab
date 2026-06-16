@@ -1,0 +1,83 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import { SITE_NAME, SITE_URL } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogType?: string;
+  canonicalPath?: string; // e.g. "/" or "/about" — defaults to current URL path
+  /** One or more JSON-LD objects to render as <script type="application/ld+json"> */
+  schema?: object | object[];
+}
+
+const {
+  title,
+  description,
+  ogTitle,
+  ogDescription,
+  ogType = 'website',
+  canonicalPath,
+  schema,
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath ?? Astro.url.pathname, SITE_URL).toString();
+const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="SUkVtYJ9_hdPaCFHm1zZa1iCZ6zsIowcC2Mj_XF1AEU" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!--
+      Every value below is rendered server-side at build time, baked directly
+      into the static HTML. There is no client-side templating step that can
+      silently fail to populate these — the failure mode found on the old
+      Replit site (literal "<!--SEO_TITLE-->" placeholders shipping to
+      production) is structurally not possible here.
+    -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={ogTitle ?? title} />
+    <meta property="og:description" content={ogDescription ?? description} />
+    <meta property="og:url" content={canonicalUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle ?? title} />
+    <meta name="twitter:description" content={ogDescription ?? description} />
+
+    {schemaList.map((item) => (
+      <script type="application/ld+json" set:html={JSON.stringify(item)} />
+    ))}
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CP5RDJJQBE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args) { window.dataLayer.push(args); }
+      gtag('js', new Date());
+      gtag('config', 'G-CP5RDJJQBE');
+    </script>
+
+    <slot name="head" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

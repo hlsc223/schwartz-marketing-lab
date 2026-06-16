@@ -1,0 +1,5 @@
+# Legacy service slugs from the old Replit site — were client-side JS redirects
+# (invisible to crawlers, no link equity passed). Real 301s now.
+/services/aeo-geo            /services/answer-engine-optimization   301
+/services/thought-leadership /services/executive-authority          301
+/services/strategy-execution /services/content-systems              301

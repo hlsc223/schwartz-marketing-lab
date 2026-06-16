@@ -1,13 +1,290 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import { organizationSchema } from '../lib/schema';
+
+const services = [
+  {
+    number: '01',
+    title: 'AEO & GEO',
+    description: 'Track and control how you appear in ChatGPT, Claude, and Google AI Overviews.',
+    href: '/services/answer-engine-optimization',
+  },
+  {
+    number: '02',
+    title: 'PR & Media',
+    description: 'Amplify your narrative and build trust through reputable third-party publications.',
+    href: '/services/pr-media',
+  },
+  {
+    number: '03',
+    title: 'Executive Authority',
+    description: 'Establish a credible voice through ghostwriting and strategic positioning.',
+    href: '/services/executive-authority',
+  },
+  {
+    number: '04',
+    title: 'Content Systems',
+    description: 'Build scalable content programs that compound visibility, trust, and demand.',
+    href: '/services/content-systems',
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "We saw a 43% lift in share of voice and 37% improvement in visibility in just two months. Quinn's content and strategic direction have been integral to our growth.",
+    name: 'Natasha Zapanta',
+    title: 'Lifecycle Marketing & Marketing Ops · Nooks',
+  },
+  {
+    quote:
+      'He helped us show up credibly alongside more established companies while the AI visibility landscape was changing quickly.',
+    name: 'Brandon Brown',
+    title: 'CEO & Co-Founder · Joymore (formerly @ Search Party)',
+  },
+  {
+    quote:
+      "He brings a rare and valuable blend of strategic thinking and hands-on execution. I'd jump at the chance to work with him again.",
+    name: 'Olivia McNaughten',
+    title: 'Director, Product GTM · ShopMy (formerly @ Grin)',
+  },
+];
+
+const caseStudies = [
+  {
+    client: 'Nooks',
+    headline: '43% Share of Voice Growth',
+    stat: '+37% visibility in 60 days',
+    description: 'Increased visibility across AI discovery systems for an AI-native sales platform.',
+  },
+  {
+    client: 'Search Party',
+    headline: 'Top 4 Across High-Intent AI Prompts',
+    stat: '3K+ newsletter subscribers',
+    description: 'Built category authority before launch and earned visibility alongside established AI search leaders.',
+  },
+  {
+    client: 'Grin',
+    headline: 'One Report. A Quarter of Content.',
+    stat: 'Consumer research → content engine',
+    description: 'Turned original consumer research into a narrative platform powering content, earned media, and market positioning.',
+  },
+];
+
+const faqs = [
+  { question: 'What does Schwartz Marketing Lab actually do?', answer: 'We help B2B brands get found across traditional search and AI discovery systems through AEO, SEO, content strategy, and authority building.' },
+  { question: 'How is this different from hiring a content agency?', answer: 'We combine SEO, AEO, GEO, and authority building into one discoverability system rather than producing content in isolation from how it gets found.' },
+  { question: 'Do you work with early-stage companies or only established brands?', answer: 'Both — engagements are scoped to where a company is in building authority and visibility, not company size alone.' },
+  { question: 'What is AEO/GEO and why does it matter?', answer: 'AEO (answer engine optimization) and GEO (generative engine optimization) are the practices of making your brand discoverable and citable inside AI tools like ChatGPT, Claude, and Google AI Overviews — channels traditional SEO alone doesn’t cover.' },
+  { question: 'What does a typical engagement look like?', answer: 'Every engagement starts with strategy: an audit of current visibility, a positioning review, and a plan aligned to your specific growth goals.' },
+  { question: 'Do you offer one-off projects or only retainers?', answer: 'Both, depending on the goal — some work is project-based, some is an ongoing growth partnership.' },
+];
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Schwartz Marketing Lab</title>
-  </head>
-  <body>
-    <h1>Schwartz Marketing Lab</h1>
-    <p>Astro foundation is live.</p>
-  </body>
-</html>
+
+<Layout
+  title="AEO Agency & Content Strategy | Schwartz Marketing Lab"
+  description="Schwartz Marketing Lab helps B2B brands get found in AI search, Google, and modern discovery — through AEO, SEO, content strategy, and authority building."
+  canonicalPath="/"
+  schema={organizationSchema()}
+>
+  <section class="hero wrapper">
+    <h1>Drive revenue through AEO.</h1>
+    <p class="hero__sub">
+      Traditional B2B marketing agencies are stuck in the past. We build brand awareness and
+      drive sales with modern solutions for AEO, SEO, and content marketing.
+    </p>
+    <a href="/contact" class="button">Find out how</a>
+  </section>
+
+  <section class="testimonials wrapper">
+    <p class="eyebrow">What clients say</p>
+    <h2>Proof, not promises.</h2>
+    <div class="testimonials__grid">
+      {testimonials.map((t) => (
+        <figure class="testimonial">
+          <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
+          <figcaption>
+            <span class="testimonial__name">{t.name}</span>
+            <span class="testimonial__title">{t.title}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section id="focus" class="services wrapper">
+    <p class="eyebrow">What I do</p>
+    <h2>Four ways to get found.</h2>
+    <div class="services__grid">
+      {services.map((s) => (
+        <a class="service-card" href={s.href}>
+          <span class="service-card__number">{s.number}</span>
+          <h3>{s.title}</h3>
+          <p>{s.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="case-studies wrapper">
+    <p class="eyebrow">Case studies</p>
+    <h2>Results that hold up.</h2>
+    <p class="case-studies__sub">Three ways S.LAB turns strategy into measurable growth.</p>
+    <a href="/portfolio" class="button">View all work</a>
+    <div class="case-studies__grid">
+      {caseStudies.map((c) => (
+        <article class="case-study">
+          <p class="eyebrow">{c.client}</p>
+          <h3>{c.headline}</h3>
+          <p class="case-study__stat">{c.stat}</p>
+          <p>{c.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="faq wrapper">
+    <p class="eyebrow">FAQ</p>
+    <h2>Common questions.</h2>
+    <div class="faq__list">
+      {faqs.map((f) => (
+        <details class="faq__item">
+          <summary>{f.question}</summary>
+          <p>{f.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  section {
+    padding: 64px 24px;
+  }
+
+  .hero {
+    border: var(--border-frame);
+    padding: 80px 40px;
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 96px);
+  }
+
+  .hero__sub {
+    max-width: 640px;
+    margin: 24px 0 32px;
+    font-size: 18px;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin: 0 0 12px;
+  }
+
+  .testimonials__grid,
+  .services__grid,
+  .case-studies__grid {
+    display: grid;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .testimonials__grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .testimonial {
+    border: var(--border-frame);
+    padding: 28px;
+    margin: 0;
+  }
+
+  .testimonial blockquote {
+    margin: 0 0 16px;
+    font-style: italic;
+  }
+
+  .testimonial__name {
+    display: block;
+    font-weight: 600;
+  }
+
+  .testimonial__title {
+    display: block;
+    font-size: 13px;
+    color: var(--color-text-muted);
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .service-card {
+    border: var(--border-frame);
+    padding: 28px;
+    display: block;
+    transition: background-color 0.15s ease;
+  }
+
+  .service-card:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .service-card__number {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    color: var(--color-text-muted);
+  }
+
+  .service-card h3 {
+    margin: 12px 0;
+    font-size: 22px;
+  }
+
+  .case-studies__sub {
+    max-width: 520px;
+  }
+
+  .case-studies__grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .case-study {
+    border: var(--border-frame);
+    padding: 28px;
+    margin: 0;
+  }
+
+  .case-study__stat {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+  }
+
+  .faq__list {
+    margin-top: 24px;
+    border-top: var(--border-frame);
+  }
+
+  .faq__item {
+    border-bottom: var(--border-frame);
+    padding: 20px 0;
+  }
+
+  .faq__item summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  .faq__item p {
+    margin: 12px 0 0;
+    color: var(--color-text-muted);
+  }
+</style>

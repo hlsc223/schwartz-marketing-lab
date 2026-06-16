@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import { faqPageSchema } from '../../lib/schema';
+
+const faqs = [
+  {
+    question: 'What is LinkedIn content strategy?',
+    answer:
+      "LinkedIn content strategy is the deliberate planning of what an executive publishes on LinkedIn — and why — so that posts build toward a consistent professional reputation over time, rather than existing as one-off updates. It connects individual posts to a broader authority-building goal: industry visibility, credibility with a specific audience, and inbound interest from people who've followed the executive's thinking.",
+  },
+  {
+    question: 'How do I build executive thought leadership on LinkedIn?',
+    answer:
+      "Executive thought leadership on LinkedIn is built by publishing consistently on a defined set of topics the executive has genuine expertise in, taking clear positions rather than restating conventional wisdom, and engaging with the platform regularly enough that the algorithm and the audience both register that the account is active and worth following.",
+  },
+  {
+    question: "What's the difference between executive branding and personal branding?",
+    answer:
+      "Personal branding is broader and can apply to anyone building a public reputation, including outside a professional context. Executive branding is specifically about building professional authority tied to a leadership role — positioning the executive as a credible voice in their industry in a way that benefits both the individual and the company they lead.",
+  },
+  {
+    question: 'How often should executives post on LinkedIn?',
+    answer:
+      "Consistency matters more than frequency. A sustainable cadence — often two to four times per week — maintained over months builds more authority than a burst of daily posting that stops after a few weeks. The right frequency depends on the executive's bandwidth and how much ghostwriting support is built into the engagement.",
+  },
+  {
+    question: 'Do you write the LinkedIn content or just advise on strategy?',
+    answer:
+      "Most engagements include ghostwriting, since few executives have the bandwidth to write consistently themselves. The strategy — topics, positioning, cadence — is built collaboratively, but the actual posts are typically drafted by us and approved by the executive before publishing.",
+  },
+  {
+    question: 'What results should I expect from an executive authority program?',
+    answer:
+      "Expect a measurable increase in industry visibility (profile views, engagement, inbound connection requests) within the first few months, with inbound business inquiries typically following as the executive's reputation compounds. This is a credibility-building channel first and a lead-generation channel second — both happen, but in that order.",
+  },
+];
+---
+
+<Layout
+  title="LinkedIn Content Strategy & Executive Authority | Schwartz Marketing Lab"
+  description="LinkedIn content strategy and executive authority building for B2B leaders. Turn expertise into industry visibility, credibility, and inbound demand."
+  canonicalPath="/services/executive-authority"
+  schema={faqPageSchema(faqs)}
+>
+  <div class="wrapper">
+    <section class="page-hero">
+      <span class="eyebrow">Executive Authority</span>
+      <h1>LinkedIn Content Strategy That Builds Executive Authority</h1>
+      <p class="intro">
+        Authority built through owned channels — LinkedIn, thought leadership content, and a clear point of view —
+        compounds in a way paid visibility never does. We help B2B executives turn what they already know into a
+        consistent, credible publishing presence.
+      </p>
+      <div class="hero-cta">
+        <a class="button" href="/packages">See how we work with clients</a>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Why Executive Authority Is a Growth Asset</h2>
+      <p>
+        B2B buyers increasingly evaluate the people behind a company, not just the company itself. An executive
+        with a credible, consistent public voice shortens sales cycles, earns trust before a first call happens,
+        and gives the company a distribution channel that doesn't disappear when an ad budget gets cut. This is an
+        asset that belongs to the company's growth strategy, not a personal side project.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>LinkedIn as the Primary Channel for B2B Authority</h2>
+      <p>
+        LinkedIn remains where B2B decision-makers actually spend professional attention, and its algorithm
+        continues to reward consistent, substantive posting over polished but infrequent content. For executive
+        authority specifically, it's the highest-leverage owned channel available — more so than a company blog,
+        because it carries the credibility of an individual's name and track record.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>What Executive Thought Leadership Actually Requires</h2>
+      <p>
+        Genuine thought leadership requires taking positions, not restating industry consensus. It requires a
+        consistent publishing cadence sustained over months, not a burst of activity around a launch. And it
+        requires content that reflects the executive's actual expertise and experience — ghostwritten posts work
+        only when they're grounded in the executive's real perspective, not generic industry commentary.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>How We Build Your LinkedIn Content Strategy</h2>
+      <p>
+        We start by identifying the handful of topics where the executive has genuine, defensible expertise, then
+        build a publishing cadence and content pipeline around those topics — typically through structured
+        interviews that become ghostwritten posts, reviewed and approved before anything goes live. The goal is a
+        voice that sounds like the executive, not like a content agency.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Beyond LinkedIn: Executive Branding Across Channels</h2>
+      <p>
+        Once an executive has a consistent owned-channel presence, that authority becomes the foundation for
+        earned media — podcast invitations, press commentary, and speaking opportunities tend to follow visibility,
+        not precede it. This is the natural bridge to <a href="/services/pr-media">PR &amp; Media</a>, where owned
+        authority gets amplified through third-party channels.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Who This Is For</h2>
+      <p>
+        This is built for B2B founders and executives who have real expertise but no system for putting it in
+        front of an audience consistently — and who understand that authority compounds over a sustained period,
+        not a single viral post.
+      </p>
+    </section>
+
+    <FaqAccordion items={faqs} />
+
+    <RelatedLinks
+      links={[
+        {
+          label: 'PR & Media',
+          href: '/services/pr-media',
+          description: 'Amplify owned authority through earned channels.',
+        },
+        {
+          label: 'Content Systems',
+          href: '/services/content-systems',
+          description: 'The content strategy that often precedes this work.',
+        },
+        {
+          label: 'Work With Me',
+          href: '/packages',
+          description: 'See how executive authority fits into a full engagement.',
+        },
+      ]}
+    />
+
+    <CtaBanner
+      heading="Ready to build a publishing presence that compounds?"
+      body="We'll show you what a sustainable LinkedIn content strategy looks like for your specific expertise."
+    />
+  </div>
+</Layout>

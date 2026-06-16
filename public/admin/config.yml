@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Netlify Identity + Git Gateway handle authentication — every edit you make
+# in this CMS becomes a real git commit to the repo, so nothing happens
+# outside the GitHub-based workflow.
+publish_mode: simple
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description (meta description)", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Updated Date", name: "updatedDate", widget: "datetime", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: true }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

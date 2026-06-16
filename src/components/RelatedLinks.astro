@@ -1,0 +1,72 @@
+---
+interface LinkItem {
+  label: string;
+  href: string;
+  description: string;
+}
+
+interface Props {
+  heading?: string;
+  links: LinkItem[];
+}
+
+const { heading = 'Where to go next', links } = Astro.props;
+---
+
+<section class="related" aria-labelledby="related-heading">
+  <h2 id="related-heading">{heading}</h2>
+  <div class="related-grid">
+    {links.map((link) => (
+      <a class="related-card" href={link.href}>
+        <span class="related-label">{link.label}</span>
+        <span class="related-description">{link.description}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .related {
+    padding: 4rem 0;
+  }
+
+  .related h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    margin: 0 0 2rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    border: var(--border-frame);
+  }
+
+  .related-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.5rem;
+    background: var(--color-bg);
+    border-right: var(--border-frame);
+    border-bottom: var(--border-frame);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: background 0.15s ease;
+  }
+
+  .related-card:hover {
+    background: rgba(43, 63, 224, 0.06);
+  }
+
+  .related-label {
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .related-description {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+  }
+</style>

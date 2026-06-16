@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+
+const engagementSteps = [
+  {
+    title: 'Audit & strategy',
+    description:
+      'We start by mapping where you stand today across traditional search and AI answer engines, then identify the highest-leverage gaps to close first.',
+  },
+  {
+    title: 'Build',
+    description:
+      'We build the content, structure, and technical foundation the strategy calls for — service pages, content systems, executive content, or earned media outreach, depending on what the audit surfaces.',
+  },
+  {
+    title: 'Compound',
+    description:
+      'We measure what is and isn’t working across rankings, AI citations, and qualified leads, and keep building on what compounds rather than restarting each quarter.',
+  },
+];
+---
+
+<Layout
+  title="AEO & Content Strategy Services | Schwartz Marketing Lab"
+  description="AEO audits, content strategy, and growth partnerships for B2B brands. Every engagement starts with strategy and aligns to your goals."
+  canonicalPath="/packages"
+>
+  <div class="wrapper">
+    <section class="page-hero">
+      <span class="eyebrow">Work With Me</span>
+      <h1>Modern marketing built for discovery.</h1>
+      <p class="intro">
+        Every engagement starts with strategy, not a fixed package. We figure out where AEO, SEO, content systems,
+        and authority building matter most for your specific situation, then build the engagement around that —
+        not the other way around.
+      </p>
+      <div class="hero-cta">
+        <a class="button" href="/contact">Book a strategy call</a>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>How engagements work</h2>
+      <div class="steps-grid">
+        {engagementSteps.map((step, i) => (
+          <div class="step-card">
+            <span class="step-number">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <RelatedLinks
+      heading="What we work on"
+      links={[
+        {
+          label: 'AEO & GEO',
+          href: '/services/answer-engine-optimization',
+          description: 'Getting found in ChatGPT, Perplexity, and AI Overviews.',
+        },
+        {
+          label: 'Content Systems',
+          href: '/services/content-systems',
+          description: 'Content built to compound, not just to publish.',
+        },
+        {
+          label: 'Executive Authority',
+          href: '/services/executive-authority',
+          description: 'LinkedIn and owned-channel authority building.',
+        },
+        {
+          label: 'PR & Media',
+          href: '/services/pr-media',
+          description: 'Earned media and thought leadership PR.',
+        },
+      ]}
+    />
+
+    <CtaBanner
+      heading="Ready to talk through your situation?"
+      body="Book a call and we'll figure out together whether — and how — we should work together."
+      ctaLabel="Book a strategy call"
+    />
+  </div>
+</Layout>
+
+<style>
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .step-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .step-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-card p {
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 760px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

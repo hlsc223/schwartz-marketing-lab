@@ -1,0 +1,151 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import { faqPageSchema } from '../../lib/schema';
+
+const faqs = [
+  {
+    question: 'What does a content marketing consultant do?',
+    answer:
+      'A content marketing consultant builds the strategy behind what a company publishes and why — identifying which topics build authority and demand, how content connects to the buyer journey, and how individual pieces compound into a long-term asset rather than disappearing after one campaign cycle.',
+  },
+  {
+    question: 'How is content strategy different from content production?',
+    answer:
+      "Content production is the act of writing and publishing individual pieces. Content strategy is the system that decides what gets produced, in what order, and why — based on what builds authority, what AI systems and search engines will reward, and what actually moves prospects toward a decision. Production without strategy produces volume; strategy without production produces plans that never ship.",
+  },
+  {
+    question: 'Do you write the content or just provide the strategy?',
+    answer:
+      "Both, depending on the engagement. Some clients need the full system built and executed; others have an internal team or in-house writer and need the strategic architecture — topic clusters, internal linking, positioning — built around them. The scope is set at the start of the engagement, not assumed.",
+  },
+  {
+    question: 'What industries do you specialize in?',
+    answer:
+      'The work is concentrated in B2B and SaaS, where the buying process is longer, more research-driven, and more dependent on demonstrated expertise than impulse-driven categories. The same principles apply elsewhere, but the content systems described here are built for buyers who read multiple sources before they ever talk to sales.',
+  },
+  {
+    question: 'How long before content marketing shows results?',
+    answer:
+      "Early signals — initial rankings, first AI citations, engagement on cornerstone pieces — typically show up within a few months. The larger payoff, where content compounds into a meaningful share of qualified pipeline, takes longer and depends on publishing consistency and how competitive the topic space is. Content marketing is a long-game asset, not a quick-win channel.",
+  },
+  {
+    question: "What's the difference between content marketing and SEO?",
+    answer:
+      'SEO is one channel content can be optimized for — organic search rankings. Content marketing is broader: it includes SEO, but also covers content built for AI citation (AEO), sales enablement, authority building, and nurturing prospects who already know your brand. Treating SEO as the whole strategy undersells what well-built content systems can do.',
+  },
+];
+---
+
+<Layout
+  title="Content Marketing Consultant for B2B Brands | Schwartz Marketing Lab"
+  description="B2B content marketing consulting that builds authority and drives qualified demand over time. Content strategy and systems for SaaS and B2B brands."
+  canonicalPath="/services/content-systems"
+  schema={faqPageSchema(faqs)}
+>
+  <div class="wrapper">
+    <section class="page-hero">
+      <span class="eyebrow">Content Systems</span>
+      <h1>Content Marketing Consulting That Compounds</h1>
+      <p class="intro">
+        Most content marketing resets to zero every quarter — a new campaign, a new calendar, a new scramble for
+        topics. Content systems are built differently: every asset adds to the ones before it, so the content
+        published in month twelve generates more qualified demand than the content published in month one, without
+        a proportional increase in spend.
+      </p>
+      <div class="hero-cta">
+        <a class="button" href="/packages">See how we work with clients</a>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>What Is a Content Marketing Consultant?</h2>
+      <p>
+        A content marketing consultant designs the strategy that determines what a company publishes, in what
+        order, and to what end — rather than producing content on an ad hoc basis. The role sits upstream of
+        writing: it's the architecture of topics, internal links, and authority-building sequence that determines
+        whether content compounds or simply accumulates.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Why B2B Brands Need a Content Strategy, Not Just Content</h2>
+      <p>
+        Publishing without strategy produces a library of disconnected posts that rank inconsistently, dilute
+        topical authority, and rarely build on each other. A strategy-led system instead builds toward specific
+        topic clusters, so each new piece reinforces the ones already published — strengthening search rankings, AI
+        citation potential, and backlink accumulation simultaneously, rather than starting over with every post.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>What Content Systems Actually Looks Like in Practice</h2>
+      <p>
+        In practice, this means defining a small number of core topic clusters tied directly to your service
+        lines, sequencing content so foundational definitional pieces publish before competitive comparison
+        content, and building internal links that route authority from blog content into the service pages that
+        convert. None of this requires a large content team — it requires a system that makes every piece of
+        content do more than one job.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>SaaS Content Marketing: Strategy Before Production</h2>
+      <p>
+        SaaS buyers research extensively before booking a call, comparing vendors across multiple sources and
+        often consulting AI tools before ever visiting a pricing page. Content built for SaaS audiences needs to
+        answer comparison questions directly and early — "X vs. Y," "is X worth it," "what does X actually do" —
+        because those are the queries buyers and AI systems alike are searching for. Producing content without
+        first mapping these questions wastes effort on topics no one is asking.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Content Strategy Services: What's Included</h2>
+      <p>
+        A typical engagement includes a topic cluster and keyword audit, a content calendar sequenced for
+        compounding authority rather than even output, internal linking architecture between blog and service
+        pages, and either full content production or strategic oversight of an in-house writer, depending on what
+        the client needs.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Who This Is For</h2>
+      <p>
+        This is built for B2B and SaaS companies that are either starting from a blank slate and want to avoid
+        building a content library that has to be redone in a year, or that already publish regularly but aren't
+        seeing the rankings, AI citations, or qualified leads that consistent output should produce.
+      </p>
+    </section>
+
+    <FaqAccordion items={faqs} />
+
+    <RelatedLinks
+      links={[
+        {
+          label: 'Executive Authority',
+          href: '/services/executive-authority',
+          description: 'The natural next step once content systems are in place.',
+        },
+        {
+          label: 'Work With Me',
+          href: '/packages',
+          description: 'See how content systems fit into a full engagement.',
+        },
+        {
+          label: 'About',
+          href: '/about',
+          description: 'The journalism background behind the strategy.',
+        },
+      ]}
+    />
+
+    <CtaBanner
+      heading="Ready to build content that compounds?"
+      body="We'll show you exactly which topics are worth the investment — and which ones aren't."
+    />
+  </div>
+</Layout>
