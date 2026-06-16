@@ -11,12 +11,18 @@
    match. Tell me if you have the Switzer files and I'll wire up self-hosting properly. */
 
 :root {
-  /* Color tokens — captured from live site computed styles */
-  --color-bg: #f4f1e7;
-  --color-text: #171717;
+  /* Color tokens — exact values from legacy client/src/index.css :root */
+  --color-bg: #f4f1e7;        /* hsl(46 37% 93%) */
+  --color-text: #171717;      /* hsl(0 0% 9%) */
   --color-text-muted: #5c5a52;
-  --color-border: #d8d4c4;
-  --color-accent: #2b3fe0;
+  --color-accent: #4269e2;    /* --cobalt: hsl(226 73% 58%) */
+  --color-accent-deep: #2f53c7; /* --cobalt-deep: hsl(226 60% 48%) */
+
+  /* The live site has no tan "frame" border — it uses low-opacity charcoal
+     hairlines against the cream background. --border-frame keeps the same
+     variable name used across this codebase but now matches that. */
+  --border-frame: 1px solid rgba(23, 23, 23, 0.12);
+  --border-hairline: 1px solid rgba(23, 23, 23, 0.08);
 
   /* Font tokens */
   --font-body: 'Lora', Georgia, serif;
@@ -24,7 +30,6 @@
 
   /* Spacing / layout */
   --content-max-width: 1200px;
-  --border-frame: 1px solid var(--color-border);
 }
 
 *, *::before, *::after {
@@ -68,13 +73,36 @@ img, svg {
 }
 
 button, .button {
-  font-family: var(--font-body);
-  background: transparent;
-  border: 1px solid var(--color-text);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  background: var(--color-text);
+  color: var(--color-bg);
+  border: 2px solid var(--color-text);
   border-radius: 0;
-  padding: 12px 24px;
+  padding: 14px 28px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.button:hover {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.button--cobalt {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.button--cobalt:hover {
+  background: var(--color-accent-deep);
+  border-color: var(--color-accent-deep);
+  color: var(--color-bg);
 }
 
 /* Shared service/content page scaffolding — used by service pages, About, Packages */

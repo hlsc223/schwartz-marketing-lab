@@ -13,8 +13,7 @@ const year = new Date().getFullYear();
 <footer class="site-footer">
   <div class="wrapper site-footer__inner">
     <div class="site-footer__brand">
-      <p class="site-footer__logo">S.LAB</p>
-      <p class="site-footer__name">SCHWARTZ MARKETING LAB</p>
+      <p class="site-footer__logo">S<span class="site-footer__dot">.</span>LAB</p>
       <p class="site-footer__tagline">AEO. SEO. Content.</p>
       <p class="site-footer__copyright">© {year} All rights reserved.</p>
     </div>
@@ -30,47 +29,69 @@ const year = new Date().getFullYear();
 
 <style>
   .site-footer {
-    border-top: var(--border-frame);
+    border-top: 1px solid rgba(23, 23, 23, 0.12);
     margin-top: 80px;
   }
 
   .site-footer__inner {
     display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px 24px;
+  }
+
+  @media (min-width: 760px) {
+    .site-footer__inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+  }
+
+  .site-footer__brand {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 32px;
-    padding: 48px 24px;
   }
 
   .site-footer__logo {
     font-family: var(--font-heading);
     font-weight: 900;
     font-size: 18px;
-    margin: 0 0 12px;
+    margin: 0;
   }
 
-  .site-footer__name,
-  .site-footer__tagline,
-  .site-footer__copyright {
-    margin: 0 0 6px;
+  .site-footer__dot {
+    color: var(--color-accent);
+  }
+
+  .site-footer__tagline {
+    margin: 0;
     font-size: 13px;
     color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+  }
+
+  .site-footer__copyright {
+    margin: 0;
+    font-size: 11px;
+    color: rgba(23, 23, 23, 0.3);
   }
 
   .site-footer__nav ul {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 24px;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
   .site-footer__nav a {
-    font-size: 14px;
+    font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.1em;
   }
 </style>

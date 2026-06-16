@@ -37,13 +37,7 @@ const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
     <meta name="google-site-verification" content="SUkVtYJ9_hdPaCFHm1zZa1iCZ6zsIowcC2Mj_XF1AEU" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!--
-      Every value below is rendered server-side at build time, baked directly
-      into the static HTML. There is no client-side templating step that can
-      silently fail to populate these — the failure mode found on the old
-      Replit site (literal "<!--SEO_TITLE-->" placeholders shipping to
-      production) is structurally not possible here.
-    -->
+    <!-- All SEO values below are rendered server-side at build time, baked directly into the static HTML -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />

@@ -9,7 +9,7 @@ const navLinks = [
 
 <header class="site-header">
   <div class="wrapper site-header__inner">
-    <a href="/" class="site-header__logo">S.LAB</a>
+    <a href="/" class="site-header__logo">S<span class="site-header__dot">.</span>LAB</a>
     <nav class="site-header__nav" aria-label="Primary">
       <ul>
         {navLinks.map((link) => (
@@ -17,13 +17,16 @@ const navLinks = [
         ))}
       </ul>
     </nav>
-    <a href="/contact" class="button site-header__cta">Free strategy call</a>
+    <a href="/contact" class="button button--cobalt site-header__cta">Free strategy call</a>
   </div>
 </header>
 
 <style>
   .site-header {
-    border-bottom: var(--border-frame);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-bg);
   }
 
   .site-header__inner {
@@ -31,20 +34,24 @@ const navLinks = [
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 
   .site-header__logo {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: 20px;
-    letter-spacing: 0.02em;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  .site-header__dot {
+    color: var(--color-accent);
   }
 
   .site-header__nav ul {
     display: flex;
-    gap: 28px;
+    gap: 32px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -52,15 +59,29 @@ const navLinks = [
 
   .site-header__nav a {
     font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .site-header__nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width 0.2s ease;
+  }
+
+  .site-header__nav a:hover::after {
+    width: 100%;
   }
 
   .site-header__cta {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    font-size: 14px;
     white-space: nowrap;
+    padding: 10px 22px;
   }
 
   @media (max-width: 760px) {
