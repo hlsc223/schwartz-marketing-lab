@@ -1,0 +1,73 @@
+---
+// Ported from client/src/pages/GrinCase.tsx in the legacy Replit repo.
+// NOTE: there are two GRIN-related legacy files — GrinCase.tsx (this one,
+// "GRIN x S.LAB", unified design system, matches the /case-studies index
+// card and the slug "grin-content-systems") and GrinCaseStudySystems.tsx
+// (an unrelated, stale page about Quinn's GRIN case-study production
+// process, old shadcn-card design). Confirmed GrinCase.tsx is the correct
+// source for this route.
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyLayout from '../../components/CaseStudyLayout.astro';
+import { articleSchema, SITE_URL } from '../../lib/schema';
+
+const schema = articleSchema({
+  headline: 'GRIN x S.LAB',
+  description: "How GRIN turned original consumer research into the foundation for a narrative redesign, earned media strategy, and quarter-long content system.",
+  datePublished: '2026-01-01',
+  url: new URL('/case-studies/grin-content-systems', SITE_URL).toString(),
+});
+---
+
+<Layout
+  title="GRIN x S.LAB | Case Study | Schwartz Marketing Lab"
+  description="How GRIN turned original consumer research into the foundation for a narrative redesign, earned media strategy, and quarter-long content system."
+  canonicalPath="/case-studies/grin-content-systems"
+  schema={schema}
+>
+  <CaseStudyLayout
+    categoryLabel="Case Study — Content Systems"
+    title="GRIN x S.LAB"
+    subheads={[
+      'Turning Research Into Market Narrative',
+      "How GRIN turned original consumer research into the foundation for a narrative redesign, earned media strategy, and quarter-long content system.",
+    ]}
+    aboutHeading="About GRIN"
+    aboutBody={[
+      'GRIN is a creator marketing platform that helps brands discover, manage, and scale influencer partnerships.',
+      'As the company evolved its positioning and prepared for a new AI-focused chapter, it needed original research and a stronger narrative foundation to support the conversation it wanted to lead.',
+    ]}
+    resultsHeading="A Narrative Platform Built to Scale"
+    metrics={[
+      { value: 'Consumer Survey', label: "Foundation for GRIN's Narrative Redesign" },
+      { value: 'Quarter-Long Content Engine', label: 'Generated from a Single Research Asset' },
+      { value: '5 Earned Media Placements', label: 'Powered by Original Research' },
+    ]}
+    testimonialQuote={`Quinn is one of the most talented writers I've had the pleasure of working with. His ability to capture the vision and value propositions across any project and translate them into copy that's both easy to read and genuinely compelling is unmatched.
+
+Whether strategically leading all content for GRIN's 2024 rebrand or spearheading our AEO strategy, partnering with Quinn was a joy. He brings a rare and valuable blend of strategic thinking and hands-on execution, and I'd jump at the chance to work with him again.`}
+    testimonialAuthor="Olivia McNaughten"
+    testimonialRole="Head of Marketing · GRIN"
+    challengeHeading="Giving a New Narrative Something to Stand On"
+    challengeBody={[
+      'GRIN was evolving its market narrative and needed a stronger foundation to support the conversation it wanted to lead.',
+      'Rather than relying on assumptions or industry anecdotes, the company needed original research that could validate its perspective, support thought leadership efforts, and create momentum around its evolving brand story.',
+      "The challenge wasn't simply creating content. It was creating a credible narrative platform that could support marketing, sales, public relations, and future product messaging.",
+    ]}
+    solutionHeading="Building the Narrative Before Scaling the Content"
+    solutionBody={[
+      'S.LAB helped develop a consumer survey and creator economy report designed to uncover how consumers actually engage with and trust creator content.',
+      "The report served two purposes. First, it provided original data that helped support and strengthen GRIN's broader market narrative. Second, it became the foundation for a scalable content system.",
+      'Rather than treating the report as a one-time campaign asset, S.LAB developed a distribution strategy that transformed the research into blogs, newsletters, social content, sales enablement materials, earned media opportunities, and thought leadership initiatives. One research initiative became an entire content ecosystem.',
+    ]}
+    resultsConclusion={{
+      label: 'The Results',
+      heading: 'One Report. A Quarter of Content.',
+      paragraphs: [
+        'The creator economy report became a cornerstone asset across the organization.',
+        "It helped support GRIN's evolving market narrative, gave internal teams a credible source of proprietary data, generated earned media opportunities, and created enough material to fuel an entire quarter of content production.",
+        'Instead of producing content one piece at a time, GRIN gained a repeatable system built around a single source of truth.',
+        'The result was a more scalable content operation, stronger narrative consistency, and a research asset that continued creating value long after its initial launch.',
+      ],
+    }}
+  />
+</Layout>

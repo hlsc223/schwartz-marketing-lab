@@ -1,151 +1,114 @@
 ---
+// Ported from client/src/pages/ServicePrMedia.tsx in the legacy Replit repo.
 import Layout from '../../layouts/Layout.astro';
-import FaqAccordion from '../../components/FaqAccordion.astro';
-import RelatedLinks from '../../components/RelatedLinks.astro';
-import CtaBanner from '../../components/CtaBanner.astro';
+import ServiceLayout from '../../components/ServiceLayout.astro';
 import { faqPageSchema } from '../../lib/schema';
 
-const faqs = [
+const faqItems = [
   {
-    question: 'What is thought leadership PR?',
+    question: 'Do you guarantee media placements?',
     answer:
-      "Thought leadership PR is the practice of earning media coverage, press features, and speaking opportunities based on an executive's expertise and point of view, rather than on a company's product announcements. It positions the executive as a credible industry voice through third-party validation — press, podcasts, and publications — instead of only through what the company says about itself.",
+      "No responsible PR partner should guarantee specific placements. What we can do is build a compelling narrative, identify the right opportunities, pitch consistently, and create the assets needed to improve your chances of earning meaningful coverage. The goal isn't random press. It's credible visibility in places your buyers already trust.",
   },
   {
-    question: 'How is thought leadership PR different from traditional PR?',
+    question: 'Which publications and podcasts do you target?',
     answer:
-      "Traditional PR is typically built around announcements — funding rounds, product launches, partnerships — and is measured by coverage volume. Thought leadership PR is built around an executive's expertise and ideas, and is measured by whether it builds durable credibility and visibility that outlasts any single news cycle. The two can coexist, but they require different pitches, different outlets, and different success metrics.",
+      "It depends on your audience and category. Sometimes the best opportunity is a major publication. Other times, it is a niche industry podcast, newsletter, or trade site your buyers actually trust. The goal is not to appear everywhere. It's to appear where trust is created.",
   },
   {
-    question: 'How do you get executives featured in press and podcasts?',
+    question: 'Do you handle both outreach and content creation?',
     answer:
-      'Placement starts with a clear, specific point of view the executive can speak to — generic availability for "any topic" rarely gets picked up. From there, we pitch targeted journalists, podcast hosts, and publications where that specific expertise is relevant, building relationships over time rather than relying on one-off cold pitches.',
+      'Yes. S.LAB supports the full process: narrative development, media targeting, outreach, quote responses, article drafting, podcast preparation, contributed content, and post-placement repurposing. Every placement becomes an asset that can be reused across your website, sales process, newsletters, and social channels.',
   },
   {
-    question: "What's the difference between earned media and paid media?",
+    question: 'How is this different from traditional PR?',
     answer:
-      "Earned media is coverage or features that a publication or host chooses to run because the content has independent value to their audience — no payment is involved. Paid media is advertising or sponsored placement. Earned media carries more credibility precisely because it isn't bought, which is why it's central to thought leadership positioning.",
+      'Traditional PR often stops at the placement. S.LAB focuses on the full authority footprint: what story you tell, where it appears, how buyers discover it, and how AI systems, search engines, journalists, and prospects encounter it over time. Every placement is designed to compound into additional trust, visibility, and authority.',
   },
   {
-    question: 'Do I need a strong LinkedIn presence before pursuing PR?',
+    question: 'How long does it take to see results?',
     answer:
-      "It helps significantly. Journalists and podcast hosts often check an executive's existing public presence before booking them, and a credible LinkedIn history makes pitches easier to land. Owned-channel authority and earned-media coverage reinforce each other — see our work on Executive Authority for the owned-channel side of this.",
+      'Some opportunities move quickly, especially quotes, podcasts, and niche publications. Larger placements often take longer. The strongest results come from consistent outreach over time as your narrative becomes clearer, your authority footprint expands, and trust compounds across channels.',
   },
   {
-    question: 'How long does it take to get media placements?',
+    question: 'Why does PR matter for AI search?',
     answer:
-      "Initial smaller placements — niche podcasts, trade press commentary — can happen within a few weeks of a clear pitch angle being defined. Larger, tier-one placements typically take longer and depend on relationship-building and the strength of the executive's existing public profile. Set expectations around credibility-building over months, not a guaranteed press hit on a fixed timeline.",
+      "AI systems increasingly rely on third-party sources to understand which companies, products, and experts deserve attention. Mentions in publications, podcasts, industry sites, reviews, and expert commentary help strengthen the authority signals that influence modern discovery. Strong PR doesn't just build credibility with people. It helps shape how AI systems understand and recommend your brand.",
   },
 ];
+
+const schema = faqPageSchema(faqItems);
 ---
 
 <Layout
-  title="Thought Leadership PR & Earned Media | Schwartz Marketing Lab"
-  description="Thought leadership PR for B2B executives and founders. Media placements, expert commentary, and earned media coverage that build lasting authority."
+  title="PR & Media Services for B2B Brands | Schwartz Marketing Lab"
+  description="Build authority through publications, podcasts, reviews, and industry media that shape how buyers discover and evaluate your brand."
   canonicalPath="/services/pr-media"
-  schema={faqPageSchema(faqs)}
+  schema={schema}
 >
-  <div class="wrapper">
-    <section class="page-hero">
-      <span class="eyebrow">PR &amp; Media</span>
-      <h1>Thought Leadership PR for B2B Executives</h1>
-      <p class="intro">
-        Authority built through channels you don't own — press features, podcast appearances, and expert
-        commentary — carries a kind of credibility that owned content can't replicate on its own. We help B2B
-        executives earn that coverage.
-      </p>
-      <div class="hero-cta">
-        <a class="button" href="/packages">See how we work with clients</a>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>What Is Thought Leadership PR?</h2>
-      <p>
-        Thought leadership PR is earned media coverage built around an executive's expertise and point of view,
-        rather than around company announcements. It's the discipline of getting an executive's thinking in front
-        of new audiences through journalists, podcast hosts, and publications who choose to feature them because
-        the perspective has independent value — not because it was paid for.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>Thought Leadership PR vs. Traditional PR: The Difference</h2>
-      <p>
-        Traditional PR centers on company news — funding, launches, partnerships — and is pitched around timing
-        and announcements. Thought leadership PR centers on a person's expertise and ideas, and it doesn't require
-        a news hook to be relevant. The two can run in parallel, but conflating them leads to pitches that are
-        either too promotional for an editorial outlet or too vague to be newsworthy.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>Earned Media vs. Owned Content: Why Both Matter</h2>
-      <p>
-        Owned content — what you publish on LinkedIn or your own site — builds a foundation of demonstrated
-        expertise. Earned media validates that expertise through an independent third party, which carries more
-        weight with audiences who are inherently skeptical of self-promotion. Brands that only invest in one side
-        of this miss the reinforcing effect of having both: owned content makes pitches more credible, and earned
-        coverage gives owned content more to reference.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>How We Build Your Executive Visibility</h2>
-      <p>
-        We start by defining a specific, ownable point of view the executive can speak to — not a list of generic
-        topics — and use that to build a target list of journalists, podcast hosts, and publications where the
-        fit is genuine. Outreach is relationship-driven and targeted rather than mass-pitched, because a handful of
-        well-placed features outperform a high volume of low-relevance mentions.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>Where We Place You: Media, Podcasts, Publications</h2>
-      <p>
-        Placements span trade press relevant to the executive's industry, tier-one business media for broader
-        credibility, and industry podcasts that reach a focused, high-intent audience. The right mix depends on
-        where the executive's actual buyers and peers pay attention — chasing broad reach at the expense of
-        relevance produces coverage that looks good but does little for credibility with the audience that
-        matters.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>Who This Is For</h2>
-      <p>
-        This is built for B2B executives and founders who already have, or are actively building, a credible
-        owned-channel presence and are ready to extend that authority through third-party validation. If owned
-        authority isn't established yet, <a href="/services/executive-authority">Executive Authority</a> is
-        usually the right starting point.
-      </p>
-    </section>
-
-    <FaqAccordion items={faqs} />
-
-    <RelatedLinks
-      links={[
-        {
-          label: 'Executive Authority',
-          href: '/services/executive-authority',
-          description: 'Build the owned-channel foundation PR amplifies.',
-        },
-        {
-          label: 'Work With Me',
-          href: '/packages',
-          description: 'See how PR fits into a full engagement.',
-        },
-        {
-          label: 'About',
-          href: '/about',
-          description: 'The journalism background behind the strategy.',
-        },
-      ]}
-    />
-
-    <CtaBanner
-      heading="Ready to build earned authority?"
-      body="We'll help you find the point of view that earns coverage — and the outlets where it actually matters."
-    />
-  </div>
+  <ServiceLayout
+    serviceLabel="PR & Media"
+    headline="Own the narrative, wherever it's written."
+    subhead="Build authority through publications, podcasts, reviews, and industry media that shape how buyers discover and evaluate your brand."
+    sectionHeading="Why third-party trust matters."
+    overview={[
+      "Buyers don't just learn about your company from your website.",
+      'They discover you through articles, podcasts, reviews, newsletters, industry communities, and recommendations from people they already trust.',
+      'The brands that consistently appear in those conversations build credibility faster, earn more attention, and shape how their category understands them.',
+      'PR & Media is about intentionally creating that footprint — helping the right people tell the right story about your business in the places that matter most.',
+      'AI visibility benefits from this too, but trust is the real headline.',
+    ]}
+    whatIncluded={[
+      {
+        title: 'Narrative & Messaging Strategy',
+        description: 'The story, positioning, and proof points that make your company worth covering and easier to understand.',
+      },
+      {
+        title: 'Media Outreach & Placements',
+        description: 'Targeted outreach to relevant publications, newsletters, reporters, editors, and industry sites where your buyers pay attention.',
+      },
+      {
+        title: 'Podcast Strategy & Booking',
+        description: 'Podcast targeting, outreach, prep, and appearance opportunities for founders and executives with something meaningful to say.',
+      },
+      {
+        title: 'Expert Source Positioning',
+        description: 'Quote opportunities, journalist responses, and expert commentary that position your team as credible voices in your category.',
+      },
+      {
+        title: 'Bylined Articles & Guest Contributions',
+        description: 'Founder- or executive-led articles, guest posts, and contributed content that bring your point of view into trusted third-party environments.',
+      },
+      {
+        title: 'Review & Reputation Management',
+        description: 'Review site strategy, reputation signals, and third-party proof that support buyer research and strengthen trust before the sales conversation.',
+      },
+    ]}
+    whatIncludedSubtext="Every placement compounds. Coverage builds credibility, credibility earns trust, and trust shapes how buyers discover and evaluate your brand."
+    cardIcons={['message-circle', 'newspaper', 'mic', 'quote', 'pen-line', 'star']}
+    process={[
+      { number: '01', title: 'Narrative & Positioning', description: 'Before outreach, we define the stories, perspectives, and differentiators worth amplifying.' },
+      { number: '02', title: 'Target & Pitch', description: 'We identify the publications, podcasts, newsletters, and opportunities most relevant to your audience.' },
+      { number: '03', title: 'Place & Publish', description: 'We manage outreach, coordinate content creation, and secure placements that reinforce your positioning.' },
+      { number: '04', title: 'Amplify & Repurpose', description: 'Every placement becomes additional assets: social content, newsletters, sales collateral, website proof, and future media opportunities.' },
+    ]}
+    whoItsFor={`Brands entering new markets and needing credibility quickly\nCompanies competing against larger, more established players\nFounders and marketing teams with a strong story but limited visibility\nBusinesses that want buyers to find trustworthy proof before sales conversations\nTeams that need authority, trust, and visibility beyond their own website`}
+    testimonialQuote="Working with Quinn stood out because he moved quickly, brought original thinking to ambiguous problems, and translated messy founder context into clear public-facing ideas. He helped us show up credibly alongside more established companies and turn early observations into usable frameworks."
+    testimonialAuthor="Brandon Brown"
+    testimonialRole="CEO & Co-Founder · Joymore (formerly @ Search Party)"
+    proofPoints={[
+      { stat: 'Earned Authority', label: 'third-party validation' },
+      { stat: 'Trusted Sources', label: 'publications, podcasts & industry media' },
+      { stat: 'Narrative Control', label: 'shape what buyers discover' },
+    ]}
+    proofBandLabel="Results & Capabilities"
+    proofRows={[
+      { client: 'Positioning & Messaging', category: '', result: 'Stronger Category Positioning' },
+      { client: 'Media & Podcast Outreach', category: '', result: 'More Trusted Third-Party Mentions' },
+      { client: 'Guest Contributions & Expert Sourcing', category: '', result: 'Greater Visibility Across Search and AI' },
+    ]}
+    faqTitle="PR & Media FAQs"
+    faqItems={faqItems}
+    ctaLabel="PR"
+  />
 </Layout>

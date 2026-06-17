@@ -1,0 +1,44 @@
+---
+// Ported from client/src/pages/NooksCase.tsx in the legacy Replit repo.
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyLayout from '../../components/CaseStudyLayout.astro';
+import { articleSchema, SITE_URL } from '../../lib/schema';
+
+const schema = articleSchema({
+  headline: 'Nooks x S.LAB',
+  description: 'How Nooks increased share of voice by 43% and AI visibility by 37% through an Answer Engine Optimization strategy.',
+  datePublished: '2026-01-01',
+  url: new URL('/case-studies/nooks-aeo', SITE_URL).toString(),
+});
+---
+
+<Layout
+  title="Nooks x S.LAB | Case Study | Schwartz Marketing Lab"
+  description="How Nooks increased share of voice by 43% and AI visibility by 37% through an Answer Engine Optimization strategy."
+  canonicalPath="/case-studies/nooks-aeo"
+  schema={schema}
+>
+  <CaseStudyLayout
+    categoryLabel="Case Study — AEO & AI Visibility"
+    title="Nooks x S.LAB"
+    subheads={["How Nooks increased share of voice by 43% and AI visibility by 37% through an Answer Engine Optimization strategy."]}
+    aboutHeading="About Nooks"
+    aboutBody={["Nooks is an AI-native sales platform that helps revenue teams prospect, coach, and execute outbound more effectively. As answer engines began influencing software discovery, Nooks invested early in building authority around the topics that matter most to sales leaders."]}
+    resultsHeading="43% Share of Voice Growth. 37% Visibility Growth."
+    metrics={[
+      { value: '43%', label: 'Increase in Share of Voice' },
+      { value: '37%', label: 'Increase in AI Visibility' },
+      { value: '< 1 Week', label: 'To Initial Citation Gains' },
+    ]}
+    testimonialQuote="In just two months, we saw a 43% lift in share of voice and 37% improvement in visibility. Quinn's content and strategic direction have been integral to our growth in this space."
+    testimonialAuthor="Natasha Zapanta"
+    testimonialRole="Lifecycle Marketing & Marketing Ops · Nooks"
+    challengeHeading="Building Authority in an Emerging Category"
+    challengeBody={["Nooks was entering AEO early and needed more than traditional SEO content. The goal was to establish authority around key outbound sales topics, strengthen visibility in AI-generated answers, and reinforce Nooks' position as an AI-native sales platform."]}
+    solutionHeading="AEO Strategy Built for Citation"
+    solutionBody={[
+      "Nooks partnered with S.LAB to develop and execute an AEO strategy designed specifically for answer engines. Together, the teams identified high-value topics, created deeply researched content, and built authoritative resources that AI systems could confidently cite and reference.",
+      "The focus wasn't publishing more content. It was creating content that strengthened both discoverability and positioning.",
+    ]}
+  />
+</Layout>

@@ -1,21 +1,115 @@
 @import '@fontsource/lora/400.css';
 @import '@fontsource/lora/500.css';
 @import '@fontsource/lora/600.css';
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/700.css';
-@import '@fontsource/inter/900.css';
 
 /* Tailwind's base layer (Preflight) is intentionally NOT included — see the
    corePlugins.preflight: false comment in tailwind.config.mjs. Only
    components/utilities are emitted, so ported Tailwind classNames from the
-   legacy homepage components work without resetting every other page. */
+   legacy homepage components work without resetting every other page.
+
+   One specific piece of Preflight has to be restored manually, though: bare
+   border utilities (border, border-t, border-l, border-r, border-b,
+   divide-y, divide-x) only ever set border-{side}-width. The border is
+   invisible without a border-style, and Preflight is normally what sets
+   that default (border-style: solid on every element). Without it, every
+   "border-t"/"border-l"/"border-r"-only div across the whole site (e.g. the
+   homepage hero frame, which is exactly how this was caught — top/left/right
+   were invisible while the separately-built background-color hairline at
+   the bottom rendered fine) silently has no visible border at all.
+
+   Crucially, Preflight pairs that default border-style: solid with
+   border-width: 0 on the same selector. Without the border-width reset,
+   every element on the page falls back to the CSS-initial border-width
+   (medium, ~3px) now that it has a non-"none" border-style — which is why
+   skipping just the border-style line produced a visible box around every
+   element on the page (nav links, headings, paragraphs, etc.) instead of
+   only the intended hero frame. Setting both together replicates exactly
+   what Preflight does, so only elements with an explicit Tailwind
+   border-width utility (border, border-t, etc.) render a visible line.
+
+   A second, related gap in the same vein: Preflight also seeds every
+   element with default values for Tailwind's internal --tw-* custom
+   properties used by the transform and ring utilities. Tailwind's
+   transform utilities (scale-y-0, translate-x-2, rotate-3, ...) don't set
+   the `transform` property directly — they each reference variables like
+   --tw-scale-y inside a shared `transform: ... scaleY(var(--tw-scale-y))`
+   value. If --tw-scale-y was never defined anywhere (which is the case
+   with Preflight off), that var() is invalid with no fallback, which spec
+   makes the WHOLE `transform` declaration invalid — not just scaleY — so
+   the element renders with transform: none regardless of which scale/ring
+   utility is applied. This is exactly what broke the hover-reveal accent
+   bar on the homepage "Four ways to get found" list: `scale-y-0` (meant to
+   hide it at rest) and `group-hover:scale-y-100` were equally invalid, so
+   the bar fell back to its natural, unscaled, fully-visible state on every
+   row all the time instead of only on hover. Restoring just these
+   variable defaults (not the rest of Preflight) fixes the whole category
+   without resetting any visual margins/fonts on already-shipped pages.
+
+   Note: Preflight's real version of this block also seeds ring/shadow/
+   filter/backdrop-filter variables, several with intentionally EMPTY
+   values (e.g. --tw-blur: ;) so they no-op until a utility sets them. That
+   trips up this project's CSS build — an empty custom-property value here
+   caused the build to silently drop this entire rule (verified via the
+   compiled output: it disappeared completely, taking border-width/
+   border-style with it). Sticking to non-empty defaults and limiting this
+   to the two categories (transform, ring) actually used by ported
+   homepage components avoids that build issue. */
+*, ::before, ::after {
+  border-width: 0;
+  border-style: solid;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+}
+
 @tailwind components;
 @tailwind utilities;
 
-/* NOTE: 'Switzer' is a licensed font (Swiss Typefaces), not available via Google Fonts/Fontsource.
-   Until you supply licensed Switzer .woff2 files (and we add an @font-face block + put the
-   files in public/fonts), headings fall back to Inter at weight 900, which is a close visual
-   match. Tell me if you have the Switzer files and I'll wire up self-hosting properly. */
+/* Switzer — self-hosted, licensed font (Swiss Typefaces), matching the
+   weights the live Replit site actually loads from Fontshare
+   (https://api.fontshare.com/v2/css?f[]=switzer@400,500,700,900&display=swap).
+   Files converted from the supplied .otf license files to .woff2 and placed
+   in public/fonts/switzer/. 'Inter' is kept only as a last-resort system
+   fallback in the font-family stack below, not self-hosted/imported anymore. */
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer/Switzer-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer/Switzer-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer/Switzer-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer/Switzer-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Color tokens — exact values from legacy client/src/index.css :root */
@@ -124,10 +218,36 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Another Preflight casualty: browsers give ul/ol a default disc/decimal
+   marker, 40px left padding, and 16px top/bottom margin. Caught on the
+   homepage "Four ways to get found" list, which is built as a plain <ul>
+   relying on Tailwind classes for all of its actual layout — without this
+   reset it rendered with visible bullets and indentation never present in
+   the design. */
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 900;
   line-height: 1.05;
+  margin: 0;
+}
+
+/* Same category of bug as the border-style fix above: Preflight is off, so
+   browsers' default UA margins on these elements (figure/blockquote ship
+   with `margin: 1em 40px` out of the box) are never zeroed out. This was
+   caught on the homepage testimonials section — each <figure> picked up an
+   extra 80px of left+right margin inside its grid column, on top of the
+   <blockquote> inside it doing the same, shrinking the actual quote text
+   column from the intended 336px down to 256px and wrapping it into nearly
+   twice as many lines as the live site. Resetting the handful of elements
+   Preflight normally zeroes (and that this codebase's ported components
+   actually use) avoids the same bug recurring on dl/dd/hr/pre. */
+blockquote, dl, dd, hr, figure, pre {
   margin: 0;
 }
 
@@ -147,7 +267,7 @@ img, svg {
   padding: 0 24px;
 }
 
-button, .button {
+.button {
   font-family: var(--font-heading);
   font-weight: 700;
   background: var(--color-text);

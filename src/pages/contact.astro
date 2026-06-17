@@ -1,5 +1,28 @@
 ---
+// Ported from client/src/pages/Contact.tsx in the legacy Replit repo. This
+// replaces an earlier generic placeholder version of this page (different
+// headline, a 4-field form with a "Company" field instead of a referral-
+// source field, a plain black submit button, and no testimonial) that no
+// longer matched production.
+//
+// Design-system choice: literal Tailwind classes, matching ServiceLayout.astro,
+// Packages, and About — Contact.tsx's own source is built the same way, and
+// the hero/testimonial patterns are near-identical to sections already ported.
+//
+// Rewritten for Astro:
+//   - InlineEditable / CMS fetch+mutation — removed (static content, no
+//     backend in this migration). Field labels/placeholders/testimonial
+//     copy are taken directly from Contact.tsx's hardcoded JSX defaults.
+//   - React state / useMutation submit handling — removed. This project
+//     submits via Netlify Forms (static HTML POST), not a custom API
+//     endpoint, so the existing Netlify wiring (form name "contact",
+//     honeypot field, hidden form-name input, action="/contact/success")
+//     is preserved from the prior version of this file.
+//   - ArrowUpRight (lucide-react): inline arrow-up-right SVG, same pattern
+//     used on the Packages/About CTA buttons.
 import Layout from '../layouts/Layout.astro';
+
+const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`;
 ---
 
 <Layout
@@ -7,94 +30,183 @@ import Layout from '../layouts/Layout.astro';
   description="Book a strategy call with Schwartz Marketing Lab to talk through AEO, content strategy, and authority building for your B2B brand."
   canonicalPath="/contact"
 >
-  <div class="wrapper">
-    <section class="page-hero">
-      <span class="eyebrow">Contact</span>
-      <h1>Let's talk about getting you found.</h1>
-      <p class="intro">
-        Tell us a bit about where you're at and what you're trying to solve. We'll follow up to set up a call.
-      </p>
+  <div class="min-h-screen bg-background text-foreground" style={{ backgroundImage: grain }}>
+    {/* ── HERO ─────────────────────────────────────────────────────── */}
+    <section
+      class="pt-24 border-b border-foreground/[0.06] relative overflow-hidden"
+      style="padding: 96px clamp(24px, 5vw, 64px) 0;"
+    >
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style={`background-image: repeating-linear-gradient(0deg, transparent, transparent 47px, hsl(var(--foreground) / 0.05) 47px, hsl(var(--foreground) / 0.05) 48px);`}
+      />
+
+      {[
+        { top: '12px', left: '12px' },
+        { top: '12px', right: '12px' },
+        { bottom: '0', left: '12px' },
+        { bottom: '0', right: '12px' },
+      ].map((pos) => (
+        <svg width="12" height="12" viewBox="0 0 12 12" style={{ position: 'absolute', opacity: 0.1, ...pos }}>
+          <line x1="6" y1="0" x2="6" y2="12" stroke="hsl(var(--cobalt))" stroke-width="0.75" />
+          <line x1="0" y1="6" x2="12" y2="6" stroke="hsl(var(--cobalt))" stroke-width="0.75" />
+          <circle cx="6" cy="6" r="3" fill="none" stroke="hsl(var(--cobalt))" stroke-width="0.75" />
+        </svg>
+      ))}
+
+      <div class="max-w-[1100px] mx-auto relative">
+        <p class="font-sans text-[10px] font-bold tracking-[0.24em] uppercase mb-6" style="color: hsl(var(--cobalt));">
+          Contact
+        </p>
+        <h1
+          class="font-sans font-black leading-[0.96] tracking-[-0.04em] text-foreground mb-8"
+          style="font-size: clamp(48px, 6vw, 72px); max-width: 700px;"
+        >
+          Let's talk
+        </h1>
+        <p class="font-serif text-foreground/55 leading-[1.75] mb-20" style="font-size: 17px; max-width: 440px;">
+          Tell me what you're working on and I'll get back to you as soon as possible with a meeting link and an agenda for a 30-minute discovery call.
+        </p>
+      </div>
     </section>
 
-    <section class="content-section">
-      <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        action="/contact/success"
-        class="contact-form"
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <p class="hidden-field">
-          <label>
-            Don't fill this out if you're human: <input name="bot-field" />
-          </label>
-        </p>
+    {/* ── MAIN CONTENT ─────────────────────────────────────────────── */}
+    <section style="padding: 32px clamp(24px, 5vw, 64px) 96px;">
+      <div class="max-w-[1100px] mx-auto grid md:grid-cols-[1fr_340px] gap-12 md:gap-16 items-start">
 
-        <label class="field">
-          <span>Name</span>
-          <input type="text" name="name" required />
-        </label>
+        {/* Left — form */}
+        <div>
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/contact/success"
+            class="flex flex-col gap-6"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden-field">
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
 
-        <label class="field">
-          <span>Email</span>
-          <input type="email" name="email" required />
-        </label>
+            {/* Name + Email */}
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div class="flex flex-col gap-2">
+                <label class="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40">
+                  Name <span style="color: hsl(var(--cobalt));">*</span>
+                </label>
+                <input type="text" name="name" class="contact-input" placeholder="Your name" required />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40">
+                  Email <span style="color: hsl(var(--cobalt));">*</span>
+                </label>
+                <input type="email" name="email" class="contact-input" placeholder="you@company.com" required />
+              </div>
+            </div>
 
-        <label class="field">
-          <span>Company</span>
-          <input type="text" name="company" />
-        </label>
+            {/* Message */}
+            <div class="flex flex-col gap-2">
+              <label class="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40">
+                What are you working on? <span style="color: hsl(var(--cobalt));">*</span>
+              </label>
+              <textarea
+                name="message"
+                class="contact-input resize-none"
+                placeholder="Tell me about your goals, your brand, and what you need help with."
+                rows="6"
+                required
+              ></textarea>
+            </div>
 
-        <label class="field">
-          <span>What are you trying to solve?</span>
-          <textarea name="message" rows="5" required></textarea>
-        </label>
+            {/* Referral source */}
+            <div class="flex flex-col gap-2">
+              <label class="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-foreground/40">
+                How did you hear about S.LAB? <span style="color: hsl(var(--cobalt));">*</span>
+              </label>
+              <input
+                type="text"
+                name="referralSource"
+                class="contact-input"
+                placeholder="e.g. LinkedIn, Google, referral from a friend..."
+                required
+              />
+            </div>
 
-        <button type="submit" class="button">Send</button>
-      </form>
+            {/* Submit */}
+            <div class="pt-2">
+              <button
+                type="submit"
+                class="inline-flex items-center gap-2.5 font-sans font-bold text-[12px] tracking-[0.07em] uppercase text-white border-none transition-colors duration-150 contact-submit"
+                style="background: hsl(var(--cobalt)); padding: 16px 32px;"
+              >
+                Send message
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        {/* Right — testimonial */}
+        <div
+          class="relative border border-foreground/[0.08] p-8 flex flex-col gap-6"
+          style={{ background: 'hsl(var(--card) / 0.7)', backgroundImage: grain }}
+        >
+          <div
+            class="font-sans font-black leading-none select-none"
+            style="font-size: 64px; line-height: 1; color: hsl(var(--cobalt) / 0.18); margin-bottom: -16px;"
+            aria-hidden="true"
+          >
+            "
+          </div>
+          <blockquote class="font-serif text-[15px] text-foreground/70 leading-[1.85]">
+            Partnering with Quinn was a joy. He brings a rare and valuable blend of strategic thinking and hands-on execution.
+          </blockquote>
+          <div class="flex flex-col gap-0.5 pt-2 border-t border-foreground/[0.07]">
+            <p class="font-sans font-bold text-[13px] text-foreground">Olivia McNaughten</p>
+            <p class="font-sans text-[11px] text-foreground/40 tracking-wide">Director, Product GTM · ShopMy</p>
+          </div>
+          <div
+            class="absolute pointer-events-none"
+            style="inset: 0; border: 1px solid hsl(var(--cobalt) / 0.10); transform: translate(8px, 8px);"
+          />
+        </div>
+
+      </div>
     </section>
   </div>
 </Layout>
 
 <style>
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 560px;
-  }
-
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-  }
-
-  .field input,
-  .field textarea {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    border: var(--border-frame);
-    background: var(--color-bg);
-    color: var(--color-text);
-    padding: 0.7rem 0.85rem;
-    border-radius: 0;
-  }
-
-  .field input:focus,
-  .field textarea:focus {
-    outline: 1px solid var(--color-accent);
-  }
-
   .hidden-field {
     display: none;
   }
 
-  .contact-form button {
-    align-self: flex-start;
+  .contact-input {
+    width: 100%;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--foreground) / 0.12);
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    border-radius: 0;
+  }
+
+  .contact-input::placeholder {
+    color: hsl(var(--foreground) / 0.3);
+  }
+
+  .contact-input:focus {
+    border-color: hsl(var(--cobalt));
+    box-shadow: 0 0 0 1px hsl(var(--cobalt) / 0.2);
+  }
+
+  .contact-submit:hover {
+    background: hsl(var(--cobalt-deep)) !important;
   }
 </style>

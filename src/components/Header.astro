@@ -4,7 +4,15 @@
 //
 // Reused directly: the `services` and `otherLinks` data, the Wordmark markup,
 // and the literal Tailwind className strings for the bar, dropdown panel,
-// nav links, divider, and CTA pill.
+// nav links, and divider.
+//
+// Corrected vs. literal Navbar.tsx: the legacy source's CTA className uses
+// `rounded-none` (square), but DESIGN_HANDOFF.md explicitly and repeatedly
+// (nav section + global button-shape summary) specifies this exact button —
+// distinct from the square "Find out how" / "Book consultation" CTAs
+// elsewhere on the site — should be pill-shaped (`border-radius: 9999px`).
+// Changed to `rounded-full` on the strength of that explicit, twice-stated
+// spec rather than the literal (likely stale) component source.
 //
 // Rewritten for Astro (no React/client state available by default):
 //   - Services dropdown: CSS `group-hover`/`group-focus-within` instead of
@@ -27,12 +35,31 @@
 //     this site instead of pulling in lucide-react.
 //
 // Intentionally removed (scope boundary, not a fidelity gap):
-//   - Resources dropdown's "Case Studies" and "Guides" items — those pages
-//     have not been migrated yet, so linking to them would 404. Resources is
-//     a flat link to /blog (which exists) until those pages are built and
-//     this gets revisited.
 //   - InlineEditable / TanStack Query / Express PATCH endpoints — depended on
 //     the Replit CMS+backend being removed in this migration.
+//
+// Resources dropdown: Case Studies and Guides routes have since been built
+// (2026-06-17) — wiring this up ahead of the pages existing was explicitly
+// approved by the user that same day. Articles is intentionally NOT in this
+// dropdown (user instruction, 2026-06-17) — it's only linked from the footer.
+const resourceLinks = [
+  {
+    name: 'Blog',
+    description: 'Content strategy, brand, and the future of search.',
+    href: '/blog',
+  },
+  {
+    name: 'Case Studies',
+    description: 'Deep-dives into client work and what actually moved the needle.',
+    href: '/case-studies',
+  },
+  {
+    name: 'Guides',
+    description: 'Practical frameworks for content, brand, and AI-era discoverability.',
+    href: '/guides',
+  },
+];
+
 const services = [
   {
     name: 'SEO & AEO',
@@ -57,7 +84,6 @@ const services = [
 ];
 
 const otherLinks = [
-  { name: 'Resources', href: '/blog' },
   { name: 'Packages', href: '/packages' },
   { name: 'Newsletter', href: 'https://quinn-does-content.beehiiv.com/', external: true },
   { name: 'About', href: '/about' },
@@ -84,26 +110,82 @@ const otherLinks = [
           <span class="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: hsl(var(--cobalt));"></span>
         </a>
 
+        <!-- Outer wrapper: starts flush against the trigger (top-full, no
+             margin) and uses transparent padding-top (pt-3) instead of
+             margin-top to recreate the visual gap. Because this padding is
+             part of the wrapper's own box — and the wrapper is a DOM
+             descendant of .group — the mouse stays "inside" a hoverable
+             group descendant the entire time it travels from the trigger
+             down into the panel. With the old `mt-3` (a real margin, not
+             covered by any element), that strip was dead space: leaving the
+             trigger's box before reaching the panel's box dropped
+             group-hover instantly (visibility has no transition, unlike
+             opacity, so it snapped closed), which is why the panel used to
+             vanish mid-drag and took multiple attempts to open. The actual
+             card background/border/shadow moved to the inner div so the
+             bridging padding stays visually transparent. -->
         <div
-          class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity duration-150 absolute top-full right-0 mt-3 w-[520px] z-50"
-          style="background: hsl(var(--card)); border-top: 2px solid hsl(var(--cobalt)); box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06));"
+          class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity duration-150 absolute top-full right-0 pt-3 w-[560px] z-50"
         >
-          <div class="grid grid-cols-2">
+          <div
+            class="grid grid-cols-2"
+            style="background: hsl(var(--card)); border-top: 2px solid hsl(var(--cobalt)); box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06));"
+          >
             {services.map((service, i) => (
               <a
                 href={service.href}
-                class="block px-5 py-5 group/item relative transition-colors duration-150 hover:bg-background"
+                class="block px-5 py-3.5 group/item relative transition-colors duration-150 hover:bg-background"
                 style={{
                   borderRight: i % 2 === 0 ? '1px solid hsl(var(--foreground) / 0.07)' : 'none',
                   borderBottom: i < 2 ? '1px solid hsl(var(--foreground) / 0.07)' : 'none',
                 }}
               >
-                <p class="font-sans font-black leading-none" style="font-size: 9px; letter-spacing: 0.2em; color: hsl(var(--cobalt)); opacity: 0.5;">0{i + 1}</p>
-                <div class="flex items-start justify-between gap-2 mt-2.5">
-                  <p class="text-[13px] font-bold text-foreground font-sans group-hover/item:text-[hsl(var(--cobalt))] transition-colors leading-snug">{service.name}</p>
-                  <span class="text-xs flex-shrink-0 mt-0.5 opacity-0 group-hover/item:opacity-100 transition-opacity" style="color: hsl(var(--cobalt));">↗</span>
+                <p class="font-sans font-black leading-none" style="font-size: 10px; letter-spacing: 0.2em; color: hsl(var(--cobalt)); opacity: 0.5;">0{i + 1}</p>
+                <div class="flex items-start justify-between gap-2 mt-2">
+                  <p class="text-[15px] font-bold text-foreground font-sans group-hover/item:text-[hsl(var(--cobalt))] transition-colors leading-snug">{service.name}</p>
+                  <svg
+                    class="w-3 h-3 flex-shrink-0 mt-0.5 opacity-0 group-hover/item:opacity-100 transition-opacity"
+                    style="color: hsl(var(--cobalt));"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                  ><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
                 </div>
-                <p class="text-[11px] leading-relaxed mt-1.5 text-muted-foreground">{service.description}</p>
+                <p class="text-[12.5px] leading-relaxed mt-1 text-muted-foreground">{service.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <a
+          href="/blog"
+          class="flex items-center gap-1 text-sm font-semibold text-foreground cursor-pointer transition-colors relative font-sans"
+        >
+          Resources
+          <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" style="background-color: hsl(var(--cobalt));"></span>
+        </a>
+
+        <!-- Same dead-zone-safe structure as the Services dropdown: top-full
+             + pt-3 padding bridge on the outer wrapper (no margin-top), card
+             styling on the inner div. Single-column list, no numbering, no
+             arrow icon — matches the approved reference image. -->
+        <div
+          class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity duration-150 absolute top-full right-0 pt-3 w-[300px] z-50"
+        >
+          <div
+            style="background: hsl(var(--card)); border-top: 2px solid hsl(var(--cobalt)); box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06));"
+          >
+            {resourceLinks.map((link, i) => (
+              <a
+                href={link.href}
+                class="block px-5 py-3.5 group/item relative transition-colors duration-150 hover:bg-background"
+                style={{
+                  borderBottom: i < resourceLinks.length - 1 ? '1px solid hsl(var(--foreground) / 0.07)' : 'none',
+                }}
+              >
+                <p class="text-[15px] font-bold text-foreground font-sans group-hover/item:text-[hsl(var(--cobalt))] transition-colors leading-snug">{link.name}</p>
+                <p class="text-[12.5px] leading-relaxed mt-1 text-muted-foreground">{link.description}</p>
               </a>
             ))}
           </div>
@@ -126,7 +208,7 @@ const otherLinks = [
 
       <a
         href="/contact"
-        class="inline-flex items-center text-sm font-sans font-semibold rounded-none border-2 px-5 py-2 transition-colors hover:[background-color:hsl(var(--cobalt-deep))] hover:[border-color:hsl(var(--cobalt-deep))]"
+        class="inline-flex items-center text-sm font-sans font-semibold rounded-full border-2 px-5 py-2 transition-colors hover:[background-color:hsl(var(--cobalt-deep))] hover:[border-color:hsl(var(--cobalt-deep))]"
         style="background-color: hsl(var(--cobalt)); border-color: hsl(var(--cobalt)); color: hsl(var(--primary-foreground));"
       >
         Free strategy call
@@ -139,7 +221,20 @@ const otherLinks = [
         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </label>
       <div class="hidden peer-checked:flex md:hidden absolute top-full left-0 right-0 bg-background border-b border-foreground/10 flex-col p-4 gap-1">
-        <a href="/#focus" class="text-lg font-medium py-3 border-b border-foreground/10 text-foreground font-sans block">Services</a>
+        <details class="mobile-nav-accordion border-b border-foreground/10">
+          <summary class="flex items-center justify-between w-full text-lg font-medium py-3 text-foreground font-sans cursor-pointer list-none">
+            Services
+            <svg class="w-4 h-4 flex-shrink-0 mobile-nav-accordion__chevron transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="pl-2 pb-4 space-y-4">
+            {services.map((service) => (
+              <a href={service.href} class="block">
+                <p class="text-sm font-bold text-foreground font-sans">{service.name}</p>
+                <p class="text-xs text-muted-foreground leading-relaxed mt-0.5">{service.description}</p>
+              </a>
+            ))}
+          </div>
+        </details>
         {otherLinks.map((link) => (
           <a
             href={link.href}
@@ -172,3 +267,15 @@ const otherLinks = [
   };
   window.addEventListener('scroll', onScroll, { passive: true });
 </script>
+
+<style>
+  /* Mobile Services accordion — restores the legacy mobile nav's expandable
+     service list (name + description per item), which the original
+     checkbox-only mobile menu had flattened into a single dead-end link. */
+  .mobile-nav-accordion summary::-webkit-details-marker {
+    display: none;
+  }
+  .mobile-nav-accordion[open] .mobile-nav-accordion__chevron {
+    transform: rotate(180deg);
+  }
+</style>

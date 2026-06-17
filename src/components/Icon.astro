@@ -1,0 +1,25 @@
+---
+import { icons } from '../lib/icons';
+
+interface Props {
+  name: string;
+  size?: number;
+  color?: string;
+  strokeWidth?: number;
+}
+
+const { name, size = 24, color = 'currentColor', strokeWidth = 1.6 } = Astro.props;
+const inner = icons[name] ?? '';
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke={color}
+  stroke-width={strokeWidth}
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  set:html={inner}
+/>

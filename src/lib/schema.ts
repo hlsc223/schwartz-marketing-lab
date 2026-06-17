@@ -47,6 +47,8 @@ export function articleSchema(opts: {
   datePublished: string;
   dateModified?: string;
   authorName?: string;
+  authorUrl?: string;
+  keywords?: string[];
   url: string;
 }) {
   return {
@@ -57,13 +59,17 @@ export function articleSchema(opts: {
     datePublished: opts.datePublished,
     dateModified: opts.dateModified ?? opts.datePublished,
     url: opts.url,
+    mainEntityOfPage: opts.url,
+    ...(opts.keywords && opts.keywords.length > 0 ? { keywords: opts.keywords.join(', ') } : {}),
     author: {
       '@type': 'Person',
       name: opts.authorName ?? 'Quinn Schwartz',
+      ...(opts.authorUrl ? { url: opts.authorUrl } : {}),
     },
     publisher: {
       '@type': 'Organization',
       name: SITE_NAME,
+      url: SITE_URL,
     },
   };
 }

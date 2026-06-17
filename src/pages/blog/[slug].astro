@@ -20,6 +20,9 @@ const schema = articleSchema({
   description: post.data.description,
   datePublished: post.data.pubDate.toISOString(),
   dateModified: post.data.updatedDate?.toISOString(),
+  authorName: 'Quinn Schwartz',
+  authorUrl: new URL('/about', SITE_URL).toString(),
+  keywords: post.data.tags,
   url: new URL(`/blog/${post.id}`, SITE_URL).toString(),
 });
 ---
@@ -31,13 +34,31 @@ const schema = articleSchema({
   ogType="article"
   schema={schema}
 >
-  <div class="wrapper">
-    <article class="post">
-      <span class="eyebrow">Blog</span>
-      <h1>{post.data.title}</h1>
-      <p class="post-meta">
-        {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-      </p>
+  <div class="page">
+    <section class="hero">
+      <div class="ruled-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="eyebrow">Blog</p>
+        <h1 class="headline">{post.data.title}</h1>
+        {post.data.excerpt && <p class="subhead">{post.data.excerpt}</p>}
+        <div class="byline">
+          <span class="byline-author">By <a href="/about">Quinn Schwartz</a></span>
+          <span class="byline-divider" aria-hidden="true">·</span>
+          <span class="post-meta">
+            {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </span>
+        </div>
+        {post.data.tags.length > 0 && (
+          <ul class="tag-list">
+            {post.data.tags.map((tag) => (
+              <li class="tag-pill">{tag}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </section>
+
+    <article class="post-body-section">
       <div class="post-body">
         <Content />
       </div>
@@ -51,34 +72,181 @@ const schema = articleSchema({
 </Layout>
 
 <style>
-  .post {
-    padding: 4rem 0 2rem;
-    max-width: 70ch;
+  .page {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 
-  .post h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin: 0.5rem 0 1rem;
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
+    padding: 96px clamp(24px, 5vw, 64px) 64px;
+  }
+
+  .ruled-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 47px, hsl(var(--foreground) / 0.05) 47px, hsl(var(--foreground) / 0.05) 48px);
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .eyebrow {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: hsl(var(--cobalt));
+    margin: 0 0 24px;
+  }
+
+  .headline {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: hsl(var(--foreground));
+    font-size: clamp(32px, 4.5vw, 48px);
+    margin: 0 0 20px;
+  }
+
+  .subhead {
+    font-family: var(--font-body);
+    font-style: italic;
+    line-height: 1.6;
+    color: hsl(var(--foreground) / 0.65);
+    font-size: clamp(18px, 2vw, 21px);
+    max-width: 620px;
+    margin: 0 0 28px;
+  }
+
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 20px;
+  }
+
+  .byline-author {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.55);
+  }
+
+  .byline-author a {
+    color: hsl(var(--foreground) / 0.75);
+    text-decoration: none;
+    border-bottom: 1px solid hsl(var(--cobalt) / 0.4);
+  }
+
+  .byline-author a:hover {
+    color: hsl(var(--cobalt));
+    border-bottom-color: hsl(var(--cobalt));
+  }
+
+  .byline-divider {
+    color: hsl(var(--foreground) / 0.25);
+    font-size: 11px;
   }
 
   .post-meta {
-    color: var(--color-text-muted);
     font-family: var(--font-heading);
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.4);
+    margin: 0;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tag-pill {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: hsl(var(--cobalt));
+    background: hsl(var(--cobalt) / 0.08);
+    border: 1px solid hsl(var(--cobalt) / 0.18);
+    padding: 6px 12px;
+  }
+
+  .post-body-section {
+    padding: 64px clamp(24px, 5vw, 64px) 96px;
   }
 
   .post-body {
-    line-height: 1.75;
+    max-width: 720px;
+    margin: 0 auto;
+    font-family: var(--font-body);
+    line-height: 1.8;
+    font-size: 17px;
+    color: hsl(var(--foreground) / 0.75);
   }
 
   .post-body :global(h2) {
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    color: hsl(var(--foreground));
+    font-size: clamp(24px, 2.6vw, 30px);
+    margin: 2.75rem 0 1.1rem;
+  }
+
+  .post-body :global(h3) {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: hsl(var(--foreground));
+    font-size: clamp(19px, 2vw, 22px);
+    margin: 2.25rem 0 0.9rem;
   }
 
   .post-body :global(p) {
-    margin: 0 0 1.1rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .post-body :global(strong) {
+    color: hsl(var(--foreground));
+    font-weight: 700;
+  }
+
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    margin: 0 0 1.25rem;
+    padding-left: 1.4rem;
+  }
+
+  .post-body :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-body :global(a) {
+    color: hsl(var(--cobalt));
+    text-decoration: underline;
+    text-decoration-color: hsl(var(--cobalt) / 0.35);
+  }
+
+  .post-body :global(a:hover) {
+    text-decoration-color: hsl(var(--cobalt));
   }
 </style>

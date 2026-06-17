@@ -14,11 +14,11 @@
 //     homepage, and the cross-page navigate-then-scroll on every other page).
 //   - InlineEditable tagline (TanStack Query + Express PATCH /api/footer-content)
 //     removed — depended on the Replit CMS/backend being removed in this
-//     migration. Tagline is now the same static fallback copy the legacy
-//     component itself falls back to when the CMS has no override
-//     ("Modern marketing built for discovery.") — this is the live default,
-//     not a guess; the previous version of this file had the wrong string
-//     ("AEO. SEO. Content.") which has been corrected.
+//     migration. Tagline corrected to "AEO. SEO. Content." after directly
+//     capturing the live production footer's rendered text — a prior version
+//     of this comment asserted "Modern marketing built for discovery." was
+//     the live default; that was wrong, confirmed by direct evidence from the
+//     live site rather than the CMS fallback value in the legacy source.
 //
 // Two link targets needed a decision because they don't resolve cleanly even
 // in the legacy site:
@@ -29,19 +29,18 @@
 //     "Work" you'd actually expect this link to reach), which has
 //     id="case-studies" in this Astro port. Pointed there instead of
 //     reproducing the broken anchor.
-//   - "Articles" links to /articles, which has never been built in this
-//     Astro project (confirmed: no /articles or /portfolio route exists in
-//     src/pages/). Unlike the "Work" case, this isn't an in-page anchor that
-//     just no-ops — it's a hard 404. Omitted until an Articles page exists
-//     rather than shipping a dead route; revisit when that page is in scope.
+//   - "Articles" previously omitted because /articles hadn't been built yet
+//     (would have been a hard 404). /articles now exists as a locked-scope
+//     resource page, so the link is restored.
 const footerLinks = [
   { label: 'Services', href: '/#focus' },
   { label: 'Work', href: '/#case-studies' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Articles', href: '/articles' },
   { label: 'Contact', href: '/contact' },
 ];
 
-const tagline = 'Modern marketing built for discovery.';
+const tagline = 'AEO. SEO. Content.';
 const year = new Date().getFullYear();
 ---
 

@@ -1,151 +1,111 @@
 ---
+// Ported from client/src/pages/ServiceStrategyExecution.tsx in the legacy Replit repo.
 import Layout from '../../layouts/Layout.astro';
-import FaqAccordion from '../../components/FaqAccordion.astro';
-import RelatedLinks from '../../components/RelatedLinks.astro';
-import CtaBanner from '../../components/CtaBanner.astro';
+import ServiceLayout from '../../components/ServiceLayout.astro';
 import { faqPageSchema } from '../../lib/schema';
 
-const faqs = [
+const faqItems = [
   {
     question: 'What does a content marketing consultant do?',
     answer:
-      'A content marketing consultant builds the strategy behind what a company publishes and why — identifying which topics build authority and demand, how content connects to the buyer journey, and how individual pieces compound into a long-term asset rather than disappearing after one campaign cycle.',
+      'A content marketing consultant helps turn expertise into a repeatable strategy for attracting, educating, and converting the right audience. At S.LAB, that includes content strategy, editorial planning, content systems, repurposing frameworks, and measurement so content becomes a long-term growth asset instead of a one-off campaign.',
   },
   {
     question: 'How is content strategy different from content production?',
     answer:
-      "Content production is the act of writing and publishing individual pieces. Content strategy is the system that decides what gets produced, in what order, and why — based on what builds authority, what AI systems and search engines will reward, and what actually moves prospects toward a decision. Production without strategy produces volume; strategy without production produces plans that never ship.",
+      'Content strategy determines what to create, why it matters, who it serves, and how it supports business goals. Content production is the execution of that strategy. Strong content programs need both: a clear strategic foundation and a system for turning ideas into consistent, high-quality assets.',
   },
   {
-    question: 'Do you write the content or just provide the strategy?',
+    question: 'Do you only build the strategy, or do you also create the content?',
     answer:
-      "Both, depending on the engagement. Some clients need the full system built and executed; others have an internal team or in-house writer and need the strategic architecture — topic clusters, internal linking, positioning — built around them. The scope is set at the start of the engagement, not assumed.",
+      'Both options are available depending on the engagement. S.LAB can build the strategy and workflows for your internal team, collaborate with existing vendors, or help execute the content directly. Every engagement starts with the system, then moves into the level of execution support your team needs.',
   },
   {
-    question: 'What industries do you specialize in?',
+    question: 'What kinds of content can the system produce?',
     answer:
-      'The work is concentrated in B2B and SaaS, where the buying process is longer, more research-driven, and more dependent on demonstrated expertise than impulse-driven categories. The same principles apply elsewhere, but the content systems described here are built for buyers who read multiple sources before they ever talk to sales.',
+      'A strong content system can support articles, newsletters, case studies, thought leadership, social posts, sales enablement assets, executive content, email sequences, and campaign materials. The goal is to turn one strong idea or source of expertise into multiple useful assets across the channels your audience actually uses.',
   },
   {
-    question: 'How long before content marketing shows results?',
+    question: 'How long does content marketing take to show results?',
     answer:
-      "Early signals — initial rankings, first AI citations, engagement on cornerstone pieces — typically show up within a few months. The larger payoff, where content compounds into a meaningful share of qualified pipeline, takes longer and depends on publishing consistency and how competitive the topic space is. Content marketing is a long-game asset, not a quick-win channel.",
+      'Early improvements can happen quickly when messaging, internal links, and existing content are cleaned up. Larger gains usually take several months because content marketing compounds through search visibility, AI citations, backlinks, audience trust, and repeated exposure. The goal is to build assets that become more valuable over time.',
   },
   {
-    question: "What's the difference between content marketing and SEO?",
+    question: 'What is content atomization?',
     answer:
-      'SEO is one channel content can be optimized for — organic search rankings. Content marketing is broader: it includes SEO, but also covers content built for AI citation (AEO), sales enablement, authority building, and nurturing prospects who already know your brand. Treating SEO as the whole strategy undersells what well-built content systems can do.',
+      'Content atomization is the process of turning one substantial idea, interview, webinar, report, or article into multiple smaller assets. For example, one founder interview might become a blog post, LinkedIn posts, newsletter copy, sales talking points, and short-form clips. It helps teams get more value from the expertise they already have.',
   },
 ];
+
+const schema = faqPageSchema(faqItems);
 ---
 
 <Layout
-  title="Content Marketing Consultant for B2B Brands | Schwartz Marketing Lab"
-  description="B2B content marketing consulting that builds authority and drives qualified demand over time. Content strategy and systems for SaaS and B2B brands."
+  title="Content Systems for B2B Brands | Schwartz Marketing Lab"
+  description="Build a repeatable system that transforms ideas, conversations, and customer insights into content that compounds across every channel."
   canonicalPath="/services/content-systems"
-  schema={faqPageSchema(faqs)}
+  schema={schema}
 >
-  <div class="wrapper">
-    <section class="page-hero">
-      <span class="eyebrow">Content Systems</span>
-      <h1>Content Marketing Consulting That Compounds</h1>
-      <p class="intro">
-        Most content marketing resets to zero every quarter — a new campaign, a new calendar, a new scramble for
-        topics. Content systems are built differently: every asset adds to the ones before it, so the content
-        published in month twelve generates more qualified demand than the content published in month one, without
-        a proportional increase in spend.
-      </p>
-      <div class="hero-cta">
-        <a class="button" href="/packages">See how we work with clients</a>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>What Is a Content Marketing Consultant?</h2>
-      <p>
-        A content marketing consultant designs the strategy that determines what a company publishes, in what
-        order, and to what end — rather than producing content on an ad hoc basis. The role sits upstream of
-        writing: it's the architecture of topics, internal links, and authority-building sequence that determines
-        whether content compounds or simply accumulates.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>Why B2B Brands Need a Content Strategy, Not Just Content</h2>
-      <p>
-        Publishing without strategy produces a library of disconnected posts that rank inconsistently, dilute
-        topical authority, and rarely build on each other. A strategy-led system instead builds toward specific
-        topic clusters, so each new piece reinforces the ones already published — strengthening search rankings, AI
-        citation potential, and backlink accumulation simultaneously, rather than starting over with every post.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>What Content Systems Actually Looks Like in Practice</h2>
-      <p>
-        In practice, this means defining a small number of core topic clusters tied directly to your service
-        lines, sequencing content so foundational definitional pieces publish before competitive comparison
-        content, and building internal links that route authority from blog content into the service pages that
-        convert. None of this requires a large content team — it requires a system that makes every piece of
-        content do more than one job.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>SaaS Content Marketing: Strategy Before Production</h2>
-      <p>
-        SaaS buyers research extensively before booking a call, comparing vendors across multiple sources and
-        often consulting AI tools before ever visiting a pricing page. Content built for SaaS audiences needs to
-        answer comparison questions directly and early — "X vs. Y," "is X worth it," "what does X actually do" —
-        because those are the queries buyers and AI systems alike are searching for. Producing content without
-        first mapping these questions wastes effort on topics no one is asking.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>Content Strategy Services: What's Included</h2>
-      <p>
-        A typical engagement includes a topic cluster and keyword audit, a content calendar sequenced for
-        compounding authority rather than even output, internal linking architecture between blog and service
-        pages, and either full content production or strategic oversight of an in-house writer, depending on what
-        the client needs.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>Who This Is For</h2>
-      <p>
-        This is built for B2B and SaaS companies that are either starting from a blank slate and want to avoid
-        building a content library that has to be redone in a year, or that already publish regularly but aren't
-        seeing the rankings, AI citations, or qualified leads that consistent output should produce.
-      </p>
-    </section>
-
-    <FaqAccordion items={faqs} />
-
-    <RelatedLinks
-      links={[
-        {
-          label: 'Executive Authority',
-          href: '/services/executive-authority',
-          description: 'The natural next step once content systems are in place.',
-        },
-        {
-          label: 'Work With Me',
-          href: '/packages',
-          description: 'See how content systems fit into a full engagement.',
-        },
-        {
-          label: 'About',
-          href: '/about',
-          description: 'The journalism background behind the strategy.',
-        },
-      ]}
-    />
-
-    <CtaBanner
-      heading="Ready to build content that compounds?"
-      body="We'll show you exactly which topics are worth the investment — and which ones aren't."
-    />
-  </div>
+  <ServiceLayout
+    serviceLabel="Content Systems"
+    headline="Turn expertise into a content engine."
+    subhead="Build a repeatable system that transforms ideas, conversations, and customer insights into content that compounds across every channel."
+    sectionHeading="Most teams have the content."
+    overview={[
+      'Most companies are not short on expertise.',
+      'They are short on systems.',
+      'The best content programs do not start from scratch every week. They capture what already exists — customer questions, founder insight, sales conversations, webinars, podcasts, product knowledge — and turn it into assets that support every stage of the funnel.',
+      'S.LAB builds the strategy, workflows, and content engine that keeps valuable ideas from getting lost, then helps execute the work that brings the system to life.',
+    ]}
+    whatIncluded={[
+      {
+        title: 'Content Audit',
+        description: 'A clear assessment of what exists, what is working, what is outdated, and where the biggest content opportunities are.',
+      },
+      {
+        title: 'Editorial Strategy',
+        description: 'Content pillars, funnel mapping, audience priorities, and a roadmap that gives every piece a reason to exist.',
+      },
+      {
+        title: 'Content Atomization Framework',
+        description: 'A repeatable system for turning one high-value idea, interview, podcast, webinar, or report into many channel-specific assets.',
+      },
+      {
+        title: 'Pillar Content Development',
+        description: 'Flagship assets built to anchor campaigns, support search, educate buyers, and create material worth repurposing.',
+      },
+      {
+        title: 'Lifecycle & Distribution Content',
+        description: 'Newsletters, nurture emails, social content, and supporting assets that move ideas across the channels your audience actually uses.',
+      },
+      {
+        title: 'Measurement & Optimization',
+        description: 'A practical reporting system for tracking what is working, improving what is not, and tying content back to business goals.',
+      },
+    ]}
+    cardIcons={['clipboard-list', 'layout-list', 'layers', 'book-open', 'mail', 'bar-chart-2']}
+    processTitle="How we build your content flywheel"
+    process={[
+      { number: '01', title: 'Capture & Audit', description: 'Identify your strongest existing assets, expertise, buyer questions, and content opportunities.' },
+      { number: '02', title: 'Build the System', description: 'Create the editorial roadmap, content pillars, workflows, repurposing framework, and production process.' },
+      { number: '03', title: 'Create & Repurpose', description: 'Turn ideas into articles, newsletters, case studies, social content, sales assets, and campaign materials.' },
+      { number: '04', title: 'Optimize & Scale', description: 'Track what works, improve the system, and keep the content engine compounding over time.' },
+    ]}
+    whoItsFor={`Teams creating content without a clear system\nFounders with expertise but no repeatable way to turn it into content\nMarketing teams stretched across too many channels\nBrands investing in content but struggling to prove impact\nCompanies trying to get more value from existing content`}
+    testimonialQuote="Quinn is one of the most talented writers I've had the pleasure of working with. His ability to capture the vision and value propositions across any project and translate them into copy that's both easy to read and genuinely compelling is unmatched. He brings a rare and valuable blend of strategic thinking and hands-on execution."
+    testimonialAuthor="Olivia McNaughten"
+    testimonialRole="Director, Product GTM · ShopMy (formerly @ GRIN)"
+    proofPoints={[
+      { stat: '1 Idea', label: 'many assets' },
+      { stat: '1 System', label: 'every channel' },
+      { stat: '1 Strategy', label: 'compounding growth' },
+    ]}
+    proofRows={[
+      { client: 'Content Atomization', category: '', result: 'One Idea, Many Assets' },
+      { client: 'Editorial Operations', category: '', result: 'Repeatable Publishing System' },
+      { client: 'Measurement & Optimization', category: '', result: 'Content Tied to Business Goals' },
+    ]}
+    faqItems={faqItems}
+    ctaLabel="S.LAB"
+  />
 </Layout>
