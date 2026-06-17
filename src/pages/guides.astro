@@ -1,0 +1,135 @@
+---
+// Ported from client/src/pages/Guides.tsx in the legacy Replit repo —
+// coming-soon placeholder, unified design system.
+import Layout from '../layouts/Layout.astro';
+
+const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`;
+---
+
+<Layout
+  title="Guides | Schwartz Marketing Lab"
+  description="Practical, opinionated guides on content strategy, brand building, and showing up in AI-powered search."
+  canonicalPath="/guides"
+>
+  <div class="page" style={{ backgroundImage: grain }}>
+    <section class="hero">
+      <div class="ruled-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="eyebrow">Resources — Guides</p>
+        <h1 class="headline">Frameworks you can use.</h1>
+        <p class="intro">Practical, opinionated guides on content strategy, brand building, and showing up in AI-powered search.</p>
+      </div>
+    </section>
+
+    <section class="placeholder-section">
+      <div class="wrap">
+        <div class="placeholder-box" style={{ backgroundImage: grain }}>
+          <p class="coming-soon">Coming soon</p>
+          <p class="placeholder-headline">Guides coming soon.</p>
+          <p class="placeholder-body">Practical, opinionated guides on content strategy, AEO, and building authority. In the works.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
+    padding: 96px clamp(24px, 5vw, 64px) 72px;
+  }
+
+  .ruled-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 47px, hsl(var(--foreground) / 0.05) 47px, hsl(var(--foreground) / 0.05) 48px);
+  }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .eyebrow {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: hsl(var(--cobalt));
+    margin: 0 0 24px;
+  }
+
+  .headline {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    color: hsl(var(--foreground));
+    font-size: clamp(40px, 5.5vw, 64px);
+    max-width: 680px;
+    margin: 0 0 24px;
+  }
+
+  .intro {
+    font-family: var(--font-body);
+    line-height: 1.75;
+    color: hsl(var(--foreground) / 0.55);
+    font-size: 17px;
+    max-width: 460px;
+    margin: 0;
+  }
+
+  .placeholder-section {
+    padding: 88px clamp(24px, 5vw, 64px);
+  }
+
+  .placeholder-box {
+    border: 1px dashed hsl(var(--foreground) / 0.12);
+    background-color: hsl(var(--card) / 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 88px 40px;
+  }
+
+  .coming-soon {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: hsl(var(--cobalt));
+    opacity: 0.5;
+    margin: 0 0 12px;
+  }
+
+  .placeholder-headline {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-size: 32px;
+    color: hsl(var(--foreground) / 0.2);
+    margin: 0;
+  }
+
+  .placeholder-body {
+    font-family: var(--font-body);
+    color: hsl(var(--foreground) / 0.35);
+    font-size: 15px;
+    max-width: 340px;
+    margin: 16px 0 0;
+  }
+</style>

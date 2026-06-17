@@ -29,15 +29,14 @@
 //     "Work" you'd actually expect this link to reach), which has
 //     id="case-studies" in this Astro port. Pointed there instead of
 //     reproducing the broken anchor.
-//   - "Articles" links to /articles, which has never been built in this
-//     Astro project (confirmed: no /articles or /portfolio route exists in
-//     src/pages/). Unlike the "Work" case, this isn't an in-page anchor that
-//     just no-ops — it's a hard 404. Omitted until an Articles page exists
-//     rather than shipping a dead route; revisit when that page is in scope.
+//   - "Articles" previously omitted because /articles hadn't been built yet
+//     (would have been a hard 404). /articles now exists as a locked-scope
+//     resource page, so the link is restored.
 const footerLinks = [
   { label: 'Services', href: '/#focus' },
   { label: 'Work', href: '/#case-studies' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Articles', href: '/articles' },
   { label: 'Contact', href: '/contact' },
 ];
 

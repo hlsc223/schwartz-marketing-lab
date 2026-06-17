@@ -1,8 +1,62 @@
 ---
+// Ported from client/src/pages/About.tsx in the legacy Replit repo. This
+// replaces an earlier generic placeholder version of this page (plain prose
+// sections + RelatedLinks + CtaBanner) that didn't match production at all.
+//
+// About.tsx pulls its copy from a CMS (site_content table, pageKey "about"),
+// not from literals in the component — so the structure came from About.tsx
+// but the actual current copy came from two sources:
+//   - attached_assets/Pasted-Update-the-About-page-with-the-following-copy-and-struc_*.txt
+//     (the approved copy-update spec) for every field it explicitly changed:
+//     heroH1, heroSubhead, founderBioP1–3, value03Body (Creativity), the
+//     comparison table, the "Best fit for" section, and ctaHeading.
+//   - server/storage.ts's seed defaults for fields the spec didn't touch:
+//     valuesHeading, value01/02/04 title+body.
+// The testimonial (Brandon Brown / Joymore), comparison table, and "Best fit
+// for" list are already hardcoded directly in About.tsx's JSX (not CMS
+// fields) and match the copy spec verbatim, so they're ported as-is.
+//
+// Design-system choice: literal Tailwind classes, matching ServiceLayout.astro
+// and the new Packages page — About.tsx's own source is built the same way,
+// and several sections (core values grid, comparison table, CTA band) are
+// near-identical in structure to sections already ported that way.
+//
+// Asset: /quinn.png copied from the legacy repo's client/public/ into this
+// project's public/ — it didn't exist here yet.
+//
+// Rewritten for Astro:
+//   - InlineEditable / CMS fetch+mutation — removed (static content, no
+//     backend in this migration).
+//   - ArrowUpRight (lucide-react): inline arrow-up-right SVG, same pattern
+//     used on the Packages page CTA buttons.
 import Layout from '../layouts/Layout.astro';
-import RelatedLinks from '../components/RelatedLinks.astro';
-import CtaBanner from '../components/CtaBanner.astro';
 import { personSchema } from '../lib/schema';
+
+const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`;
+
+const VALUES = [
+  { n: '01', title: 'Speed.', body: "We move fast. Strategy doesn't sit in a deck for three weeks — it ships. Growth-focused brands don't have time to wait, and we're built to match that pace." },
+  { n: '02', title: 'Collaboration.', body: 'We don’t work at arm’s length. We embed in your team, learn your voice, respect your workflows, and fill the gaps that slow you down. The best client relationships feel like a really good hire.' },
+  { n: '03', title: 'Creativity.', body: 'The playbook changes fast. We test unconventional angles, challenge assumptions, and look for opportunities others miss. Safe gets ignored.' },
+  { n: '04', title: 'Accountability.', body: 'We agree on what success looks like before we start, then report against it honestly. You get the outcome, not just the output. The person you hired is the person who owns the result.' },
+];
+
+const COMPARISON: [string, string][] = [
+  ['Multiple layers between strategy and execution', 'Direct access to the strategist doing the work'],
+  ['Deliverables', 'Systems and outcomes'],
+  ['Project-by-project execution', 'Long-term growth infrastructure'],
+  ['Generic frameworks', 'Tailored positioning'],
+  ['Quarterly planning cycles', 'Fast iteration'],
+  ['SEO-only visibility', 'Search + AI discovery'],
+];
+
+const BEST_FIT = [
+  'Growth-stage SaaS companies',
+  'Founder-led businesses',
+  'Ecommerce brands',
+  'Lean marketing teams',
+  'Companies adapting to AI-driven discovery',
+];
 
 const schema = personSchema({
   name: 'Quinn Schwartz',
@@ -14,72 +68,253 @@ const schema = personSchema({
 
 <Layout
   title="About Schwartz Marketing Lab — AEO & Content Strategy Agency"
-  description="Quinn Schwartz is a former journalist and AEO strategist who built Schwartz Marketing Lab to help B2B companies get found in AI search and modern discovery systems."
+  description="Senior strategy and execution embedded directly in your team. No layers, no handoffs, no bloated retainers."
   canonicalPath="/about"
   schema={schema}
 >
-  <div class="wrapper">
-    <section class="page-hero">
-      <span class="eyebrow">About</span>
-      <h1>A better kind of agency.</h1>
-      <p class="intro">
-        Schwartz Marketing Lab was built on a simple premise: the way people find information has changed faster
-        than most agencies have adapted. Discovery now happens across Google, ChatGPT, Perplexity, and Claude — not
-        just one search box — and the strategy behind getting found needs to reflect that.
-      </p>
+  <div class="min-h-screen bg-background text-foreground" style={{ backgroundImage: grain }}>
+    {/* ── HERO ─────────────────────────────────────────────────────── */}
+    <section
+      class="pt-24 border-b border-foreground/[0.06] relative overflow-hidden"
+      style="padding: 96px clamp(24px, 5vw, 64px) 0;"
+    >
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style={`background-image: repeating-linear-gradient(0deg, transparent, transparent 47px, hsl(var(--foreground) / 0.05) 47px, hsl(var(--foreground) / 0.05) 48px);`}
+      />
+
+      {[
+        { top: '12px', left: '12px' },
+        { top: '12px', right: '12px' },
+        { bottom: '0', left: '12px' },
+        { bottom: '0', right: '12px' },
+      ].map((pos) => (
+        <svg width="12" height="12" viewBox="0 0 12 12" style={{ position: 'absolute', opacity: 0.1, ...pos }}>
+          <line x1="6" y1="0" x2="6" y2="12" stroke="hsl(var(--cobalt))" stroke-width="0.75" />
+          <line x1="0" y1="6" x2="12" y2="6" stroke="hsl(var(--cobalt))" stroke-width="0.75" />
+          <circle cx="6" cy="6" r="3" fill="none" stroke="hsl(var(--cobalt))" stroke-width="0.75" />
+        </svg>
+      ))}
+
+      <div class="absolute top-6 right-[clamp(24px,5vw,64px)] flex items-center gap-2" style="opacity: 0.3;">
+        <div class="w-4 h-px" style="background: hsl(var(--cobalt));" />
+        <span class="font-sans font-bold tracking-[0.22em] uppercase" style="font-size: 9px; color: hsl(var(--cobalt));">
+          S.LAB — About
+        </span>
+      </div>
+
+      <div class="max-w-[1100px] mx-auto">
+        <p class="font-sans text-[10px] font-bold tracking-[0.24em] uppercase mb-6" style="color: hsl(var(--cobalt));">
+          About
+        </p>
+
+        <h1
+          class="font-sans font-black leading-[0.96] tracking-[-0.04em] text-foreground mb-8"
+          style="font-size: clamp(48px, 6vw, 72px); max-width: 740px;"
+        >
+          Built for modern discovery.
+        </h1>
+
+        <p class="font-serif text-foreground/60 leading-[1.7] mb-16" style="font-size: 20px; max-width: clamp(500px, 55vw, 700px);">
+          Senior strategy and execution embedded directly in your team. No layers, no handoffs, no bloated retainers.
+        </p>
+      </div>
     </section>
 
-    <section class="content-section">
-      <h2>A journalism background, applied to discoverability</h2>
-      <p>
-        Before founding Schwartz Marketing Lab, Quinn Schwartz worked as a journalist, writing more than 1,000
-        bylines and earning Keystone Press awards along the way. That background shapes how the agency approaches
-        content: every piece is built to hold up under the same scrutiny a journalist would apply — is this
-        accurate, is this specific, does this actually add information the reader didn't already have.
-      </p>
-      <p>
-        That standard turns out to matter more, not less, in an AI search environment. Systems like ChatGPT and
-        Perplexity reward content that demonstrates real expertise and penalize content that simply restates
-        what's already been said elsewhere. A journalism background is, in practice, training for exactly the kind
-        of writing AEO rewards.
-      </p>
+    {/* ── FOUNDER + PHOTO ──────────────────────────────────────────── */}
+    <section class="border-b border-foreground/[0.06]" style="padding: 48px clamp(24px, 5vw, 64px) 88px;">
+      <div class="max-w-[1100px] mx-auto grid md:grid-cols-2 gap-16 md:gap-20 items-start">
+        <div class="relative w-full" style="aspect-ratio: 4/5; max-width: 420px;">
+          <div class="absolute inset-0 border border-foreground/[0.09] overflow-hidden">
+            <img src="/quinn.png" alt="Quinn Schwartz" class="w-full h-full object-cover object-top" />
+          </div>
+          <div
+            class="absolute pointer-events-none"
+            style="inset: 0; border: 1px solid hsl(var(--cobalt) / 0.18); transform: translate(10px, 10px);"
+          />
+        </div>
+
+        <div class="flex flex-col justify-center" style="padding-top: 8px;">
+          <p class="font-sans text-[10px] font-bold tracking-[0.22em] uppercase mb-4" style="color: hsl(var(--cobalt));">
+            Founder
+          </p>
+          <h2 class="font-sans font-black leading-[1.05] tracking-[-0.03em] text-foreground mb-6" style="font-size: clamp(28px, 3vw, 36px);">
+            Quinn Schwartz
+          </h2>
+
+          <div class="space-y-6">
+            <p class="font-serif text-[17px] text-foreground/65 leading-[1.85]">
+              Before starting Schwartz Marketing Lab, Quinn worked as a journalist covering local communities across Montana, Pennsylvania, and Kentucky. Along the way, he earned bylines in more than 1,000 publications and won two Keystone Press Awards.
+            </p>
+            <p class="font-serif text-[17px] text-foreground/65 leading-[1.85]">
+              That background shaped how he approaches marketing today. The goal is not to create more content. The goal is to find the stories, insights, and ideas that deserve attention, then make sure the right people discover them.
+            </p>
+            <p class="font-serif text-[17px] text-foreground/65 leading-[1.85]">
+              Today Quinn works with SaaS companies, ecommerce brands, and founder-led businesses to improve positioning, strengthen visibility, and build systems that compound over time.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="content-section">
-      <h2>Why "AEO agency" and not something broader</h2>
-      <p>
-        Schwartz Marketing Lab doesn't try to be a full-service marketing agency, and intentionally doesn't claim
-        categories like paid media or product-led growth that other firms own more credibly. The focus is
-        narrower and more specific: helping B2B brands become discoverable and citable across both traditional
-        search and AI answer engines, through SEO, AEO, content strategy, and authority building working together
-        rather than as separate line items.
-      </p>
+    {/* ── TESTIMONIAL ──────────────────────────────────────────────── */}
+    <section
+      class="border-b border-foreground/[0.06]"
+      style={{ padding: '88px clamp(24px, 5vw, 64px)', backgroundColor: 'hsl(var(--card))', backgroundImage: grain }}
+    >
+      <div class="max-w-[1100px] mx-auto">
+        <div style="max-width: 700px;">
+          <div class="font-serif select-none" style="font-size: 80px; line-height: 0.75; color: hsl(var(--cobalt)); opacity: 0.15; margin-bottom: 12px; letter-spacing: -0.04em;">
+            "
+          </div>
+          <blockquote class="font-serif italic text-foreground leading-[1.45]" style="font-size: 23px; margin: 0 0 44px; letter-spacing: -0.01em; max-width: 540px;">
+            Working with Quinn stood out because he moved quickly, brought original thinking to ambiguous problems, and translated messy founder context into clear public-facing ideas. He helped us think through AI visibility at a time when the category was changing quickly, including how we could show up credibly alongside more established companies and turn early observations into usable frameworks.
+          </blockquote>
+          <div class="flex items-center gap-[18px]">
+            <div class="w-px h-9 flex-shrink-0" style="background: hsl(var(--cobalt));" />
+            <div>
+              <p class="font-sans font-semibold text-[13px] text-foreground mb-0.5">Brandon Brown</p>
+              <p class="font-sans tracking-[0.1em] uppercase text-foreground/50" style="font-size: 11px;">
+                CEO &amp; Co-Founder · Joymore (formerly @ Search Party)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <RelatedLinks
-      heading="What this looks like in practice"
-      links={[
-        {
-          label: 'AEO & GEO',
-          href: '/services/answer-engine-optimization',
-          description: 'Getting found in ChatGPT, Perplexity, and AI Overviews.',
-        },
-        {
-          label: 'Content Systems',
-          href: '/services/content-systems',
-          description: 'Content built to compound, not just to publish.',
-        },
-        {
-          label: 'Executive Authority',
-          href: '/services/executive-authority',
-          description: 'LinkedIn and owned-channel authority building.',
-        },
-      ]}
-    />
+    {/* ── CORE VALUES ──────────────────────────────────────────────── */}
+    <section
+      class="border-b border-foreground/[0.06]"
+      style={{ padding: '88px clamp(24px, 5vw, 64px)', backgroundColor: 'hsl(var(--card) / 0.8)', backgroundImage: grain }}
+    >
+      <div class="max-w-[1100px] mx-auto">
+        <div class="mb-14">
+          <p class="font-sans text-[10px] font-bold tracking-[0.22em] uppercase mb-3" style="color: hsl(var(--cobalt));">
+            How we work
+          </p>
+          <h2 class="font-sans font-black leading-none tracking-[-0.035em] text-foreground" style="font-size: clamp(28px, 3.5vw, 40px);">
+            What sets us apart.
+          </h2>
+        </div>
 
-    <CtaBanner
-      heading="Want to talk through your specific situation?"
-      body="Book a call and we'll walk through where your brand stands today and where the highest-leverage opportunities are."
-    />
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2"
+          style="border-top: 1px solid hsl(var(--foreground) / 0.055); border-left: 1px solid hsl(var(--foreground) / 0.055);"
+        >
+          {VALUES.map((item) => (
+            <div
+              class="flex flex-col"
+              style="padding: 40px 32px 44px; border-right: 1px solid hsl(var(--foreground) / 0.055); border-bottom: 1px solid hsl(var(--foreground) / 0.055);"
+            >
+              <p class="font-sans font-black leading-none mb-5" style="font-size: 28px; letter-spacing: -0.05em; color: hsl(var(--cobalt) / 0.27);">
+                {item.n}
+              </p>
+              <p class="font-sans font-bold text-[16px] text-foreground mb-3.5 leading-snug tracking-[-0.01em]">{item.title}</p>
+              <p class="font-serif text-[14px] text-foreground/55 leading-[1.85]">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ── THE DIFFERENCE ──────────────────────────────────────────── */}
+    <section class="border-b border-foreground/[0.06]" style="padding: 88px clamp(24px, 5vw, 64px);">
+      <div class="max-w-[1100px] mx-auto">
+        <p class="font-sans font-bold tracking-[0.28em] uppercase mb-5" style="font-size: 11px; color: hsl(var(--cobalt));">
+          The difference
+        </p>
+        <div class="border-t border-foreground/[0.15] mb-8" />
+        <h2 class="font-sans font-black leading-[0.96] tracking-[-0.04em] text-foreground mb-6" style="font-size: clamp(32px, 4vw, 48px); max-width: 720px;">
+          The old agency model wasn't built for this.
+        </h2>
+        <p class="font-serif text-foreground/60 leading-[1.75] mb-10" style="font-size: 18px; max-width: 580px;">
+          Most agencies were built for a different era. S.LAB was built for modern discovery.
+        </p>
+
+        <div class="border-t border-foreground/[0.07]">
+          <div class="grid grid-cols-2">
+            <div style="padding: 14px 32px 14px 0;">
+              <p class="font-sans text-[10px] font-bold tracking-[0.22em] uppercase text-foreground/30">Traditional Agency</p>
+            </div>
+            <div class="border-l border-foreground/[0.07]" style="padding: 14px 0 14px 32px;">
+              <p class="font-sans font-black tracking-[0.22em] uppercase" style="font-size: 11px; color: hsl(var(--cobalt));">S.LAB</p>
+            </div>
+          </div>
+
+          {COMPARISON.map(([left, right]) => (
+            <div class="grid grid-cols-2 border-t border-foreground/[0.07]">
+              <div style="padding: 16px 32px 16px 0;">
+                <p class="font-serif text-[15px] text-foreground/38 leading-[1.55]">{left}</p>
+              </div>
+              <div class="border-l border-foreground/[0.07]" style="padding: 16px 0 16px 32px;">
+                <p class="font-serif text-[15px] text-foreground/75 leading-[1.55]">{right}</p>
+              </div>
+            </div>
+          ))}
+
+          <div class="border-t border-foreground/[0.07]" />
+        </div>
+      </div>
+    </section>
+
+    {/* ── BEST FIT ─────────────────────────────────────────────────── */}
+    <section
+      class="border-b border-foreground/[0.06]"
+      style={{ padding: '88px clamp(24px, 5vw, 64px)', backgroundColor: 'hsl(var(--card) / 0.5)', backgroundImage: grain }}
+    >
+      <div class="max-w-[1100px] mx-auto">
+        <p class="font-sans font-bold tracking-[0.28em] uppercase mb-5" style="font-size: 11px; color: hsl(var(--cobalt));">
+          Fit
+        </p>
+        <div class="border-t border-foreground/[0.15] mb-8" />
+        <h2 class="font-sans font-black leading-[0.96] tracking-[-0.04em] text-foreground mb-10" style="font-size: clamp(28px, 3.5vw, 42px);">
+          Best fit for
+        </h2>
+        <ul>
+          {BEST_FIT.map((item) => (
+            <li class="font-serif text-[16px] text-foreground/65 leading-none border-t border-foreground/[0.07]" style="padding: 14px 0;">
+              {item}
+            </li>
+          ))}
+          <li class="border-t border-foreground/[0.07]" />
+        </ul>
+      </div>
+    </section>
+
+    {/* ── CTA (dark) ───────────────────────────────────────────────── */}
+    <section class="relative overflow-hidden" style={{ padding: '104px clamp(24px, 5vw, 64px)', backgroundColor: '#12121e', backgroundImage: grain }}>
+      <div
+        class="absolute font-sans font-black select-none pointer-events-none"
+        style="right: -16px; bottom: -48px; font-size: clamp(120px, 20vw, 260px); line-height: 1; letter-spacing: -0.05em; color: hsl(var(--cobalt)); opacity: 0.04;"
+      >
+        S.LAB
+      </div>
+
+      <div class="max-w-[1100px] mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-10 relative z-10">
+        <div>
+          <p class="font-sans font-bold tracking-[0.22em] uppercase mb-5" style="font-size: 10px; color: hsl(var(--cobalt));">
+            Work with us
+          </p>
+          <h2 class="font-sans font-black leading-[0.96] tracking-[-0.04em] m-0" style="font-size: clamp(36px, 5vw, 56px); color: hsl(var(--background));">
+            Let's figure out what's holding you back.
+          </h2>
+        </div>
+        <a
+          href="/contact"
+          class="flex-shrink-0 inline-flex items-center gap-2.5 font-sans font-bold text-[12px] tracking-[0.07em] uppercase text-white border-none transition-colors duration-150 about-cta"
+          style="background: hsl(var(--cobalt)); padding: 16px 32px;"
+        >
+          Get in touch
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+      </div>
+    </section>
   </div>
 </Layout>
+
+<style>
+  .about-cta:hover {
+    background: hsl(var(--cobalt-deep)) !important;
+  }
+</style>

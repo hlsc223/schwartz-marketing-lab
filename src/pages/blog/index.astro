@@ -1,9 +1,15 @@
 ---
+// Rebuilt to match the unified design system shared by /case-studies,
+// /guides, and /articles (grain texture, cobalt accent, ruled-line hero,
+// row-list archive). Previously used a stale design system
+// (var(--color-text), .post-grid cards) inherited from an earlier pass.
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`;
 ---
 
 <Layout
@@ -11,66 +17,293 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
   description="AEO, SEO, and content strategy insights for B2B brands trying to get found in AI search and modern discovery systems."
   canonicalPath="/blog"
 >
-  <div class="wrapper">
-    <section class="page-hero">
-      <span class="eyebrow">Blog</span>
-      <h1>Insights on getting found.</h1>
-      <p class="intro">
-        Practical writing on AEO, SEO, and content strategy — for brands trying to stay visible as discovery
-        shifts from search results to AI-generated answers.
-      </p>
+  <div class="page" style={{ backgroundImage: grain }}>
+    <section class="hero">
+      <div class="ruled-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="eyebrow">Resources — Blog</p>
+        <h1 class="headline">Insights on getting found.</h1>
+        <p class="intro">
+          Practical writing on AEO, SEO, and content strategy — for brands trying to stay visible as discovery
+          shifts from search results to AI-generated answers.
+        </p>
+      </div>
     </section>
 
-    <section class="content-section">
-      {posts.length === 0 ? (
-        <p>New posts are on the way. Check back soon.</p>
-      ) : (
-        <div class="post-grid">
-          {posts.map((post) => (
-            <a class="post-card" href={`/blog/${post.id}`}>
-              <span class="post-date">
-                {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-              </span>
-              <h2>{post.data.title}</h2>
-              <p>{post.data.description}</p>
-            </a>
-          ))}
-        </div>
-      )}
+    <section class="archive">
+      <div class="wrap">
+        {posts.length === 0 ? (
+          <div class="placeholder-box" style={{ backgroundImage: grain }}>
+            <p class="coming-soon">Coming soon</p>
+            <p class="placeholder-headline">New posts on the way.</p>
+            <p class="placeholder-body">Check back soon for writing on AEO, SEO, and content strategy.</p>
+          </div>
+        ) : (
+          <ul class="post-list">
+            {posts.map((post) => (
+              <li class="post-row">
+                <a href={`/blog/${post.id}`} class="post-link">
+                  <span class="accent-bar" aria-hidden="true"></span>
+                  <div class="row-grid">
+                    <div class="row-left">
+                      <span class="row-date">
+                        {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                      </span>
+                    </div>
+                    <div class="row-right">
+                      <h2 class="row-title">{post.data.title}</h2>
+                      <p class="row-summary">{post.data.description}</p>
+                      <span class="row-cta">
+                        Read Article
+                        <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                      </span>
+                    </div>
+                    <div class="row-arrow">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </section>
   </div>
 </Layout>
 
 <style>
-  .post-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+  .page {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 
-  .post-card {
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
+    padding: 96px clamp(24px, 5vw, 64px) 72px;
+  }
+
+  .ruled-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 47px, hsl(var(--foreground) / 0.05) 47px, hsl(var(--foreground) / 0.05) 48px);
+  }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .eyebrow {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: hsl(var(--cobalt));
+    margin: 0 0 24px;
+  }
+
+  .headline {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    color: hsl(var(--foreground));
+    font-size: clamp(40px, 5.5vw, 64px);
+    max-width: 680px;
+    margin: 0 0 24px;
+  }
+
+  .intro {
+    font-family: var(--font-body);
+    line-height: 1.75;
+    color: hsl(var(--foreground) / 0.55);
+    font-size: 17px;
+    max-width: 480px;
+    margin: 0;
+  }
+
+  .archive {
+    padding: 0 clamp(24px, 5vw, 64px) 120px;
+  }
+
+  .placeholder-box {
+    margin-top: 88px;
+    border: 1px dashed hsl(var(--foreground) / 0.12);
+    background-color: hsl(var(--card) / 0.5);
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: var(--border-frame);
-    color: var(--color-text);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 88px 40px;
   }
 
-  .post-date {
+  .coming-soon {
     font-family: var(--font-heading);
-    font-size: 0.8rem;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
+    color: hsl(var(--cobalt));
+    opacity: 0.5;
+    margin: 0 0 12px;
   }
 
-  .post-card h2 {
-    font-size: 1.3rem;
-  }
-
-  .post-card p {
-    color: var(--color-text-muted);
+  .placeholder-headline {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-size: 32px;
+    color: hsl(var(--foreground) / 0.2);
     margin: 0;
+  }
+
+  .placeholder-body {
+    font-family: var(--font-body);
+    color: hsl(var(--foreground) / 0.35);
+    font-size: 15px;
+    max-width: 360px;
+    margin: 16px 0 0;
+  }
+
+  .post-list {
+    border-top: 1px solid hsl(var(--foreground) / 0.1);
+  }
+
+  .post-row {
+    border-bottom: 1px solid hsl(var(--foreground) / 0.1);
+  }
+
+  .post-link {
+    display: block;
+    position: relative;
+  }
+
+  .accent-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: hsl(var(--cobalt));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease-out;
+  }
+
+  .post-link:hover .accent-bar {
+    transform: scaleY(1);
+  }
+
+  .row-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px 24px;
+    padding: 48px 12px;
+    transition: background-color 0.3s ease;
+  }
+
+  .post-link:hover .row-grid {
+    background-color: hsl(var(--foreground) / 0.025);
+  }
+
+  .row-left {
+    grid-column: span 12;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .row-date {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.35);
+  }
+
+  .row-right {
+    grid-column: span 11;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .row-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-size: clamp(24px, 3vw, 36px);
+    color: hsl(var(--foreground));
+    margin: 0;
+  }
+
+  .row-summary {
+    font-family: var(--font-body);
+    line-height: 1.65;
+    color: hsl(var(--foreground) / 0.55);
+    font-size: 15px;
+    max-width: 580px;
+    margin: 0;
+  }
+
+  .row-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.35);
+    transition: color 0.2s ease;
+  }
+
+  .post-link:hover .row-cta {
+    color: hsl(var(--foreground));
+  }
+
+  .row-arrow {
+    display: none;
+    grid-column: span 1;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-top: 4px;
+  }
+
+  .row-arrow svg {
+    width: 24px;
+    height: 24px;
+    color: hsl(var(--foreground) / 0.25);
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+  }
+
+  .post-link:hover .row-arrow svg {
+    transform: translate(4px, -4px);
+    color: hsl(var(--foreground));
+  }
+
+  @media (min-width: 768px) {
+    .row-left {
+      grid-column: span 3;
+    }
+    .row-right {
+      grid-column: span 8;
+    }
+    .row-arrow {
+      display: flex;
+      grid-column: span 1;
+    }
   }
 </style>

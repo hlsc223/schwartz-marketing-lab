@@ -1,0 +1,300 @@
+---
+// Ported from client/src/pages/CaseStudies.tsx in the legacy Replit repo —
+// hardcoded STUDIES array of exactly the 3 case studies in scope, unified
+// design system (grain texture, cobalt accent, grid-cols-12 row layout with
+// hover left-accent bar). framer-motion scroll-reveal omitted (no client
+// framework here); static render is the faithful no-JS equivalent.
+import Layout from '../../layouts/Layout.astro';
+
+const STUDIES = [
+  {
+    index: '01',
+    client: 'Nooks',
+    category: 'AEO & Content',
+    result: '43% Share of Voice Growth',
+    summary: 'Built an AEO content program that generated 43% share of voice growth and 37% visibility gains for an AI-native sales platform.',
+    href: '/case-studies/nooks-aeo',
+  },
+  {
+    index: '02',
+    client: 'Search Party',
+    category: 'AEO & Executive Authority',
+    result: 'Top 4 Across High-Intent AI Prompts',
+    summary: 'Built visibility and credibility for an emerging AI startup through AEO strategy, executive thought leadership, and newsletter content before launch.',
+    href: '/case-studies/search-party-aeo',
+  },
+  {
+    index: '03',
+    client: 'GRIN',
+    category: 'Content Systems',
+    result: 'One Report. A Quarter of Content.',
+    summary: 'Turned original consumer research into a narrative platform powering content, earned media, thought leadership, and market positioning.',
+    href: '/case-studies/grin-content-systems',
+  },
+];
+---
+
+<Layout
+  title="Case Studies | Schwartz Marketing Lab"
+  description="Deep-dives into client engagements — what we did, how we did it, and what moved the needle."
+  canonicalPath="/case-studies"
+>
+  <div class="cs-index">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="ruled-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="eyebrow">Resources — Case Studies</p>
+        <h1 class="headline">Results That Hold Up.</h1>
+        <p class="intro">Deep-dives into client engagements — what we did, how we did it, and what moved the needle.</p>
+      </div>
+    </section>
+
+    <!-- Archive listing -->
+    <section class="archive">
+      <div class="wrap">
+        <ul class="study-list">
+          {STUDIES.map((study) => (
+            <li class="study-row">
+              <a href={study.href} class="study-link">
+                <span class="accent-bar" aria-hidden="true"></span>
+                <div class="row-grid">
+                  <div class="row-left">
+                    <span class="row-index">{study.index}</span>
+                    <h2 class="row-client">{study.client}</h2>
+                    <span class="row-category">{study.category}</span>
+                  </div>
+                  <div class="row-right">
+                    <h3 class="row-result">{study.result}</h3>
+                    <p class="row-summary">{study.summary}</p>
+                    <span class="row-cta">
+                      View Case Study
+                      <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                    </span>
+                  </div>
+                  <div class="row-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .cs-index {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
+    padding: 96px clamp(24px, 5vw, 64px) 72px;
+  }
+
+  .ruled-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 47px, hsl(var(--foreground) / 0.05) 47px, hsl(var(--foreground) / 0.05) 48px);
+  }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .eyebrow {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: hsl(var(--cobalt));
+    margin: 0 0 24px;
+  }
+
+  .headline {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    color: hsl(var(--foreground));
+    font-size: clamp(40px, 5.5vw, 64px);
+    max-width: 680px;
+    margin: 0 0 24px;
+  }
+
+  .intro {
+    font-family: var(--font-body);
+    line-height: 1.75;
+    color: hsl(var(--foreground) / 0.55);
+    font-size: 17px;
+    max-width: 440px;
+    margin: 0;
+  }
+
+  .archive {
+    padding: 0 clamp(24px, 5vw, 64px) 120px;
+  }
+
+  .study-list {
+    border-top: 1px solid hsl(var(--foreground) / 0.1);
+  }
+
+  .study-row {
+    border-bottom: 1px solid hsl(var(--foreground) / 0.1);
+  }
+
+  .study-link {
+    display: block;
+    position: relative;
+  }
+
+  .accent-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: hsl(var(--cobalt));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease-out;
+  }
+
+  .study-link:hover .accent-bar {
+    transform: scaleY(1);
+  }
+
+  .row-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px 24px;
+    padding: 48px 12px;
+    transition: background-color 0.3s ease;
+  }
+
+  .study-link:hover .row-grid {
+    background-color: hsl(var(--foreground) / 0.025);
+  }
+
+  .row-left {
+    grid-column: span 12;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .row-index {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.35);
+  }
+
+  .row-client {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    font-size: clamp(20px, 2.2vw, 26px);
+    color: hsl(var(--foreground));
+    margin: 0;
+  }
+
+  .row-category {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(var(--cobalt));
+  }
+
+  .row-right {
+    grid-column: span 11;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .row-result {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-size: clamp(28px, 3.8vw, 48px);
+    color: hsl(var(--foreground));
+    margin: 0;
+  }
+
+  .row-summary {
+    font-family: var(--font-body);
+    line-height: 1.65;
+    color: hsl(var(--foreground) / 0.55);
+    font-size: 15px;
+    max-width: 580px;
+    margin: 0;
+  }
+
+  .row-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.35);
+    transition: color 0.2s ease;
+  }
+
+  .study-link:hover .row-cta {
+    color: hsl(var(--foreground));
+  }
+
+  .row-arrow {
+    display: none;
+    grid-column: span 1;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-top: 4px;
+  }
+
+  .row-arrow svg {
+    width: 24px;
+    height: 24px;
+    color: hsl(var(--foreground) / 0.25);
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+  }
+
+  .study-link:hover .row-arrow svg {
+    transform: translate(4px, -4px);
+    color: hsl(var(--foreground));
+  }
+
+  @media (min-width: 768px) {
+    .row-left {
+      grid-column: span 3;
+    }
+    .row-right {
+      grid-column: span 8;
+    }
+    .row-arrow {
+      display: flex;
+      grid-column: span 1;
+    }
+  }
+</style>

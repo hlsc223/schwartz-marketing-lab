@@ -1,0 +1,73 @@
+---
+// Ported from client/src/pages/SearchPartyCase.tsx in the legacy Replit
+// repo. The two visibility screenshots were copied from the legacy repo's
+// attached_assets/ into public/images/case-studies/ for this port.
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyLayout from '../../components/CaseStudyLayout.astro';
+import { articleSchema, SITE_URL } from '../../lib/schema';
+
+const schema = articleSchema({
+  headline: 'Search Party x S.LAB',
+  description: 'How an AI visibility startup built authority before launch and earned top-four visibility alongside category leaders in just 90 days.',
+  datePublished: '2026-01-01',
+  url: new URL('/case-studies/search-party-aeo', SITE_URL).toString(),
+});
+---
+
+<Layout
+  title="Search Party x S.LAB | Case Study | Schwartz Marketing Lab"
+  description="How an AI visibility startup built authority before launch and earned top-four visibility alongside category leaders in just 90 days."
+  canonicalPath="/case-studies/search-party-aeo"
+  schema={schema}
+>
+  <CaseStudyLayout
+    categoryLabel="Case Study — AEO & Executive Authority"
+    title="Search Party x S.LAB"
+    subheads={[
+      'Top 4 Visibility Across High-Intent AI Prompts',
+      'How an AI visibility startup built authority before launch and earned top-four visibility alongside category leaders in just 90 days.',
+    ]}
+    aboutHeading="About Search Party"
+    aboutBody={["Search Party was an AI visibility platform that helped brands track, analyze, and improve how they appeared in AI-generated answers. As the AI search market accelerated, Search Party needed to educate buyers, establish credibility, and build awareness in a category already occupied by larger and better-known competitors."]}
+    resultsHeading="From Zero to Category Authority"
+    metrics={[
+      { value: '3,000+', label: 'Newsletter Subscribers' },
+      { value: 'Top 4', label: 'Across High-Intent AI Prompts' },
+      { value: '90 Days', label: 'To Meaningful Category Visibility' },
+    ]}
+    visualProof={{
+      label: 'AI Search Visibility',
+      intro: 'Search Party consistently appeared alongside established AI visibility platforms across high-intent commercial prompts.',
+      items: [
+        { src: '/images/case-studies/search-party-visibility-1.png', alt: 'Search Party ranked first for best AI visibility platform for marketing teams in 2026 in ChatGPT' },
+        { src: '/images/case-studies/search-party-visibility-2.png', alt: 'Search Party listed as top pick for marketing teams across AI visibility platforms in Google AI Overview' },
+      ],
+    }}
+    testimonialQuote={`Working with Quinn stood out because he moved quickly, brought original thinking to ambiguous problems, and translated messy founder context into clear public-facing ideas. He helped us think through AI visibility at a time when the category was changing quickly, including how we could show up credibly alongside more established companies and turn early observations into usable frameworks.
+
+He was also a strong ghostwriting and newsletter partner: fast, creative, collaborative, and dependable. I'd recommend him to founders or teams that need someone who can operate with limited structure, sharpen the narrative, and turn high-level strategy into writing people actually want to read.`}
+    testimonialAuthor="Brandon Brown"
+    testimonialRole="Founder, Search Party"
+    challengeHeading="Competing Against Entrenched AI Search Leaders"
+    challengeBody={[
+      'Search Party was entering an emerging market where established platforms already dominated the conversation around AI visibility, answer engine optimization, and AI search analytics.',
+      'Before the product launched, the company needed to build trust, educate potential buyers, and create visibility around its point of view. The challenge was not simply generating awareness. It was proving that Search Party deserved to be part of the category conversation.',
+    ]}
+    solutionHeading="Building Authority Before Launch. Proving It After."
+    solutionBody={[
+      "S.LAB developed and operated an executive-led content program centered around the founder's perspective on AI search, AI visibility, and answer engine optimization.",
+      'The newsletter launched before the product itself, creating a platform to educate the market, share original observations, and build a direct audience of practitioners and decision-makers.',
+      'Following launch, the strategy expanded into AEO-focused content designed to help answer engines understand, cite, and recommend Search Party alongside established category leaders.',
+    ]}
+    resultsConclusion={{
+      label: 'The Results',
+      heading: 'Category Authority in 90 Days',
+      paragraphs: [
+        'Within 90 days, the newsletter grew from zero subscribers to more than 3,000 readers while establishing Search Party as a recognized voice in the AI visibility space.',
+        'At the same time, AEO initiatives helped Search Party earn top-four visibility across high-intent prompts related to AI visibility, AI search analytics, and answer engine optimization.',
+        'The company consistently appeared alongside established competitors despite entering the market with no existing audience, authority, or brand recognition.',
+        'By combining executive thought leadership with answer-engine-focused content, Search Party transformed from an unknown startup into a credible participant in the AI search conversation.',
+      ],
+    }}
+  />
+</Layout>
