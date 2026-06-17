@@ -1,171 +1,116 @@
 ---
+// Ported from client/src/pages/ServiceAeoGeo.tsx in the legacy Replit repo —
+// every headline, stat, process step, deliverable, testimonial, FAQ, and
+// proof row below is copied verbatim from that file's default props, run
+// through the new ServiceLayout.astro (see that file's port notes).
 import Layout from '../../layouts/Layout.astro';
-import FaqAccordion from '../../components/FaqAccordion.astro';
-import RelatedLinks from '../../components/RelatedLinks.astro';
-import CtaBanner from '../../components/CtaBanner.astro';
+import ServiceLayout from '../../components/ServiceLayout.astro';
 import { faqPageSchema } from '../../lib/schema';
 
-const faqs = [
+const faqItems = [
   {
-    question: 'What is answer engine optimization?',
+    question: 'What is AEO?',
     answer:
-      "Answer engine optimization (AEO) is the practice of structuring content so AI systems — ChatGPT, Perplexity, Claude, and Google's AI Overviews — can find it, understand it, and cite it as a direct answer. Where traditional SEO optimizes for ranking in a list of links, AEO optimizes for being the source an AI system pulls from to construct its answer.",
+      "Answer Engine Optimization is the practice of structuring your content and technical foundation so AI systems like ChatGPT, Perplexity, and Google's AI Overviews can find, understand, and cite your brand when answering user questions.",
   },
   {
-    question: 'How is AEO different from SEO?',
+    question: "What's the difference between SEO and AEO?",
     answer:
-      'SEO targets a ranking position on a search results page; the user still has to click through to get an answer. AEO targets being the cited or quoted source inside an AI-generated answer, where the user may never visit your site at all. The two share infrastructure — crawlable pages, clear structure, authoritative content — but the success metric is different: rank versus citation.',
+      'SEO optimizes for ranking in traditional search results. AEO optimizes for being the source an AI system pulls from and cites when generating an answer. They share a foundation — technical health, content quality, topical authority — but AEO adds structured data, clear entity definitions, and answer-ready formatting that AI systems specifically reward.',
+  },
+  {
+    question: 'Is SEO still important?',
+    answer:
+      "Yes. AI Overviews and chat-based answers still draw heavily on sites with strong traditional SEO foundations — crawlability, site speed, topical authority, and backlink profile. AEO builds on top of SEO, it doesn't replace it.",
   },
   {
     question: 'Which AI platforms does AEO target?',
     answer:
-      "The primary platforms are ChatGPT, Google AI Overviews, Perplexity, and Claude. Each has a different retrieval and crawling approach, but all reward the same underlying qualities: clear definitions, well-structured pages, and content that directly answers a specific question rather than circling it.",
+      "We optimize for visibility across Google's AI Overviews, ChatGPT, Perplexity, Claude, and emerging answer engines — plus the platforms that feed them, like Reddit and YouTube, which AI systems frequently cite as sources.",
   },
   {
-    question: 'How do I get my brand to appear in ChatGPT and Perplexity?',
+    question: 'How long does answer engine optimization take to show results?',
     answer:
-      "Appearing in ChatGPT and Perplexity responses depends on your content being crawlable (static HTML, not JavaScript-only rendering), structured around clear questions and definitions, and credible enough to be treated as a reliable source. There is no submission process — visibility comes from being genuinely citable, not from technical tricks.",
-  },
-  {
-    question: 'Do I need AEO if I already invest in SEO?',
-    answer:
-      "Yes. SEO and AEO overlap but are not interchangeable. A page can rank well in traditional search while being invisible to AI answer engines if it lacks clear definitional structure, or it can be highly citable by AI systems while ranking modestly in traditional search. Brands that only optimize for one are leaving visibility on the table in the other.",
-  },
-  {
-    question: 'How long does AEO take to show results?',
-    answer:
-      "AEO citation can happen faster than traditional ranking growth, since AI systems re-crawl and re-evaluate sources more frequently than Google's index updates for competitive keywords. That said, building the authority that makes a source trustworthy enough to cite consistently is still a multi-month effort, not an overnight one.",
+      'Most clients see initial visibility gains within the first week as we stabilize technical and structural issues. Meaningful, compounding share-of-voice growth typically builds over 60–90 days as content and authority signals accumulate.',
   },
 ];
+
+const schema = faqPageSchema(faqItems);
 ---
 
 <Layout
-  title="Answer Engine Optimization Services | Schwartz Marketing Lab"
-  description="Answer engine optimization services that help B2B brands appear in ChatGPT, Google AI Overviews, Perplexity, and traditional search."
+  title="Answer Engine Optimization (AEO) Services | Schwartz Marketing Lab"
+  description="Own your visibility wherever search happens — Google, AI Overviews, ChatGPT, Perplexity, Reddit, and YouTube. Modern SEO and AEO built for how buyers actually search."
   canonicalPath="/services/answer-engine-optimization"
-  schema={faqPageSchema(faqs)}
+  schema={schema}
 >
-  <div class="wrapper">
-    <section class="page-hero">
-      <span class="eyebrow">Answer Engine Optimization</span>
-      <h1>Answer Engine Optimization That Drives Revenue</h1>
-      <p class="intro">
-        AI search is no longer experimental — it's where a growing share of B2B buyers start their research. We help
-        brands earn visibility inside ChatGPT, Google AI Overviews, Perplexity, and Claude, not just on page one of
-        Google.
-      </p>
-      <div class="hero-cta">
-        <a class="button" href="/packages">See how we work with clients</a>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>What Is Answer Engine Optimization?</h2>
-      <p>
-        Answer engine optimization (AEO) is the discipline of structuring content so AI systems can retrieve it,
-        understand it, and use it to construct an answer — with or without sending a click to your site. It treats
-        ChatGPT, Perplexity, Claude, and Google's AI Overviews as discovery surfaces in their own right, not as
-        an extension of the traditional search results page.
-      </p>
-      <p>
-        Practically, this means writing content that answers a specific question clearly and early, naming the
-        entities and platforms involved explicitly, and making sure the page is structured in a way a retrieval
-        system can parse — not buried under animation, infinite scroll, or JavaScript-rendered text that crawlers
-        never see.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>Why AEO Matters for B2B Brands</h2>
-      <p>
-        B2B buyers increasingly use AI tools to shortlist vendors, compare categories, and validate claims before
-        they ever fill out a contact form. If your brand isn't part of the answer an AI system gives when a
-        prospect asks "what is the best approach to X" or "who does Y," you've lost the opportunity before the
-        prospect reaches your website.
-      </p>
-      <p>
-        This is especially true for categories that are still forming. Being the source AI systems cite for a
-        definition — rather than competing for attention after the category is already crowded — is a compounding
-        advantage that gets harder to win later.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>AEO vs. SEO: What's Actually Different</h2>
-      <p>
-        SEO and AEO share infrastructure: both reward crawlable pages, clear writing, and earned authority. They
-        diverge in what counts as success. SEO succeeds when your page ranks and earns a click. AEO succeeds when
-        an AI system treats your content as a trustworthy source and surfaces it — sometimes with a citation,
-        sometimes without a click at all.
-      </p>
-      <p>
-        That distinction changes how a page should be written. Strong AEO content front-loads a direct, quotable
-        answer instead of building up to one, and it names things explicitly — platforms, competitors, categories —
-        because AI systems match on entities, not just keywords.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>Where We Help You Appear</h2>
-      <p>
-        We work across the platforms B2B buyers actually use for research: ChatGPT, Google AI Overviews,
-        Perplexity, and Claude. Each platform retrieves and weighs sources differently, but all of them favor
-        content that is structurally clear, directly responsive to a question, and backed by demonstrable
-        expertise rather than marketing language.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>How We Approach AEO</h2>
-      <p>
-        Our process starts with identifying the exact questions your buyers are asking AI systems — not just the
-        keywords they'd type into Google — and auditing whether your current content can actually be retrieved and
-        understood by those systems. Many sites fail at this step before content quality is even a factor:
-        JavaScript-rendered text, missing structured data, and buried definitions are invisible to AI crawlers no
-        matter how good the writing is underneath.
-      </p>
-      <p>
-        From there, we build content structured around clear definitions, comparison frameworks, and FAQ sections
-        marked up with schema — the same structural signals that make a page easy for a human to scan also make it
-        easy for a retrieval system to extract.
-      </p>
-    </section>
-
-    <section class="content-section">
-      <h2>What an AEO Engagement Includes</h2>
-      <p>
-        A typical engagement includes a technical and content audit of your existing site's AI visibility, a
-        prioritized list of definitional and comparison content to build or rework, structured data implementation
-        (FAQPage, Organization, and Article schema where relevant), and ongoing measurement of where and how your
-        brand shows up across AI platforms over time.
-      </p>
-    </section>
-
-    <FaqAccordion items={faqs} />
-
-    <RelatedLinks
-      links={[
-        {
-          label: 'Work With Me',
-          href: '/packages',
-          description: 'See how AEO fits into a full engagement.',
-        },
-        {
-          label: 'About',
-          href: '/about',
-          description: 'The journalism background behind the strategy.',
-        },
-        {
-          label: 'Content Systems',
-          href: '/services/content-systems',
-          description: 'The content infrastructure AEO depends on.',
-        },
-      ]}
-    />
-
-    <CtaBanner
-      heading="Want to know where your brand stands today?"
-      body="We'll show you exactly where you're visible — and invisible — across AI search and traditional search."
-    />
-  </div>
+  <ServiceLayout
+    serviceLabel="SEO & AEO"
+    headline="Own Your Visibility Wherever Search Happens."
+    subhead="Buyers search across Google, AI Overviews, ChatGPT, Perplexity, Reddit, and YouTube — often before they ever land on your site. We make sure you show up, get cited, and get chosen."
+    sectionHeading="What Is Answer Engine Optimization?"
+    overview={[
+      "Answer Engine Optimization is the discipline of structuring your content and technical foundation so AI systems — ChatGPT, Perplexity, Google's AI Overviews — can find, understand, and cite your brand when answering the questions your buyers are asking.",
+      "It builds on the same foundation as traditional SEO — crawlability, site health, topical authority — but adds the structured data, clear entity definitions, and answer-ready formatting that AI systems specifically reward.",
+      "We treat AEO and SEO as one system, not two competing disciplines. The goal is the same either way: be the source that gets found, cited, and trusted.",
+    ]}
+    whatIncluded={[
+      {
+        title: 'Modern Search Visibility Audit',
+        description:
+          "A full assessment of where you currently appear — and where you're invisible — across Google, AI Overviews, ChatGPT, Perplexity, and the platforms that feed them.",
+      },
+      {
+        title: 'Technical & Content Health Review',
+        description:
+          'Crawlability, site speed, structured data, and content quality checked against what both traditional search engines and AI systems need to surface and cite you.',
+      },
+      {
+        title: 'Revenue Opportunity Assessment',
+        description:
+          'Visibility gaps mapped against your actual revenue opportunities, so prioritization is based on business impact, not just search volume.',
+      },
+      {
+        title: '90-Day Action Plan',
+        description:
+          "A prioritized, sequenced roadmap — what to fix first, what to build next, and what to monitor — built around your team's capacity and your buyers' search behavior.",
+      },
+      {
+        title: 'Reporting & Measurement Dashboard',
+        description:
+          'Ongoing visibility tracking across search engines and AI answer engines, so you can see share-of-voice growth as it happens, not months later.',
+      },
+      {
+        title: 'Execution & Strategic Support',
+        description:
+          'Hands-on support implementing the roadmap — not just a deck, an actual partner executing alongside your team.',
+      },
+    ]}
+    whatIncludedSubtext="Six deliverables. Built around your visibility, your revenue, and your team."
+    cardIcons={['scan-search', 'file-search', 'trending-up', 'route', 'layout-dashboard', 'users']}
+    processTitle="How we make your brand the answer"
+    process={[
+      { number: '01', title: 'Audit', description: 'We map your current visibility across every search and AI surface that matters to your buyers.' },
+      { number: '02', title: 'Stabilize', description: 'We fix the technical and structural issues blocking search engines and AI systems from understanding your site.' },
+      { number: '03', title: 'Prioritize', description: 'We rank opportunities by revenue impact, not just traffic potential.' },
+      { number: '04', title: 'Build', description: 'We create and structure the content and data needed to earn citations and rankings.' },
+      { number: '05', title: 'Iterate', description: "We track what's working across every surface and compound it — dropping what isn't." },
+    ]}
+    whoItsFor={`Brands impacted by Google updates that crushed their organic visibility overnight\nTeams that need to understand how AI search is changing the way buyers find them\nCompanies investing heavily in content but seeing no compounding return\nCategory leaders defending share of voice against faster-moving competitors\nMarketing teams that need visibility results their leadership can see and trust`}
+    testimonialQuote="We saw a 43% lift in share of voice within the first quarter of working together. They didn't just hand us a report — they helped us actually execute."
+    testimonialAuthor="Natasha Zapanta"
+    testimonialRole="Lifecycle Marketing & Marketing Ops · Nooks"
+    proofPoints={[
+      { stat: '<7 days', label: 'avg. time to first visibility gains' },
+      { stat: '8+', label: 'search and AI surfaces audited' },
+      { stat: '100%', label: 'of visibility gaps documented' },
+    ]}
+    proofRows={[
+      { client: 'Nooks', category: 'SEO & AEO', result: '43% Share of Voice Growth' },
+      { client: 'Search Party', category: 'Executive Authority', result: 'Top 4 Across High-Intent AI Prompts' },
+      { client: 'GRIN', category: 'Content Systems', result: '100K+ Monthly Pageviews' },
+    ]}
+    faqItems={faqItems}
+    ctaLabel="AEO"
+  />
 </Layout>

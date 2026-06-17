@@ -398,8 +398,15 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
         animating = true;
         const startHeight = content.scrollHeight;
         content.style.height = startHeight + 'px';
+        // Double rAF: a single rAF can get batched with this style write into
+        // the same frame (no committed "start" frame for the browser to
+        // transition from), which silently no-ops the animation. Two rAFs
+        // guarantee a paint has happened with `startHeight` applied before we
+        // change the target value.
         requestAnimationFrame(() => {
-          content.style.height = '0px';
+          requestAnimationFrame(() => {
+            content.style.height = '0px';
+          });
         });
         content.addEventListener('transitionend', function onEnd() {
           content.removeEventListener('transitionend', onEnd);
@@ -412,10 +419,19 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
         // natural height, then clear the inline height so it stays fluid.
         animating = true;
         item.setAttribute('open', '');
-        const targetHeight = content.scrollHeight;
         content.style.height = '0px';
+        // Re-measure scrollHeight inside the (double) rAF rather than
+        // immediately after setAttribute: measuring too early can capture a
+        // height based on not-yet-loaded web font metrics (FOUT), locking in
+        // a fixed pixel value that's too short once the real font swaps in
+        // and the answer text re-wraps. Measuring right before the animated
+        // write keeps it accurate, and double rAF ensures the 0px start
+        // value is committed before the transition target is applied.
         requestAnimationFrame(() => {
-          content.style.height = targetHeight + 'px';
+          requestAnimationFrame(() => {
+            const targetHeight = content.scrollHeight;
+            content.style.height = targetHeight + 'px';
+          });
         });
         content.addEventListener('transitionend', function onEnd() {
           content.removeEventListener('transitionend', onEnd);

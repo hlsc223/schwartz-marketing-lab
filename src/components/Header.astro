@@ -4,7 +4,15 @@
 //
 // Reused directly: the `services` and `otherLinks` data, the Wordmark markup,
 // and the literal Tailwind className strings for the bar, dropdown panel,
-// nav links, divider, and CTA pill.
+// nav links, and divider.
+//
+// Corrected vs. literal Navbar.tsx: the legacy source's CTA className uses
+// `rounded-none` (square), but DESIGN_HANDOFF.md explicitly and repeatedly
+// (nav section + global button-shape summary) specifies this exact button —
+// distinct from the square "Find out how" / "Book consultation" CTAs
+// elsewhere on the site — should be pill-shaped (`border-radius: 9999px`).
+// Changed to `rounded-full` on the strength of that explicit, twice-stated
+// spec rather than the literal (likely stale) component source.
 //
 // Rewritten for Astro (no React/client state available by default):
 //   - Services dropdown: CSS `group-hover`/`group-focus-within` instead of
@@ -130,7 +138,7 @@ const otherLinks = [
 
       <a
         href="/contact"
-        class="inline-flex items-center text-sm font-sans font-semibold rounded-none border-2 px-5 py-2 transition-colors hover:[background-color:hsl(var(--cobalt-deep))] hover:[border-color:hsl(var(--cobalt-deep))]"
+        class="inline-flex items-center text-sm font-sans font-semibold rounded-full border-2 px-5 py-2 transition-colors hover:[background-color:hsl(var(--cobalt-deep))] hover:[border-color:hsl(var(--cobalt-deep))]"
         style="background-color: hsl(var(--cobalt)); border-color: hsl(var(--cobalt)); color: hsl(var(--primary-foreground));"
       >
         Free strategy call
