@@ -91,7 +91,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
         <h2 class="cs-heading-md">{aboutHeading}</h2>
       </div>
       <div class="cs-col-body">
-        {aboutBody.map((p) => (<p class="cs-body-text">{p}</p>))}
+        {aboutBody.map((p) => (<p class="cs-body-text" set:html={p} />))}
       </div>
     </div>
   </section>
@@ -149,7 +149,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
         <h2 class="cs-heading-md">{challengeHeading}</h2>
       </div>
       <div class="cs-col-body">
-        {challengeBody.map((p) => (<p class="cs-body-text">{p}</p>))}
+        {challengeBody.map((p) => (<p class="cs-body-text" set:html={p} />))}
       </div>
     </div>
   </section>
@@ -162,7 +162,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
         <h2 class="cs-heading-md">{solutionHeading}</h2>
       </div>
       <div class="cs-col-body">
-        {solutionBody.map((p) => (<p class="cs-body-text">{p}</p>))}
+        {solutionBody.map((p) => (<p class="cs-body-text" set:html={p} />))}
       </div>
     </div>
   </section>
@@ -176,7 +176,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
           <h2 class="cs-heading-md">{resultsConclusion.heading}</h2>
         </div>
         <div class="cs-col-body">
-          {resultsConclusion.paragraphs.map((p) => (<p class="cs-body-text">{p}</p>))}
+          {resultsConclusion.paragraphs.map((p) => (<p class="cs-body-text" set:html={p} />))}
         </div>
       </div>
     </section>

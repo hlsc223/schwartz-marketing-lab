@@ -68,30 +68,30 @@ const testimonials = [
   },
 ];
 
-// Reused verbatim from CaseStudiesSection.tsx — including the literal "#"
-// hrefs on individual cards, which is what the legacy source itself uses
-// (no dedicated case-study detail pages exist yet there either).
+// Dedicated case-study detail pages now exist for all three (case-studies/
+// nooks-aeo, search-party-aeo, grin-content-systems) — linked here instead
+// of the legacy site's literal "#" placeholders.
 const caseStudies = [
   {
     client: 'NOOKS',
     headline: '43% Share of Voice Growth',
     supporting: '+37% Visibility in 60 Days',
     description: 'Increased visibility across AI discovery systems for an AI-native sales platform.',
-    href: '#',
+    href: '/case-studies/nooks-aeo',
   },
   {
     client: 'SEARCH PARTY',
     headline: 'Top 4 Across High-Intent AI Prompts',
     supporting: '3K+ Newsletter Subscribers',
     description: 'Built category authority before launch and earned visibility alongside established AI search leaders.',
-    href: '#',
+    href: '/case-studies/search-party-aeo',
   },
   {
     client: 'GRIN',
     headline: 'One Report. A Quarter of Content.',
     supporting: 'Consumer Research → Content Engine',
     description: 'Turned original consumer research into a narrative platform powering content, earned media, and market positioning.',
-    href: '#',
+    href: '/case-studies/grin-content-systems',
   },
 ];
 
@@ -112,7 +112,7 @@ const faqs = [
   },
   {
     question: 'What is AEO/GEO and why does it matter?',
-    answer: 'Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) help companies appear in AI-generated answers from ChatGPT, Claude, Perplexity, and Google AI Overviews. As more buyers rely on AI systems for research and recommendations, visibility in these environments is becoming as important as traditional search rankings.',
+    answer: 'Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) help companies appear in AI-generated answers from ChatGPT, Claude, Perplexity, and Google AI Overviews. As more buyers rely on AI systems for research and recommendations, visibility in these environments is becoming as important as traditional search rankings. <a href="/services/answer-engine-optimization">Answer engine optimization</a> is one of our core service areas.',
   },
   {
     question: 'What does a typical engagement look like?',
@@ -295,7 +295,7 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
             Three ways S.LAB turns strategy into measurable growth.
           </p>
         </div>
-        <a href="/portfolio" class="case-cta--light hidden md:inline-flex items-center gap-1.5 font-sans font-bold text-[11px] tracking-[0.1em] uppercase shrink-0 mt-1 transition-colors" style="color: hsl(var(--background) / 0.3);">
+        <a href="/case-studies" class="case-cta--light hidden md:inline-flex items-center gap-1.5 font-sans font-bold text-[11px] tracking-[0.1em] uppercase shrink-0 mt-1 transition-colors" style="color: hsl(var(--background) / 0.3);">
           View all work
           <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
         </a>
@@ -319,7 +319,7 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
       </div>
 
       <div class="mt-8 md:hidden">
-        <a href="/portfolio" class="inline-flex items-center gap-1.5 font-sans font-bold text-[11px] tracking-[0.1em] uppercase" style="color: hsl(var(--background) / 0.4);">
+        <a href="/case-studies" class="inline-flex items-center gap-1.5 font-sans font-bold text-[11px] tracking-[0.1em] uppercase" style="color: hsl(var(--background) / 0.4);">
           View all work
           <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
         </a>
@@ -343,7 +343,7 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
               <span class="faq-item__icon flex-shrink-0 w-6 h-6 flex items-center justify-center" style="color: hsl(var(--cobalt));" aria-hidden="true"></span>
             </summary>
             <div class="faq-item__content">
-              <p class="font-serif text-base text-foreground/70 leading-relaxed pb-6 max-w-2xl">{f.answer}</p>
+              <p class="font-serif text-base text-foreground/70 leading-relaxed pb-6 max-w-2xl" set:html={f.answer} />
             </div>
           </details>
         ))}
