@@ -3,6 +3,10 @@
 import Layout from '../../layouts/Layout.astro';
 import ServiceLayout from '../../components/ServiceLayout.astro';
 import { faqPageSchema } from '../../lib/schema';
+import { getEntry } from 'astro:content';
+
+const seo = await getEntry('seo', 'executive-authority');
+if (!seo) throw new Error('Missing seo/executive-authority.yaml entry');
 
 const faqItems = [
   {
@@ -41,8 +45,8 @@ const schema = faqPageSchema(faqItems);
 ---
 
 <Layout
-  title="Executive Authority & Thought Leadership | Schwartz Marketing Lab"
-  description="Establish a credible, consistent presence through ghostwriting and strategic positioning — without spending your week writing."
+  title={seo.data.title}
+  description={seo.data.description}
   canonicalPath="/services/executive-authority"
   schema={schema}
 >

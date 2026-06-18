@@ -3,6 +3,10 @@
 import Layout from '../../layouts/Layout.astro';
 import ServiceLayout from '../../components/ServiceLayout.astro';
 import { faqPageSchema } from '../../lib/schema';
+import { getEntry } from 'astro:content';
+
+const seo = await getEntry('seo', 'pr-media');
+if (!seo) throw new Error('Missing seo/pr-media.yaml entry');
 
 const faqItems = [
   {
@@ -41,8 +45,8 @@ const schema = faqPageSchema(faqItems);
 ---
 
 <Layout
-  title="PR & Media Services for B2B Brands | Schwartz Marketing Lab"
-  description="Build authority through publications, podcasts, reviews, and industry media that shape how buyers discover and evaluate your brand."
+  title={seo.data.title}
+  description={seo.data.description}
   canonicalPath="/services/pr-media"
   schema={schema}
 >

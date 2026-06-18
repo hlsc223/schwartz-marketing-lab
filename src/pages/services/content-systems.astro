@@ -3,6 +3,10 @@
 import Layout from '../../layouts/Layout.astro';
 import ServiceLayout from '../../components/ServiceLayout.astro';
 import { faqPageSchema } from '../../lib/schema';
+import { getEntry } from 'astro:content';
+
+const seo = await getEntry('seo', 'content-systems');
+if (!seo) throw new Error('Missing seo/content-systems.yaml entry');
 
 const faqItems = [
   {
@@ -41,8 +45,8 @@ const schema = faqPageSchema(faqItems);
 ---
 
 <Layout
-  title="Content Systems for B2B Brands | Schwartz Marketing Lab"
-  description="Build a repeatable system that transforms ideas, conversations, and customer insights into content that compounds across every channel."
+  title={seo.data.title}
+  description={seo.data.description}
   canonicalPath="/services/content-systems"
   schema={schema}
 >
