@@ -14,7 +14,7 @@
 7. ✅ Update Work With Me: title tag and meta description
 8. ✅ Update Content Systems: title tag, meta description, H1, H2s, FAQ
 9. ✅ Update Executive Authority: title tag, meta description, H1, H2s, FAQ
-10. ⬜ Update PR & Media title tag, meta description, H1, H2s, FAQ (keep URL as /services/pr-media)
+10. 🔶 Update PR & Media title tag, meta description, H1, H2s, FAQ (keep URL as /services/pr-media) — H1 updated to "Thought leadership PR for B2B executives." Title tag, meta description, H2s, and FAQ content still open.
 11. ✅ Add Organization schema to homepage
 12. ✅ Add Person schema to About page
 13. ⬜ Validate schema after redeployment — paste `https://schwartzmarketinglab.com` into Google's Rich Results Test or Schema Markup Validator and confirm both Organization and Person schemas are listed
@@ -387,6 +387,7 @@ No established search category perfectly describes S.LAB. Terms researched and r
 
 ## Open Questions / Still To Do
 
+- ⬜ Investigate FAQ section structure — currently an accordion (collapsed by default) on all four service pages and Packages, using `faqPageSchema()` for `FAQPage` JSON-LD. Evaluate switching to an always-open, fully visible format so the content is directly readable rather than hidden behind a click. Likely keep the schema regardless (schema and visible UI are independent), but the accordion may be working against AEO/answer-engine extraction and general readability since crawlers and users can't see the answer text without interaction. Not yet decided — needs a recommendation before implementation.
 - ⬜ Investigate building a free AEO audit page — evaluate as a lead generation asset, keyword opportunity, and AEO citation target
 - ⬜ Deeper keyword research for Case Studies page
 - ⬜ Deeper keyword research for blog cluster under `seo content strategy` (TP 505K)
