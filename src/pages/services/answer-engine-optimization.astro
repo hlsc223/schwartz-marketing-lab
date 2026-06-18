@@ -6,6 +6,10 @@
 import Layout from '../../layouts/Layout.astro';
 import ServiceLayout from '../../components/ServiceLayout.astro';
 import { faqPageSchema } from '../../lib/schema';
+import { getEntry } from 'astro:content';
+
+const seo = await getEntry('seo', 'answer-engine-optimization');
+if (!seo) throw new Error('Missing seo/answer-engine-optimization.yaml entry');
 
 const faqItems = [
   {
@@ -39,8 +43,8 @@ const schema = faqPageSchema(faqItems);
 ---
 
 <Layout
-  title="Answer Engine Optimization (AEO) Services | Schwartz Marketing Lab"
-  description="Own your visibility wherever search happens — Google, AI Overviews, ChatGPT, Perplexity, Reddit, and YouTube. Modern SEO and AEO built for how buyers actually search."
+  title={seo.data.title}
+  description={seo.data.description}
   canonicalPath="/services/answer-engine-optimization"
   schema={schema}
 >

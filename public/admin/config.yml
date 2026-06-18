@@ -29,3 +29,38 @@ collections:
       - { label: "Draft", name: "draft", widget: "boolean", default: true }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "seo"
+    label: "Page SEO (Titles & Meta Descriptions)"
+    description: "Meta title and meta description for the homepage and service pages. Body copy and layout stay locked in code — this only controls what shows in Google/AI search results and browser tabs."
+    files:
+      - name: "home"
+        label: "Homepage"
+        file: "src/content/seo/home.yaml"
+        fields:
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+      - name: "answer-engine-optimization"
+        label: "Service — SEO & AEO"
+        file: "src/content/seo/answer-engine-optimization.yaml"
+        fields:
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+      - name: "pr-media"
+        label: "Service — PR & Media"
+        file: "src/content/seo/pr-media.yaml"
+        fields:
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+      - name: "executive-authority"
+        label: "Service — Executive Authority"
+        file: "src/content/seo/executive-authority.yaml"
+        fields:
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+      - name: "content-systems"
+        label: "Service — Content Systems"
+        file: "src/content/seo/content-systems.yaml"
+        fields:
+          - { label: "Meta Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }

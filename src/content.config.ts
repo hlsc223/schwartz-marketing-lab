@@ -14,4 +14,14 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+// Per-page meta title/description, edited as Decap "file collection" entries
+// (src/content/seo/*.yaml) so SEO copy can change without touching code.
+const seo = defineCollection({
+  loader: glob({ pattern: '*.yaml', base: './src/content/seo' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
+export const collections = { blog, seo };

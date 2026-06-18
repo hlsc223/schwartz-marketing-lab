@@ -10,6 +10,10 @@
 // breakdown. Header/Footer live in their own .astro components (also ported).
 import Layout from '../layouts/Layout.astro';
 import { organizationSchema } from '../lib/schema';
+import { getEntry } from 'astro:content';
+
+const seo = await getEntry('seo', 'home');
+if (!seo) throw new Error('Missing seo/home.yaml entry');
 
 // Reused verbatim from ServicesSection.tsx
 const services = [
@@ -124,8 +128,8 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
 ---
 
 <Layout
-  title="Schwartz Marketing Lab | Content Strategist & Brand Storyteller"
-  description="Schwartz Marketing Lab helps B2B brands get found in AI search, Google, and modern discovery — through AEO, SEO, content strategy, and authority building."
+  title={seo.data.title}
+  description={seo.data.description}
   canonicalPath="/"
   schema={organizationSchema()}
 >
