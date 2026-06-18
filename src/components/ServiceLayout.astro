@@ -43,6 +43,7 @@ interface ProofRow {
   client: string;
   category: string;
   result: string;
+  href?: string; // optional link to the case study this row references
 }
 
 interface Props {
@@ -207,7 +208,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
         </div>
         <div style="max-width: 580px;" class="space-y-4">
           {overview.map((p) => (
-            <p class="font-serif text-[16px] leading-[1.8] text-foreground/70">{p}</p>
+            <p class="font-serif text-[16px] leading-[1.8] text-foreground/70" set:html={p} />
           ))}
         </div>
       </div>
@@ -378,9 +379,15 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
             {proofRows.map((item) => (
               <li class="flex items-center justify-between gap-8 py-6" style="border-bottom: 1px solid hsl(var(--background) / 0.09);">
                 <div class="flex flex-col gap-1 shrink-0">
-                  <span class="font-sans font-bold tracking-[0.01em]" style="font-size: 12px; color: hsl(var(--background) / 0.50);">
-                    {item.client}
-                  </span>
+                  {item.href ? (
+                    <a href={item.href} class="font-sans font-bold tracking-[0.01em] proof-row-link" style="font-size: 12px; color: hsl(var(--background) / 0.50);">
+                      {item.client}
+                    </a>
+                  ) : (
+                    <span class="font-sans font-bold tracking-[0.01em]" style="font-size: 12px; color: hsl(var(--background) / 0.50);">
+                      {item.client}
+                    </span>
+                  )}
                   {item.category && (
                     <span class="font-sans font-bold tracking-[0.18em] uppercase" style="font-size: 9px; color: hsl(var(--background) / 0.28);">
                       {item.category}
@@ -394,7 +401,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
             ))}
           </ul>
           <div class="mt-7">
-            <a href="/packages" class="inline-flex items-center gap-1.5 font-sans font-bold tracking-[0.12em] uppercase cursor-pointer transition-colors proof-band-link" style="font-size: 11px; color: hsl(var(--cobalt));">
+            <a href="/case-studies" class="inline-flex items-center gap-1.5 font-sans font-bold tracking-[0.12em] uppercase cursor-pointer transition-colors proof-band-link" style="font-size: 11px; color: hsl(var(--cobalt));">
               View case studies <Icon name="trending-up" size={12} strokeWidth={2.5} />
             </a>
           </div>
@@ -427,9 +434,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
                 </span>
               </button>
               <div class="service-faq-panel">
-                <p class="font-serif text-[15px] text-foreground/60 leading-[1.85] pb-7" style="max-width: 500px;">
-                  {item.answer}
-                </p>
+                <p class="font-serif text-[15px] text-foreground/60 leading-[1.85] pb-7" style="max-width: 500px;" set:html={item.answer} />
               </div>
             </div>
           ))}
@@ -474,6 +479,13 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
   }
   .proof-band-link:hover {
     color: hsl(var(--cobalt-deep));
+  }
+  .proof-row-link {
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .proof-row-link:hover {
+    color: hsl(var(--background)) !important;
   }
   .service-card:hover {
     background: hsl(var(--card));
