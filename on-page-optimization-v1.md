@@ -5,26 +5,16 @@
 
 ## Implementation Checklist
 
-1. ✅ Fix the animated H1 — resolved for now; revisit SSR/static rendering later if needed
-2. ✅ Change URL slug: `/services/aeo-geo` → `/services/answer-engine-optimization`
-3. ✅ Update homepage title tag and meta description
-4. ✅ Homepage H1 finalized: "Drive revenue through AEO."
-5. ✅ Update SEO & AEO page: title tag, meta description, H1, H2s, FAQ
-6. ✅ Update About page: title tag and meta description
-7. ✅ Update Work With Me: title tag and meta description
-8. ✅ Update Content Systems: title tag, meta description, H1, H2s, FAQ
-9. ✅ Update Executive Authority: title tag, meta description, H1, H2s, FAQ
-10. 🔶 Update PR & Media title tag, meta description, H1, H2s, FAQ (keep URL as /services/pr-media) — H1 updated to "Thought leadership PR for B2B executives." Title tag, meta description, H2s, and FAQ content still open.
-11. ✅ Add Organization schema to homepage
-12. ✅ Add Person schema to About page
-13. ⬜ Validate schema after redeployment — paste `https://schwartzmarketinglab.com` into Google's Rich Results Test or Schema Markup Validator and confirm both Organization and Person schemas are listed
-13. ✅ Add FAQPage schema to all service pages
-12. ⬜ Ensure all internal links updated to new AEO service page URL
-13. ⬜ Submit sitemap to GSC
-14. ⬜ Write Blog Post #1: How to Rank in ChatGPT
-15. ⬜ Write Blog Post #2: SEO Content Strategy (cornerstone)
-16. ⬜ Write Blog Post #3: AEO vs SEO
-17. ⬜ Write Blog Post #4: GEO vs SEO
+*Completed setup, schema, and linking work (title tags, H1s, schema markup, internal linking, sitemap submission) has been finished and verified — see Strategic Decisions and Page-by-Page Recommendations below for the finalized specs. Remaining open items:*
+
+1. 🔶 Update PR & Media title tag, meta description, H2s, and FAQ content (H1 already updated to "Thought leadership PR for B2B executives"; keep URL as /services/pr-media)
+2. ⬜ Write Blog Post #1: How to Rank in ChatGPT
+3. ⬜ Write Blog Post #2: SEO Content Strategy (cornerstone)
+4. ⬜ Write Blog Post #3: AEO vs SEO
+5. ⬜ Write Blog Post #4: GEO vs SEO
+6. ✅ Build LinkedIn company page
+7. ⬜ Add LinkedIn company page to personal profile (link as current position)
+8. ⬜ Buy/distribute press release announcing S.LAB launch
 
 ---
 
@@ -325,25 +315,6 @@
 
 ---
 
-## Internal Link Map — Full Site
-
-| From | To | Anchor purpose |
-|---|---|---|
-| Homepage | All service pages | Navigation |
-| All service pages | Work With Me | Primary CTA |
-| All service pages | About | Trust signal |
-| SEO & AEO | Blog: How to Rank in ChatGPT | Supporting resource |
-| SEO & AEO | Blog: AEO vs SEO | Supporting resource |
-| Content Systems | Executive Authority | Natural next step |
-| Content Systems | Blog: SEO Content Strategy | Supporting resource |
-| Executive Authority | PR & Media | Earned channel complement |
-| PR & Media | Executive Authority | Owned channel prerequisite |
-| Blog: AEO vs SEO | SEO & AEO service page | Service CTA |
-| Blog: How to Rank in ChatGPT | SEO & AEO service page | Service CTA |
-| Blog: SEO Content Strategy | Content Systems page | Service CTA |
-
----
-
 ## Blog Content Strategy
 
 | Priority | Keyword | Vol | KD | Notes |
@@ -390,5 +361,6 @@ No established search category perfectly describes S.LAB. Terms researched and r
 - ⬜ Investigate FAQ section structure — currently an accordion (collapsed by default) on all four service pages and Packages, using `faqPageSchema()` for `FAQPage` JSON-LD. Evaluate switching to an always-open, fully visible format so the content is directly readable rather than hidden behind a click. Likely keep the schema regardless (schema and visible UI are independent), but the accordion may be working against AEO/answer-engine extraction and general readability since crawlers and users can't see the answer text without interaction. Not yet decided — needs a recommendation before implementation.
 - ⬜ Investigate building a free AEO audit page — evaluate as a lead generation asset, keyword opportunity, and AEO citation target
 - ⬜ Deeper keyword research for Case Studies page
-- ⬜ Deeper keyword research for blog cluster under `seo content strategy` (TP 505K)
-- ⬜ Pull Ahrefs volume for `executive visibility` and `executive positioning` to verify supporting keyword strength for PR & Media page
+- ⬜ Build a full content cluster strategy — pillar topics, supporting subtopics, entity/evidence mapping, and internal linking structure, before scaling blog production beyond the four posts already queued above (this now also covers the `seo content strategy` cluster research)
+- ⬜ Explore running an original-data survey (in the spirit of the GRIN case study) as a citation-worthy research asset for AEO/PR — needs scoping: topic, audience, sample size, distribution method
+- ⬜ Copy pass needed on below-the-fold sections across pretty much every major page (homepage, all four service pages, About, Packages) — the above-the-fold copy and headlines have gotten focused attention through this optimization process, but lower-page sections (deeper body copy, supporting paragraphs, secondary CTAs) haven't had the same scrutiny and likely need a dedicated review pass
