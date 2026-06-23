@@ -15,9 +15,7 @@ export function organizationSchema() {
     url: SITE_URL,
     description:
       'Schwartz Marketing Lab helps B2B brands get found in AI search, Google, and modern discovery — through AEO, SEO, content strategy, and authority building.',
-    sameAs: [
-      // Add verified social/profile URLs here (LinkedIn, etc.) when confirmed.
-    ],
+    sameAs: ['https://www.linkedin.com/company/schwartz-marketing-lab/'],
   };
 }
 

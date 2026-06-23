@@ -63,6 +63,7 @@ const schema = personSchema({
   jobTitle: 'Founder, Schwartz Marketing Lab',
   description:
     'Quinn Schwartz is a former journalist and AEO strategist who built Schwartz Marketing Lab to help B2B companies get found in AI search and modern discovery systems.',
+  sameAs: ['https://www.linkedin.com/in/quinn-schwartz-817b34180/'],
 });
 ---
 
@@ -229,7 +230,7 @@ const schema = personSchema({
           The old agency model wasn't built for this.
         </h2>
         <p class="font-serif text-foreground/60 leading-[1.75] mb-10" style="font-size: 18px; max-width: 580px;">
-          Most agencies were built for a different era. S.LAB was built for modern discovery. See how engagements are structured on the <a href="/packages" class="hover:text-foreground transition-colors" style="text-decoration: underline; text-decoration-color: hsl(var(--cobalt) / 0.4);">packages page</a>.
+          Most agencies were built for a different era. S.LAB was built for modern discovery. See how engagements are structured on the <a href="/packages" class="inline-link">packages page</a>.
         </p>
 
         <div class="border-t border-foreground/[0.07]">
@@ -274,7 +275,7 @@ const schema = personSchema({
         <ul>
           {BEST_FIT.map((item) => (
             <li class="font-serif text-[16px] text-foreground/65 leading-none border-t border-foreground/[0.07]" style="padding: 14px 0;">
-              {item.href ? <a href={item.href} class="hover:text-foreground transition-colors" style="text-decoration: underline; text-decoration-color: hsl(var(--cobalt) / 0.4);">{item.label}</a> : item.label}
+              {item.href ? <a href={item.href} class="inline-link">{item.label}</a> : item.label}
             </li>
           ))}
         </ul>

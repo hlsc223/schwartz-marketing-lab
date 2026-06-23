@@ -256,6 +256,20 @@ a {
   text-decoration: none;
 }
 
+/* Shared treatment for inline links inside body copy (overview paragraphs,
+   FAQ answers, package hooks, case study narrative, etc.) — gives in-text
+   links a visible affordance (cobalt-tinted underline, full-foreground on
+   hover) instead of the invisible inherited/no-underline default above.
+   Originally introduced on the About page; standardized here site-wide. */
+.inline-link {
+  text-decoration: underline;
+  text-decoration-color: hsl(var(--cobalt) / 0.4);
+  transition: color 0.15s ease;
+}
+.inline-link:hover {
+  color: hsl(var(--foreground));
+}
+
 img, svg {
   display: block;
   max-width: 100%;

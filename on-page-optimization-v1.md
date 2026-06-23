@@ -358,7 +358,7 @@ No established search category perfectly describes S.LAB. Terms researched and r
 
 ## Open Questions / Still To Do
 
-- ⬜ Investigate FAQ section structure — currently an accordion (collapsed by default) on all four service pages and Packages, using `faqPageSchema()` for `FAQPage` JSON-LD. Evaluate switching to an always-open, fully visible format so the content is directly readable rather than hidden behind a click. Likely keep the schema regardless (schema and visible UI are independent), but the accordion may be working against AEO/answer-engine extraction and general readability since crawlers and users can't see the answer text without interaction. Not yet decided — needs a recommendation before implementation.
+- ✅ FAQ accordion converted to always-visible text on all FAQ sections sitewide (homepage, Packages, and all four service pages) — answers now render flat with `<h3>` question headings instead of collapsed behind a click. `FAQPage` JSON-LD schema kept as-is (unaffected by the markup change). FAQ copy was also reviewed and tightened for direct-answer-first structure during the same pass (two PR & Media answers rewritten to lead with the direct response).
 - ⬜ Investigate building a free AEO audit page — evaluate as a lead generation asset, keyword opportunity, and AEO citation target
 - ⬜ Deeper keyword research for Case Studies page
 - ⬜ Build a full content cluster strategy — pillar topics, supporting subtopics, entity/evidence mapping, and internal linking structure, before scaling blog production beyond the four posts already queued above (this now also covers the `seo content strategy` cluster research)
