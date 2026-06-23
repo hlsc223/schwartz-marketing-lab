@@ -337,15 +337,10 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
 
       <div class="divide-y divide-foreground/10">
         {faqs.map((f) => (
-          <details class="faq-item group">
-            <summary class="w-full flex items-center justify-between gap-6 py-6 cursor-pointer list-none">
-              <span class="font-sans font-semibold text-base md:text-lg text-foreground transition-colors group-hover:text-foreground/80">{f.question}</span>
-              <span class="faq-item__icon flex-shrink-0 w-6 h-6 flex items-center justify-center" style="color: hsl(var(--cobalt));" aria-hidden="true"></span>
-            </summary>
-            <div class="faq-item__content">
-              <p class="font-serif text-base text-foreground/70 leading-relaxed pb-6 max-w-2xl" set:html={f.answer} />
-            </div>
-          </details>
+          <div class="faq-item py-6">
+            <h3 class="font-sans font-semibold text-base md:text-lg text-foreground m-0">{f.question}</h3>
+            <p class="font-serif text-base text-foreground/70 leading-relaxed pt-3 max-w-2xl" set:html={f.answer} />
+          </div>
         ))}
       </div>
     </div>
@@ -376,75 +371,6 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
     }
   }
 
-  // FAQ open/close animation — legacy used framer-motion's AnimatePresence to
-  // animate height 0 -> auto on the answer wrapper. Native <details>/<summary>
-  // has no animatable height by default (the browser just shows/hides the
-  // content in one frame), so this progressively enhances the same markup:
-  // the <details>/<summary>/<p> structure stays exactly as rendered — nothing
-  // is removed from the DOM and no content is hidden behind JS — this script
-  // only smooths the existing open/close transition with an inline height
-  // animation. With JS disabled, or for a crawler that doesn't run it, the
-  // native <details> behavior (instant show/hide, content always present in
-  // the DOM) works exactly as before.
-  document.querySelectorAll('.faq-item').forEach((item) => {
-    const content = item.querySelector('.faq-item__content');
-    if (!content) return;
-    const summary = item.querySelector('summary');
-    if (!summary) return;
-    let animating = false;
-
-    summary.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (animating) return;
-
-      if (item.hasAttribute('open')) {
-        // Closing: animate from current height down to 0, then remove [open].
-        animating = true;
-        const startHeight = content.scrollHeight;
-        content.style.height = startHeight + 'px';
-        // Double rAF: a single rAF can get batched with this style write into
-        // the same frame (no committed "start" frame for the browser to
-        // transition from), which silently no-ops the animation. Two rAFs
-        // guarantee a paint has happened with `startHeight` applied before we
-        // change the target value.
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            content.style.height = '0px';
-          });
-        });
-        content.addEventListener('transitionend', function onEnd() {
-          content.removeEventListener('transitionend', onEnd);
-          item.removeAttribute('open');
-          content.style.height = '';
-          animating = false;
-        }, { once: true });
-      } else {
-        // Opening: set [open] so content renders, animate from 0 to its
-        // natural height, then clear the inline height so it stays fluid.
-        animating = true;
-        item.setAttribute('open', '');
-        content.style.height = '0px';
-        // Re-measure scrollHeight inside the (double) rAF rather than
-        // immediately after setAttribute: measuring too early can capture a
-        // height based on not-yet-loaded web font metrics (FOUT), locking in
-        // a fixed pixel value that's too short once the real font swaps in
-        // and the answer text re-wraps. Measuring right before the animated
-        // write keeps it accurate, and double rAF ensures the 0px start
-        // value is committed before the transition target is applied.
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            const targetHeight = content.scrollHeight;
-            content.style.height = targetHeight + 'px';
-          });
-        });
-        content.addEventListener('transitionend', function onEnd() {
-          content.removeEventListener('transitionend', onEnd);
-          content.style.height = '';
-          animating = false;
-        }, { once: true });
-      }
-    });
-  });
 </script>
 
 <style>
@@ -467,42 +393,6 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
   }
   .case-cta--dark:hover {
     color: hsl(var(--foreground));
-  }
-
-  /* FAQ plus/minus icon — ported behavior from FaqSection.tsx's Plus/Minus
-     lucide-react swap, drawn in CSS since lucide isn't installed in Astro. */
-  .faq-item__icon::before,
-  .faq-item__icon::after {
-    content: '';
-    position: relative;
-    display: block;
-    background: currentColor;
-  }
-  .faq-item__icon::before {
-    width: 14px;
-    height: 2px;
-  }
-  .faq-item__icon::after {
-    width: 2px;
-    height: 14px;
-    position: absolute;
-    transition: transform 0.2s ease;
-  }
-  .faq-item[open] .faq-item__icon::after {
-    transform: rotate(90deg) scale(0);
-  }
-
-  /* FAQ answer height animation — matches the legacy 0.25s easeInOut timing
-     used by framer-motion's AnimatePresence transition. The JS in the
-     <script> block sets an explicit inline height before/after toggling
-     [open] so this transition has a concrete value to animate between. */
-  .faq-item__content {
-    overflow: hidden;
-    height: 0;
-    transition: height 0.25s ease-in-out;
-  }
-  .faq-item[open] .faq-item__content {
-    height: auto;
   }
 
   /* Print fallback for the rotating hero word — ported verbatim from the

@@ -13,7 +13,7 @@
 4. ⬜ Write Blog Post #3: AEO vs SEO
 5. ⬜ Write Blog Post #4: GEO vs SEO
 6. ✅ Build LinkedIn company page
-7. ⬜ Add LinkedIn company page to personal profile (link as current position)
+7. ✅ Add LinkedIn company page to personal profile (link as current position)
 8. ⬜ Buy/distribute press release announcing S.LAB launch
 
 ---
