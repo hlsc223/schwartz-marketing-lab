@@ -28,7 +28,7 @@ const schema = articleSchema({
 ---
 
 <Layout
-  title={`${post.data.metaTitle ?? post.data.title} | Schwartz Marketing Lab Blog`}
+  title={post.data.metaTitle ?? `${post.data.title} | Schwartz Marketing Lab Blog`}
   description={post.data.description}
   canonicalPath={`/blog/${post.id}`}
   ogType="article"
