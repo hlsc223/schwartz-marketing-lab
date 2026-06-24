@@ -22,6 +22,7 @@ collections:
     extension: "md"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Meta Title (optional — overrides the title above in browser tabs/search results; leave blank to just use the title)", name: "metaTitle", widget: "string", required: false }
       - { label: "Description (meta description)", name: "description", widget: "text" }
       - { label: "Excerpt (subhead shown under the title)", name: "excerpt", widget: "text", required: false }
       - { label: "Publish Date", name: "pubDate", widget: "datetime" }
