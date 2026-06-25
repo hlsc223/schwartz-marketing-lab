@@ -17,6 +17,7 @@
 8. ✅ Buy/distribute press release announcing S.LAB launch
 9. ⬜ Investigate homepage and service pages not rendering correctly in GSC's URL Inspection "Screenshot" tab — diagnose whether this is a JS-rendering/Googlebot rendering issue, a build/deploy timing issue, or expected GSC lag, and fix if it's actually breaking how Google sees the page
 10. ✅ Fix GA4 not firing — Astro was rendering the GA4 `<script>` tags as ES modules by default, which scoped `gtag` out of `window` and silently killed the automatic page_view hit. Fixed by adding `is:inline` to both tags in Layout.astro so they render as classic scripts. Needs to be committed/pushed and re-verified in GA4 Realtime after deploy.
+11. 🔶 Add `og:image` / `twitter:image` meta tags site-wide — confirmed via full-site grep that no page currently emits an og:image or twitter:image tag, so every shared link (LinkedIn, Slack, X) renders with no preview image. Layout.astro has no `ogImage` prop yet. Blocked on Quinn producing a static brand image/logo asset; once available, add the prop and wire it into `<head>`. Flagged during the 2026-06-25 homepage/AEO audit.
 
 ---
 

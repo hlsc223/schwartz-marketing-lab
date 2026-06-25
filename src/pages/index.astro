@@ -9,7 +9,7 @@
 // See the migration write-up for the full per-section reuse/port/rewrite/remove
 // breakdown. Header/Footer live in their own .astro components (also ported).
 import Layout from '../layouts/Layout.astro';
-import { organizationSchema } from '../lib/schema';
+import { organizationSchema, faqPageSchema } from '../lib/schema';
 import { getEntry } from 'astro:content';
 
 const seo = await getEntry('seo', 'home');
@@ -20,7 +20,7 @@ const services = [
   {
     number: '01',
     title: 'SEO & AEO',
-    promise: 'Track and control how you appear in ChatGPT, Claude, and Google AI Overviews.',
+    promise: 'Track and influence how you appear in ChatGPT, Claude, and Google AI Overviews.',
     href: '/services/answer-engine-optimization',
   },
   {
@@ -134,7 +134,7 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
   title={seo.data.title}
   description={seo.data.description}
   canonicalPath="/"
-  schema={organizationSchema()}
+  schema={[organizationSchema(), faqPageSchema(faqs)]}
 >
   <!-- ============ HERO — ported from Hero.tsx ============ -->
   <section id="hero" class="relative bg-background text-foreground">
