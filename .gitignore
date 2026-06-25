@@ -5,3 +5,4 @@ dist/
 .netlify/
 *.bak
 dist_old*/
+.DS_Store
