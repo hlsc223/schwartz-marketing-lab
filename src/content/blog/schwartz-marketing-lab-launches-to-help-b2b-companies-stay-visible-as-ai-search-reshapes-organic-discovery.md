@@ -10,7 +10,7 @@ excerpt: Founder Quinn Schwartz built the company to help B2B brands get found
   Google's AI Overviews replace traditional search results with AI-generated
   answers.
 pubDate: 2026-06-24T15:17:00.000-07:00
-draft: true
+draft: false
 ---
 PORTLAND, Ore. — June 23, 2026 — Schwartz Marketing Lab, founded by Quinn Schwartz, today announced its official launch to help B2B companies get found in AI search, Google, and modern discovery as organic search traffic erodes under the weight of AI-generated answers. 
 
