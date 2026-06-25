@@ -63,10 +63,10 @@ const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
     ))}
 
     <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XZ72E118"></script>
-    <script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6XZ72E118" is:inline></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(...args) { window.dataLayer.push(args); }
+      function gtag(){ window.dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'G-G6XZ72E118');
     </script>
