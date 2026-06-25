@@ -19,20 +19,20 @@ if (!seo) throw new Error('Missing seo/home.yaml entry');
 const services = [
   {
     number: '01',
-    title: 'AEO & GEO',
+    title: 'SEO & AEO',
     promise: 'Track and control how you appear in ChatGPT, Claude, and Google AI Overviews.',
     href: '/services/answer-engine-optimization',
   },
   {
     number: '02',
     title: 'PR & Media',
-    promise: 'Amplify your narrative and build trust through reputable third-party publications.',
+    promise: 'Earn trusted coverage and third-party placements that build authority with buyers and AI.',
     href: '/services/pr-media',
   },
   {
     number: '03',
     title: 'Executive Authority',
-    promise: 'Establish a credible voice through ghostwriting and strategic positioning.',
+    promise: 'Turn your expertise into influential content across LinkedIn, newsletters, and more.',
     href: '/services/executive-authority',
   },
   {
@@ -51,20 +51,23 @@ const testimonials = [
     name: 'Natasha Zapanta',
     role: 'Lifecycle Marketing & Marketing Ops',
     company: 'Nooks',
+    formerly: '',
   },
   {
     quote:
       'He helped us show up credibly alongside more established companies while the AI visibility landscape was changing quickly.',
     name: 'Brandon Brown',
-    role: 'CEO & Co-Founder · Joymore (formerly @ Search Party)',
-    company: '',
+    role: 'CEO & Co-Founder',
+    company: 'Joymore',
+    formerly: 'Search Party',
   },
   {
     quote:
       "He brings a rare and valuable blend of strategic thinking and hands-on execution. I'd jump at the chance to work with him again.",
     name: 'Olivia McNaughten',
-    role: 'Director, Product GTM · ShopMy (formerly @ GRIN)',
-    company: '',
+    role: 'Director of Product GTM',
+    company: 'ShopMy',
+    formerly: 'GRIN',
   },
 ];
 
@@ -100,7 +103,7 @@ const caseStudies = [
 const faqs = [
   {
     question: 'What does Schwartz Marketing Lab actually do?',
-    answer: 'Schwartz Marketing Lab helps B2B companies increase visibility, authority, and demand through AEO/GEO, SEO, executive thought leadership, PR, and scalable content systems. Think of us as a strategic content partner, not a traditional marketing agency.',
+    answer: 'Schwartz Marketing Lab is an AEO agency based in Portland, OR. S.LAB runs AEO, SEO, executive thought leadership, PR, and content marketing as a scalable system built to help brands drive measurable growth across the channels modern buyers trust the most.',
   },
   {
     question: 'How is this different from hiring a content agency?',
@@ -209,6 +212,9 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
         <h2 class="font-sans font-black text-foreground text-[40px] sm:text-[56px] md:text-[72px] lg:text-[88px] leading-[0.95] tracking-[-0.04em] m-0">
           Proof, not <span style="color: hsl(var(--cobalt));">promises</span>.
         </h2>
+        <p class="font-serif text-foreground/70 text-base md:text-lg leading-[1.55] mt-5 md:mt-6">
+          Results from founders and marketing leaders we've worked with.
+        </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 border-t border-foreground/[0.08] pt-14 md:pt-16">
@@ -223,8 +229,13 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
             <figcaption class="mt-auto pt-4 border-t border-foreground/85">
               <div class="font-sans text-[12px] font-semibold tracking-[0.24em] uppercase text-foreground">{t.name}</div>
               <div class="font-sans text-[12px] font-medium tracking-[0.18em] uppercase text-foreground/65 mt-1">
-                {t.role ? `${t.role}${t.company ? ` · ${t.company}` : ''}` : t.company}
+                {t.role}{t.company ? `, ${t.company}` : ''}
               </div>
+              {t.formerly && (
+                <div class="font-sans text-[11px] font-medium tracking-[0.18em] uppercase text-foreground/45 mt-0.5">
+                  Formerly {t.formerly}
+                </div>
+              )}
             </figcaption>
           </figure>
         ))}

@@ -13,9 +13,14 @@ if (!seo) throw new Error('Missing seo/answer-engine-optimization.yaml entry');
 
 const faqItems = [
   {
-    question: 'What is AEO?',
+    question: 'How do I get my brand to appear in ChatGPT and Perplexity?',
     answer:
-      "Answer Engine Optimization is the practice of structuring your content and technical foundation so AI systems like ChatGPT, Perplexity, and Google's AI Overviews can find, understand, and cite your brand when answering user questions.",
+      "It comes down to three things: being crawlable and indexed in the first place, having content structured so AI systems can extract a clear answer — clean headers, defined entities, schema markup — and having enough third-party authority signals, like mentions and coverage, that the AI trusts your brand as a source. We audit all three, then prioritize fixes based on where you're losing visibility today.",
+  },
+  {
+    question: 'What does an AEO agency do?',
+    answer:
+      "An AEO agency audits where your brand is and isn't appearing across AI answer engines like ChatGPT, Perplexity, and Google's AI Overviews, fixes the technical and structural issues blocking visibility, and builds the structured content and data needed to earn citations. At S.LAB, that's an ongoing process — we track visibility and citations over time and keep iterating as these systems evolve.",
   },
   {
     question: "What's the difference between SEO and AEO?",
@@ -52,11 +57,10 @@ const schema = faqPageSchema(faqItems);
     serviceLabel="SEO & AEO"
     headline="Answer engine optimization that drives revenue."
     subhead="S.LAB puts you front and center across the discovery surfaces your audience trusts most. Then we turn that visibility into revenue for your brand."
-    sectionHeading="What Is Answer Engine Optimization?"
+    sectionHeading="What is answer engine optimization (AEO)?"
     overview={[
-      "Answer Engine Optimization is the discipline of structuring your content and technical foundation so AI systems — ChatGPT, Perplexity, Google's AI Overviews — can find, understand, and cite your brand when answering the questions your buyers are asking.",
-      "It builds on the same foundation as traditional SEO — crawlability, site health, topical authority — but adds the structured data, clear entity definitions, and answer-ready formatting that AI systems specifically reward.",
-      'We treat AEO and SEO as one system, not two competing disciplines. The goal is the same either way: be the source that gets found, cited, and trusted. The content that earns citations is built through our <a href="/services/content-systems" class="inline-link">content systems</a> work.',
+      "Answer Engine Optimization is the practice of structuring your content and technical foundation so AI systems like ChatGPT, Perplexity, and Google's AI Overviews can find, understand, and cite your brand when answering user questions.",
+      'At S.LAB, we apply traditional SEO best practices as our AI search foundation. That paves the way for the AEO work that ensures your brand appears accurately and with authority across AI-generated answers.',
     ]}
     whatIncluded={[
       {
@@ -87,21 +91,21 @@ const schema = faqPageSchema(faqItems);
       {
         title: 'Execution & Strategic Support',
         description:
-          'Hands-on support implementing the roadmap — not just a deck, an actual partner executing alongside your team.',
+          'Hands-on support implementing the roadmap. Not just a deck, an actual partner executing alongside your team.',
       },
     ]}
     whatIncludedSubtext="Six deliverables. Built around your visibility, your revenue, and your team."
     cardIcons={['scan-search', 'file-search', 'trending-up', 'route', 'layout-dashboard', 'users']}
     processTitle="How we make your brand the answer"
     process={[
-      { number: '01', title: 'Audit', description: 'We map your current visibility across every search and AI surface that matters to your buyers.' },
-      { number: '02', title: 'Stabilize', description: 'We fix the technical and structural issues blocking search engines and AI systems from understanding your site.' },
-      { number: '03', title: 'Prioritize', description: 'We rank opportunities by revenue impact, not just traffic potential.' },
-      { number: '04', title: 'Build', description: 'We create and structure the content and data needed to earn citations and rankings.' },
-      { number: '05', title: 'Iterate', description: "We track what's working across every surface and compound it — dropping what isn't." },
+      { number: '01', title: 'Audit', description: 'We score your visibility across all major answer engines, including ChatGPT, Claude, Perplexity, and Google AI Overviews. Then, we identify the coverage gaps your brand can own.' },
+      { number: '02', title: 'Stabilize', description: 'We fix the crawlability, site speed, and structured data issues blocking both search engines and AI systems from understanding your site.' },
+      { number: '03', title: 'Prioritize', description: 'We rank every fix and opportunity by revenue impact, not traffic potential, so the roadmap reflects your business, not just search volume.' },
+      { number: '04', title: 'Build', description: 'Produce structured content that gets cited in AI answers. We\'ll support your writers or build it ourselves through our <a href="/services/content-systems" class="inline-link">content systems</a> work. The choice is yours.' },
+      { number: '05', title: 'Iterate', description: 'We track visibility, citations, and pipeline across every surface. Then, we start the process over, doubling down on what works and cutting what doesn\'t.' },
     ]}
     whoItsFor={`Brands impacted by Google updates that crushed their organic visibility overnight\nTeams that need to understand how AI search is changing the way buyers find them\nCompanies investing heavily in content but seeing no compounding return\nCategory leaders defending share of voice against faster-moving competitors\nMarketing teams that need visibility results their leadership can see and trust`}
-    testimonialQuote="We saw a 43% lift in share of voice within the first quarter of working together. They didn't just hand us a report — they helped us actually execute."
+    testimonialQuote={'In just two months, we saw a 43% lift in share of voice and 37% improvement in visibility. <a href="/about" class="inline-link">Quinn\'s content and strategic direction</a> have been integral to our growth in this space.'}
     testimonialAuthor="Natasha Zapanta"
     testimonialRole="Lifecycle Marketing & Marketing Ops · Nooks"
     proofPoints={[

@@ -248,9 +248,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
                 {String(i + 1).padStart(2, '0')}
               </p>
               <p class="font-sans font-bold text-[17px] text-foreground tracking-[-0.01em]">{step.title}</p>
-              <p class="font-serif text-[14px] text-foreground/55 leading-[1.8] col-start-2 md:col-start-3" style="max-width: 520px;">
-                {step.description}
-              </p>
+              <p class="font-serif text-[14px] text-foreground/55 leading-[1.8] col-start-2 md:col-start-3" style="max-width: 520px;" set:html={step.description} />
             </div>
           ))}
         </div>
@@ -314,9 +312,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
           <div class="font-serif select-none" style="font-size: 80px; line-height: 0.75; color: hsl(var(--cobalt)); opacity: 0.15; margin-bottom: 12px; letter-spacing: -0.04em;">
             "
           </div>
-          <blockquote class="font-serif italic text-foreground leading-[1.45]" style="font-size: 23px; margin: 0 0 44px; letter-spacing: -0.01em; max-width: 540px;">
-            {testimonialQuote}
-          </blockquote>
+          <blockquote class="font-serif italic text-foreground leading-[1.45]" style="font-size: 23px; margin: 0 0 44px; letter-spacing: -0.01em; max-width: 540px;" set:html={testimonialQuote} />
           {(testimonialAuthor || testimonialRole) && (
             <div class="flex items-center gap-[18px]">
               <div class="w-px h-9 flex-shrink-0" style="background: hsl(var(--cobalt));" />
