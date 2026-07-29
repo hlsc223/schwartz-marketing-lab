@@ -18,6 +18,14 @@
 9. ⬜ Investigate homepage and service pages not rendering correctly in GSC's URL Inspection "Screenshot" tab — diagnose whether this is a JS-rendering/Googlebot rendering issue, a build/deploy timing issue, or expected GSC lag, and fix if it's actually breaking how Google sees the page
 10. ✅ Fix GA4 not firing — Astro was rendering the GA4 `<script>` tags as ES modules by default, which scoped `gtag` out of `window` and silently killed the automatic page_view hit. Fixed by adding `is:inline` to both tags in Layout.astro so they render as classic scripts. Needs to be committed/pushed and re-verified in GA4 Realtime after deploy.
 11. 🔶 Add `og:image` / `twitter:image` meta tags site-wide — confirmed via full-site grep that no page currently emits an og:image or twitter:image tag, so every shared link (LinkedIn, Slack, X) renders with no preview image. Layout.astro has no `ogImage` prop yet. Blocked on Quinn producing a static brand image/logo asset; once available, add the prop and wire it into `<head>`. Flagged during the 2026-06-25 homepage/AEO audit.
+12. ⬜ Build a free "AI Visibility Audit Framework" (linkable asset / lead magnet) — repackage the existing AEO service Audit-step methodology (scoring visibility across ChatGPT, Claude, Perplexity, Google AI Overviews) into a free public checklist/template (Google Sheet, Notion doc, or standalone page). Decided 2026-06-25 as the top backlink/authority-building priority given near-zero current distribution (no email list, small LinkedIn following, no journalist relationships) and a preference to avoid heavy manual outreach or marketplace link spend — this earns links passively through organic discovery and community sharing instead, and doubles as a contact-funnel lead magnet. Next step: draft the actual scoring criteria with Quinn before building.
+13. ⬜ Final copy pass — Packages page
+14. ⬜ Final copy pass — PR & Media page
+15. ⬜ Final copy pass — Executive Authority page
+16. ⬜ Final copy pass — Content Systems page
+17. ⬜ Final copy pass — Contact page
+
+Items 13–17 requested 2026-06-25: closing copy review on the four service pages plus Packages and Contact, checking against the project's content philosophy (information gain, AEO/GEO-readiness, no unverifiable AI-outcome claims, CRO clarity) now that the homepage and AEO page have had their audit pass.
 
 ---
 

@@ -1,0 +1,185 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`;
+---
+
+<Layout
+  title="You're In — Modern Organic Growth Playbook | Schwartz Marketing Lab"
+  description="The Modern Organic Growth Playbook is on its way. Check your inbox."
+  canonicalPath="/playbooks/success"
+>
+  <div class="page" style={{ backgroundImage: grain }}>
+    <section class="hero">
+      <div class="ruled-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="check-mark" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <p class="eyebrow">You're confirmed</p>
+        <h1 class="headline">The playbook is on its way.</h1>
+        <p class="subhead">
+          Check your inbox for a link to The Modern Organic Growth Playbook.
+          If you don't see it in the next few minutes, check your spam folder.
+        </p>
+
+        <div class="next-steps">
+          <p class="next-label">While you wait</p>
+          <div class="next-links">
+            <a href="/blog" class="next-link">
+              <span class="next-link-title">Read the blog</span>
+              <span class="next-link-desc">Strategy, research notes, and analysis on organic growth in the AI era.</span>
+              <span class="next-link-cta">
+                Go to Blog
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </span>
+            </a>
+            <a href="/services/answer-engine-optimization" class="next-link">
+              <span class="next-link-title">Explore S.LAB services</span>
+              <span class="next-link-desc">See how S.LAB helps B2B companies build durable organic demand in the AI era.</span>
+              <span class="next-link-cta">
+                View Services
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    min-height: 80vh;
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 96px clamp(24px, 5vw, 64px) 120px;
+  }
+
+  .ruled-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 47px, hsl(var(--foreground) / 0.05) 47px, hsl(var(--foreground) / 0.05) 48px);
+  }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .check-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border: 2px solid hsl(var(--cobalt));
+    color: hsl(var(--cobalt));
+    margin-bottom: 32px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: hsl(var(--cobalt));
+    margin: 0 0 20px;
+  }
+
+  .headline {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    color: hsl(var(--foreground));
+    font-size: clamp(36px, 5vw, 56px);
+    margin: 0 0 24px;
+  }
+
+  .subhead {
+    font-family: var(--font-body);
+    line-height: 1.75;
+    color: hsl(var(--foreground) / 0.55);
+    font-size: 16px;
+    margin: 0 0 56px;
+  }
+
+  .next-steps {
+    border-top: 1px solid hsl(var(--foreground) / 0.08);
+    padding-top: 40px;
+  }
+
+  .next-label {
+    font-family: var(--font-heading);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.3);
+    margin: 0 0 24px;
+  }
+
+  .next-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid hsl(var(--foreground) / 0.07);
+  }
+
+  .next-link {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 24px 0;
+    border-bottom: 1px solid hsl(var(--foreground) / 0.07);
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .next-link-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 15px;
+    color: hsl(var(--foreground));
+    transition: color 0.15s;
+  }
+
+  .next-link:hover .next-link-title {
+    color: hsl(var(--cobalt));
+  }
+
+  .next-link-desc {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: hsl(var(--foreground) / 0.45);
+  }
+
+  .next-link-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-heading);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.3);
+    margin-top: 4px;
+    transition: color 0.15s;
+  }
+
+  .next-link:hover .next-link-cta {
+    color: hsl(var(--cobalt));
+  }
+</style>

@@ -1,0 +1,269 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`;
+
+const playbooks = [
+  {
+    href: '/playbooks/modern-organic-growth-playbook',
+    eyebrow: 'Research Report — 2025–2026',
+    title: 'The Modern Organic Growth Playbook',
+    desc: 'Original research across 118 B2B SaaS companies on why nearly half lost organic traffic while others grew during the AI-era shift — and what separated them.',
+    meta: '11 chapters · 118 companies · 18 months of data',
+    cta: 'Download the Playbook',
+  },
+];
+---
+
+<Layout
+  title="Playbooks | Schwartz Marketing Lab"
+  description="Research-backed playbooks for organic growth in the AI era — built on original longitudinal data from S.LAB's ongoing research program."
+  canonicalPath="/playbooks"
+>
+  <div class="page" style={{ backgroundImage: grain }}>
+    <section class="hero">
+      <div class="ruled-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="eyebrow">Resources — Playbooks</p>
+        <h1 class="headline">Research you can use.</h1>
+        <p class="intro">Original research on how B2B organic growth actually works — built on longitudinal data, not opinion.</p>
+      </div>
+    </section>
+
+    <section class="archive">
+      <div class="wrap">
+        <ul class="playbook-list">
+          {playbooks.map((p) => (
+            <li class="playbook-row">
+              <a href={p.href} class="playbook-link">
+                <span class="accent-bar" aria-hidden="true"></span>
+                <div class="row-inner">
+                  <div class="row-meta">
+                    <span class="row-eyebrow">{p.eyebrow}</span>
+                  </div>
+                  <div class="row-content">
+                    <h2 class="row-title">{p.title}</h2>
+                    <p class="row-desc">{p.desc}</p>
+                    <p class="row-facts">{p.meta}</p>
+                    <span class="row-cta">
+                      {p.cta}
+                      <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                    </span>
+                  </div>
+                  <div class="row-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
+    padding: 96px clamp(24px, 5vw, 64px) 72px;
+  }
+
+  .ruled-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 47px, hsl(var(--foreground) / 0.05) 47px, hsl(var(--foreground) / 0.05) 48px);
+  }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .eyebrow {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: hsl(var(--cobalt));
+    margin: 0 0 24px;
+  }
+
+  .headline {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    color: hsl(var(--foreground));
+    font-size: clamp(40px, 5.5vw, 64px);
+    max-width: 680px;
+    margin: 0 0 24px;
+  }
+
+  .intro {
+    font-family: var(--font-body);
+    line-height: 1.75;
+    color: hsl(var(--foreground) / 0.55);
+    font-size: 17px;
+    max-width: 460px;
+    margin: 0;
+  }
+
+  .archive {
+    padding: 0 clamp(24px, 5vw, 64px) 120px;
+  }
+
+  .playbook-list {
+    border-top: 1px solid hsl(var(--foreground) / 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .playbook-row {
+    border-bottom: 1px solid hsl(var(--foreground) / 0.1);
+  }
+
+  .playbook-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .accent-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: hsl(var(--cobalt));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease-out;
+  }
+
+  .playbook-link:hover .accent-bar {
+    transform: scaleY(1);
+  }
+
+  .row-inner {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px 24px;
+    padding: 48px 12px;
+    transition: background-color 0.3s ease;
+  }
+
+  .playbook-link:hover .row-inner {
+    background-color: hsl(var(--foreground) / 0.025);
+  }
+
+  .row-meta {
+    grid-column: span 12;
+  }
+
+  .row-eyebrow {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.35);
+  }
+
+  .row-content {
+    grid-column: span 11;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .row-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-size: clamp(26px, 3.5vw, 40px);
+    color: hsl(var(--foreground));
+    margin: 0;
+  }
+
+  .row-desc {
+    font-family: var(--font-body);
+    line-height: 1.65;
+    color: hsl(var(--foreground) / 0.55);
+    font-size: 15px;
+    max-width: 600px;
+    margin: 0;
+  }
+
+  .row-facts {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: hsl(var(--cobalt) / 0.7);
+    margin: 0;
+  }
+
+  .row-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.35);
+    transition: color 0.2s ease;
+  }
+
+  .playbook-link:hover .row-cta {
+    color: hsl(var(--foreground));
+  }
+
+  .row-arrow {
+    display: none;
+    grid-column: span 1;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-top: 4px;
+  }
+
+  .row-arrow svg {
+    width: 24px;
+    height: 24px;
+    color: hsl(var(--foreground) / 0.25);
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+  }
+
+  .playbook-link:hover .row-arrow svg {
+    transform: translate(4px, -4px);
+    color: hsl(var(--foreground));
+  }
+
+  @media (min-width: 768px) {
+    .row-meta {
+      grid-column: span 3;
+    }
+    .row-content {
+      grid-column: span 8;
+    }
+    .row-arrow {
+      display: flex;
+      grid-column: span 1;
+    }
+  }
+</style>

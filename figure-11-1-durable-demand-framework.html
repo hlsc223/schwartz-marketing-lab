@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figure 11.1 — The Durable Demand Framework</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #ECEAE7;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 48px 24px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 52px 64px 60px;
+    max-width: 640px;
+    width: 100%;
+  }
+
+  /* Header */
+  .eyebrow {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2E5BE0;
+    margin-bottom: 10px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 900;
+    color: #111111;
+    line-height: 1.1;
+    margin-bottom: 44px;
+  }
+
+  /* Steps */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Each step is a tight visual unit */
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .step-circle {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #162040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: 10px;
+  }
+
+  .step-number {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .step-label {
+    font-size: 19px;
+    font-weight: 700;
+    color: #111111;
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+
+  .step-desc {
+    font-size: 14.5px;
+    font-weight: 400;
+    color: #555555;
+    line-height: 1.55;
+    max-width: 420px;
+  }
+
+  /* Arrow between steps */
+  .arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 22px 0;
+    color: #2E5BE0;
+    font-size: 22px;
+    line-height: 1;
+    opacity: 0.85;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <p class="eyebrow">Figure 11.1</p>
+  <h1 class="title">The Durable Demand Framework</h1>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-circle"><span class="step-number">1</span></div>
+      <div class="step-label">Diagnose the mechanism</div>
+      <p class="step-desc">Identify what is actually driving the traffic pattern before investing in recovery or growth.</p>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="step">
+      <div class="step-circle"><span class="step-number">2</span></div>
+      <div class="step-label">Build content that deserves a click</div>
+      <p class="step-desc">Invest in content whose value requires the reader to engage, not content that can be satisfied without a click.</p>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="step">
+      <div class="step-circle"><span class="step-number">3</span></div>
+      <div class="step-label">Build a portfolio of durable content</div>
+      <p class="step-desc">Spread growth across durable content types so no single page or content type dominates the program.</p>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="step">
+      <div class="step-circle"><span class="step-number">4</span></div>
+      <div class="step-label">Measure portfolio health</div>
+      <p class="step-desc">Track cannibalization, position consolidation, and traffic mix to tell whether the program is compounding or just replacing losses.</p>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="step">
+      <div class="step-circle"><span class="step-number">5</span></div>
+      <div class="step-label">Evaluate every investment with two questions</div>
+      <p class="step-desc">Does it create ongoing engagement, and can an AI system satisfy the query without a click?</p>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,322 @@
+# [Company Name]
+
+<!-- Copy this file to company-records/company-name.md. Fill in every field. The Calculation Log is the verification source for all recomputable metrics — complete it before the narrative, not after. -->
+
+---
+
+## Header
+
+| Field | Value |
+|-------|-------|
+| **Company** | |
+| **Website** | |
+| **Category** | *(Developer Tools / Fintech / HR Tech / Security / Product Analytics / Marketing Automation / Sales Engagement / Customer Success / Customer Support / Project Management / Other)* |
+| **Business Model** | *(B2B SaaS / Developer Ecosystem / Fintech / eCommerce / Media-Publisher / Services / Other)* |
+| **Dominant Content Model** | *(Editorial-blog-led / Programmatic / Glossary-definition-led / Integration-led / Comparison-alternative-led / Product-category-led / Tool-template-led / Mixed)* — describes the site's overall organic strategy |
+| **Company Size** | *(SMB / Mid-Market / Enterprise / Unknown)* |
+| **Study Window** | YYYY-MM to YYYY-MM |
+| **Analysis Date** | YYYY-MM-DD |
+| **Record Finalized Date** | YYYY-MM-DD |
+| **Last Verified Date** | YYYY-MM-DD |
+| **Methodology Version** | V2.0 |
+| **Record Status** | *(Draft / Verified / Final / Needs Revalidation)* |
+| **Migration Validation Stage** | *(N/A — new record / Migrated — not revalidated / Metrics revalidated / Narrative revalidated / Fully revalidated)* |
+| **External Use Status** | *(Internal only / Client conversations / Client deliverable / Public evidence library)* |
+| **Data Provenance** | *(Ahrefs Export / Ahrefs Dashboard / Ahrefs Export + Semrush / Ahrefs Export + Similarweb / Full: +GSC+GA4 / Mixed — see Source Files)* |
+| **Calculation Verified** | *(Yes — all key metrics reproduced from source / Partial — some metrics reproduced / No — figures carried from prior analysis)* |
+| **Measurement Reliability** | *(High / Medium / Low / Unverified)* — reliability of the underlying traffic observation itself, separate from mechanism confidence. High = multiple exports reconcile at sufficient scale and coverage; Medium = direction credible but magnitude or coverage has limitations; Low = small base, missing trend data, asymmetric samples, or major vendor limitations at this domain's scale; Unverified = migrated figures not recomputed from source exports. |
+
+---
+
+## Outcome Summary
+
+*Reproduces verified values from the Calculation Log. Do not populate this table before the Calculation Log is complete.*
+
+| Metric | Value | Source |
+|--------|-------|--------|
+| Starting Traffic Estimate | | Ahrefs, [date] |
+| Ending Traffic Estimate | | Ahrefs, [date] |
+| Traffic Change % | | Calculation Log |
+| Outcome Classification | *(Grew / Flat / Declined)* | ±10% threshold |
+| Traffic Value Change | | Ahrefs |
+| Referring Domains Change | | Ahrefs |
+
+---
+
+## Traffic Trajectory
+
+| Field | Value |
+|-------|-------|
+| **Traffic Trajectory** | *(Continuous Acceleration / Steady Growth / Growth then Pullback / Early Peak then Plateau / Early Peak then Decline / Decline then Recovery / Flat / Steady Decline / Volatile)* |
+| **Peak Month** | YYYY-MM |
+| **Peak Traffic Estimate** | |
+| **Trough Month** | YYYY-MM *(if applicable)* |
+| **Trough Traffic Estimate** | *(if applicable)* |
+| **Primary Inflection Date** | YYYY-MM |
+| **Current Direction** | *(Growing / Stable / Declining)* |
+
+---
+
+## Mechanism
+
+| Field | Value |
+|-------|-------|
+| **Primary Mechanism** | *(Algorithm Update / AI Overview / AI-mediated informational demand erosion / Cannibalization / Technical / Competition / Content Quality / Demand Expansion / Search Demand Shift / Mixed (Phase-dependent) / Unknown)* |
+| **Mechanism Pathway** | *(One sentence: Trigger or condition → Observed transmission → Traffic outcome. Example: "Algorithm Update (Oct 2025 core) → position-bucket collapse at long-tail → Decline then Recovery with top-bucket acceleration.")* |
+| **Contributing Mechanisms** | *(comma-separated from same list — blank if none)* |
+| **Mechanism Confidence** | *(High / Medium / Low)* |
+| **Confidence Rationale** | *(What evidence supports this? What would change your assessment?)* |
+| **Strongest Competing Explanation** | |
+| **Disconfirming Evidence** | |
+| **Algorithm Alignment** | *(Strong / Moderate / Weak / None / Not assessed)* |
+| **AIO Portfolio Susceptibility** | *(High / Medium / Low / Unknown)* — estimated degree to which the site's query/page portfolio is structurally exposed to AI Overview interception |
+| **AIO Presence Observed** | *(Yes / No / Not tested)* — whether an AI Overview was directly confirmed to appear on one or more key queries |
+| **AIO Observed Effect** | *(Intercepted / Resistant / Mixed / No conclusion / Not tested)* — whether estimated traffic showed a response consistent with AI Overview interception or resistance, where observed |
+
+**AIO field definitions:**
+
+*AIO Portfolio Susceptibility:*
+- **High:** Large share of the site's key queries are informational or answer-oriented — structurally likely to trigger AI Overviews.
+- **Medium:** Mixed portfolio; some informational exposure, some navigational or commercial queries.
+- **Low:** Query portfolio is primarily navigational, branded, or commercial — low structural exposure.
+- **Unknown:** Portfolio-level review not performed.
+
+*AIO Presence Observed:*
+- **Yes:** An AI Overview was directly confirmed on at least one key query.
+- **No:** Relevant queries were tested and no AI Overview appeared.
+- **Not tested:** No query-level AIO review was performed.
+
+*AIO Observed Effect:*
+- **Resistant:** A page holds ranking and estimated traffic despite an AI Overview being displayed on that query.
+- **Intercepted:** Estimated traffic loss pattern is consistent with AI Overview click interception.
+- **Mixed:** Evidence of both resistance and interception across different queries or pages.
+- **No conclusion:** Data is insufficient to characterize the effect.
+- **Not tested:** AIO presence was not directly observed; effect cannot be assessed.
+
+*Causal interpretation belongs in Primary Mechanism + Mechanism Confidence + Confidence Rationale, not here.*
+
+---
+
+## Gross-Loss Offset Analysis
+
+*(Complete only if rate was computed from Top Pages exports. Leave blank if not — do not estimate.)*
+
+| Metric | Value | Source File |
+|--------|-------|-------------|
+| Gross Gain | | Top Pages export |
+| Gross Loss (absolute) | | Top Pages export |
+| Net Change | | Calculation Log |
+| Gross-Loss Offset Rate | | Calculation Log |
+| Offset Zone | *(Healthy <30% / Moderate 30–60% / High 60–100% / Extreme >100%)* | |
+| Reconciliation check | *(Gross Gain − Gross Loss = Net Change? Yes / No / Within [state] tolerance)* | |
+
+**Rules:** If Gross Gain = 0, report as N/A. Gross Gain and Gross Loss must use the same scope, country database, comparison dates, and URL population. Zones are descriptors, not diagnoses.
+
+---
+
+## Page & Content Analysis
+
+*"Dominant Content Type" here refers to which page category dominates traffic — distinct from "Dominant Content Model" in the header, which describes overall organic strategy.*
+
+| Field | Value | Source |
+|-------|-------|--------|
+| Top 1 Page Traffic Share | | Top Pages export |
+| Top 5 Page Traffic Share | | Top Pages export |
+| Top 10 Page Traffic Share | | Top Pages export |
+| Dominant Content Type | *(Blog / Glossary / Integration / Comparison / Product / Tool / Other)* | |
+| Winning Content Type | *(Content type producing most gross gain)* | |
+| Losing Content Type | *(Content type producing most gross loss)* | |
+| New-URL Gain Share | *(Share of gains from URLs not in the starting period)* | |
+| Page Replacement Pattern | *(None / Healthy replacement / Partial replacement / Failed replacement)* | |
+| Notable patterns | | |
+
+---
+
+## Recovery
+
+| Field | Value |
+|-------|-------|
+| **Recovery Status** | *(Full / Partial / None / Not applicable — grew throughout / Too early to assess)* |
+| **Recovery Mechanism** | *(What appeared to drive it, if applicable)* |
+| **Recovery Confidence** | *(High / Medium / Low / Not applicable)* |
+| **Recovery Notes** | |
+
+---
+
+## AI Discoverability
+
+*(Optional section — complete when AI citation or visibility data is available. Design around durable concepts, not vendor-specific scores. Different tools can coexist in the Metrics field.)*
+
+| Field | Value |
+|-------|-------|
+| **Measured** | *(Yes / No)* |
+| **Analysis Date** | YYYY-MM-DD |
+| **Data Source(s)** | *(Profound / Scrunch / Internal prompt library / Manual testing / Mixed)* |
+| **AI Visibility Strength** | *(High / Medium / Low / Unknown)* — classify per current AI Discoverability methodology (`_ai-discoverability-methodology.md`) |
+| **AI Discoverability Trend** | *(Improving / Stable / Declining / Unknown)* |
+| **Trend Compared To** | *(Initial measurement / Previous quarterly assessment / Previous annual assessment / Other — specify)* |
+
+### Coverage
+
+*(What was evaluated? Describe the scope: engines tested, prompt categories, prompt count, time period.)*
+
+- Engines tested:
+- Prompt categories: *(AI answer engines / AI Overviews / Commercial prompts / Informational prompts / Branded prompts / Comparison prompts)*
+- Prompt count:
+- Evaluation period:
+
+### Findings
+
+*(Observed facts, not assessments. State what the data showed. Example: "Brand appeared in 43% of tested informational prompts. Citation rate dropped from 61% to 43% between March and June 2026." Avoid labels like "strong" or "weak" here — those go in AI Visibility Strength.)*
+
+### Key Metrics
+
+*(Raw platform data. Do not normalize prematurely — different tools can coexist.)*
+
+| Metric | Value | Source | Date |
+|--------|-------|--------|------|
+| | | | |
+
+### Interpretation
+
+*(2–3 sentences: what does this tell us? How does it relate to traditional organic performance? Is there evidence of divergence between AI visibility and search visibility?)*
+
+---
+
+## Client Applicability
+
+| Field | Value |
+|-------|-------|
+| **Commercial Alignment** | *(High / Medium / Low / Mixed / Unknown)* — degree to which the site's organic search footprint is topically connected to the company's commercial positioning |
+| **Best-Fit Client Type** | *(Who should this case be shown to?)* |
+| **Best-Fit Problem** | *(What client question does this case help answer?)* |
+| **Relevance Conditions** | *(When is this a valid comp?)* |
+| **Non-Comparable When** | *(Where does the analogy break?)* |
+| **Primary Lesson** | *(One sentence — the observable pattern and takeaway. State facts, not settled causal claims. Do not present medium- or low-confidence attributions as fact.)* |
+| **Evidence Use** | *(Diagnostic / Strategic / Cautionary / Recovery precedent)* |
+| **Evidence Basis** | *(One client-readable sentence on the data this record is based on — e.g., "Based on Ahrefs Top Pages exports covering January 2024 through June 2025; no first-party analytics were available.")* |
+
+---
+
+## Risk Flags
+
+*(Long-tail or irregular observations not captured by structured fields. Do not duplicate values already in structured fields.)*
+
+Examples: Single-page risk / Brand-dependent / International subfolder issue / Migration-related / Programmatic sprawl / Intent mismatch / Index bloat / Successful content replacement / Legacy-content dependence / Homepage dependence
+
+---
+
+## Related Documents
+
+*(Cross-references only — no summaries or duplicated analysis. List filenames or titles.)*
+
+- Comparison briefs: *(Required if one exists for this company. e.g., `comparison-briefs/github-circleci-harness-cloudbees.md`. Mark "None" only if no comparison brief covers this company.)*
+- Synthesis documents: *(e.g., `developer-tools-synthesis.md`)*
+- Studies: *(e.g., AI citation validation study)*
+- Report references: *(e.g., Chapter 5, Original 118-company report)*
+
+---
+
+## Calculation Log
+
+*The authoritative verification source for all recomputable metrics. Populate this before the Outcome Summary and narrative. Structured tables and narrative sections reproduce values from here — they do not independently establish verification.*
+
+*Directly reported source metrics (starting/ending traffic estimates, referring domains, traffic value) do not require a Calculation Log row — they need only a named source file and date in the Source Files table.*
+
+| Metric | Source File | Source Columns / Rows | Filter / Population | Formula | Verified Value | Verification Status |
+|--------|-----------|-----------------------|--------------------|---------|----------------|---------------------|
+| Traffic Change % | | | | (end − start) / start | | *(Recomputed / Carried / N/A)* |
+| Gross Gain | | | Pages with positive traffic change, excl. NaN | SUM(positive changes) | | |
+| Gross Loss | | | Pages with negative traffic change, excl. NaN | ABS(SUM(negative changes)) | | |
+| Net Change | | | Same as above | Gross Gain − Gross Loss | | |
+| Gross-Loss Offset Rate | | | Same as above | Gross Loss ÷ Gross Gain | | |
+| Top 5 Traffic Share | | | Ending period, top 5 rows by traffic | SUM(top 5) / total ending traffic | | |
+
+---
+
+## Source Files
+
+| File | Description | Encoding | Date Range | Notes |
+|------|-------------|----------|-----------|-------|
+| | | | | |
+
+---
+
+## Narrative
+
+### Company Overview
+
+*(1–2 paragraphs. What the company does, who they sell to, what their content model looks like. Focus on what's relevant to the organic growth story.)*
+
+### Traffic Trajectory
+
+*(What happened over the study window? Key inflection points, timing, magnitude. Cite specific numbers from the Calculation Log — do not paraphrase or estimate.)*
+
+### Mechanism Analysis
+
+*(What drove the outcome? Walk through the evidence. Address the strongest competing explanation and explain why you weighted it lower. State what you don't know. Do not present medium- or low-confidence attributions as settled fact.)*
+
+### Page & Content Analysis
+
+*(What do the top pages reveal? Where is traffic concentrated? What's entering and leaving the top set? What does the content type distribution tell us?)*
+
+### Recovery
+
+*(If recovery occurred: when, what preceded it, what changed. If still declining: trajectory now. If grew throughout: what sustained it.)*
+
+### Client Applicability
+
+*(Expand on the structured block above. State the observable pattern — not a causal claim — when writing for client use.)*
+
+---
+
+## Verification Checklist
+
+Complete before marking record Verified or Final.
+
+**Calculation Log**
+- [ ] Calculation Log populated before Outcome Summary and narrative were written
+- [ ] Every recomputable metric has Verification Status = Recomputed (not Carried)
+- [ ] Gross Gain − Gross Loss reconciles to Net Change within stated tolerance
+- [ ] Net Change + Starting Traffic ≈ Ending Traffic
+- [ ] Traffic Change % = (Ending − Starting) / Starting, matches stated figure
+- [ ] Gross-Loss Offset Rate = Gross Loss ÷ Gross Gain (or N/A if Gross Gain = 0)
+- [ ] Source export passed standard import and normalization workflow
+
+**Narrative audit**
+- [ ] Searched narrative for all %, currency symbols, and specific traffic numbers
+- [ ] Every recomputable number in the narrative traces to a verified Calculation Log row
+- [ ] No approximate language (~, "roughly," "about") used for figures that were actually computed
+- [ ] Rounded values follow one consistent rule
+
+**Client Applicability**
+- [ ] Primary Lesson and Comp Summary state observable pattern, not settled causal claim
+- [ ] Medium- and low-confidence mechanisms not presented as fact in any client-facing field
+- [ ] Evidence Basis written in plain language a client can read
+- [ ] External Use Status reflects actual readiness for external exposure
+
+**Fields & index**
+- [ ] All controlled-vocabulary fields use approved values
+- [ ] Record Status and Migration Validation Stage both updated
+- [ ] Index row values match verified record values
+- [ ] AIO fields (Susceptibility, Presence Observed, Observed Effect) reflect observed evidence, not causal interpretation
+- [ ] Related Documents section populated (or explicitly marked None)
+
+---
+
+## Historical Amendments
+
+*(Append-only log. Add an entry whenever structured fields are updated. Do not edit or delete prior entries. Structured fields always reflect the current best assessment; this section explains what changed and why.)*
+
+*(Amendment threshold: meaningful new data, recovery signals, mechanism confidence updates, AI discoverability changes. Full re-analysis threshold: major rebrands, domain migrations, or fundamental content model pivots that make the original study window no longer the right baseline.)*
+
+**Amendment entry format:**
+
+**YYYY-MM-DD**
+- **Reason:** *(Recovery observed / New data available / Methodology update / AI discoverability reassessment / Error correction / Other)*
+- **Sections updated:** *(list)*
+- **Summary:** *(what changed and why)*
+
+---
+
+*Record finalized: YYYY-MM-DD | Last verified: YYYY-MM-DD*
