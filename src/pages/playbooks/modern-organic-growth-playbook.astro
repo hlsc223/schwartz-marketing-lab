@@ -14,27 +14,27 @@ const stats = [
 
 const findings = [
   {
-    n: 'Finding 01',
+    n: '01',
     label: 'The Traffic Split',
     text: 'Of 118 companies tracked, 47% declined and 37% grew, often in the same vertical competing for the same keywords.',
   },
   {
-    n: 'Finding 02',
+    n: '02',
     label: 'Content Composition',
     text: "The strongest differentiator we observed wasn't company size, domain authority, publishing volume, or backlink growth. It was content composition: whether a program's core traffic assets created ongoing engagement or satisfied a one-time query.",
   },
   {
-    n: 'Finding 03',
+    n: '03',
     label: 'Renewable Demand',
     text: 'Among content-driven growing companies, 61% built primarily on definitional and conceptual content: the kind that generates demand that renews itself as new people enter roles where those concepts matter.',
   },
   {
-    n: 'Finding 04',
+    n: '04',
     label: 'AI Interception',
     text: 'In several companies we observed an unusual pattern: rankings held, or even improved, while traffic on those same pages fell dramatically. The most acute case showed traffic falling 80–99% on pages that were simultaneously moving up in position. The pattern is consistent with click interception occurring directly on the results page, before the user reaches the site.',
   },
   {
-    n: 'Finding 05',
+    n: '05',
     label: 'Satisfiability',
     text: 'The most consistent predictor of AI Overview exposure was satisfiability: whether a user could get what they needed from the AI response alone, without clicking through. Content that required engagement to be useful generally held up better. Content that could be extracted and delivered in a single response proved more vulnerable.',
   },
@@ -122,11 +122,11 @@ const chapters = [
           <div class="findings-list">
             {findings.map((f) => (
               <div class="finding">
-                <div class="finding-id">
-                  <p class="finding-n">{f.n}</p>
+                <p class="finding-n" aria-hidden="true">{f.n}</p>
+                <div class="finding-content">
                   <h3 class="finding-label">{f.label}</h3>
+                  <p class="finding-text">{f.text}</p>
                 </div>
-                <p class="finding-text">{f.text}</p>
               </div>
             ))}
           </div>
@@ -575,55 +575,50 @@ const chapters = [
     border-top: 1px solid hsl(var(--foreground) / 0.1);
   }
 
+  /* Number-left, content-right layout matching the reference design */
   .finding {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 52px 0;
+    grid-template-columns: 72px 1fr;
+    gap: 0 32px;
+    padding: 48px 0;
     border-bottom: 1px solid hsl(var(--foreground) / 0.08);
+    align-items: start;
   }
 
-  .finding-id {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
+  /* Large cobalt number — the primary visual anchor */
   .finding-n {
     font-family: var(--font-heading);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: hsl(var(--cobalt) / 0.65);
+    font-weight: 900;
+    font-size: clamp(44px, 5vw, 56px);
+    line-height: 1;
+    color: hsl(var(--cobalt));
     margin: 0;
+    letter-spacing: -0.03em;
   }
 
-  /* The label is the scan target — it should read as a finding headline */
+  .finding-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 6px; /* optically align with top of number */
+  }
+
   .finding-label {
     font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: clamp(22px, 3vw, 36px);
-    letter-spacing: -0.03em;
-    line-height: 1.05;
+    font-weight: 800;
+    font-size: clamp(18px, 2vw, 22px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
     color: hsl(var(--foreground));
     margin: 0;
   }
 
   .finding-text {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.82;
     color: hsl(var(--foreground) / 0.6);
     margin: 0;
-  }
-
-  @media (min-width: 768px) {
-    .finding {
-      grid-template-columns: 240px 1fr;
-      gap: 56px;
-      align-items: start;
-    }
   }
 
   /* ── Featured Insight (transition between Act I and Act II) ─────── */
