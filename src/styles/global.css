@@ -157,7 +157,7 @@
    every other already-shipped page) rather than replacing them, so nothing
    outside the homepage-parity scope is affected. */
 :root {
-  --background: 40 47% 96%;
+  --background: 46 37% 93%; /* matches --color-bg: #f4f1e7 */
   --foreground: 0 0% 9%;
   --card: 46 28% 88%;
   --card-foreground: 0 0% 9%;
