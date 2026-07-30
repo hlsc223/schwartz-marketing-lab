@@ -217,10 +217,10 @@ const schema = faqPageSchema(PACKAGES_FAQ);
           Modern marketing built for discovery.
         </h1>
 
-        <p class="font-serif text-foreground/60 leading-[1.75] mb-3" style="font-size: 18px; max-width: 540px;">
+        <p class="font-serif text-foreground/90 leading-[1.75] mb-3" style="font-size: 18px; max-width: 540px;">
           Clarify your positioning, increase visibility in search and AI systems, or build a sustainable content engine. Every engagement starts with strategy and aligns to your goals.
         </p>
-        <p class="font-serif text-foreground/60 leading-[1.75]" style="font-size: 18px; max-width: 540px;">
+        <p class="font-serif text-foreground/90 leading-[1.75]" style="font-size: 18px; max-width: 540px;">
           Not sure where to start? Let's talk through the problem first.
         </p>
       </div>
@@ -263,7 +263,7 @@ const schema = faqPageSchema(PACKAGES_FAQ);
           </div>
 
           <div class="border-t border-foreground/[0.08] mt-10 pt-10">
-            <p class="font-serif text-[17px] text-foreground/70 leading-[1.8] mb-8" style="max-width: 620px;" set:html={pkg.hook} />
+            <p class="font-serif text-[17px] text-foreground/90 leading-[1.8] mb-8" style="max-width: 620px;" set:html={pkg.hook} />
 
             <a
               href="/contact"
@@ -281,7 +281,7 @@ const schema = faqPageSchema(PACKAGES_FAQ);
               <ul>
                 {pkg.included.map((item, idx) => (
                   <li
-                    class="font-serif text-[14.5px] text-foreground/65 leading-[1.6]"
+                    class="font-serif text-[14.5px] text-foreground/88 leading-[1.6]"
                     style={{ padding: '12px 0', borderTop: idx === 0 ? 'none' : '1px solid hsl(var(--foreground) / 0.06)' }}
                   >
                     {item}
@@ -294,7 +294,7 @@ const schema = faqPageSchema(PACKAGES_FAQ);
               <ul>
                 {pkg.deliverables.map((item, idx) => (
                   <li
-                    class="font-serif text-[14.5px] text-foreground/65 leading-[1.6]"
+                    class="font-serif text-[14.5px] text-foreground/88 leading-[1.6]"
                     style={{ padding: '12px 0', borderTop: idx === 0 ? 'none' : '1px solid hsl(var(--foreground) / 0.06)' }}
                   >
                     {item}
@@ -316,7 +316,7 @@ const schema = faqPageSchema(PACKAGES_FAQ);
         <h2 class="font-sans font-black leading-[1.05] tracking-[-0.035em] text-foreground mb-3" style="font-size: clamp(28px, 3.5vw, 40px);">
           Need help with a specific initiative?
         </h2>
-        <p class="font-serif text-foreground/55 leading-[1.7] mb-12" style="font-size: 15px; max-width: 480px;">
+        <p class="font-serif text-foreground/88 leading-[1.7] mb-12" style="font-size: 15px; max-width: 480px;">
           Most services can be scoped independently.
         </p>
 
@@ -329,7 +329,7 @@ const schema = faqPageSchema(PACKAGES_FAQ);
               <p class="font-sans font-bold text-[15px] text-foreground mb-5 tracking-[-0.01em]">{col.category}</p>
               <ul class="space-y-3">
                 {col.items.map((item) => (
-                  <li class="flex items-start gap-2.5 font-serif text-[14.5px] text-foreground/65 leading-[1.5]">
+                  <li class="flex items-start gap-2.5 font-serif text-[14.5px] text-foreground/88 leading-[1.5]">
                     <span class="flex-shrink-0 mt-[7px] w-1.5 h-1.5 rounded-full" style="background: hsl(var(--cobalt));" />
                     {item}
                   </li>
@@ -358,7 +358,7 @@ const schema = faqPageSchema(PACKAGES_FAQ);
             {PACKAGES_FAQ.map((item) => (
               <div class="service-faq-item border-b border-foreground/[0.055] py-[26px]">
                 <h3 class="font-sans font-bold text-[15px] text-foreground leading-snug m-0">{item.question}</h3>
-                <p class="font-serif text-[15px] text-foreground/60 leading-[1.85] pt-3" style="max-width: 500px;">
+                <p class="font-serif text-[15px] text-foreground/88 leading-[1.85] pt-3" style="max-width: 500px;">
                   {item.answer}
                 </p>
               </div>

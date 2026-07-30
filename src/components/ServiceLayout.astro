@@ -208,7 +208,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
         </div>
         <div style="max-width: 580px;" class="space-y-4">
           {overview.map((p) => (
-            <p class="font-serif text-[16px] leading-[1.8] text-foreground/70" set:html={p} />
+            <p class="font-serif text-[16px] leading-[1.8] text-foreground/90" set:html={p} />
           ))}
         </div>
       </div>
@@ -248,7 +248,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
                 {String(i + 1).padStart(2, '0')}
               </p>
               <p class="font-sans font-bold text-[17px] text-foreground tracking-[-0.01em]">{step.title}</p>
-              <p class="font-serif text-[14px] text-foreground/55 leading-[1.8] col-start-2 md:col-start-3" style="max-width: 520px;" set:html={step.description} />
+              <p class="font-serif text-[14px] text-foreground/88 leading-[1.8] col-start-2 md:col-start-3" style="max-width: 520px;" set:html={step.description} />
             </div>
           ))}
         </div>
@@ -269,7 +269,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
           </h2>
         </div>
         {whatIncludedSubtext && (
-          <div class="font-serif italic text-[13px] text-foreground/60 hidden md:block max-w-xs text-right">
+          <div class="font-serif italic text-[13px] text-foreground/75 hidden md:block max-w-xs text-right">
             {whatIncludedSubtext}
           </div>
         )}
@@ -294,7 +294,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
               )}
             </div>
             <p class="font-sans font-bold text-[16px] text-foreground mb-3.5 leading-snug tracking-[-0.01em]">{item.title}</p>
-            <p class="font-serif text-[14px] text-foreground/55 leading-[1.85]">{item.description}</p>
+            <p class="font-serif text-[14px] text-foreground/88 leading-[1.85]">{item.description}</p>
           </div>
         ))}
       </div>
@@ -348,12 +348,12 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
           {whoLines.map((item) => (
             <li class="flex items-center gap-6" style="padding: 22px 0; border-bottom: 1px solid hsl(var(--foreground) / 0.08);">
               <span class="flex-shrink-0 font-sans font-bold" style="font-size: 11px; color: hsl(var(--cobalt)); letter-spacing: 0.06em;">↗</span>
-              <span class="font-serif text-[16px] text-foreground/70 leading-[1.65]">{item}</span>
+              <span class="font-serif text-[16px] text-foreground/90 leading-[1.65]">{item}</span>
             </li>
           ))}
         </ul>
       ) : (
-        <p class="font-serif text-[17px] text-foreground/60 leading-[1.85]">{whoItsFor}</p>
+        <p class="font-serif text-[17px] text-foreground/90 leading-[1.85]">{whoItsFor}</p>
       )}
     </div>
   </section>
@@ -423,7 +423,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
           {faqItems.map((item) => (
             <div class="service-faq-item border-b border-foreground/[0.055] py-[26px]">
               <h3 class="font-sans font-bold text-[15px] text-foreground leading-snug m-0">{item.question}</h3>
-              <p class="font-serif text-[15px] text-foreground/60 leading-[1.85] pt-3" style="max-width: 500px;" set:html={item.answer} />
+              <p class="font-serif text-[15px] text-foreground/88 leading-[1.85] pt-3" style="max-width: 500px;" set:html={item.answer} />
             </div>
           ))}
         </div>
