@@ -202,7 +202,10 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
   </section>
 
   <!-- ============ TESTIMONIALS — ported from TestimonialsSection.tsx ============ -->
-  <section id="testimonials" class="relative bg-background text-foreground py-24 md:py-32">
+  <section id="testimonials" class="relative text-foreground pt-24 md:pt-32 pb-24 md:pb-32" style="background: linear-gradient(to bottom, hsl(var(--background)) 0px, hsl(var(--card)) 64px);">
+    <!-- Corner accent in same language as hero frame -->
+    <div aria-hidden="true" style="position: absolute; top: 52px; right: 44px; width: 34px; height: 34px; border-top: 2px solid hsl(var(--cobalt)); border-right: 2px solid hsl(var(--cobalt)); pointer-events: none;"></div>
+
     <div class="container mx-auto px-4 md:px-6 max-w-6xl">
       <div class="mb-24 md:mb-28 max-w-3xl">
         <div class="font-sans text-[13px] font-semibold tracking-[0.28em] uppercase text-foreground mb-6">
@@ -216,25 +219,22 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-12 border-t border-foreground/[0.08] pt-14 md:pt-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-10 border-t border-foreground/[0.08] pt-14 md:pt-16">
         {testimonials.map((t) => (
           <figure class="flex flex-col">
-            <div aria-hidden="true" class="font-sans font-black text-[52px] md:text-[62px] leading-[0.7] mb-4" style="color: hsl(var(--cobalt) / 0.45);">
-              &ldquo;
+            <div aria-hidden="true" class="mb-4">
+              <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+                <path d="M0 16V8.5C0 3.5 3 0.5 8 0L8.5 2.2C5.3 2.9 3.9 4.8 3.9 7.3H8V16H0ZM12.5 16V8.5C12.5 3.5 15.5 0.5 20.5 0L21 2.2C17.8 2.9 16.4 4.8 16.4 7.3H20.5V16H12.5Z" fill="hsl(var(--cobalt))"/>
+              </svg>
             </div>
-            <blockquote class="font-serif text-[17px] md:text-[18px] leading-[1.55] text-foreground mb-6">
+            <blockquote class="font-serif text-[17px] md:text-[18px] leading-[1.6] text-foreground mb-4">
               {t.quote}
             </blockquote>
             <figcaption class="mt-auto pt-4 border-t border-foreground/85">
-              <div class="font-sans text-[12px] font-semibold tracking-[0.24em] uppercase text-foreground">{t.name}</div>
-              <div class="font-sans text-[12px] font-medium tracking-[0.18em] uppercase text-foreground/65 mt-1">
+              <div class="font-sans text-[13.5px] font-bold text-foreground">{t.name}</div>
+              <div class="font-sans text-[12.5px] mt-1" style="color: hsl(var(--foreground) / 0.55);">
                 {t.role}{t.company ? `, ${t.company}` : ''}
               </div>
-              {t.formerly && (
-                <div class="font-sans text-[11px] font-medium tracking-[0.18em] uppercase text-foreground/45 mt-0.5">
-                  Formerly {t.formerly}
-                </div>
-              )}
             </figcaption>
           </figure>
         ))}
