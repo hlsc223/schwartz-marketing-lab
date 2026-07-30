@@ -38,17 +38,11 @@ const upcoming = [
           <h2 class="section-heading">Featured Playbook</h2>
           <a href="/playbooks/modern-organic-growth-playbook" class="feat-link">
             <div class="feat-cover-wrap">
-              <div class="feat-cover-frame">
-                <img
-                  src="/images/playbooks/modern-organic-growth-playbook-cover.png"
-                  alt="The 2026 Modern Organic Growth Playbook cover"
-                  class="feat-cover-img"
-                  onerror="this.style.display='none'"
-                />
-                <div class="feat-cover-fallback" aria-hidden="true">
-                  <span>The 2026 Modern Organic Growth Playbook</span>
-                </div>
-              </div>
+              <img
+                src="/images/playbooks/modern-organic-growth-playbook-cover.png"
+                alt="The 2026 Modern Organic Growth Playbook cover"
+                class="feat-cover-img"
+              />
             </div>
             <p class="feat-desc">Original research across 118 B2B SaaS companies on why nearly half lost organic traffic while others grew during the AI-era shift.</p>
             <div class="feat-cta">
@@ -159,7 +153,6 @@ const upcoming = [
   }
 
   .feat-cover-wrap {
-    position: relative;
     aspect-ratio: 16 / 9;
     border-radius: 10px;
     overflow: hidden;
@@ -167,36 +160,11 @@ const upcoming = [
     background: hsl(37deg 35% 87%);
   }
 
-  .feat-cover-frame {
-    position: absolute;
-    inset: 0;
-  }
-
   .feat-cover-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-  }
-
-  .feat-cover-fallback {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: hsl(37deg 25% 82%);
-    padding: 24px;
-  }
-
-  .feat-cover-fallback span {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: clamp(18px, 3vw, 32px);
-    letter-spacing: -0.03em;
-    color: hsl(var(--foreground) / 0.45);
-    text-align: center;
-    line-height: 1.2;
   }
 
   .feat-desc {
