@@ -207,7 +207,8 @@ const chapters = [
           <input class="field-input" type="text" name="firstName" placeholder="First name" required autocomplete="given-name" />
           <input class="field-input" type="text" name="lastName" placeholder="Last name" required autocomplete="family-name" />
         </div>
-        <input class="field-input" type="email" name="email" placeholder="Work email" required autocomplete="email" />
+        <input class="field-input" type="email" name="email" id="playbook-email" placeholder="Work email" required autocomplete="email" />
+        <p class="email-error" id="email-error" aria-live="polite"></p>
         <button type="submit" class="form-btn">Download the Playbook</button>
       </form>
       <p class="form-fine">Free. No spam. Unsubscribe anytime.</p>
@@ -684,6 +685,14 @@ const chapters = [
     transition: background 0.15s;
   }
   .form-btn:hover { background: hsl(var(--cobalt-deep)); }
+  .email-error {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 600;
+    color: #ff6b6b;
+    margin: 6px 0 0;
+    min-height: 18px;
+  }
   .form-fine {
     font-family: var(--font-heading);
     font-size: 11px;
@@ -727,3 +736,77 @@ const chapters = [
   }
   .publisher-link:hover { color: hsl(var(--cobalt-deep)); }
 </style>
+
+<script>
+  const BLOCKED_DOMAINS = new Set([
+    'gmail.com','googlemail.com','yahoo.com','yahoo.co.uk','yahoo.fr','yahoo.de',
+    'yahoo.es','yahoo.ca','yahoo.com.au','ymail.com','rocketmail.com',
+    'hotmail.com','hotmail.co.uk','hotmail.fr','hotmail.de','hotmail.es',
+    'outlook.com','outlook.co.uk','outlook.fr','outlook.de','outlook.es',
+    'live.com','live.co.uk','live.fr','live.de','live.ca','live.com.au',
+    'icloud.com','me.com','mac.com','aol.com','msn.com','protonmail.com',
+    'proton.me','mail.com','inbox.com','gmx.com','gmx.de','gmx.net',
+    'tutanota.com','tutamail.com','tuta.io','yandex.com','yandex.ru',
+    'qq.com','163.com','126.com','web.de','libero.it','virgilio.it',
+    'wanadoo.fr','orange.fr','free.fr','laposte.net','sfr.fr',
+    'terra.com.br','uol.com.br','bol.com.br',
+    'hey.com','fastmail.com','fastmail.fm','pm.me','duck.com',
+    'zoho.com','zohomail.com',
+    // disposable/temp domains
+    'mailinator.com','guerrillamail.com','sharklasers.com','guerrillamailblock.com',
+    'grr.la','guerrillamail.info','guerrillamail.biz','guerrillamail.de',
+    'guerrillamail.net','guerrillamail.org','spam4.me','trashmail.com',
+    'trashmail.me','trashmail.net','yopmail.com','yopmail.fr','cool.fr.nf',
+    'jetable.fr.nf','nospam.ze.tc','nomail.xl.cx','mega.zik.dj','speed.1s.fr',
+    'courriel.fr.nf','moncourrier.fr.nf','monemail.fr.nf','monmail.fr.nf',
+    'throwam.com','mailnull.com','spamgourmet.com','spamgourmet.net',
+    'tempmail.com','tempmail.net','temp-mail.org','fakeinbox.com','mailnesia.com',
+  ]);
+
+  const form = document.querySelector('form[name="playbook-download"]');
+  const emailInput = document.getElementById('playbook-email');
+  const errorEl = document.getElementById('email-error');
+
+  function getBlockedDomain(domain) {
+    return [...BLOCKED_DOMAINS].find(
+      blocked => domain === blocked || domain.endsWith(`.${blocked}`)
+    );
+  }
+
+  function validateWorkEmail() {
+    const email = emailInput.value.trim();
+    if (!emailInput.validity.valid) return 'Please enter a valid email address.';
+    const domain = email.split('@')[1]?.toLowerCase();
+    if (!domain) return 'Please enter a valid email address.';
+    if (getBlockedDomain(domain)) return 'Please enter your company email to download the playbook.';
+    return null;
+  }
+
+  function renderEmailError(error) {
+    errorEl.textContent = error || '';
+    if (error) {
+      emailInput.setAttribute('aria-invalid', 'true');
+      emailInput.setAttribute('aria-describedby', 'email-error');
+    } else {
+      emailInput.removeAttribute('aria-invalid');
+      emailInput.removeAttribute('aria-describedby');
+    }
+  }
+
+  emailInput.addEventListener('blur', () => {
+    renderEmailError(validateWorkEmail());
+  });
+
+  emailInput.addEventListener('input', () => {
+    if (errorEl.textContent) renderEmailError(validateWorkEmail());
+  });
+
+  form.addEventListener('submit', (e) => {
+    const error = validateWorkEmail();
+    if (error) {
+      e.preventDefault();
+      renderEmailError(error);
+      emailInput.focus();
+    }
+  });
+</script>
