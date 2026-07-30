@@ -54,6 +54,7 @@ const resourceLinks = [
     name: '2026 Organic Growth Playbook',
     description: 'Research-backed playbooks for organic growth in the AI era.',
     href: '/playbooks/modern-organic-growth-playbook',
+    badge: 'New',
   },
 ];
 
@@ -181,7 +182,12 @@ const otherLinks = [
                   borderBottom: i < resourceLinks.length - 1 ? '1px solid hsl(var(--foreground) / 0.07)' : 'none',
                 }}
               >
-                <p class="text-[15px] font-bold text-foreground font-sans group-hover/item:text-[hsl(var(--cobalt))] transition-colors leading-snug">{link.name}</p>
+                <div class="flex items-center gap-2">
+                  <p class="text-[15px] font-bold text-foreground font-sans group-hover/item:text-[hsl(var(--cobalt))] transition-colors leading-snug">{link.name}</p>
+                  {link.badge && (
+                    <span class="flex-shrink-0 font-sans font-bold text-[9px] tracking-[0.18em] uppercase px-1.5 py-0.5" style="background: hsl(var(--cobalt)); color: white; border-radius: 3px; line-height: 1.4;">{link.badge}</span>
+                  )}
+                </div>
                 <p class="text-[12.5px] leading-relaxed mt-1 text-muted-foreground">{link.description}</p>
               </a>
             ))}
