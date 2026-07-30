@@ -163,7 +163,7 @@ const words = ['AEO.', 'GEO.', 'SEO.', 'content.'];
                 <span
                   aria-hidden="true"
                   data-word={i}
-                  style={`grid-area: 1/1; background: hsl(var(--background)); opacity: ${i === 0 ? 1 : 0}; transform: translateY(${i === 0 ? '0' : '10px'});`}
+                  style={`grid-area: 1/1; opacity: ${i === 0 ? 1 : 0}; transform: translateY(${i === 0 ? '0' : '10px'});`}
                   class="transition-[opacity,transform] duration-300"
                 >{word}</span>
               ))}
