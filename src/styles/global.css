@@ -206,12 +206,12 @@ body::before {
 }
 
 html {
-  background: var(--color-bg);
+  background: hsl(var(--background));
 }
 
 body {
   margin: 0;
-  background: var(--color-bg);
+  background: hsl(var(--background));
   color: var(--color-text);
   font-family: var(--font-body);
   line-height: 1.6;
