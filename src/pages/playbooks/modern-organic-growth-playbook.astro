@@ -4,592 +4,526 @@ import Layout from '../../layouts/Layout.astro';
 const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E")`;
 
 const stats = [
-  { value: '118',  label: 'Companies tracked' },
-  { value: '18mo', label: 'Data window' },
-  { value: '6',    label: 'B2B SaaS categories' },
-  { value: '47%',  label: 'Declined', highlight: true },
-  { value: '37%',  label: 'Grew',     highlight: true },
-  { value: '5',    label: 'Recurring traffic-loss mechanisms' },
+  { value: '118', label: 'Companies tracked' },
+  { value: '18 mo', label: 'Data window' },
+  { value: '6', label: 'B2B SaaS verticals' },
+  { value: '47%', label: 'Declined' },
+  { value: '37%', label: 'Grew' },
+  { value: '16%', label: 'Stayed flat' },
+];
+
+const maxVal = 22;
+const chartBars = [
+  { label: 'Down >50%', value: 15, group: 'declined', h: 82 },
+  { label: 'Down 25–50%', value: 22, group: 'declined', h: 120 },
+  { label: 'Down 10–25%', value: 18, group: 'declined', h: 98 },
+  { label: 'Flat', value: 19, group: 'flat', h: 104 },
+  { label: 'Up 10–25%', value: 9, group: 'grew', h: 49 },
+  { label: 'Up 25–50%', value: 12, group: 'grew', h: 65 },
+  { label: 'Up >50%', value: 21, group: 'grew', h: 115 },
 ];
 
 const findings = [
   {
     n: '01',
-    label: 'The Traffic Split',
-    text: 'Of 118 companies tracked, 47% declined and 37% grew, often in the same vertical competing for the same keywords.',
+    title: 'Most organic strategies are outdated.',
+    body: 'Of 118 companies tracked, 63% lost traffic or remained stagnant. That\'s because strategies that worked even 12 months ago are no longer effective. In most cases, they actually work against you.',
   },
   {
     n: '02',
-    label: 'Content Composition',
-    text: "The strongest differentiator we observed wasn't company size, domain authority, publishing volume, or backlink growth. It was content composition: whether a program's core traffic assets created ongoing engagement or satisfied a one-time query.",
+    title: 'More isn\'t always better.',
+    body: 'Publishing frequency, domain authority, and backlink counts showed no meaningful correlation with growth direction. What did was something most programs don\'t measure.',
   },
   {
     n: '03',
-    label: 'Renewable Demand',
-    text: 'Among content-driven growing companies, 61% built primarily on definitional and conceptual content: the kind that generates demand that renews itself as new people enter roles where those concepts matter.',
+    title: 'Renewable demand is the ultimate unlock.',
+    body: 'Over 60% of content-driven growers built for a category of demand where new audiences continuously arrive. Most content programs don\'t account for it. The ones that do are the ones that win.',
   },
   {
     n: '04',
-    label: 'AI Interception',
-    text: 'In several companies we observed an unusual pattern: rankings held, or even improved, while traffic on those same pages fell dramatically. The most acute case showed traffic falling 80–99% on pages that were simultaneously moving up in position. The pattern is consistent with click interception occurring directly on the results page, before the user reaches the site.',
+    title: 'Rankings don\'t always lead to traffic.',
+    body: 'We saw an unusual pattern in many companies: rankings held or improved while traffic fell. It turns out that the cause is specific and identifiable — and so are the pages most at risk.',
   },
   {
     n: '05',
-    label: 'Satisfiability',
-    text: 'The most consistent predictor of AI Overview exposure was satisfiability: whether a user could get what they needed from the AI response alone, without clicking through. Content that required engagement to be useful generally held up better. Content that could be extracted and delivered in a single response proved more vulnerable.',
+    title: 'AI answers more queries than you realize.',
+    body: 'AI Overview exposure followed a pattern. It traces back to a single structural characteristic of the query, and it\'s something you can screen your own content against.',
+  },
+];
+
+const audience = [
+  {
+    label: 'B2B SaaS marketing leaders',
+    body: 'If your organic traffic behaves differently than it did 18 months ago, this playbook explains why and what to do about it.',
+  },
+  {
+    label: 'Growth and content teams',
+    body: 'If you\'re building or rebuilding an organic program, this gives you evidence on what actually works rather than conventional wisdom on what used to work.',
+  },
+  {
+    label: 'SEOs and organic strategists',
+    body: 'This playbook gives operators a research-backed diagnostic framework to distinguish between the various forces holding your traffic back or pushing it forward.',
   },
 ];
 
 const chapters = [
-  { n: 1,  title: 'What Happened to B2B Traffic',                desc: 'Why 47% of companies declined and 37% grew simultaneously, and what the data reveals about the three forces that drove the split.' },
-  { n: 2,  title: "The Assumptions That Didn't Survive the Data", desc: 'Four widely held organic growth assumptions the study data consistently contradicted, including one about AI Overviews that most practitioners have backward.' },
-  { n: 3,  title: "Why You Can't Trust Your Traffic Number",      desc: 'How to decompose a traffic figure into the signals that actually matter: branded vs. non-branded, raw traffic vs. traffic value, and absolute performance vs. category baseline.' },
-  { n: 4,  title: 'Which Mechanism Hit You',                     desc: 'A diagnostic framework for identifying which of five distinct mechanisms is driving a traffic outcome, and why the response that works for one produces no result against another.' },
-  { n: 5,  title: 'The Anatomy of Durable Growth',               desc: 'What growing companies shared: a specific content type, a distribution pattern, and a property that made demand structurally renewable.' },
-  { n: 6,  title: 'Hidden Risk in Growing Companies',            desc: "Why headline traffic growth is often a misleading signal, and what's hiding inside net gains that can make a growing program more fragile than it appears." },
-  { n: 7,  title: 'How Companies Actually Recovered',            desc: 'Two recovery archetypes observed in the cohort, the evidence behind each, and how to identify which one applies to a given situation.' },
-  { n: 8,  title: "When Recovery Isn't the Right Strategy",      desc: "Three structural decline patterns where the standard recovery playbook doesn't apply, and what to do instead." },
-  { n: 9,  title: 'What AI Overviews Actually Do to Traffic',    desc: 'Direct evidence from the cohort on how AI Overviews affect B2B traffic, including cases where the effect was minimal and what determined the difference.' },
-  { n: 10, title: 'Being Found by AI Systems',                   desc: 'What the citation data shows about how AI answer engines select sources, and what content properties consistently appear in cited results.' },
-  { n: 11, title: 'The Durable Demand Playbook',                 desc: 'Four durability tiers, a two-question structural risk test, and a STOP / DE-RISK / DOUBLE DOWN prioritization model for evaluating any content investment.' },
+  { n: '01', title: 'What Happened to B2B Traffic', body: 'Why 47% of companies declined and 37% grew simultaneously, and the primary forces that drove the split.' },
+  { n: '02', title: 'Assumptions That Didn\'t Survive the Data', body: 'This study contradicted four widely held organic growth assumptions operators have been working from for years.' },
+  { n: '03', title: 'What Your Traffic Number Hides', body: 'Your traffic number might be lying to you. Here\'s how to determine how healthy your program really is.' },
+  { n: '04', title: 'Which Force Hit You', body: 'A diagnostic framework for identifying which of five distinct mechanisms caused traffic to decrease.' },
+  { n: '05', title: 'The Foundation of Durable Demand', body: 'What growing companies shared: content type, distribution pattern, and structurally renewable demand.' },
+  { n: '06', title: 'When Growth Starts to Crack', body: 'Three hidden risks appeared repeatedly across growing companies in our cohort.' },
+  { n: '07', title: 'How Companies Actually Recovered', body: 'Two recovery archetypes observed in the cohort, and how to identify which applies.' },
+  { n: '08', title: 'When Recovery Isn\'t the Right Strategy', body: 'Three structural decline patterns where the standard recovery playbook doesn\'t apply and what to do instead.' },
+  { n: '09', title: 'Understanding AI Visibility', body: 'Direct evidence from the cohort on how answer engines affect B2B traffic.' },
+  { n: '10', title: 'Building for AI Visibility', body: 'What the citation data shows about how AI answer engines select sources.' },
+  { n: '11', title: 'The Durable Demand Playbook', body: 'Four durability tiers and a STOP / DE-RISK / DOUBLE DOWN prioritization model.' },
 ];
 ---
 
 <Layout
-  title="The Modern Organic Growth Playbook | Schwartz Marketing Lab"
-  description="Original research across 118 B2B SaaS companies reveals why nearly half lost organic traffic while others grew during the AI-era shift, and what separated them."
+  title="The 2026 Modern Organic Growth Playbook | S.LAB"
+  description="Original research across 118 B2B SaaS companies on why nearly half lost organic traffic while others grew during the AI-era shift — and what separated them."
   canonicalPath="/playbooks/modern-organic-growth-playbook"
 >
   <div class="page" style={{ backgroundImage: grain }}>
 
-    {/* ════════════════════════════════════════════════════════════════
-        ACT I — RESEARCH
-        Hero · Research at a Glance · Key Findings
-        Energetic. High-information. Evidence-first.
-    ════════════════════════════════════════════════════════════════ */}
-    <div class="act act-1">
-
-      {/* ── HERO ──────────────────────────────────────────────────── */}
-      <section class="hero">
-        <div class="ruled-bg" aria-hidden="true"></div>
-        <div class="wrap">
-          <p class="eyebrow">Research Report — S.LAB · 2025–2026</p>
-          <h1 class="headline">The Modern Organic<br/>Growth Playbook</h1>
-          <p class="subhead">
-            Original research across 118 B2B SaaS companies reveals why nearly half lost organic
-            traffic while others grew dramatically during the AI-era shift, and what separated them.
-          </p>
-          <a href="#download" class="hero-cta">
-            Download the Full Playbook
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-          </a>
-        </div>
-      </section>
-
-      {/* ── RESEARCH AT A GLANCE ──────────────────────────────────── */}
-      <section class="stats-section">
-        <div class="wrap">
-          <p class="section-eyebrow">S.LAB · Research Overview</p>
-          <h2 class="section-heading">Research at a Glance</h2>
-
-          <div class="stats-grid">
-            {stats.map((s) => (
-              <div class={`stat${s.highlight ? ' stat--highlight' : ''}`}>
-                <span class="stat-value">{s.value}</span>
-                <span class="stat-label">{s.label}</span>
-              </div>
-            ))}
-          </div>
-
-          <div class="chart-placeholder">
-            <span class="chart-label">Figure 1.1 — Traffic distribution across 118 companies</span>
-            <span class="chart-note">Chart asset pending export from PDF</span>
-          </div>
-
-          <p class="stats-body">
-            The study followed 118 B2B SaaS companies through one of the largest shifts in modern
-            search, revealing that winners and losers often competed in the same categories under
-            the same market conditions.
-          </p>
-        </div>
-      </section>
-
-      {/* ── KEY FINDINGS ──────────────────────────────────────────── */}
-      <section class="findings-section">
-        <div class="wrap">
-          <p class="section-eyebrow">Original Data · 118 Companies</p>
-          <h2 class="section-heading">What the Data Showed</h2>
-          <div class="findings-list">
-            {findings.map((f) => (
-              <div class="finding">
-                <p class="finding-n" aria-hidden="true">{f.n}</p>
-                <div class="finding-content">
-                  <h3 class="finding-label">{f.label}</h3>
-                  <p class="finding-text">{f.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-    </div>{/* /act-1 */}
-
-    {/* ════════════════════════════════════════════════════════════════
-        TRANSITION — FEATURED INSIGHT
-        Visual stop between Act I and Act II.
-        The distilled conclusion of the research.
-    ════════════════════════════════════════════════════════════════ */}
-    <section class="insight-section">
+    <!-- Hero -->
+    <section class="hero">
       <div class="wrap">
-        <div class="insight-inner">
-          <div class="insight-mark" aria-hidden="true">"</div>
-          <blockquote class="insight-quote">
-            Growing companies didn't simply publish more. Most grew by building content with
-            demand that kept renewing, not content that satisfied a one-time query.
-          </blockquote>
+        <p class="eyebrow">Research Report — 2025–2026</p>
+        <h1 class="hero-title">The 2026 Modern Organic<br>Growth Playbook</h1>
+        <p class="hero-subhead">Organic traffic cratered for companies during the AI-era shift, while others grew dramatically. This report examines the successes and failures for a complete look at how to create durable demand in 2026 and beyond.</p>
+        <a href="#get-playbook" class="hero-cta">Download the Full Playbook →</a>
+      </div>
+    </section>
+
+    <!-- Research at a Glance -->
+    <section class="stats-section">
+      <div class="wrap">
+        <p class="section-eyebrow">Research at a Glance</p>
+        <p class="section-overview">The study followed 118 B2B SaaS companies through one of the largest shifts in modern search, revealing the decisions winners and losers took to end up on opposite sides of the traffic split.</p>
+        <div class="stats-grid">
+          {stats.map((s) => (
+            <div class="stat">
+              <p class="stat-value">{s.value}</p>
+              <p class="stat-label">{s.label}</p>
+            </div>
+          ))}
+        </div>
+        <div class="chart-wrap">
+          <p class="chart-title">Traffic Trajectory Distribution — 118 Companies</p>
+          <div class="chart-bars">
+            {chartBars.map((b) => (
+              <div class="bar-col">
+                <span class="bar-count">{b.value}</span>
+                <div class="bar" data-group={b.group} style={`height:${b.h}px`}></div>
+              </div>
+            ))}
+          </div>
+          <div class="bar-labels">
+            {chartBars.map((b) => (
+              <div class="bar-label">{b.label}</div>
+            ))}
+          </div>
+          <div class="chart-legend">
+            <span class="legend-item legend-declined">Declined</span>
+            <span class="legend-item legend-flat">Flat</span>
+            <span class="legend-item legend-grew">Grew</span>
+          </div>
         </div>
       </div>
     </section>
 
-    {/* ════════════════════════════════════════════════════════════════
-        ACT II — CREDIBILITY
-        Why This Research Exists · Who This Is For · About the Research
-        Quieter. Editorial. More breathing room.
-    ════════════════════════════════════════════════════════════════ */}
-    <div class="act act-2">
-
-      {/* ── WHY THIS RESEARCH EXISTS ────────────────────────────── */}
-      <section class="why-section">
-        <div class="wrap why-grid">
-          <div class="why-header">
-            <p class="section-eyebrow">Context</p>
-            <h2 class="section-heading section-heading--flush">Why This Research Exists</h2>
-          </div>
-          <div class="prose-body">
-            <p>
-              Much organic growth advice is built on opinion, single case studies, or
-              platform-specific recommendations that reflect the interests of whoever is publishing them.
-            </p>
-            <p>
-              This study doesn't ask what practitioners recommend. It asks what actually happened
-              across 118 companies, simultaneously, over 18 months, during the period when AI-era
-              search pressure became impossible to ignore.
-            </p>
-            <p>
-              The goal was to find out what the data showed, including where it contradicted
-              common assumptions.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHO IT'S FOR ────────────────────────────────────────── */}
-      <section class="audience-section">
-        <div class="wrap">
-          <p class="section-eyebrow">Audience</p>
-          <h2 class="section-heading">Who This Is For</h2>
-          <div class="audience-list">
-            <div class="audience-item">
-              <p class="audience-role">B2B SaaS marketing leaders</p>
-              <p class="audience-desc">trying to understand why their organic traffic is behaving differently than it did 18 months ago, and what to do about it.</p>
-            </div>
-            <div class="audience-item">
-              <p class="audience-role">Growth and content teams</p>
-              <p class="audience-desc">building or rebuilding an organic program and looking for evidence on what's actually working, not conventional wisdom about what should be.</p>
-            </div>
-            <div class="audience-item">
-              <p class="audience-role">SEOs and organic strategists</p>
-              <p class="audience-desc">who want a research-backed diagnostic framework for distinguishing between the mechanisms producing different traffic outcomes, and applying the right response to each.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── METHODOLOGY ─────────────────────────────────────────── */}
-      <section class="method-section">
-        <div class="wrap">
-          <p class="section-eyebrow">Study Design</p>
-          <h2 class="section-heading">About the Research</h2>
-          <p class="method-body">
-            The study tracked 118 B2B SaaS companies from January 2025 to June 2026 using Ahrefs
-            organic traffic data, keyword-level position exports, and traffic value estimates.
-            Companies were selected across six categories: Developer Tools, Security and Compliance,
-            Product Analytics, Customer Success, Finance and Spend Management, and Marketing
-            Automation. Sixteen companies received full deep-dive analysis; the remaining cohort
-            informed the quantitative distribution findings.
-          </p>
-          <p class="method-body">
-            The study was observational. Findings describe patterns in the data and the mechanisms
-            most consistent with those patterns, not controlled outcomes.
-          </p>
-        </div>
-      </section>
-
-    </div>{/* /act-2 */}
-
-    {/* ════════════════════════════════════════════════════════════════
-        ACT III — THE REPORT
-        What's Inside · Download · About S.LAB
-        Purposeful. The transition from "why it matters" to "get it."
-    ════════════════════════════════════════════════════════════════ */}
-    <div class="act act-3">
-
-      {/* ── WHAT'S INSIDE ───────────────────────────────────────── */}
-      <section class="chapters-section">
-        <div class="wrap">
-          <p class="section-eyebrow">Report Structure</p>
-          <h2 class="section-heading">What's Inside</h2>
-
-          <div class="chart-placeholder chart-placeholder--sm">
-            <span class="chart-label">Framework visual — place here before build goes live</span>
-          </div>
-
-          <div class="chapter-list">
-            {chapters.map((c) => (
-              <div class="chapter-entry">
-                <p class="chapter-entry-n">Ch. {String(c.n).padStart(2, '0')}</p>
-                <h3 class="chapter-entry-title">{c.title}</h3>
-                <p class="chapter-entry-desc">{c.desc}</p>
+    <!-- Key Findings -->
+    <section class="findings-section">
+      <div class="wrap">
+        <p class="section-eyebrow">Key Findings from the Data</p>
+        <h2 class="section-heading">Five patterns consistently separated the companies that grew from the companies that didn't.</h2>
+        <div class="findings-list">
+          {findings.map((f) => (
+            <div class="finding">
+              <p class="finding-n" aria-hidden="true">{f.n}</p>
+              <div class="finding-content">
+                <h3 class="finding-title">{f.title}</h3>
+                <p class="finding-body">{f.body}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* ── DOWNLOAD FORM ───────────────────────────────────────── */}
-      <section id="download" class="form-section">
-        <div class="wrap">
-          <div class="form-container" style={{ backgroundImage: grain }}>
-            <p class="form-eyebrow">Get the Full Playbook</p>
-            <h2 class="form-headline">Download the complete playbook</h2>
-            <p class="form-subhead">
-              All 11 chapters, figures, methodology, and the full diagnostic framework.
-              You'll also receive future research updates as new findings are published.
-            </p>
+    <!-- Audience -->
+    <section class="audience-section">
+      <div class="wrap">
+        <p class="section-eyebrow">Audience</p>
+        <h2 class="section-heading">Who this playbook is for</h2>
+        <div class="audience-grid">
+          {audience.map((a) => (
+            <div class="audience-card">
+              <h3 class="audience-label">{a.label}</h3>
+              <p class="audience-body">{a.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
+    <!-- Context -->
+    <section class="context-section">
+      <div class="wrap context-grid">
+        <div class="context-left">
+          <p class="section-eyebrow">Context</p>
+          <h2 class="context-heading">Search didn't die. Fragile demand did.</h2>
+        </div>
+        <div class="context-right">
+          <p class="context-body">Don't let anyone tell you that AI killed search. What it actually killed was a category of demand that ChatGPT, Claude, and AI Overviews can satisfy without sending anyone to your website.</p>
+          <p class="context-body">This playbook details how you can reimagine your strategy to create durable demand in 2026. You'll learn how to recover lost traffic, accelerate growth, and become the definitive answer when someone asks AI a question about your vertical.</p>
+          <p class="context-body">This study doesn't ask what practitioners recommend. It asks what actually happened across 118 companies, simultaneously, over 18 months, during the period when AI-era search pressure became impossible to ignore.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapters -->
+    <section class="chapters-section">
+      <div class="wrap">
+        <p class="section-eyebrow">What's inside</p>
+        <h2 class="section-heading">Chapter by chapter breakdown</h2>
+        <div class="chapters-grid">
+          {chapters.map((c) => (
+            <div class="chapter">
+              <p class="chapter-n">{c.n}</p>
+              <h3 class="chapter-title">{c.title}</h3>
+              <p class="chapter-body">{c.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Form -->
+    <section class="form-section" id="get-playbook">
+      <div class="wrap">
+        <div class="form-layout">
+          <div class="form-left">
+            <p class="section-eyebrow">Get the Full Playbook</p>
+            <h2 class="form-heading">Download the complete playbook</h2>
+            <p class="form-desc">All 11 chapters, figures, methodology, and the full diagnostic framework. You'll also receive future research updates as new findings are published.</p>
+            <p class="form-fine">Free. No spam. Unsubscribe anytime.</p>
+          </div>
+          <div class="form-right">
             <form
               name="playbook-download"
               method="POST"
+              action="/playbooks/success"
               data-netlify="true"
               netlify-honeypot="bot-field"
-              action="/playbooks/success"
-              class="download-form"
+              class="playbook-form"
             >
               <input type="hidden" name="form-name" value="playbook-download" />
-              <p class="hidden-field">
-                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-              </p>
-
-              <div class="form-fields">
-                <div class="field-group">
-                  <label class="field-label">
-                    First name <span style="color: hsl(var(--cobalt));">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="first_name"
-                    class="form-input"
-                    placeholder="Your first name"
-                    required
-                  />
+              <p class="honeypot"><label>Don't fill this out: <input name="bot-field" /></label></p>
+              <div class="field-row">
+                <div class="field">
+                  <label class="field-label" for="firstName">First name</label>
+                  <input class="field-input" type="text" id="firstName" name="firstName" required autocomplete="given-name" />
                 </div>
-                <div class="field-group">
-                  <label class="field-label">
-                    Work email <span style="color: hsl(var(--cobalt));">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    class="form-input"
-                    placeholder="you@company.com"
-                    required
-                  />
+                <div class="field">
+                  <label class="field-label" for="lastName">Last name</label>
+                  <input class="field-input" type="text" id="lastName" name="lastName" required autocomplete="family-name" />
                 </div>
               </div>
-
-              <button type="submit" class="form-submit">
-                Download the Playbook
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-              </button>
-
-              <p class="form-fine">Free. No spam. Unsubscribe anytime.</p>
+              <div class="field">
+                <label class="field-label" for="email">Work email</label>
+                <input class="field-input" type="email" id="email" name="email" required autocomplete="email" />
+              </div>
+              <button type="submit" class="form-submit">Download the Playbook</button>
             </form>
-
-            <div class="credibility-strip">
-              <span>Original longitudinal research</span>
-              <span class="cred-dot" aria-hidden="true">·</span>
-              <span>118 B2B SaaS companies</span>
-              <span class="cred-dot" aria-hidden="true">·</span>
-              <span>Part of the S.LAB ongoing research program</span>
-            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* ── ABOUT S.LAB ─────────────────────────────────────────── */}
-      <section class="about-section">
-        <div class="wrap">
-          <p class="section-eyebrow">Publisher</p>
-          <h2 class="section-heading">About S.LAB</h2>
-          <p class="about-body">
-            S.LAB is an organic growth consultancy focused on helping B2B companies build durable
-            demand in the AI era. This playbook is part of S.LAB's ongoing research program
-            examining how organic growth systems expand, decline, and recover as search evolves.
-          </p>
-          <a href="/" class="about-link">
-            Learn more about our research and consulting
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-          </a>
-        </div>
-      </section>
-
-    </div>{/* /act-3 */}
+    <!-- About -->
+    <section class="about-section">
+      <div class="wrap">
+        <p class="about-label">About S.LAB</p>
+        <p class="about-body">S.LAB is an organic growth consultancy focused on helping B2B companies build durable demand in the AI era. This playbook is part of S.LAB's ongoing research program examining how organic growth systems expand, decline, and recover as search evolves.</p>
+        <a href="/about" class="about-link">Learn more about our research and consulting →</a>
+      </div>
+    </section>
 
   </div>
 </Layout>
 
 <style>
-  /* ── Page shell ─────────────────────────────────────────────────── */
   .page {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
   }
 
+  .honeypot { display: none; }
+
   .wrap {
     max-width: 1100px;
     margin: 0 auto;
-    position: relative;
   }
-
-  /* ── Three-act backgrounds ──────────────────────────────────────── */
-  .act-1 {
-    background: hsl(var(--background));
-  }
-
-  /* Act II: a barely-visible tint — enough to signal a new register */
-  .act-2 {
-    background: hsl(var(--foreground) / 0.028);
-    border-top: 1px solid hsl(var(--foreground) / 0.07);
-    border-bottom: 1px solid hsl(var(--foreground) / 0.07);
-  }
-
-  .act-3 {
-    background: hsl(var(--background));
-  }
-
-  /* ── Typography system ──────────────────────────────────────────── */
-  /* Five levels: eyebrow → section-heading → subhead → body → metadata */
 
   .section-eyebrow {
     font-family: var(--font-heading);
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.26em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
     color: hsl(var(--cobalt));
-    margin: 0 0 16px;
+    margin: 0 0 20px;
   }
 
-  /* Primary section anchor — scannable from 3 feet */
   .section-heading {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: clamp(28px, 3.5vw, 42px);
+    font-size: clamp(22px, 2.8vw, 34px);
     letter-spacing: -0.03em;
-    line-height: 1.03;
+    line-height: 1.1;
     color: hsl(var(--foreground));
     margin: 0 0 56px;
+    max-width: 600px;
   }
 
-  /* Variant used when the heading is in a side column */
-  .section-heading--flush {
-    margin-bottom: 0;
-  }
-
-  /* ── Hero ───────────────────────────────────────────────────────── */
+  /* ── Hero ── */
   .hero {
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid hsl(var(--foreground) / 0.07);
     padding: 96px clamp(24px, 5vw, 64px) 88px;
-  }
-
-  .ruled-bg {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 47px,
-      hsl(var(--foreground) / 0.045) 47px,
-      hsl(var(--foreground) / 0.045) 48px
-    );
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
   }
 
   .eyebrow {
     font-family: var(--font-heading);
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.26em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
     color: hsl(var(--cobalt));
     margin: 0 0 24px;
   }
 
-  .headline {
+  .hero-title {
     font-family: var(--font-heading);
     font-weight: 900;
     line-height: 0.96;
     letter-spacing: -0.04em;
     color: hsl(var(--foreground));
-    font-size: clamp(44px, 6vw, 72px);
-    margin: 0 0 28px;
+    font-size: clamp(44px, 7vw, 88px);
+    max-width: 860px;
+    margin: 0 0 32px;
   }
 
-  .subhead {
+  .hero-subhead {
     font-family: var(--font-body);
+    font-size: clamp(16px, 1.8vw, 18px);
     line-height: 1.75;
     color: hsl(var(--foreground));
-    font-size: 17px;
-    max-width: 520px;
-    margin: 0 0 40px;
+    max-width: 540px;
+    margin: 0 0 44px;
   }
 
   .hero-cta {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: hsl(var(--primary-foreground));
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    padding: 15px 30px;
     background: hsl(var(--cobalt));
-    padding: 14px 28px;
+    color: #fff;
     text-decoration: none;
-    transition: background 0.15s;
+    transition: background-color 0.15s ease;
   }
 
-  .hero-cta:hover { background: hsl(var(--cobalt-deep)); }
+  .hero-cta:hover {
+    background: hsl(var(--cobalt-deep));
+    color: #fff;
+  }
 
-  /* ── Statistics ─────────────────────────────────────────────────── */
+  /* ── Stats ── */
   .stats-section {
-    padding: 96px clamp(24px, 5vw, 64px) 80px;
-    border-bottom: 1px solid hsl(var(--foreground) / 0.07);
+    padding: 80px clamp(24px, 5vw, 64px);
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
+  }
+
+  .section-overview {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    color: hsl(var(--foreground) / 0.80);
+    max-width: 600px;
+    margin: 0 0 56px;
   }
 
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border: 1px solid hsl(var(--foreground) / 0.1);
-    margin-bottom: 64px;
+    border-top: 1px solid hsl(var(--foreground) / 0.08);
+    border-left: 1px solid hsl(var(--foreground) / 0.08);
+    margin-bottom: 56px;
+  }
+
+  @media (min-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
   }
 
   .stat {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 44px 36px;
+    padding: 32px 24px;
     border-right: 1px solid hsl(var(--foreground) / 0.08);
     border-bottom: 1px solid hsl(var(--foreground) / 0.08);
   }
 
-  .stat:nth-child(3n) { border-right: none; }
-  .stat:nth-child(n+4) { border-bottom: none; }
-
-  /* Numbers this large read as data before as text */
   .stat-value {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: clamp(52px, 6.5vw, 80px);
+    font-size: clamp(28px, 3.5vw, 44px);
     letter-spacing: -0.04em;
     line-height: 1;
-    color: hsl(var(--foreground));
-  }
-
-  /* 47% and 37% are the narrative core — cobalt makes them the focal point */
-  .stat--highlight .stat-value {
     color: hsl(var(--cobalt));
+    margin: 0 0 8px;
   }
 
   .stat-label {
-    font-family: var(--font-heading);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: hsl(var(--foreground) / 0.38);
-  }
-
-  .chart-placeholder {
-    border: 1px dashed hsl(var(--foreground) / 0.1);
-    padding: 56px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 8px;
-    margin-bottom: 56px;
-    min-height: 220px;
-  }
-
-  .chart-placeholder--sm {
-    min-height: 140px;
-    margin-bottom: 56px;
-  }
-
-  .chart-label {
-    font-family: var(--font-heading);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: hsl(var(--foreground) / 0.2);
-  }
-
-  .chart-note {
     font-family: var(--font-body);
-    font-size: 12px;
-    color: hsl(var(--foreground) / 0.18);
-  }
-
-  .stats-body {
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.8;
-    color: hsl(var(--foreground) / 0.55);
-    max-width: 620px;
+    font-style: italic;
+    font-size: 13px;
+    color: hsl(var(--foreground) / 0.50);
     margin: 0;
   }
 
-  /* ── Key Findings ───────────────────────────────────────────────── */
+  /* ── Chart ── */
+  .chart-wrap {
+    padding: 36px 40px 28px;
+    background: hsl(var(--foreground) / 0.025);
+    border: 1px solid hsl(var(--foreground) / 0.07);
+  }
+
+  .chart-title {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.38);
+    margin: 0 0 24px;
+  }
+
+  .chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    border-bottom: 1px solid hsl(var(--foreground) / 0.10);
+    padding-bottom: 0;
+    margin-bottom: 8px;
+  }
+
+  .bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+  }
+
+  .bar-count {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 10px;
+    color: hsl(var(--foreground) / 0.45);
+    line-height: 1;
+  }
+
+  .bar {
+    width: 100%;
+    border-radius: 2px 2px 0 0;
+    min-height: 4px;
+  }
+
+  .bar[data-group="declined"] { background: hsl(16 52% 42%); }
+  .bar[data-group="flat"]     { background: hsl(var(--foreground) / 0.28); }
+  .bar[data-group="grew"]     { background: hsl(var(--cobalt)); }
+
+  .bar-labels {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .bar-label {
+    flex: 1;
+    font-family: var(--font-heading);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.38);
+    text-align: center;
+    line-height: 1.4;
+    padding-top: 6px;
+  }
+
+  .chart-legend {
+    display: flex;
+    gap: 20px;
+  }
+
+  .legend-item {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .legend-item::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .legend-declined { color: hsl(16 52% 42%); }
+  .legend-declined::before { background: hsl(16 52% 42%); }
+  .legend-flat { color: hsl(var(--foreground) / 0.45); }
+  .legend-flat::before { background: hsl(var(--foreground) / 0.28); }
+  .legend-grew { color: hsl(var(--cobalt)); }
+  .legend-grew::before { background: hsl(var(--cobalt)); }
+
+  /* ── Findings ── */
   .findings-section {
-    padding: 96px clamp(24px, 5vw, 64px) 96px;
+    padding: 80px clamp(24px, 5vw, 64px);
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
   }
 
   .findings-list {
-    border-top: 1px solid hsl(var(--foreground) / 0.1);
+    border-top: 1px solid hsl(var(--foreground) / 0.10);
   }
 
-  /* Number-left, content-right layout matching the reference design */
   .finding {
     display: grid;
     grid-template-columns: 72px 1fr;
     gap: 0 32px;
     padding: 48px 0;
-    border-bottom: 1px solid hsl(var(--foreground) / 0.08);
+    border-bottom: 1px solid hsl(var(--foreground) / 0.07);
     align-items: start;
   }
 
-  /* Large cobalt number — the primary visual anchor */
   .finding-n {
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: clamp(44px, 5vw, 56px);
+    font-size: clamp(40px, 5vw, 54px);
     line-height: 1;
     color: hsl(var(--cobalt));
     margin: 0;
@@ -600,398 +534,316 @@ const chapters = [
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding-top: 6px; /* optically align with top of number */
+    padding-top: 4px;
   }
 
-  .finding-label {
+  .finding-title {
     font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: clamp(18px, 2vw, 22px);
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    color: hsl(var(--foreground));
-    margin: 0;
-  }
-
-  .finding-text {
-    font-family: var(--font-body);
-    font-size: 15px;
-    line-height: 1.82;
-    color: hsl(var(--foreground) / 0.6);
-    margin: 0;
-  }
-
-  /* ── Featured Insight (transition between Act I and Act II) ─────── */
-  /* This should feel like a printed pull quote — whitespace does the work */
-  .insight-section {
-    padding: 120px clamp(24px, 5vw, 64px);
-    border-top: 2px solid hsl(var(--cobalt) / 0.35);
-    border-bottom: 2px solid hsl(var(--foreground) / 0.07);
-  }
-
-  .insight-inner {
-    position: relative;
-    max-width: 860px;
-  }
-
-  /* Large decorative mark — presence without dominance */
-  .insight-mark {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 180px;
-    line-height: 0.75;
-    color: hsl(var(--cobalt) / 0.1);
-    position: absolute;
-    top: -16px;
-    left: -12px;
-    user-select: none;
-    pointer-events: none;
-  }
-
-  /* Serif at this size reads as editorial, not body copy */
-  .insight-quote {
-    font-family: var(--font-body);
-    font-size: clamp(22px, 3vw, 36px);
-    line-height: 1.52;
-    color: hsl(var(--foreground) / 0.88);
-    font-style: italic;
-    margin: 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ── Act II: Why / Who / Methodology ───────────────────────────── */
-  .why-section {
-    padding: 104px clamp(24px, 5vw, 64px) 96px;
-    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
-  }
-
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .why-header {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .prose-body {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-
-  .prose-body p {
-    font-family: var(--font-body);
-    font-size: 17px;
-    line-height: 1.82;
-    color: hsl(var(--foreground) / 0.65);
-    margin: 0;
-    max-width: 620px;
-  }
-
-  @media (min-width: 768px) {
-    .why-grid {
-      grid-template-columns: 260px 1fr;
-      gap: 72px;
-      align-items: start;
-    }
-  }
-
-  .audience-section {
-    padding: 96px clamp(24px, 5vw, 64px);
-    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
-  }
-
-  .audience-list {
-    border-top: 1px solid hsl(var(--foreground) / 0.08);
-  }
-
-  .audience-item {
-    padding: 36px 0;
-    border-bottom: 1px solid hsl(var(--foreground) / 0.08);
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .audience-role {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 17px;
-    letter-spacing: -0.01em;
-    color: hsl(var(--foreground));
-    margin: 0;
-  }
-
-  .audience-desc {
-    font-family: var(--font-body);
-    font-size: 15px;
-    line-height: 1.78;
-    color: hsl(var(--foreground) / 0.55);
-    margin: 0;
-    max-width: 580px;
-  }
-
-  @media (min-width: 768px) {
-    .audience-item {
-      grid-template-columns: 260px 1fr;
-      gap: 48px;
-      align-items: start;
-    }
-  }
-
-  .method-section {
-    padding: 96px clamp(24px, 5vw, 64px) 104px;
-  }
-
-  .method-body {
-    font-family: var(--font-body);
-    font-size: 14px;
-    line-height: 1.85;
-    color: hsl(var(--foreground) / 0.45);
-    margin: 0 0 18px;
-    max-width: 680px;
-  }
-
-  .method-body:last-child { margin-bottom: 0; }
-
-  /* ── What's Inside — editorial table of contents ────────────────── */
-  .chapters-section {
-    padding: 96px clamp(24px, 5vw, 64px) 96px;
-    border-bottom: 1px solid hsl(var(--foreground) / 0.07);
-  }
-
-  /* Two-column magazine TOC — no cards, no backgrounds, typography only */
-  .chapter-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    border-top: 1px solid hsl(var(--foreground) / 0.1);
-  }
-
-  .chapter-entry {
-    padding: 28px 0;
-    border-bottom: 1px solid hsl(var(--foreground) / 0.07);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .chapter-entry-n {
-    font-family: var(--font-heading);
-    font-size: 9px;
     font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: hsl(var(--cobalt));
-    margin: 0;
-  }
-
-  /* Title is the primary scan target — it should read as a headline */
-  .chapter-entry-title {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: clamp(16px, 1.8vw, 19px);
-    letter-spacing: -0.015em;
+    font-size: clamp(17px, 1.8vw, 20px);
+    letter-spacing: -0.02em;
     line-height: 1.2;
     color: hsl(var(--foreground));
     margin: 0;
   }
 
-  /* Description supports the title — clearly subordinate */
-  .chapter-entry-desc {
+  .finding-body {
     font-family: var(--font-body);
-    font-size: 13px;
-    line-height: 1.65;
-    color: hsl(var(--foreground) / 0.42);
+    font-size: 15px;
+    line-height: 1.82;
+    color: hsl(var(--foreground) / 0.80);
     margin: 0;
   }
 
-  @media (min-width: 768px) {
-    .chapter-list {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .chapter-entry:nth-child(odd)  { padding-right: 40px; }
-    .chapter-entry:nth-child(even) {
-      padding-left: 40px;
-      border-left: 1px solid hsl(var(--foreground) / 0.07);
-    }
-
-    /* Last two entries: remove bottom border */
-    .chapter-entry:nth-last-child(1),
-    .chapter-entry:nth-last-child(2) { border-bottom: none; }
+  /* ── Audience ── */
+  .audience-section {
+    padding: 80px clamp(24px, 5vw, 64px);
+    background: hsl(var(--foreground) / 0.026);
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
   }
 
-  /* ── Download Form ──────────────────────────────────────────────── */
-  .form-section {
-    padding: 96px clamp(24px, 5vw, 64px) 96px;
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .audience-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .audience-card {
+    padding: 32px;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--foreground) / 0.08);
+  }
+
+  .audience-label {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(15px, 1.5vw, 17px);
+    letter-spacing: -0.01em;
+    color: hsl(var(--foreground));
+    margin: 0 0 12px;
+  }
+
+  .audience-body {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.75;
+    color: hsl(var(--foreground) / 0.80);
+    margin: 0;
+  }
+
+  /* ── Context ── */
+  .context-section {
+    padding: 88px clamp(24px, 5vw, 64px);
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
+  }
+
+  .context-grid {
+    display: grid;
+    gap: 48px;
+  }
+
+  @media (min-width: 768px) {
+    .context-grid {
+      grid-template-columns: 300px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+  }
+
+  .context-heading {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(24px, 2.8vw, 34px);
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    color: hsl(var(--foreground));
+    margin: 0;
+  }
+
+  .context-body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.8;
+    color: hsl(var(--foreground) / 0.80);
+    margin: 0 0 20px;
+  }
+
+  .context-body:last-child { margin-bottom: 0; }
+
+  /* ── Chapters ── */
+  .chapters-section {
+    padding: 80px clamp(24px, 5vw, 64px);
+    background: hsl(var(--foreground) / 0.018);
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
+  }
+
+  .chapters-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid hsl(var(--foreground) / 0.08);
+  }
+
+  @media (min-width: 768px) {
+    .chapters-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .chapter {
+    padding: 28px 0;
     border-bottom: 1px solid hsl(var(--foreground) / 0.07);
   }
 
-  .form-container {
-    max-width: 540px;
-    border: 1px solid hsl(var(--foreground) / 0.1);
-    background: hsl(var(--card) / 0.5);
-    padding: clamp(36px, 5vw, 56px);
+  @media (min-width: 768px) {
+    .chapter:nth-child(odd) {
+      padding-right: 56px;
+      border-right: 1px solid hsl(var(--foreground) / 0.07);
+    }
+    .chapter:nth-child(even) {
+      padding-left: 56px;
+    }
   }
 
-  .form-eyebrow {
-    font-family: var(--font-heading);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: hsl(var(--cobalt) / 0.75);
-    margin: 0 0 14px;
-  }
-
-  .form-headline {
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: clamp(22px, 2.8vw, 30px);
-    letter-spacing: -0.03em;
-    color: hsl(var(--foreground));
-    margin: 0 0 12px;
-    line-height: 1.08;
-  }
-
-  .form-subhead {
-    font-family: var(--font-body);
-    font-size: 14px;
-    line-height: 1.78;
-    color: hsl(var(--foreground) / 0.5);
-    margin: 0 0 32px;
-  }
-
-  .download-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .hidden-field { display: none; }
-
-  .form-fields {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .field-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .field-label {
+  .chapter-n {
     font-family: var(--font-heading);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: hsl(var(--foreground) / 0.38);
+    color: hsl(var(--cobalt));
+    margin: 0 0 8px;
   }
 
-  .form-input {
-    width: 100%;
-    background: hsl(var(--background));
-    border: 1px solid hsl(var(--foreground) / 0.12);
-    padding: 11px 14px;
-    font-size: 14px;
-    color: hsl(var(--foreground));
-    font-family: var(--font-body);
-    outline: none;
-    border-radius: 0;
-    transition: border-color 0.15s, box-shadow 0.15s;
-    box-sizing: border-box;
-  }
-
-  .form-input::placeholder { color: hsl(var(--foreground) / 0.26); }
-
-  .form-input:focus {
-    border-color: hsl(var(--cobalt));
-    box-shadow: 0 0 0 1px hsl(var(--cobalt) / 0.18);
-  }
-
-  .form-submit {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  .chapter-title {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: hsl(var(--primary-foreground));
-    background: hsl(var(--cobalt));
-    border: none;
-    padding: 15px 28px;
-    cursor: pointer;
-    transition: background 0.15s;
-    margin-top: 4px;
+    font-size: clamp(14px, 1.5vw, 16px);
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    color: hsl(var(--foreground));
+    margin: 0 0 6px;
   }
 
-  .form-submit:hover { background: hsl(var(--cobalt-deep)); }
+  .chapter-body {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.7;
+    color: hsl(var(--foreground) / 0.52);
+    margin: 0;
+  }
+
+  /* ── Form ── */
+  .form-section {
+    padding: 96px clamp(24px, 5vw, 64px);
+    border-bottom: 1px solid hsl(var(--foreground) / 0.06);
+  }
+
+  .form-layout {
+    display: grid;
+    gap: 56px;
+  }
+
+  @media (min-width: 768px) {
+    .form-layout {
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+  }
+
+  .form-heading {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(24px, 2.8vw, 36px);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: hsl(var(--foreground));
+    margin: 0 0 20px;
+  }
+
+  .form-desc {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.8;
+    color: hsl(var(--foreground) / 0.80);
+    margin: 0 0 24px;
+  }
 
   .form-fine {
     font-family: var(--font-heading);
-    font-size: 9px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: hsl(var(--foreground) / 0.22);
-    margin: 0;
-    text-align: center;
-  }
-
-  .credibility-strip {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: center;
-    margin-top: 32px;
-    padding-top: 24px;
-    border-top: 1px solid hsl(var(--foreground) / 0.07);
-    font-family: var(--font-heading);
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: hsl(var(--foreground) / 0.28);
+    color: hsl(var(--foreground) / 0.32);
+    margin: 0;
   }
 
-  .cred-dot { color: hsl(var(--cobalt) / 0.4); }
+  .playbook-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-  /* ── About S.LAB ────────────────────────────────────────────────── */
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .field-label {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.50);
+  }
+
+  .field-input {
+    font-family: var(--font-body);
+    font-size: 15px;
+    padding: 12px 16px;
+    background: hsl(var(--background));
+    border: 1px solid hsl(var(--foreground) / 0.16);
+    color: hsl(var(--foreground));
+    width: 100%;
+    transition: border-color 0.15s ease;
+  }
+
+  .field-input:focus {
+    outline: none;
+    border-color: hsl(var(--cobalt));
+  }
+
+  .field-input::placeholder {
+    color: hsl(var(--foreground) / 0.30);
+  }
+
+  .form-submit {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    padding: 15px 30px;
+    background: hsl(var(--cobalt));
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover {
+    background: hsl(var(--cobalt-deep));
+  }
+
+  /* ── About ── */
   .about-section {
-    padding: 80px clamp(24px, 5vw, 64px) 96px;
+    padding: 64px clamp(24px, 5vw, 64px);
+  }
+
+  .about-label {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.32);
+    margin: 0 0 16px;
   }
 
   .about-body {
     font-family: var(--font-body);
     font-size: 15px;
-    line-height: 1.82;
-    color: hsl(var(--foreground) / 0.52);
-    max-width: 540px;
-    margin: 0 0 20px;
+    line-height: 1.8;
+    color: hsl(var(--foreground) / 0.60);
+    max-width: 560px;
+    margin: 0 0 16px;
   }
 
   .about-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
     font-family: var(--font-heading);
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
     color: hsl(var(--cobalt));
     text-decoration: none;
-    transition: opacity 0.15s;
   }
 
-  .about-link:hover { opacity: 0.72; }
+  .about-link:hover {
+    color: hsl(var(--cobalt-deep));
+  }
 </style>

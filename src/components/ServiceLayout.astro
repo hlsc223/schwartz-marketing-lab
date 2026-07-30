@@ -180,7 +180,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
                 {point.stat}
               </p>
               {point.body && (
-                <p class="font-serif leading-[1.7] mb-3" style="font-size: 14px; color: hsl(var(--foreground) / 0.65);">
+                <p class="font-serif leading-[1.7] mb-3" style="font-size: 14px; color: hsl(var(--foreground) / 0.80);">
                   {point.body}
                 </p>
               )}
@@ -422,7 +422,7 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
         <div class="service-faq border-t border-foreground/[0.055]">
           {faqItems.map((item) => (
             <div class="service-faq-item border-b border-foreground/[0.055] py-[26px]">
-              <h3 class="font-sans font-semibold text-[15px] text-foreground leading-snug m-0">{item.question}</h3>
+              <h3 class="font-sans font-bold text-[15px] text-foreground leading-snug m-0">{item.question}</h3>
               <p class="font-serif text-[15px] text-foreground/60 leading-[1.85] pt-3" style="max-width: 500px;" set:html={item.answer} />
             </div>
           ))}
