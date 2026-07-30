@@ -16,15 +16,23 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
         <div class="check-mark" aria-hidden="true">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        <p class="eyebrow">You're confirmed</p>
-        <h1 class="headline">The playbook is on its way.</h1>
+        <p class="eyebrow">You're in</p>
+        <h1 class="headline">Your playbook is ready.</h1>
         <p class="subhead">
-          Check your inbox for a link to The Modern Organic Growth Playbook.
-          If you don't see it in the next few minutes, check your spam folder.
+          Thanks for registering. Click below to download The 2026 Modern Organic Growth Playbook.
         </p>
 
+        <a
+          href="/playbooks/modern-organic-growth-playbook.pdf"
+          download="Modern Organic Growth Playbook - Schwartz Marketing Lab.pdf"
+          class="download-btn"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download the Playbook (PDF)
+        </a>
+
         <div class="next-steps">
-          <p class="next-label">While you wait</p>
+          <p class="next-label">While you're here</p>
           <div class="next-links">
             <a href="/blog" class="next-link">
               <span class="next-link-title">Read the blog</span>
@@ -112,6 +120,28 @@ const grain = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
     color: hsl(var(--foreground));
     font-size: 16px;
     margin: 0 0 56px;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 15px;
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+    padding: 16px 28px;
+    border: 2px solid hsl(var(--foreground));
+    text-decoration: none;
+    margin-bottom: 56px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .download-btn:hover {
+    background: hsl(var(--cobalt));
+    border-color: hsl(var(--cobalt));
+    color: hsl(var(--background));
   }
 
   .next-steps {
