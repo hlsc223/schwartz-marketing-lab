@@ -1,11 +1,18 @@
 ---
-title: "Why B2B Organic Traffic Split in 2025"
-metaTitle: "Why B2B Organic Traffic Split in 2025 | Schwartz Marketing Lab"
-description: "S.LAB analyzed 118 B2B SaaS companies over 18 months. While 47% lost organic traffic, 37% grew. Here's why some companies compounded while others declined."
-excerpt: "47% of companies declined. 37% grew. They were in the same categories, targeting the same queries. Here's what actually separated them."
+title: Why B2B Organic Traffic Split in 2025
+metaTitle: Why B2B Organic Traffic Split in 2025 | Schwartz Marketing Lab
+description: S.LAB analyzed 118 B2B SaaS companies over 18 months. While 47%
+  lost organic traffic, 37% grew. Here's why some companies compounded while
+  others declined.
+excerpt: 47% of companies declined. 37% grew. They were in the same categories,
+  targeting the same queries. Here's what actually separated them.
 pubDate: 2026-08-04
-tags: ["Research", "B2B SaaS", "Organic Traffic", "AI Search"]
 draft: false
+tags:
+  - Research
+  - B2B SaaS
+  - Organic Traffic
+  - AI Search
 ---
 
 Every major report published about B2B search in 2025 told essentially the same story. AI Overviews reduced clicks, zero-click searches increased, and organic traffic declined across the industry.
@@ -20,7 +27,7 @@ The scale of the traffic divergence is massive. 27% of companies that declined l
 
 The most common single trajectory across 118 companies? A high reached before the study window opened, followed by a decline that has not recovered.
 
-Yet, while some companies experienced catastrophic collapse, others grew significantly.
+**Yet, while some companies experienced catastrophic collapse, others grew significantly.**
 
 Ramp grew 112%. Vanta grew 60%. Braze grew 60%. Many of the cohort's "growers" competed in the same verticals against companies that lost more than half their traffic over the same period.
 
@@ -32,7 +39,7 @@ The question is why.
 
 Several theories for why traffic collapsed didn't hold up under the scrutiny of the collected data.
 
-The first hypothesis: Some categories are more susceptible to collapse than others.
+**The first hypothesis:** Some categories are more susceptible to collapse than others.
 
 The category data doesn't support it.
 
@@ -42,9 +49,11 @@ The category data doesn't support it.
 
 In almost every vertical, both outcomes appeared. The category doesn't explain which side of the split a program landed on.
 
-The second hypothesis: Domain authority or program maturity. Companies with stronger brands and longer track records might have been more insulated.
+**The second hypothesis:** Domain authority or program maturity creates durability.
 
-That doesn't hold either. Aha! has a mature program, years of investment, strong rankings, and an extensive content library. It declined 42%.
+We suspected that companies with stronger brands and longer track records might have been more insulated. That doesn't hold either.
+
+Aha! has a mature program, years of investment, strong rankings, and an extensive content library. It declined 42%.
 
 GitHub has scale that most B2B companies would trade significant resources for. It declined 72%. Maturity didn't protect them.
 
@@ -52,9 +61,9 @@ Publishing volume doesn't explain it. The growing companies in the cohort weren'
 
 When we started this research, we expected to document a collapse. But we kept finding companies that hadn't collapsed. And the more closely we examined what separated them, the less the obvious explanations held.
 
-## Braze and Aha!
+## Braze and Aha!: Two companies that help visualize our findings
 
-Two companies in the cohort make the answer visible.
+There were two companies in our cohort that best illustrate how traffic split and why.
 
 Braze grew organic traffic 59.9% over the 18-month window. The growth was distributed across dozens of pages, with no single page accounting for more than 15 to 18% of total gains. The content covers email marketing concepts, cross-channel customer engagement frameworks, and foundational category education. These are pages that require a practitioner to engage. You cannot extract what they offer in a summary. You have to read them, think about them, and apply them to your specific situation. The program held through algorithm updates, through AI Overview expansion, across the full study window.
 
@@ -76,7 +85,7 @@ Aha! is not a company that failed to invest in organic. Before the study window,
 
 The problem was something different. Google's AI answered the user's question before they ever reached the page. The click never happened. The ranking held, but the traffic didn't.
 
-This led to one of our most interesting findings, and the one that most directly challenges how operators typically diagnose programs: rankings do not always equal traffic.
+**This led to one of our most interesting findings, and the one that most directly challenges how operators typically diagnose programs: *rankings do not always equal traffic*.**
 
 When rankings and traffic decouple, optimizing the ranking position doesn't fix it. The ranking position is not what's broken.
 
