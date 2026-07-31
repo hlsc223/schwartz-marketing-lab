@@ -53,7 +53,6 @@ faqs:
       not out-publishing the ones that declined. They were capturing a
       structurally different kind of demand.
 ---
-
 Every major report published about B2B search in 2025 told essentially the same story. AI Overviews reduced clicks, zero-click searches increased, and organic traffic declined across the industry.
 
 That story is true.
@@ -78,17 +77,17 @@ The question is why.
 
 Several theories for why traffic collapsed didn't hold up under the scrutiny of the collected data.
 
-**The first hypothesis:** Some categories are more susceptible to collapse than others.
+### **The first hypothesis:** Some categories are more susceptible to collapse than others.
 
 The category data doesn't support it.
 
-- Security and compliance: 50% of tracked companies grew, 36% declined.
-- Finance and spend management: 45% grew, 45% declined.
-- HR and people operations was the hardest-hit vertical: 73% declined, 18% grew. But that 18% grew significantly.
+* Security and compliance: 50% of tracked companies grew, 36% declined.
+* Finance and spend management: 45% grew, 45% declined.
+* HR and people operations was the hardest-hit vertical: 73% declined, 18% grew. But that 18% grew significantly.
 
 In almost every vertical, both outcomes appeared. The category doesn't explain which side of the split a program landed on.
 
-**The second hypothesis:** Domain authority or program maturity creates durability.
+### **The second hypothesis:** Domain authority or program maturity creates durability.
 
 We suspected that companies with stronger brands and longer track records might have been more insulated. That doesn't hold either.
 
@@ -104,19 +103,25 @@ When we started this research, we expected to document a collapse. But we kept f
 
 There were two companies in our cohort that best illustrate how traffic split and why.
 
-Braze grew organic traffic 59.9% over the 18-month window. The growth was distributed across dozens of pages, with no single page accounting for more than 15 to 18% of total gains. The content covers email marketing concepts, cross-channel customer engagement frameworks, and foundational category education. These are pages that require a practitioner to engage. You cannot extract what they offer in a summary. You have to read them, think about them, and apply them to your specific situation. The program held through algorithm updates, through AI Overview expansion, across the full study window.
+**Braze grew organic traffic 59.9% over the 18-month window.** The growth was distributed across dozens of pages, with no single page accounting for more than 15 to 18% of total gains. Each growing page requires a practitioner to engage with it. 
 
-Aha! declined 42.4%. At the surface level, that might look like one more company caught by the same forces that hit everyone else. The data underneath tells a different story.
+In other words, you cannot extract what they offer in a summary. You have to read them, think about them, and apply them to your specific situation. The program held through algorithm updates and AI Overview expansion across the full study window. 
+
+**Aha! declined 42.4% during the study window**. At the surface level, that might look like one more company caught by the same forces that hit everyone else. The data underneath tells a different story.
 
 Across more than 20 individual queries, Aha!'s pages held or improved their Google rankings while traffic on those same pages fell between 80 and 99%.
 
-| Query | Previous position | Current position | Traffic change |
-|---|---|---|---|
-| product marketing | 1 | 1 | −98% |
-| marketing job titles | 3 | 3 | −99% |
-| user story template | 3 | 1 (improved) | −92% |
-| product positioning | 2 | 2 | −95% |
-| product roadmap template | 2 | 2 | −93% |
+
+
+| Query                    | Previous position | Current position | Traffic change |
+| ------------------------ | ----------------- | ---------------- | -------------- |
+| product marketing        | 1                 | 1                | −98%           |
+| marketing job titles     | 3                 | 3                | −99%           |
+| user story template      | 3                 | 1 (improved)     | −92%           |
+| product positioning      | 2                 | 2                | −95%           |
+| product roadmap template | 2                 | 2                | −93%           |
+
+
 
 These are not marginal pages on obscure queries. Position one. Traffic fell 98%. Position three. Traffic fell 99%. One page improved from position three to position one. Traffic fell 92%.
 
@@ -134,19 +139,23 @@ The two programs ran in the same environment. They targeted overlapping queries.
 
 The environment didn't reward better content. It rewarded different content.
 
-## What the evidence forced
+## Which content types create durable demand
 
-We didn't begin this research trying to classify content. We kept noticing the same property in the companies that continued growing. 61% of classifiable growing companies grew primarily through definitional and educational content covering foundational professional concepts. In each case, the content required practitioners to engage. Their query couldn't be resolved in a summary or search result snippet.
+We didn't begin this research trying to classify content. However, we kept noticing the same property in the companies that continued growing. 
+
+Similar to Braze, 61% of classifiable growing companies grew primarily through definitional and educational content covering foundational professional concepts. In each case, the content required practitioners to engage. Their query couldn't be resolved in a summary or search result snippet.
 
 Eventually we realized we weren't looking at better execution. We were looking at a different kind of demand.
 
-We call it durable demand.
+**We call it *durable demand.***
 
 Every year, new practitioners enter a field and need to understand its foundational concepts for the first time. That audience replenishes continuously. The demand doesn't need to be manufactured. It needs to be positioned to capture it as it arrives. Content built around this property compounded. Content that delivered its full value in a single interaction depreciated.
 
 The inverse is structurally fragile regardless of execution quality. A well-produced template is still a template. A thorough guide to a process that AI tools now handle on demand is still satisfiable inside the SERP. The mechanism driving that vulnerability is structural, not algorithmic. It cannot be fixed by ranking higher, because ranking higher is not the problem.
 
-Across the cohort we repeatedly observed the same underlying patterns in what drove programs in both directions. In the [2026 Modern Organic Growth Playbook](/playbooks/modern-organic-growth-playbook), we classify those into five distinct mechanisms, each with a different evidence signature and a different required response. Understanding which mechanism is operating in a given program is where the diagnostic work begins. That taxonomy is the subject of the next article in this series.
+## How you can create durable demand in 2026 and beyond
+
+Across the cohort, we repeatedly observed the same underlying patterns in what drove programs in both directions. In the [2026 Modern Organic Growth Playbook](/playbooks/modern-organic-growth-playbook), we classify those into five distinct mechanisms, each with a different evidence signature and a different required response. Understanding which mechanism is operating in a given program is where the diagnostic work begins. That taxonomy is the subject of the next article in this series.
 
 For 20 years, the central question shaping organic growth was: how do we rank higher?
 
