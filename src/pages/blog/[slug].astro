@@ -232,8 +232,13 @@ const schema = articleSchema({
 
   .post-body :global(ul),
   .post-body :global(ol) {
+    list-style: disc;
     margin: 0 0 1.25rem;
     padding-left: 1.4rem;
+  }
+
+  .post-body :global(ol) {
+    list-style: decimal;
   }
 
   .post-body :global(li) {
@@ -248,5 +253,12 @@ const schema = articleSchema({
 
   .post-body :global(a:hover) {
     text-decoration-color: hsl(var(--cobalt));
+  }
+
+  /* Pull quote — override max-width so it can break out of body text width
+     slightly, giving it visual separation from surrounding paragraphs. */
+  .post-body :global(.pull-quote) {
+    max-width: 640px;
+    margin: 3rem 0;
   }
 </style>

@@ -277,6 +277,23 @@ a {
   color: hsl(var(--foreground));
 }
 
+/* Pull quote — editorial callout for key lines in blog posts and long-form
+   content. Uses the heading font (Switzer) to contrast with body Lora, a
+   cobalt left border as the sole visual indicator, and full foreground color
+   so the text reads as emphatic rather than decorative. No background fill,
+   no quotation marks — keeps it clean for research-backed content. */
+.pull-quote {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 24px);
+  line-height: 1.35;
+  color: hsl(var(--foreground));
+  border-left: 3px solid hsl(var(--cobalt));
+  padding: 0.5rem 0 0.5rem 1.75rem;
+  margin: 2.5rem 0;
+  max-width: 580px;
+}
+
 img, svg {
   display: block;
   max-width: 100%;
