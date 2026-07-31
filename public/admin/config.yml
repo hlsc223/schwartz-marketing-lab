@@ -30,6 +30,18 @@ collections:
       - { label: "Draft", name: "draft", widget: "boolean", default: true }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+      - label: "FAQ Intro (optional — sentence above the FAQ list)"
+        name: "faqIntro"
+        widget: "string"
+        required: false
+      - label: "FAQs"
+        name: "faqs"
+        widget: "list"
+        required: false
+        label_singular: "FAQ"
+        fields:
+          - { label: "Question", name: "question", widget: "string" }
+          - { label: "Answer", name: "answer", widget: "text" }
 
   - name: "seo"
     label: "Page SEO (Titles & Meta Descriptions)"
