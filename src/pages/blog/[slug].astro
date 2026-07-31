@@ -261,4 +261,39 @@ const schema = articleSchema({
     max-width: 640px;
     margin: 3rem 0;
   }
+
+  /* Tables */
+  .post-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.75rem 0 2rem;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .post-body :global(th) {
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: hsl(var(--foreground) / 0.45);
+    text-align: left;
+    padding: 0 16px 10px 0;
+    border-bottom: 2px solid hsl(var(--foreground) / 0.12);
+    white-space: nowrap;
+  }
+
+  .post-body :global(td) {
+    color: hsl(var(--foreground) / 0.88);
+    text-align: left;
+    padding: 10px 16px 10px 0;
+    border-bottom: 1px solid hsl(var(--foreground) / 0.07);
+    vertical-align: top;
+  }
+
+  .post-body :global(tr:last-child td) {
+    border-bottom: none;
+  }
 </style>
