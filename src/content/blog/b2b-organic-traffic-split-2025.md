@@ -1,14 +1,20 @@
 ---
-title: "Why B2B Organic Traffic Split in 2025"
-metaTitle: "Why B2B Organic Traffic Split in 2025 | Schwartz Marketing Lab"
-description: "S.LAB analyzed 118 B2B SaaS companies over 18 months. While 47% lost organic traffic, 37% grew. Here's why some companies compounded while others declined."
-excerpt: "47% of companies declined. 37% grew. They were in the same categories, targeting the same queries. Here's what actually separated them."
+title: Why B2B Organic Traffic Split in 2025
+metaTitle: Why B2B Organic Traffic Split in 2025 | Schwartz Marketing Lab
+description: S.LAB analyzed 118 B2B SaaS companies over 18 months. While 47%
+  lost organic traffic, 37% grew. Here's why some companies compounded while
+  others declined.
+excerpt: 47% of companies declined. 37% grew. They were in the same categories,
+  targeting the same queries. Here's what actually separated them.
 pubDate: 2026-08-04
-tags: ["Research", "B2B SaaS", "Organic Traffic", "AI Search"]
 draft: false
+tags:
+  - Research
+  - B2B SaaS
+  - Organic Traffic
+  - AI Search
 ---
-
-<p>Every major report published about B2B search in 2025 told essentially the same story. AI Overviews reduced clicks, zero-click searches increased, and organic traffic declined across the industry.</p>
+Every major report published about B2B search in 2025 told essentially the same story. AI Overviews reduced clicks, zero-click searches increased, and organic traffic declined across the industry.</p>
 
 <p>That story is true.</p>
 
@@ -20,7 +26,7 @@ draft: false
 
 <p>The most common single trajectory across 118 companies? A high reached before the study window opened, followed by a decline that has not recovered.</p>
 
-<p>Yet, while some companies experienced catastrophic collapse, others grew significantly.</p>
+<p>**Yet, while some companies experienced catastrophic collapse, others grew significantly**.</p>
 
 <p>Ramp grew 112%. Vanta grew 60%. Braze grew 60%. Many of the cohort's "growers" competed in the same verticals against companies that lost more than half their traffic over the same period.</p>
 
@@ -32,7 +38,7 @@ draft: false
 
 <p>Several theories for why traffic collapsed didn't hold up under the scrutiny of the collected data.</p>
 
-<p>The first hypothesis: Some categories are more susceptible to collapse than others.</p>
+### <p>**The first hypothesis**: Some categories are more susceptible to collapse than others.</p>
 
 <p>The category data doesn't support it.</p>
 
@@ -44,9 +50,11 @@ draft: false
 
 <p>In almost every vertical, both outcomes appeared. The category doesn't explain which side of the split a program landed on.</p>
 
-<p>The second hypothesis: Domain authority or program maturity. Companies with stronger brands and longer track records might have been more insulated.</p>
+### <p>**The second hypothesis**: Domain authority or program maturity creates durability.  
 
-<p>That doesn't hold either. Aha! has a mature program, years of investment, strong rankings, and an extensive content library. It declined 42%.</p>
+We suspected that companies with stronger brands and longer track records might have been more insulated. That doesn't hold either. 
+
+Aha! has a mature program, years of investment, strong rankings, and an extensive content library. It declined 42%.</p>
 
 <p>GitHub has scale that most B2B companies would trade significant resources for. It declined 72%. Maturity didn't protect them.</p>
 
@@ -54,9 +62,9 @@ draft: false
 
 <p>When we started this research, we expected to document a collapse. But we kept finding companies that hadn't collapsed. And the more closely we examined what separated them, the less the obvious explanations held.</p>
 
-<h2>Braze and Aha!</h2>
+<h2>Braze and Aha!: Two companies that help visualize our findings</h2>
 
-<p>Two companies in the cohort make the answer visible.</p>
+<p>There were two companies in our cohort that best illustrate how traffic split and why.
 
 <p>Braze grew organic traffic 59.9% over the 18-month window. The growth was distributed across dozens of pages, with no single page accounting for more than 15 to 18% of total gains. The content covers email marketing concepts, cross-channel customer engagement frameworks, and foundational category education. These are pages that require a practitioner to engage. You cannot extract what they offer in a summary. You have to read them, think about them, and apply them to your specific situation. The program held through algorithm updates, through AI Overview expansion, across the full study window.</p>
 
@@ -83,7 +91,7 @@ draft: false
 
 <p>The problem was something different. Google's AI answered the user's question before they ever reached the page. The click never happened. The ranking held, but the traffic didn't.</p>
 
-<p>This led to one of our most interesting findings, and the one that most directly challenges how operators typically diagnose programs: rankings do not always equal traffic.</p>
+<p>**This led to one of our most interesting findings, and the one that most directly challenges how operators typically diagnose programs: *rankings do not always equal traffic*.**</p>
 
 <p>When rankings and traffic decouple, optimizing the ranking position doesn't fix it. The ranking position is not what's broken.</p>
 
@@ -91,7 +99,7 @@ draft: false
 
 <p>The two programs ran in the same environment. They targeted overlapping queries. They both had the rankings to show for their investment. The difference was what happened when a reader found what they were looking for in the search result itself. Braze's content couldn't fully satisfy that reader without a click. Aha!'s content could. Across the cohort, that difference consistently explained which side of the split companies landed on.</p>
 
-<p>The environment didn't reward better content. It rewarded different content.</p>
+<p>The environment didn't reward *better* content. It rewarded different content.</p>
 
 <h2>What the evidence forced</h2>
 
@@ -99,13 +107,13 @@ draft: false
 
 <p>Eventually we realized we weren't looking at better execution. We were looking at a different kind of demand.</p>
 
-<p>We call it durable demand.</p>
+<p>**We call it *durable demand.***</p>
 
 <p>Every year, new practitioners enter a field and need to understand its foundational concepts for the first time. That audience replenishes continuously. The demand doesn't need to be manufactured. It needs to be positioned to capture it as it arrives. Content built around this property compounded. Content that delivered its full value in a single interaction depreciated.</p>
 
 <p>The inverse is structurally fragile regardless of execution quality. A well-produced template is still a template. A thorough guide to a process that AI tools now handle on demand is still satisfiable inside the SERP. The mechanism driving that vulnerability is structural, not algorithmic. It cannot be fixed by ranking higher, because ranking higher is not the problem.</p>
 
-<p>Across the cohort we repeatedly observed the same underlying patterns in what drove programs in both directions. In the <a href="/playbooks/modern-organic-growth-playbook">2026 Modern Organic Growth Playbook</a>, we classify those into five distinct mechanisms, each with a different evidence signature and a different required response. Understanding which mechanism is operating in a given program is where the diagnostic work begins. That taxonomy is the subject of the next article in this series.</p>
+<p>Across the cohort, we repeatedly observed the same underlying patterns in what drove programs in both directions. In the <a href="/playbooks/modern-organic-growth-playbook">2026 Modern Organic Growth Playbook</a>, we classify those into five distinct mechanisms, each with a different evidence signature and a different required response. Understanding which mechanism is operating in a given program is where the diagnostic work begins. That taxonomy is the subject of the next article in this series.</p>
 
 <p>For 20 years, the central question shaping organic growth was: how do we rank higher?</p>
 
