@@ -13,6 +13,45 @@ tags:
   - B2B SaaS
   - Organic Traffic
   - AI Search
+faqs:
+  - question: What does it mean that B2B organic traffic "split" in 2025?
+    answer: >-
+      S.LAB tracked 118 B2B SaaS companies across 10 verticals over an 18-month
+      window and found that organic traffic did not decline uniformly. 47% of
+      companies lost organic traffic, but 37% grew — some significantly. Ramp
+      grew 112%, Vanta grew 60%, and Braze grew 60%, while competitors in the
+      same categories lost more than half their traffic over the same period. The
+      split was driven by the type of demand each program captured, not by
+      category, domain authority, or publishing volume.
+  - question: What is durable demand?
+    answer: >-
+      Durable demand is demand that replenishes continuously because it is tied
+      to foundational learning rather than one-time information retrieval. Every
+      year, new practitioners enter a field and need to understand its core
+      concepts for the first time. Content that serves this audience compounds
+      because the audience itself regenerates. It contrasts with fragile demand
+      — queries that can be fully satisfied by an AI summary, a template
+      download, or a search result snippet — where traffic erodes as AI search
+      expands.
+  - question: What does it mean when rankings and traffic decouple?
+    answer: >-
+      Rankings and traffic decouple when a page holds or improves its position
+      in Google while traffic to that page falls sharply. This happened across
+      more than 20 individual queries for Aha!, where pages ranked first or
+      second saw traffic fall 92–99%. The cause is AI Overviews and other
+      zero-click features answering the query before the user reaches the page.
+      When this happens, optimizing for a higher ranking position does not fix
+      the problem — the ranking is not what is broken.
+  - question: Can B2B companies still grow organic traffic as AI search expands?
+    answer: >-
+      Yes. 37% of the 118 companies S.LAB tracked grew organic traffic over the
+      18-month study window, including during the period of significant AI
+      Overview expansion. Growth was concentrated in companies whose content
+      required practitioners to engage directly — content covering foundational
+      professional concepts, definitional frameworks, and educational material
+      that cannot be fully resolved in a summary. The companies that grew were
+      not out-publishing the ones that declined. They were capturing a
+      structurally different kind of demand.
 ---
 
 Every major report published about B2B search in 2025 told essentially the same story. AI Overviews reduced clicks, zero-click searches increased, and organic traffic declined across the industry.

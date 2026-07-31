@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
 import { getCollection, render } from 'astro:content';
-import { articleSchema, SITE_URL } from '../../lib/schema';
+import { articleSchema, faqPageSchema, SITE_URL } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-const schema = articleSchema({
+const article = articleSchema({
   headline: post.data.title,
   description: post.data.description,
   datePublished: post.data.pubDate.toISOString(),
@@ -25,6 +25,10 @@ const schema = articleSchema({
   keywords: post.data.tags,
   url: new URL(`/blog/${post.id}`, SITE_URL).toString(),
 });
+
+const schema = post.data.faqs && post.data.faqs.length > 0
+  ? [article, faqPageSchema(post.data.faqs)]
+  : article;
 ---
 
 <Layout
@@ -63,6 +67,22 @@ const schema = articleSchema({
         <Content />
       </div>
     </article>
+
+    {post.data.faqs && post.data.faqs.length > 0 && (
+      <section class="faq-section">
+        <div class="faq-wrap">
+          <h2 class="faq-heading">Frequently asked questions</h2>
+          <dl class="faq-list">
+            {post.data.faqs.map((item) => (
+              <div class="faq-item">
+                <dt class="faq-question">{item.question}</dt>
+                <dd class="faq-answer">{item.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+    )}
 
     <CtaBanner
       heading="Want help putting this into practice?"
@@ -295,5 +315,52 @@ const schema = articleSchema({
 
   .post-body :global(tr:last-child td) {
     border-bottom: none;
+  }
+
+  /* FAQ section */
+  .faq-section {
+    border-top: 1px solid hsl(var(--foreground) / 0.08);
+    padding: 64px clamp(24px, 5vw, 64px) 80px;
+  }
+
+  .faq-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .faq-heading {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(22px, 2.4vw, 28px);
+    letter-spacing: -0.025em;
+    color: hsl(var(--foreground));
+    margin: 0 0 2.5rem;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .faq-item {
+    border-top: 1px solid hsl(var(--foreground) / 0.08);
+    padding-top: 1.75rem;
+  }
+
+  .faq-question {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 17px;
+    color: hsl(var(--foreground));
+    margin: 0 0 0.75rem;
+  }
+
+  .faq-answer {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.75;
+    color: hsl(var(--foreground) / 0.88);
+    margin: 0;
   }
 </style>
