@@ -5,10 +5,9 @@ metaTitle: How to Diagnose an Organic Traffic Drop | Schwartz Marketing Lab
 description: An organic traffic drop is a symptom. Learn the five mechanisms
   behind B2B traffic decline, the signature each leaves, and how to diagnose
   yours.
-excerpt: "Forty-seven percent of the 118 companies we studied declined.
-  Thirty-seven percent grew. The topline results looked simple. The underlying
-  causes were not: similar traffic curves were produced by different mechanisms,
-  each requiring a different response."
+excerpt: "Don't panic if you've recently seen a sudden drop in organic traffic.
+  Stop publishing, diagnose the mechanism behind the drop, then start
+  rebuilding. Here's how to tell which mechanism hit you. "
 pubDate: 2026-08-03
 draft: false
 tags:
