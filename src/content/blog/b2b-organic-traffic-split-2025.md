@@ -6,7 +6,7 @@ description: S.LAB analyzed 118 B2B SaaS companies over 18 months. While 47%
   others declined.
 excerpt: 47% of companies declined. 37% grew. They were in the same categories,
   targeting the same queries. Here's what actually separated them.
-pubDate: 2026-08-04
+pubDate: 2026-07-31T00:00:00.000-07:00
 draft: false
 tags:
   - Research
