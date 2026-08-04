@@ -92,7 +92,7 @@ Date every redesign, migration, CMS change, URL restructuring, and major content
 
 Compare inflection dates against confirmed updates to separate a possible external reassessment from an internal failure that happened nearby.
 
-### **5. Impressions and search demand.** 
+### **5. Impressions and search demand.**
 
 Use Google Search Console (GSC) impressions when available, and 12–18 months of search-volume estimates as a lower-confidence proxy. This is the key input for separating AIO Interception from Demand Substitution.
 
@@ -219,6 +219,8 @@ The broader lesson is that content performs better when people need more than a 
 
 **Wrong treatment:** Building more of a content format that people are no longer searching for does not restore demand. The problem isn't that your pages became worse. It's that fewer people need them in the first place.
 
+*Note:* *If AIO Interception or AI Tool Demand Substition is responsible for your decline, [answer engine optimization (AEO) is your best path forward](https://schwartzmarketinglab.com/services/answer-engine-optimization/).* 
+
 ## Competitive Displacement: Confirm Who Replaced You
 
 Competitive Displacement happens when another result consistently takes the rankings you lost. That could be a direct competitor, a first-party source, a directory, or a different type of search result.
@@ -265,4 +267,4 @@ Start with the data. Review your traffic trend, ranking patterns, internal chang
 
 The wrong treatment can consume months of work without addressing the real cause of the decline. The right diagnosis makes every subsequent decision more effective.
 
-The full cohort findings are in [our 18-month B2B organic traffic study](/blog/b2b-organic-traffic-split-2025). If you've identified the mechanism affecting your site and want a deeper recovery framework, [The 2026 Modern Organic Growth Playbook](/playbooks/modern-organic-growth-playbook) expands on each mechanism, outlines recovery strategies, and introduces the Durable Demand Framework for building organic growth that's more resilient to future shifts in search. If AIO Interception or Demand Substitution is your primary diagnosis, our [answer engine optimization](/services/answer-engine-optimization) practice covers how to stay visible as AI systems increasingly answer queries directly.
+The full cohort findings are in [our 18-month B2B organic traffic study](/blog/b2b-organic-traffic-split-2025). If you've identified the mechanism affecting your site and want a deeper recovery framework, [The 2026 Modern Organic Growth Playbook](/playbooks/modern-organic-growth-playbook) expands on each mechanism, outlines recovery strategies, and introduces the Durable Demand Framework for building organic growth that's more resilient to future shifts in search. If AIO Interception or Demand Substitution is your primary diagnosis, our answer engine optimization practice covers how to stay visible as AI systems increasingly answer queries directly.
