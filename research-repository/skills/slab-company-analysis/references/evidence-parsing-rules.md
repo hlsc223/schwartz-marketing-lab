@@ -96,7 +96,7 @@ These field values are locked. Do not paraphrase or invent new values:
 **Data Provenance:** Ahrefs Export / Ahrefs Dashboard / Ahrefs Export + Semrush / Ahrefs Export + Similarweb / Full: +GSC+GA4 / Mixed — see Source Files
 **Calculation Verified:** Yes — all key metrics reproduced from source / Partial — some metrics reproduced / No — figures carried from prior analysis
 **Traffic Trajectory:** Continuous Acceleration / Steady Growth / Growth then Pullback / Early Peak then Plateau / Early Peak then Decline / Decline then Recovery / Flat / Steady Decline / Volatile
-**Primary Mechanism:** Algorithm Update / AI Overview / AI-mediated informational demand erosion / Cannibalization / Technical / Competition / Content Quality / Demand Expansion / Search Demand Shift / Mixed (Phase-dependent) / Unknown
+**Primary Mechanism:** Algorithm Update / Algorithmic Reassessment / AI Cannibalization / AI Overview Interception / Competitive Displacement / Content Quality / Demand Expansion / Search Demand Shift / Technical / Mixed (Phase-dependent) / Unknown — see `governance/mechanism-taxonomy.md` for definitions and decision rules
 **AIO Presence Observed:** Yes / No / Not tested
 **AIO Observed Effect:** Intercepted / Resistant / Mixed / No conclusion / Not tested
 **Commercial Alignment:** High / Medium / Low / Mixed / Unknown

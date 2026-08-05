@@ -1,3 +1,13 @@
+<!-- ARCHIVED 2026-08-04 as part of V2.4 repository cleanup.
+
+This file is FROZEN. It was the active synthesis artifact for Phase 3 of the S.LAB research study (completed 2026-06-30) and predates the Evidence Register.
+
+The Evidence Register (evidence-register.md) supersedes this file as the active evidence accumulation layer. It uses a different strength vocabulary (Emerging / Replicating / Established vs. Hypothesis / Emerging / Validated principle used here) and a different workflow (explicitly linked to the Durable Demand Framework).
+
+Any finding from this matrix that is still considered active should be migrated into the Evidence Register under current standards before being cited in client work or future research.
+
+Do not modify this file. Reference it for historical context only.
+-->
 # S.LAB Research Project #1 — Living Synthesis Matrix
 
 Maintained per Operating Manual Section 6b (V1.8, June 29, 2026). Updated immediately after every deep dive — not reconstructed from memory at the end. Each row is pulled from a deep dive's Insight Classification table (Section 6, field 10), then rolled up across companies here.

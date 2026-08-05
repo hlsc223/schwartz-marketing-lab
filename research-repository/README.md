@@ -1,6 +1,13 @@
 # Schwartz Marketing Lab — Organic Growth Research Repository
 
-An ongoing evidence library of company-level organic growth deep dives. Used to identify patterns, find client comparables, and build the case for durable demand — across traditional search and AI discovery systems.
+**Start here:** [`RESEARCH-CHARTER.md`](RESEARCH-CHARTER.md) — mission, vision, objectives, north star questions, guiding principles, and evidence standards. Every field and workflow in this repository is traceable to that document.
+
+**Document authority:**
+- `RESEARCH-CHARTER.md` — authoritative for mission, vision, objectives, and north star questions
+- `README.md` (this file) — authoritative for schema, field definitions, operating procedures, and review cadences
+- `archive/legacy-operating-model.md` — retired; active operational content migrated to this file as of V2.4
+
+---
 
 **Sample representativeness:** This is a purposive evidence library, not a statistically representative sample. Companies are selected to maximize mechanism diversity and case quality — not to reflect the distribution of outcomes across B2B SaaS. Pattern frequency within this repository does not imply prevalence in the market. Use individual records as evidence for specific mechanisms; do not extrapolate base rates or outcome distributions from aggregate counts.
 
@@ -10,13 +17,25 @@ An ongoing evidence library of company-level organic growth deep dives. Used to 
 
 ```
 research-repository/
-  README.md                — this file (schema reference, field definitions, governance rules)
-  OPERATING-MODEL.md       — operating model for the repository as a research program
-  _template.md             — standard format for new company records
+  RESEARCH-CHARTER.md      — mission, vision, objectives, research pipeline, evidence standards (start here)
+  README.md                — this file: navigation, schema reference, operating procedures
+  evidence-register.md     — accumulating evidence findings, linked to Durable Demand Framework
+  _template.md             — standard format for new company records (V2.4)
   _index.xlsx              — retrieval index (Index, Legend, Trajectory Reference tabs)
   company-records/         — one markdown file per company
+  portfolio-durability/    — Portfolio Durability Analyses: companion page-level analyses for companies with meaningful portfolio redistribution events (one file per company)
+    _template.md           — structured template: recovery cohort, decline cohort, stable cohort, Durable Demand Signals, portfolio comparison
   comparison-briefs/       — cross-company pattern analysis documents
-  governance/              — Consistency Review and Repository Synthesis output artifacts
+  governance/              — Controlled vocabularies, classification taxonomies, Consistency Review artifacts
+    mechanism-taxonomy.md       — authoritative controlled vocabulary for Primary Mechanism and Contributing Mechanisms (V2.4)
+    page-archetype-taxonomy.md  — Content Archetype and AI Substitutability classification (V1.0)
+    ai-discoverability-methodology.md — AI visibility measurement methodology and threshold changelog
+  source-analyses/         — v0.1 calculation handoff artifacts and pre-migration analysis files (not authoritative records)
+  archive/                 — superseded documents; kept for reference only
+    legacy-synthesis-matrix.md       — pre-Evidence-Register synthesis; frozen 2026-08-04
+    legacy-comparison-briefs/        — comparison briefs extracted from phase3-deep-dives.md; not yet reformatted
+    legacy-operating-model.md        — operational procedures from prior OPERATING-MODEL.md; active content migrated to README
+  skills/                  — analysis skill definitions and reference files
 ```
 
 **External dependencies (intentional):** This repository references documents in the parent project folder that are not stored inside `research-repository/`. These dependencies are deliberate:
@@ -29,15 +48,21 @@ These files remain in the parent project folder because they predate the reposit
 
 ---
 
-## Two Research Object Types
+## Research Object Types
 
 **Company records** (`company-records/`) answer: *What happened to this company?*
 One record per company. The authoritative source for all company-level evidence.
 
+**Portfolio Durability Analyses** (`portfolio-durability/`) answer: *How did this company's page-level portfolio shift?*
+Companion document for companies with a meaningful portfolio redistribution event. Required for Algorithmic Reassessment records; recommended for any record where page-level durability or fragility is a key finding.
+
 **Comparison briefs** (`comparison-briefs/`) answer: *What pattern emerges across multiple companies?*
 Cross-company analysis. Never duplicate analysis from company records — reference them.
 
-These should not be merged. Keep them separate. Cross-reference via the Related Documents field.
+**Evidence Register findings** (`evidence-register.md`) answer: *What does the aggregate evidence show?*
+Accumulating findings linked to the Durable Demand Framework. Evidence strength rated Emerging / Replicating / Established; importance rated Supporting / Important / Foundational.
+
+Keep these object types separate. Cross-reference via the Related Documents field in company records.
 
 ---
 
@@ -110,6 +135,112 @@ Company records are living documents. Structured fields always reflect the curre
 
 **Do not:** silently expand the study window over time. The original window is fixed. Later reviews are documented as amendments with their own dates.
 
+### Record Lifecycle States
+
+Beyond publication readiness (Record Status), records have a lifecycle state describing their ongoing evidence value. Nothing is deleted.
+
+| State | Meaning |
+|-------|---------|
+| **Current** | Active comparable — represents a pattern likely to recur with current clients |
+| **Historical** | Evidence value for what a mechanism looked like in a specific period; not a current comparable (e.g., AI-mediated erosion patterns from 2025–2026 may belong here as the landscape evolves) |
+| **Deprecated** | Superseded by a better record of the same company, or M&A/domain migration has broken the continuity of the evidence |
+
+Record lifecycle state transitions are documented in the Historical Amendments section of each record. Historical and Deprecated records remain fully readable and searchable — they inform mechanism history even when no longer used as direct client comps.
+
+---
+
+## Review Cadences
+
+### Consistency Review (~every 5 migrations)
+
+**Purpose:** Prevent taxonomy drift and catch inconsistencies before they propagate through the corpus.
+
+**Trigger:** After the 5th, 10th, 15th, 20th completed migration, etc. Count company records only, not comparison briefs.
+
+**Time box:** 60 minutes maximum. If a consistency issue requires more than 60 minutes to investigate, document it as an open item and address it as a separate task.
+
+**Questions to answer (all of them, concretely):**
+1. Pull all records and grep for Mechanism values. Are the same mechanisms being applied consistently across similar companies, or has the taxonomy drifted?
+2. Pull all Mechanism Confidence values. Does "High" mean the same thing it meant in the first records? Are there records where the narrative suggests Low confidence but the field says Medium?
+3. Has a pattern appeared that genuinely cannot be represented by any existing mechanism value? Name the company and the gap specifically.
+4. Has the same schema limitation appeared in 3+ records? If yes, it's a schema change candidate — carry it forward to the next Synthesis.
+5. Pull all Measurement Reliability values. Are they calibrated consistently against the definition in this README?
+
+**Required output artifact:** `governance/consistency-review-N.md` where N is the review number. Minimum content:
+
+```
+# Consistency Review #N
+Date: YYYY-MM-DD
+Records reviewed: [list]
+
+## Taxonomy checks
+[findings for each question above — "no issues found" is a complete, valid answer]
+
+## Schema limitations observed
+[any recurring limitations, with record names]
+
+## Records flagged for correction
+[list of records and what needs fixing]
+
+## Actions taken this review
+[changes made immediately]
+
+## Carried to next Synthesis
+[items deferred because they need more cases to justify a change]
+```
+
+Without this artifact, the review is ephemeral and its conclusions don't compound.
+
+---
+
+### Repository Synthesis (~every 10–12 migrations initially, then every 15–20)
+
+**Purpose:** Evaluate the repository as a research system. Ask whether it's becoming better at diagnosing clients, not just whether the data is clean.
+
+**Trigger:** After ~20 completed records (first synthesis); then every 15–20 completed migrations.
+
+**Transition clause:** Consistency Review #1 serves as the baseline review for all pre-existing records. Earlier review thresholds are not recreated retroactively.
+
+**Time box:** Half day.
+
+**The synthesis runs in this sequence:**
+
+**1. Mechanism Inventory Update** — For each mechanism in the taxonomy, update the evidence record: supporting companies, high-reliability supporting companies, categories represented, direct vs. inferred evidence, counterexamples. The goal is to understand evidence maturity, not just frequency.
+
+**2. Coverage Audit** — Assess coverage across Traffic Trajectory, Primary Mechanism, vertical, Commercial Alignment, and Measurement Reliability. Then ask the intersection question: if a client came in with trajectory X + mechanism Y + vertical Z, could the repository find 2+ high-confidence records that resemble them? Identify underrepresented combinations.
+
+**3. Diagnostic Readiness Test** *(most important part)*
+1. Select one company from the repository at random completed before the Synthesis started.
+2. Without looking at its record, use only the other records to generate: (a) the most likely primary mechanism, (b) 2 supporting pieces of evidence from other records, (c) 3 investigation priorities.
+3. Open the test company's record. Compare against the repository-derived diagnosis.
+4. Document the gap: where did the repository succeed? Where did it fail?
+
+*Planned evolution at ~40–50 records:* Replace step 1 with a company that has a completed deep dive but has not yet been migrated. This breaks the circularity — migrated records are already embedded in the corpus.
+
+**4. Diagnostic Gap Analysis** — For each gap identified: what client scenario does the repository currently fail to diagnose well? Is this a coverage gap (more records) or a schema gap (different fields)?
+
+**5. Schema Decision** — Are there schema change candidates that now meet the 3+ record threshold? If yes, implement and increment the version. If no, record "no schema changes justified" and what was considered.
+
+**6. Company Selection Update** — Based on Coverage Audit and Gap Analysis, update the priority list for future migrations.
+
+**Required output artifact:** `governance/synthesis-vN.md`
+
+---
+
+## Company Selection Policy
+
+**During initial migration (current phase):** Migrate completed deep dives in completion order. Don't reorganize the queue to optimize coverage before existing work is in the repository.
+
+**After initial migration is complete:** Selection shifts from completion-order to coverage-driven. The guiding question becomes: what diagnostic capability is the repository currently weakest at?
+
+**Coverage-driven selection criteria (apply in order):**
+1. **Diagnostic gap:** Does this company fill a client scenario the repository currently can't diagnose well?
+2. **Decision value:** Would this company lead to materially different recommendations than cases already in the repository?
+3. **Evidence quality:** Does this company produce High Measurement Reliability evidence, or will it add another Low Reliability record to an already noisy area?
+4. **Dimension diversity:** Does this company add coverage in a currently underrepresented vertical, trajectory, or commercial alignment?
+
+Within each criterion, prefer the company with the highest expected information gain. A company that challenges an existing mechanism or could falsify an established pattern is often more valuable than one that reinforces what the repository already knows. The repository should become progressively harder to surprise.
+
 ---
 
 ## Data Confidence Framework
@@ -170,7 +301,7 @@ A site can have an Integration-led content model but a Blog as its dominant cont
 
 Designed around durable concepts, not vendor-specific metrics. Different tools can coexist in the Metrics field of the record.
 
-**AI Visibility Strength** — classify per current thresholds in `_ai-discoverability-methodology.md`. That document carries the operational definitions and threshold changelog so the schema stays stable as measurement approaches evolve. Always document prompt set size, composition, and engine coverage in the Coverage section of the record.
+**AI Visibility Strength** — classify per current thresholds in `governance/ai-discoverability-methodology.md`. That document carries the operational definitions and threshold changelog so the schema stays stable as measurement approaches evolve. Always document prompt set size, composition, and engine coverage in the Coverage section of the record.
 
 **AI Discoverability Trend** — always specify what the trend is relative to using the "Trend Compared To" field in the record (Initial measurement / Previous quarterly assessment / Previous annual assessment). "Improving" without a reference period is not interpretable.
 
@@ -186,22 +317,11 @@ These fields do not replace Primary Mechanism — causal interpretation belongs 
 
 ## Mechanism Taxonomy
 
-Approved values for Primary Mechanism and Contributing Mechanisms fields. Use the most specific applicable value.
+The authoritative controlled vocabulary for Primary Mechanism and Contributing Mechanisms is in **`governance/mechanism-taxonomy.md`**. That file contains approved values with definitions, decision rules (including Algorithm Update vs. Algorithmic Reassessment, and AI mechanism disambiguation), legacy value migration guidance, and the Playbook crosswalk.
 
-| Value | Definition |
-|-------|-----------|
-| **Algorithm Update** | Organic traffic change driven primarily by a Google core or spam algorithm update — timing alignment with a named update is a required element of this classification |
-| **AI Overview** | Traffic change driven primarily by AI Overview click-through interception — queries where the SERP feature answers the user's intent, suppressing clicks to ranked pages |
-| **AI-mediated informational demand erosion** | Traffic loss in which informational query demand is reduced, displaced, or intercepted by AI systems — with the specific mechanism (AI Overviews, answer engines, coding assistants, or AI-native tools) unconfirmed. Use when evidence shows informational traffic decline with traffic-value divergence consistent with AI displacement, but the exact interception point cannot be isolated. More specific values (AI Overview, Search Demand Shift) should be used when the mechanism can be confirmed. |
-| **Cannibalization** | Organic traffic decline driven primarily by the site's own pages competing against each other for the same queries, producing internal keyword cannibalization |
-| **Technical** | Traffic change driven primarily by technical site factors — crawlability, indexation, Core Web Vitals, migration errors, redirect chains, or similar |
-| **Competition** | Traffic change driven primarily by competitive displacement — other sites outranking this one on queries it previously held |
-| **Content Quality** | Traffic change driven primarily by changes in the quality, depth, or relevance of the site's own content relative to what the query requires |
-| **Demand Expansion** | Growth driven materially by an identifiable increase in underlying demand rather than primarily by ranking improvement or content-quality changes. Common variants: acquisition integration (captured brand demand from an acquired company), product launch, major PR or analyst recognition, category growth, international expansion. Use when the mechanism is demand-side, not supply-side. |
-| **Search Demand Shift** | Traffic decline driven materially by a shift in how users satisfy the underlying need — away from traditional search and toward another channel (AI tools, AI-generated answers, direct AI prompting, etc.). Distinct from AI Overview: AI Overview describes SERP-level click interception after a search query is made; Search Demand Shift describes cases where the search query may no longer be initiated because the need is satisfied upstream. Use when evidence suggests the search itself is declining, not just the click. Cannot be confirmed without search-volume trend data by query — mark as Contributing when the mechanism is plausible but unconfirmed. |
-| **Unknown** | Evidence is insufficient to identify a primary mechanism |
+Do not maintain a separate mechanism list in this file. For approved values, definitions, and amendment history, read `governance/mechanism-taxonomy.md` directly.
 
-*Add new values only after updating this table, the template, and the index Legend.*
+*Add new values only by amending `governance/mechanism-taxonomy.md`, then updating `_template.md` and the `_index.xlsx` Legend tab.*
 
 ---
 
@@ -258,6 +378,7 @@ Approved values for Primary Mechanism and Contributing Mechanisms fields. Use th
 | V2.1 | 2026-07-11 | Mechanism taxonomy formalized with definitions. Demand Expansion added as new Primary Mechanism value. Study Duration defined as elapsed months. README migration instruction corrected (Record Status = Draft, not "Migrated — not revalidated"). Controlled-vocabulary field normalization rule clarified. | Gainsight: reclassify Primary Mechanism from Content Quality to Demand Expansion. Any record using Content Quality for acquisition-driven growth should be reviewed. |
 | V2.2 | 2026-07-14 | Search Demand Shift added as new mechanism taxonomy value. Ahrefs estimated-traffic terminology standard established: all record language must distinguish between what Ahrefs exports directly show (estimated traffic, estimated rankings) and what is inferred (CTR decline, click loss, click interception). Last Verified Date behavior clarified: leave blank for records with Calculation Verified = No and Migration Validation Stage = Migrated — not revalidated. AI Overview Exposure field scoped to pure exposure only; causal interpretation belongs in Primary Mechanism and Confidence Rationale. | Aha!: Contributing Mechanisms updated from "Competition, Content Quality" to "Search Demand Shift, Competition"; Last Verified Date blanked; CTR/click language replaced with estimated-traffic language throughout. Any record using CTR or click observation language drawn from Ahrefs exports should be reviewed. |
 | V2.3 | 2026-07-28 | AI-mediated informational demand erosion added as new mechanism taxonomy value — for cases where AI displacement is the likely explanation but the specific mechanism (AI Overviews, answer engines, coding assistants, upstream substitution) cannot be confirmed. Single AI Overview Exposure field replaced with three-field AIO split: AIO Portfolio Susceptibility / AIO Presence Observed / AIO Observed Effect — preventing conflation of structural exposure, direct observation, and causal effect. Commercial Alignment field added to Client Applicability section — captures whether the site's organic footprint is topically connected to its commercial positioning; enables filtering by traffic-quality dimension rather than traffic-volume dimension alone. | GitHub: Primary Mechanism reclassified from AI Overview to AI-mediated informational demand erosion; AI Overview Exposure → 3-field AIO split (Susceptibility: High, Presence Observed: Not tested, Effect: No conclusion). Harness: AIO Exposure "None" corrected to 3-field split (Susceptibility: High, Presence Observed: Yes, Effect: Resistant — one tested query). CircleCI: AIO Exposure "Low" updated to 3-field split (Susceptibility: Medium, Presence Observed: Not tested, Effect: No conclusion). CloudBees: AIO Exposure "Low" updated to 3-field split (Susceptibility: High, Presence Observed: Not tested, Effect: No conclusion). Commercial Alignment added to all four Dev Tools records. Language fixes across all records and Dev Tools comparison brief. |
+| V2.4 | 2026-08-04 | **Required changes:** (1) Mechanism taxonomy centralized — `governance/mechanism-taxonomy.md` created as single authoritative source; mechanism list removed from README and replaced with a pointer; (2) Demand Expansion restored to approved values — was present V2.1–V2.3 and was inadvertently omitted from the V2.4 template draft; restored in taxonomy and template; (3) Mechanism vocabulary updated — AI Overview → AI Overview Interception; AI-mediated informational demand erosion → AI Cannibalization; Cannibalization → Contributing Mechanisms/narrative; Competition → Competitive Displacement; (4) Algorithmic Reassessment added as distinct value from Algorithm Update; (5) `portfolio-durability/` folder replaces `portfolio-reassessment/` — trigger broadened beyond Algorithmic Reassessment only; (6) `governance/ai-discoverability-methodology.md` replaces `_ai-discoverability-methodology.md`; (7) Page Archetype Taxonomy V1.0 added (`governance/page-archetype-taxonomy.md`); (8) Repository structure formalized: `archive/`, `source-analyses/`, `governance/` directories established; OPERATING-MODEL.md retired (active content migrated to README). **Optional:** Evidence Register link in Related Documents section; Portfolio Durability Analysis trigger language update in existing records. | All records: update Primary Mechanism to use new controlled vocabulary where legacy values were in use (AI Overview → AI Overview Interception; AI-mediated informational demand erosion → AI Cannibalization or Search Demand Shift; Competition → Competitive Displacement). Records with portfolio-reassessment path in Related Documents: update to portfolio-durability path. |
 
 *The repository methodology is intentionally flexible. When a field definition changes, increment the version, update this table, and flag affected records for revalidation.*
 
@@ -265,7 +386,7 @@ Approved values for Primary Mechanism and Contributing Mechanisms fields. Use th
 
 ## Future Schema Design Note
 
-**Observed Mechanism vs. Strategic Interpretation split (planned for V2.4+):** As the repository grows, a meaningful design improvement would be separating the factual record of what was observed (rankings improved, specific pages gained, no backlink inflection, AIO present) from the interpretive layer (mechanism classification, pattern attribution). Observations are stable; interpretations evolve with the taxonomy. Keeping them merged means reclassifying a mechanism requires rewriting the factual record — an unnecessary cost at scale. This split is not implemented in V2.3 but should be considered before the corpus exceeds 30–40 records.
+**Observed Mechanism vs. Strategic Interpretation split (planned for V2.5+):** As the repository grows, a meaningful design improvement would be separating the factual record of what was observed (rankings improved, specific pages gained, no backlink inflection, AIO present) from the interpretive layer (mechanism classification, pattern attribution). Observations are stable; interpretations evolve with the taxonomy. Keeping them merged means reclassifying a mechanism requires rewriting the factual record — an unnecessary cost at scale. This split is not implemented in V2.4 but should be considered before the corpus exceeds 30–40 records.
 
 ---
 

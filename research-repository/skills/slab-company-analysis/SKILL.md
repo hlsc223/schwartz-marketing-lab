@@ -19,6 +19,46 @@ description: Runs the S.LAB company analysis workflow — intake, evidence parsi
 
 ---
 
+## Operating Rules
+
+These rules govern execution across the full workflow. They exist to prevent the most common sources of wasted effort: rewriting the same content twice, correcting overconfident interpretations, and chasing evidence that no longer changes the answer.
+
+### Document responsibilities
+
+Each document has exactly one job. Content belongs in the document responsible for it — not reproduced in all three.
+
+| Document | Responsibility |
+|----------|---------------|
+| **v0.1 (Calculation Log)** | Data collection and verification only. Numbers, formulas, data quality warnings, unexplained observations. No mechanism language. No causal claims. No narrative interpretation. |
+| **PDA (Portfolio Durability Analysis)** | Interpretation and mechanism analysis. What the data means. Which pages promoted, preserved, or abandoned. What drove the outcome. Durable Demand assessment. Candidate principles. |
+| **v0.2 (Company Record)** | Synthesis and client-facing implications. Final mechanism classification, confidence rationale, client applicability, risk flags. Consumes PDA conclusions — does not re-derive them. |
+
+If the same observation appears in two documents, it belongs in one and is referenced (not repeated) in the other.
+
+### Sequencing
+
+Always follow this order:
+
+```
+v0.1 (verify data)
+↓
+PDA (interpret findings)
+↓
+v0.2 (synthesize conclusions)
+```
+
+**Never write v0.2 before the PDA is complete.** The mechanism fields in the company record must reflect what the PDA found — not placeholder language that will need to be overwritten.
+
+### Stopping rule
+
+Continue collecting evidence only while it materially changes mechanism confidence. Once additional evidence is unlikely to change the conclusion, stop. Record remaining uncertainty explicitly rather than continuing to investigate.
+
+The stopping rule is confidence-based, not checklist-based. Sometimes the mechanism is clear after performance history and one SERP check. Sometimes it takes Wayback comparisons, page-level keyword exports, and competitor analysis. The evidence collection ends when it stops changing the answer — not when a fixed list is exhausted.
+
+When evidence collection stops, document what remains uncertain and what would change the assessment. "We don't know X" is a valid and complete conclusion.
+
+---
+
 ## Step 1: Intake
 
 Before doing any analysis, establish what you have. Ask if not clear from context:

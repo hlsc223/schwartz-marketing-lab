@@ -217,7 +217,7 @@ Cognism's AIO citation tracks organic rank strength. On queries where it still h
 
 ## Calculation Log
 
-*Full calculation log including all verified metrics is in `company-records/cognism-v01.md`. Key metrics reproduced here for record self-sufficiency.*
+*Full calculation log including all verified metrics is in `source-analyses/cognism-v01.md`. Key metrics reproduced here for record self-sufficiency.*
 
 | Metric | Source File | Source Columns / Rows | Filter / Population | Formula | Verified Value | Verification Status |
 |--------|-------------|----------------------|---------------------|---------|----------------|---------------------|
@@ -381,7 +381,7 @@ The AIO finding adds a nuanced secondary insight. In this seven-query sample, Co
 **2026-08-03**
 - **Reason:** New record
 - **Sections updated:** All
-- **Summary:** Initial record generated from four Ahrefs exports (Performance History combined traffic+RDs, Top Pages, Organic Keywords, Organic Competitors) plus targeted Ahrefs SERP Overview validation across 7 queries (2026-08-03). Full v0.1 calculation log at `company-records/cognism-v01.md`. AIO field values updated during v0.1 → v0.2 transition and subsequent review: AIO Presence Observed set to Yes (tool-detected); AIO Observed Effect set to Not tested (no historical CTR evidence available to isolate traffic effect); Current AIO Citation Outcome field added (Mixed — cited 3/7, organic-only 1/7, absent 3/7). Root-level content-type figures confirmed exact (134 URLs, 50,528 gross loss). Wave 1 framing corrected to sustained erosion; "rules out" language softened throughout; AIO interpretation qualified as seven-query sample.
+- **Summary:** Initial record generated from four Ahrefs exports (Performance History combined traffic+RDs, Top Pages, Organic Keywords, Organic Competitors) plus targeted Ahrefs SERP Overview validation across 7 queries (2026-08-03). Full v0.1 calculation log at `source-analyses/cognism-v01.md` (moved from company-records/ 2026-08-04). AIO field values updated during v0.1 → v0.2 transition and subsequent review: AIO Presence Observed set to Yes (tool-detected); AIO Observed Effect set to Not tested (no historical CTR evidence available to isolate traffic effect); Current AIO Citation Outcome field added (Mixed — cited 3/7, organic-only 1/7, absent 3/7). Root-level content-type figures confirmed exact (134 URLs, 50,528 gross loss). Wave 1 framing corrected to sustained erosion; "rules out" language softened throughout; AIO interpretation qualified as seven-query sample.
 
 ---
 

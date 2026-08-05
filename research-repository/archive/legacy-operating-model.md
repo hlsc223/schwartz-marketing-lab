@@ -1,6 +1,16 @@
-# S.LAB Research Repository — Operating Model (V1.0)
+<!--
+ARCHIVED 2026-08-04 (V2.4 cleanup)
+Active operational content has been migrated to README.md:
+- Review cadences (Consistency Review and Repository Synthesis)
+- Company selection policy
+- Record lifecycle states (Current / Historical / Deprecated)
+- Diagnostic readiness test procedure
+This file is retained for reference only. Do not update it — README.md is now authoritative.
+-->
 
-*Effective: 2026-07-28. This document governs the repository as a living research program and client diagnostic system. It is separate from `research-operating-manual-v1.md`, which covers the methodology and workflow for the original 118-company study. See Section 8 for the version changelog.*
+# S.LAB Research Repository — Operating Model (V1.0) [ARCHIVED]
+
+*Original effective date: 2026-07-28. Archived 2026-08-04 as part of V2.4 repository cleanup. Active content migrated to README.md. See README.md for current operating procedures.*
 
 ---
 

@@ -359,8 +359,48 @@ Aha!'s template content library showed the most severe content-format-specific d
 
 - **59.8%** of Aha!'s total traffic losses were on AIO-exposed queries
 - **83.6%** of Aha!'s traffic gains were also on AIO-exposed queries (gains concentrated on broad head terms that AI Overviews also serve)
+- **505 pages** lost traffic; only 233 gained; **299 pages dropped to zero** traffic entirely
 
 The key differentiator: template content can deliver its full value within the SERP (a list, a framework, a step-by-step process). Definitional and educational content requiring continued engagement showed the opposite pattern — resistance, not suppression.
+
+### Impressions/clicks divergence (Gladly)
+
+Gladly's study-window organic data showed the clearest aggregate-level impressions-vs-clicks divergence in the cohort:
+- **Impressions grew 47.7%** while **organic clicks fell 41.4%** — with average positions steady or slightly improving over the same period
+- Top impression-generating pages: `/blog/faq-template/` (896,401 impressions, 0.05% CTR, avg position 12.28) and `/blog/best-customer-service-software/` (891,232 impressions, 0.05% CTR, avg position 16.94)
+- Dominant non-branded content: FAQ templates, customer service scripts, job descriptions, software comparison lists
+
+The pattern: growing visibility in search, shrinking clicks — without a ranking loss. AI systems resolving queries before the click occurs. This is the account-level version of what the Aha! keyword table shows at the individual query level.
+
+---
+
+## AIO Resistance — Specific Evidence
+
+*Source: Deep-dive company records*
+
+### Harness: position #1 with AI Overview displayed
+
+- Harness holds **position #1** for "what is a devops pipeline" even when Google displays an AI Overview on the SERP
+- Described in the research record as "the strongest keyword-level AI-resistance evidence in the cohort"
+- The query is definitional — exactly the type that triggers AI Overviews — yet the page generates substantial click traffic with the AI summary present
+- Implication: when content requires sustained engagement (reading an explainer, not extracting a definition), users still click through despite AIO presence
+- Non-branded traffic grew +137% (26,202 → 62,094); branded +3.5% — growth is content-driven, not brand-driven
+
+### CircleCI: zero-backlink ranking breakthrough
+
+- Top post (`/blog/deployment-strategies-types-trade-offs-and-how-to-choose/`) went from 0 to **59,353 estimated traffic** — representing **31.5% of current top-page traffic** — on just **5 referring domains**
+- First backlink arrived **March 2026**, after the ranking was already established
+- The page ranked on topical relevance and content quality alone, months before any link equity existed
+- Non-branded traffic grew +118.9%; the pattern is multi-URL cluster across CI/CD concepts in five-plus languages, not a single viral post
+
+### Rippling: long-tail blog post collapse
+
+- `/blog/how-many-hours-is-part-time`: **14,614 → 80 traffic (−99.5%)**
+- `/blog/termination-letter`: 3,369 → 27 (−99.2%)
+- `/blog/is-oasdi-tax-mandatory`: 7,592 → 862 (−88.6%)
+- Approximately a dozen more posts in similar ranges — all older, long-tail informational content
+- Simultaneously, glossary pages and homepage grew substantially (homepage: +121,012)
+- Interpretation: portfolio reshaping — AI tools absorbing demand for specific factual queries while definitional category content held
 
 ---
 
@@ -396,6 +436,18 @@ The key differentiator: template content can deliver its full value within the S
 - Sharpest single monthly traffic jump: **87% non-branded** — funding announcements not the primary growth driver
 - ~22% of gross gains offset by losses (1,234 losing pages) — meaningful cannibalization despite strong headline growth
 - Long-tail positions 21-50/51+ each collapsed ~90% in three months aligned to August 2025 spam update; collapse fully masked by top-position growth in headline numbers
+- Mileage reimbursement calculator: **4,041 → 18,439 traffic (+14,398)** — tool content showing the strongest single-asset growth in the Finance vertical
+
+### Cognism (Declined −50.7%)
+- **5,868 keywords** in the current Organic Keywords export carry AI Overview SERP features, representing **~52.6% of export current total (~56,728 estimated visits)**
+- Root-level definitional pages: **48.6% of gross loss**; blog content: **43.9% of gross loss**
+- Referring domains grew **+82.5%** during the same period traffic declined by half — link growth did not prevent the decline
+- AIO pattern: Cognism is cited in AI Overviews on queries where it still holds top-10 organic positions; absent from both organic results and AIO on queries where it has lost organic presence. Suggests algorithmic de-ranking drove the AIO exclusion, not AIO independently displacing ranked pages.
+
+### Gong (Grew +26.3%)
+- **11 of 12 sampled queries** confirmed to have AI Overviews active
+- Gong appears in **AIO thumbnail position on 10 of 12 queries** and holds organic positions on all 12
+- Pattern: strong domain authority + organic position = AIO thumbnail presence; authority doesn't confer immunity from AIO but does correlate with AIO inclusion when ranking holds
 
 ---
 

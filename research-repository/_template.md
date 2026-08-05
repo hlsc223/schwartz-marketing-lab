@@ -1,6 +1,18 @@
 # [Company Name]
 
-<!-- Copy this file to company-records/company-name.md. Fill in every field. The Calculation Log is the verification source for all recomputable metrics — complete it before the narrative, not after. -->
+<!--
+Copy this file to company-records/company-name.md. Fill in every field.
+
+SEQUENCING: Write in this order: v0.1 (data) → PDA (interpretation) → this record (synthesis). Never populate mechanism fields before the PDA is complete.
+
+WRITING RULE: Tables contain the evidence. Narrative exists only to interpret the evidence — do not restate numbers already visible in adjacent tables. If the reader can already see a figure, the narrative should explain what it means, not repeat what it says.
+
+ONE FACT, ONE HOME: Raw observations belong in v0.1. Evidence interpretation belongs in the PDA. Final conclusions belong here. If a paragraph could appear in the PDA instead of the company record, it belongs in the PDA. Cross-reference rather than reproduce.
+
+PAGE-LEVEL RULE: If an explanation requires discussing individual pages, it belongs in the PDA — unless that page is essential to understanding the company-level conclusion. A page that represents 49% of recovery gain is essential. A page that illustrates a pattern already named in the mechanism field is not.
+
+The Calculation Log is the verification source for all recomputable metrics — complete it before the narrative, not after.
+-->
 
 ---
 
@@ -18,7 +30,7 @@
 | **Analysis Date** | YYYY-MM-DD |
 | **Record Finalized Date** | YYYY-MM-DD |
 | **Last Verified Date** | YYYY-MM-DD |
-| **Methodology Version** | V2.0 |
+| **Methodology Version** | V2.4 |
 | **Record Status** | *(Draft / Verified / Final / Needs Revalidation)* |
 | **Migration Validation Stage** | *(N/A — new record / Migrated — not revalidated / Metrics revalidated / Narrative revalidated / Fully revalidated)* |
 | **External Use Status** | *(Internal only / Client conversations / Client deliverable / Public evidence library)* |
@@ -61,7 +73,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Primary Mechanism** | *(Algorithm Update / AI Overview / AI-mediated informational demand erosion / Cannibalization / Technical / Competition / Content Quality / Demand Expansion / Search Demand Shift / Mixed (Phase-dependent) / Unknown)* |
+| **Primary Mechanism** | *(Algorithm Update / Algorithmic Reassessment / AI Cannibalization / AI Overview Interception / Competitive Displacement / Content Quality / Demand Expansion / Search Demand Shift / Technical / Mixed (Phase-dependent) / Unknown)* — use approved values; see `governance/mechanism-taxonomy.md` for definitions and decision rules. Playbook crosswalk in the same file. |
 | **Mechanism Pathway** | *(One sentence: Trigger or condition → Observed transmission → Traffic outcome. Example: "Algorithm Update (Oct 2025 core) → position-bucket collapse at long-tail → Decline then Recovery with top-bucket acceleration.")* |
 | **Contributing Mechanisms** | *(comma-separated from same list — blank if none)* |
 | **Mechanism Confidence** | *(High / Medium / Low)* |
@@ -123,9 +135,10 @@
 | Top 1 Page Traffic Share | | Top Pages export |
 | Top 5 Page Traffic Share | | Top Pages export |
 | Top 10 Page Traffic Share | | Top Pages export |
-| Dominant Content Type | *(Blog / Glossary / Integration / Comparison / Product / Tool / Other)* | |
+| Dominant Content Type | *(Blog / Glossary / Integration / Comparison / Product / Tool / Other)* — broad site-level category; distinct from Page Archetype | |
 | Winning Content Type | *(Content type producing most gross gain)* | |
 | Losing Content Type | *(Content type producing most gross loss)* | |
+| Page Archetypes Observed | *(List archetypes from the Page Archetype Taxonomy present in this record's top pages — e.g., "Methodological, Commercial Evaluation, Homepage." Use controlled vocabulary from `governance/page-archetype-taxonomy.md`. Required for Portfolio Durability Analysis records; recommended for all records.)* | |
 | New-URL Gain Share | *(Share of gains from URLs not in the starting period)* | |
 | Page Replacement Pattern | *(None / Healthy replacement / Partial replacement / Failed replacement)* | |
 | Notable patterns | | |
@@ -152,7 +165,7 @@
 | **Measured** | *(Yes / No)* |
 | **Analysis Date** | YYYY-MM-DD |
 | **Data Source(s)** | *(Profound / Scrunch / Internal prompt library / Manual testing / Mixed)* |
-| **AI Visibility Strength** | *(High / Medium / Low / Unknown)* — classify per current AI Discoverability methodology (`_ai-discoverability-methodology.md`) |
+| **AI Visibility Strength** | *(High / Medium / Low / Unknown)* — classify per current AI Discoverability methodology (`governance/ai-discoverability-methodology.md`) |
 | **AI Discoverability Trend** | *(Improving / Stable / Declining / Unknown)* |
 | **Trend Compared To** | *(Initial measurement / Previous quarterly assessment / Previous annual assessment / Other — specify)* |
 
@@ -211,6 +224,7 @@ Examples: Single-page risk / Brand-dependent / International subfolder issue / M
 *(Cross-references only — no summaries or duplicated analysis. List filenames or titles.)*
 
 - Comparison briefs: *(Required if one exists for this company. e.g., `comparison-briefs/github-circleci-harness-cloudbees.md`. Mark "None" only if no comparison brief covers this company.)*
+- Portfolio Durability Analysis: *(Required for Algorithmic Reassessment companies, and recommended for any record with a meaningful portfolio redistribution event. e.g., `portfolio-durability/company-name.md`. Mark "N/A" only if not applicable.)*
 - Synthesis documents: *(e.g., `developer-tools-synthesis.md`)*
 - Studies: *(e.g., AI citation validation study)*
 - Report references: *(e.g., Chapter 5, Original 118-company report)*
@@ -244,29 +258,65 @@ Examples: Single-page risk / Brand-dependent / International subfolder issue / M
 
 ## Narrative
 
+*Writing rule: Tables contain the evidence. Narrative exists only to interpret — not to restate numbers already visible in adjacent tables. Target: one to two sentences per subsection. If you've written more, verify that each sentence adds interpretive meaning the adjacent table cannot convey.*
+
+*Before: "Traffic fell from X to Y between July and December (−Z%). Recovery began in January and reached W by July, remaining −P% below the cohort start." After: "The steep six-month decline followed by narrow, partial recovery — still below the cohort start — suggests mechanism-specific segment impact rather than broad domain deterioration."*
+
+*If a paragraph belongs equally in the PDA, move it there and reference the conclusion here instead.*
+
 ### Company Overview
 
 *(1–2 paragraphs. What the company does, who they sell to, what their content model looks like. Focus on what's relevant to the organic growth story.)*
 
 ### Traffic Trajectory
 
-*(What happened over the study window? Key inflection points, timing, magnitude. Cite specific numbers from the Calculation Log — do not paraphrase or estimate.)*
+*(What the shape means — not what the numbers are. Numbers are already in the Traffic Trajectory table. State the interpretive point: why this shape is significant, what it implies about the mechanism, how it compares to pattern expectations.)*
 
 ### Mechanism Analysis
 
-*(What drove the outcome? Walk through the evidence. Address the strongest competing explanation and explain why you weighted it lower. State what you don't know. Do not present medium- or low-confidence attributions as settled fact.)*
+*(What drove the outcome? The full evidence lives in the PDA — reference it, don't reproduce it. Summarize the PDA's mechanism conclusion, note what remains uncertain, and address the strongest competing explanation. Do not present medium- or low-confidence attributions as settled fact.)*
 
 ### Page & Content Analysis
 
-*(What do the top pages reveal? Where is traffic concentrated? What's entering and leaving the top set? What does the content type distribution tell us?)*
+*(What the page concentration and content-type distribution implies — not what the numbers are. Those are already in the Page & Content Analysis table. Focus on what the pattern means: why this concentration level matters, what it predicts about recovery breadth, what it says about the content model.)*
 
 ### Recovery
 
-*(If recovery occurred: when, what preceded it, what changed. If still declining: trajectory now. If grew throughout: what sustained it.)*
+*(If recovery occurred: what the recovery pattern implies about mechanism — narrow vs. broad recovery tells a different story. If still declining: what the trajectory suggests. If grew throughout: what sustained it.)*
 
 ### Client Applicability
 
 *(Expand on the structured block above. State the observable pattern — not a causal claim — when writing for client use.)*
+
+---
+
+## Research Contribution & Implications
+
+*Complete after the narrative. This section connects the company record to the research operating system. Every record must complete all four questions — but not every record produces a new Evidence Register entry. It is acceptable, and sometimes correct, to conclude that a company provides no new register-level evidence. That conclusion itself is meaningful data. If the answers feel thin, the analysis may not be complete enough to finalize the record — but do not manufacture a contribution where none exists.*
+
+### What did this company teach us?
+
+*(One or two specific, observable findings — not general takeaways. Cite the mechanism, the page types, the pattern. Example: "Commercial methodology pages recovered without visible content rewrites, suggesting algorithmic reevaluation of existing content rather than content investment drove recovery.")*
+
+### Did this strengthen, weaken, or challenge an existing hypothesis?
+
+*(Reference specific hypotheses from the Durable Demand Framework or the Evidence Register. Example: "Strengthens E-001 — commercial methodology resilience — by providing a second case with consistent methodology." Or: "Challenges the assumption that rewrites are required for recovery — see E-002.")*
+
+### What new question did this create?
+
+*(What does this company's evidence make you wonder about that you didn't wonder before? Example: "Why did methodology pages recover while adjacent editorial pages on the same domain did not? Is this archetype-specific or quality-specific?")*
+
+### How should this change future client recommendations?
+
+*(One concrete, actionable implication. Example: "Before recommending a full content rewrite for a declining methodology page, check whether the page's external signals — not its content — may be the binding constraint. A rewrite may be unnecessary.")*
+
+### Evidence Register contributions
+
+*(Required field — but the correct answer may be "None." List Evidence IDs this record strengthens, challenges, or creates. Only add to the register when the finding materially strengthens, challenges, or creates a finding. Do not force an Evidence Register entry for an ordinary or inconclusive result.)*
+
+- Strengthens: *(e.g., E-001, E-003 — or "None")*
+- Challenges: *(e.g., E-002 — or "None")*
+- Creates: *(e.g., E-007 with observation summary — or "None." If creating a new entry, add it to the Evidence Register before finalizing this record.)*
 
 ---
 
@@ -290,7 +340,8 @@ Complete before marking record Verified or Final.
 - [ ] Rounded values follow one consistent rule
 
 **Client Applicability**
-- [ ] Primary Lesson and Comp Summary state observable pattern, not settled causal claim
+- [ ] Primary Lesson states observable pattern, not settled causal claim
+- [ ] Comp Summary in `_index.xlsx` row reflects same standard (observable pattern, not causal claim)
 - [ ] Medium- and low-confidence mechanisms not presented as fact in any client-facing field
 - [ ] Evidence Basis written in plain language a client can read
 - [ ] External Use Status reflects actual readiness for external exposure
@@ -301,6 +352,12 @@ Complete before marking record Verified or Final.
 - [ ] Index row values match verified record values
 - [ ] AIO fields (Susceptibility, Presence Observed, Observed Effect) reflect observed evidence, not causal interpretation
 - [ ] Related Documents section populated (or explicitly marked None)
+
+**Research Contribution & Implications**
+- [ ] Section completed — all four questions answered
+- [ ] Evidence Register IDs listed (Strengthens / Challenges / Creates — "None" is acceptable if no register-level contribution)
+- [ ] If new Evidence Register entries were created, they are added to `evidence-register.md` before this record is marked Verified
+- [ ] At least one answer to "How should this change future client recommendations?" stated concretely (even if the answer is "No change to current recommendations")
 
 ---
 
