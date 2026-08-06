@@ -2,8 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 
 const hero = {
-  title: 'The 2026 Modern Organic Growth Playbook',
-  subhead: 'Organic traffic cratered for companies during the AI-era shift, while others grew dramatically. This report examines the successes and failures for a complete look at how to create durable demand in 2026 and beyond.',
+  title: 'The 2026 Organic Growth Playbook',
+  subhead: 'Why have some organic programs collapsed while others have accelerated into the AI era? S.LAB research examined the split to explain how you can grow visibility in 2026 and beyond.',
   overview: 'The study followed 118 B2B SaaS companies through one of the largest shifts in modern search, revealing the decisions winners and losers took to end up on opposite sides of the traffic split.',
   whyP1: "Don't let anyone tell you that AI killed search. What it actually killed was a category of demand that ChatGPT, Claude, and AI Overviews can satisfy without sending anyone to your website.\n\nThis playbook details how you can reimagine your strategy to create durable demand in 2026. You'll learn how to recover lost traffic, accelerate growth, and become the definitive answer when someone asks AI a question about your vertical.",
 };
@@ -33,11 +33,11 @@ const chartBars = rawBars.map(b => ({
 }));
 
 const findings = [
-  { n: '01', title: 'Most organic strategies are outdated.', body: "Of 118 companies tracked, 63% lost traffic or remained stagnant. That's because strategies that worked even 12 months ago are no longer effective. In most cases, they actually work against you." },
-  { n: '02', title: "More isn't always better.", body: "Publishing frequency, domain authority, and backlink counts showed no meaningful correlation with growth direction. What did was something most programs don't measure." },
-  { n: '03', title: 'Renewable demand is the ultimate unlock.', body: "Over 60% of content-driven growers built for a category of demand where new audiences continuously arrive. Most content programs don't account for it. The ones that do are the ones that win." },
-  { n: '04', title: "Rankings don't always lead to traffic.", body: 'We saw an unusual pattern in many companies: rankings held or improved while traffic fell. It turns out that the cause is specific and identifiable — and so are the pages most at risk.' },
-  { n: '05', title: 'AI answers more queries than you realize.', body: "AI Overview exposure followed a pattern. It traces back to a single structural characteristic of the query, and it's something you can screen your own content against." },
+  { n: '01', title: 'The obvious explanations were wrong.', body: "Publishing frequency, domain authority, and backlinks don't explain the split. What did was something that most programs don't measure." },
+  { n: '02', title: 'Rankings no longer guarantee traffic.', body: "Many companies improved rankings during the study window. Some of those same companies lost as much as 99% of their traffic." },
+  { n: '03', title: 'Durable Demand separated the winners.', body: "The strongest programs built around demand that renewed itself and still required engagement. The data shows how to build it." },
+  { n: '04', title: 'Portfolio health determines resilience.', body: "The strongest programs consistently shared the same portfolio-level characteristics. The playbook shows how to identify and measure them." },
+  { n: '05', title: 'Your old strategy is working against you.', body: 'We observed many companies following the "tried and true" SEO playbook to a T. Their traffic collapsed under algorithm updates and zero-click environments.' },
 ];
 
 const audience = [
@@ -62,7 +62,7 @@ const chapters = [
 ---
 
 <Layout
-  title="The 2026 Modern Organic Growth Playbook | S.LAB"
+  title="The 2026 Organic Growth Playbook | S.LAB"
   description="Original research across 118 B2B SaaS companies on why nearly half lost organic traffic while others grew during the AI-era shift — and what separated them."
   canonicalPath="/playbooks/modern-organic-growth-playbook"
 >
@@ -127,7 +127,6 @@ const chapters = [
   <section class="findings">
     <div class="findings-inner">
       <h2 class="section-h2 centered">Key Findings from the Data</h2>
-      <p class="section-subhead">Five patterns consistently separated the companies that grew from the companies that didn't.</p>
       <div class="findings-list">
         {findings.map(f => (
           <div class="finding-row">
