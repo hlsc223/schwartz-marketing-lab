@@ -320,6 +320,7 @@ Examples: Single-page risk / Brand-dependent / International subfolder issue / M
 - Strengthens: *(e.g., E-001, E-003 — or "None")*
 - Challenges: *(e.g., E-002 — or "None")*
 - Creates: *(e.g., E-007 with observation summary — or "None." If creating a new entry, add it to the Evidence Register before finalizing this record.)*
+- Recommendation updates: *(e.g., R-001 confidence advances to Moderate — or "None." If this record promotes an evidence entry to Replicating or Established strength, check whether any linked recommendations should be updated.)*
 
 ---
 
