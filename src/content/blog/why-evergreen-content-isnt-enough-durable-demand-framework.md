@@ -81,9 +81,11 @@ If you want to build an evergreen content strategy that continues working in 202
 
 We tracked 118 B2B SaaS companies over an 18-month window to understand why organic traffic improved for some while others steadily lost traffic. 
 
-The results were almost evenly split. Nearly half the companies in our study continued growing while the other half declined. But the companies that lost traffic didn't just slow down. Nearly one-third ended 50% below their previous organic traffic peak.
+[The results were almost evenly split](https://schwartzmarketinglab.com/blog/b2b-organic-traffic-split-2025/). 53% of companies declined, while 47% grew. 
 
-Severe traffic decline wasn't the surprising part. By 2026, AI answer engines and Google’s algorithm updates had already reshaped the search landscape, and many previously successful content programs were struggling as a result.
+But the companies that lost traffic didn't just slow down. 30% ended 50% below their previous organic traffic peak.
+
+Severe traffic decline wasn't the surprising part. By 2026, AI answer engines and Google’s algorithm [updates had already reshaped the search landscape](https://schwartzmarketinglab.com/blog/organic-traffic-drop-mechanisms/), and many previously successful content programs were struggling as a result.
 
 The real surprise was that so many companies continued growing through the exact same environment. The question became: what separated the programs that continued compounding from the ones that steadily unraveled?
 
@@ -132,7 +134,7 @@ Renewable content compounds because new people continually arrive with the same 
 
 Unlike Tier 2, renewable content doesn’t rely on the same people returning over and over again. It grows because new people keep entering the market needing to understand the same foundational concepts for the first time.
 
-This pattern appeared consistently throughout our research. The strongest-performing companies invested heavily in definitional and conceptual content covering the fundamentals of their industries. The concepts themselves changed very little. The audience didn’t.
+This pattern appeared consistently throughout our research. Among the 38 companies we could fully classify by primary growth driver, 61% grew primarily through definitional and educational content. The concepts themselves changed very little. The audience didn’t.
 
 Every year, new engineers learn DevOps. New security teams prepare for SOC 2. New marketers learn attribution. The demand renews because the people asking the questions continually renew.
 
@@ -186,6 +188,6 @@ The question is no longer whether a topic is evergreen. It’s whether the audie
 
 The future of organic growth won’t be won by publishing more evergreen content. It will be won by creating content people still need after the answer has been generated.
 
-The Durable Demand Framework is just one part of the Modern Organic Growth Playbook. The Playbook expands each durability tier, introduces portfolio health metrics, explains the five mechanisms behind organic traffic decline, and provides a practical system for deciding what to build, what to restructure, and what to stop investing in.
+Creating durable content is just one part of the [Modern Organic Growth Playbook](https://schwartzmarketinglab.com/playbooks/modern-organic-growth-playbook/). The Playbook expands each durability tier, introduces portfolio health metrics, explains the five mechanisms behind organic traffic decline, and provides a practical system for deciding what to build, what to restructure, and what to stop investing in.
 
-If this article changed how you think about evergreen content, the Playbook shows you how to build an entire program around that idea.
+If this article changed how you think about evergreen content, the playbook shows you how to build an entire program around that idea.
