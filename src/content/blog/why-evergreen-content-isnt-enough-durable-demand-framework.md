@@ -1,9 +1,9 @@
 ---
-title: How to Build Evergreen Content that Compounds in 2026
+title: Why Evergreen Content Isn't Enough in 2026
 metaTitle: Why Evergreen Content Isn't Enough | Schwartz Marketing Lab
-description: Topic relevance makes content evergreen. But our research across
-  118 B2B SaaS companies shows relevance alone doesn't keep traffic. Here's what
-  does.
+description: Topic relevance makes content evergreen. Our research across 118
+  B2B SaaS companies found that it’s no longer enough to sustain traffic. Here’s
+  what is.
 excerpt: Evergreen content is supposed to keep producing traffic because the
   topic stays relevant. Our research across 118 B2B SaaS companies shows that's
   only part of the story. Companies with permanently relevant topics still lost
@@ -17,6 +17,59 @@ tags:
   - Organic Traffic
   - B2B SaaS
   - Durable Demand
+faqs:
+  - question: What is durable content?
+    answer: Durable content continues earning attention because people still need to
+      engage with it, even as AI systems become better at answering questions.
+      Unlike content whose value can be extracted from a template, checklist, or
+      short summary, durable content requires readers to think, learn, and apply
+      what they’re reading. The most durable content also serves an audience
+      that continually renews itself and introduces knowledge that can’t be
+      found anywhere else.
+  - question: How is durable content different from evergreen content?
+    answer: >-
+      Evergreen content describes how long a topic stays relevant. Durable
+      content describes whether that topic continues generating demand over
+      time.
+
+
+      A topic can remain evergreen while losing most of its traffic if AI systems can satisfy the user’s goal directly in the search results. Durable content creates value that still requires engagement, giving people a reason to click even after the answer has been generated.
+  - question: How do you create durable content?
+    answer: >-
+      Three characteristics make content more durable: 
+
+
+      1. A continually renewing audience: new people keep arriving with the same problem to solve.
+
+
+      2. A genuine engagement requirement: the value comes from understanding, not simply extracting an answer.
+
+
+      3. Original knowledge: the content introduces research, methodologies, or ideas that don’t exist elsewhere.
+
+
+      The more of these characteristics a piece of content has, the more likely it is to compound over time. 
+  - answer: >-
+      Yes. Evergreen content is still worth creating, but evergreen alone is no
+      longer enough.
+
+
+      Topic relevance tells you whether people will continue searching for something. It doesn’t tell you whether they’ll still need your content after AI generates an answer. The strongest content combines evergreen relevance with durable demand by serving a continually renewing audience, requiring meaningful engagement, and creating value that can’t be fully replaced by AI.
+    question: Is evergreen content still worth creating?
+  - answer: >-
+      The Durable Demand Test is a simple way to evaluate a content idea before
+      investing in it. It asks three questions:
+
+
+      1. Does the audience continually renew itself?
+
+      2. Does the content require genuine engagement?
+
+      3. Can AI fully satisfy the query without your content?
+
+
+      Ideas that pass all three questions are more likely to become durable content assets rather than short-lived traffic opportunities.
+    question: What is the Durable Demand Test?
 ---
 Evergreen content is a genuinely useful concept. In theory, content on topics that stay relevant should continuously generate traffic. The logic is straightforward, and for most of content marketing’s history, it worked.
 
@@ -41,6 +94,13 @@ By comparing the biggest traffic winners and losers, a clear pattern emerged. Wh
 ## The four tiers of evergreen content durability
 
 Throughout the 118-company cohort, we noticed four distinct content patterns ranging from most durable to fundamentally fragile. 
+
+| Tier                  | Survival mechanism                                            | Typical content                                    |
+| --------------------- | ------------------------------------------------------------- | -------------------------------------------------- |
+| **Tier 1: Fragile**   | None. The output is the value.                                | Templates, lists, basic how-to guides              |
+| **Tier 2: Engaging**  | Requires engagement.                                          | Frameworks, methodologies, deep explainers         |
+| **Tier 3: Renewable** | Requires engagement + a continually renewing audience.        | Foundational educational content                   |
+| **Tier 4: Durable**   | Requires engagement + renewing audience + original knowledge. | Research, proprietary frameworks, first-party data |
 
 ### Tier one: Fragile
 
@@ -69,7 +129,6 @@ The experience, not the specific content type, determines the tier. A methodolog
 ### Tier three: Renewable
 
 Renewable content compounds because new people continually arrive with the same problem to solve.
-
 
 **Survival mechanism:** The content requires engagement, and the audience continually renews.
 
@@ -112,6 +171,14 @@ Will someone have to read, think, and apply the ideas, or can they accomplish th
 Search the primary keyword in an incognito window. If an AI Overview appears, ask yourself: *If I were the searcher, would this answer be enough?*
 
 If the answer is yes, you’re competing for a click that may never happen.
+
+In other words: 
+
+| Ask this…                   | If YES          | If NO              |
+| --------------------------- | --------------- | ------------------ |
+| Does the audience renew?    | Continue        | Reconsider         |
+| Does it require engagement? | Continue        | Probably Tier 1    |
+| Can AI satisfy the query?   | Rework the idea | Strong opportunity |
 
 ## Evergreen isn’t dead. The standard just changed.
 
