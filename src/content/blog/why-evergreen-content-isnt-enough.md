@@ -1,13 +1,21 @@
 ---
-title: "Why Evergreen Content Isn't Enough in 2026"
-metaTitle: "Why Evergreen Content Isn't Enough in 2026 | Schwartz Marketing Lab"
-description: "Topic relevance makes content evergreen. Our research across 118 B2B SaaS companies found that it's no longer enough to sustain traffic. Here's what is."
-excerpt: "Topic relevance makes content evergreen. Our research across 118 B2B SaaS companies found that it's no longer enough to sustain traffic. Here's what is."
+title: Why Evergreen Content Isn't Enough in 2026
+metaTitle: Why Evergreen Content Isn't Enough in 2026 | Schwartz Marketing Lab
+description: Topic relevance makes content evergreen. Our research across 118
+  B2B SaaS companies found that it's no longer enough to sustain traffic. Here's
+  what is.
+excerpt: Topic relevance makes content evergreen. Our research across 118 B2B
+  SaaS companies found that it's no longer enough to sustain traffic. Here's
+  what is.
 pubDate: 2026-08-05
-tags: ["Content Strategy", "Research", "Organic Traffic", "B2B SaaS", "Durable Demand"]
 draft: false
+tags:
+  - Content Strategy
+  - Research
+  - Organic Traffic
+  - B2B SaaS
+  - Durable Demand
 ---
-
 Evergreen content is a genuinely useful concept. In theory, content on topics that stay relevant should continuously generate traffic. The logic is straightforward, and for most of content marketing's history, it worked.
 
 It still works for some content. For other content built on the same logic, traffic has collapsed.
@@ -20,7 +28,7 @@ If you want to build an evergreen content strategy that continues working in 202
 
 We tracked 118 B2B SaaS companies over an 18-month window to understand why organic traffic improved for some while others steadily lost traffic.
 
-The results were almost evenly split. 53% of companies declined, while 47% grew.
+[The results were almost evenly split.](https://schwartzmarketinglab.com/blog/b2b-organic-traffic-split-2025/) 53% of companies declined, while 47% grew.
 
 But the companies that lost traffic didn't just slow down. 30% ended 50% below their previous organic traffic peak.
 
@@ -34,12 +42,12 @@ By comparing the biggest traffic winners and losers, a clear pattern emerged. Wh
 
 Throughout the 118-company cohort, we noticed four distinct content patterns ranging from most durable to fundamentally fragile.
 
-| Tier | Survival mechanism | Typical content |
-|------|-------------------|-----------------|
-| **Tier 1: Fragile** | None. The output is the value. | Templates, lists, basic how-to guides |
-| **Tier 2: Engaging** | Requires engagement. | Frameworks, methodologies, deep explainers |
-| **Tier 3: Renewable** | Requires engagement + a continually renewing audience. | Foundational educational content |
-| **Tier 4: Durable** | Requires engagement + renewing audience + original knowledge. | Research, proprietary frameworks, first-party data |
+| Tier                  | Survival mechanism                                            | Typical content                                    |
+| --------------------- | ------------------------------------------------------------- | -------------------------------------------------- |
+| **Tier 1: Fragile**   | None. The output is the value.                                | Templates, lists, basic how-to guides              |
+| **Tier 2: Engaging**  | Requires engagement.                                          | Frameworks, methodologies, deep explainers         |
+| **Tier 3: Renewable** | Requires engagement + a continually renewing audience.        | Foundational educational content                   |
+| **Tier 4: Durable**   | Requires engagement + renewing audience + original knowledge. | Research, proprietary frameworks, first-party data |
 
 ### Tier one: Fragile
 
@@ -113,11 +121,11 @@ If the answer is yes, you're competing for a click that may never happen.
 
 In other words:
 
-| Ask this… | If YES | If NO |
-|-----------|--------|-------|
-| Does the audience renew? | Continue | Reconsider |
-| Does it require engagement? | Continue | Probably Tier 1 |
-| Can AI satisfy the query? | Rework the idea | Strong opportunity |
+| Ask this…                   | If YES          | If NO              |
+| --------------------------- | --------------- | ------------------ |
+| Does the audience renew?    | Continue        | Reconsider         |
+| Does it require engagement? | Continue        | Probably Tier 1    |
+| Can AI satisfy the query?   | Rework the idea | Strong opportunity |
 
 ## Evergreen isn't dead. The standard just changed.
 
