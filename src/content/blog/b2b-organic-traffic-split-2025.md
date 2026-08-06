@@ -148,9 +148,9 @@ When we compared the companies that kept growing, one pattern kept emerging.
 
 Like Braze, they weren't focused on content volume. They published content that required readers to engage. They couldn't accomplish their goal with a summary or search result alone. 
 
-Eventually we realized we weren't looking at better execution. We were looking at a different kind of demand that didn't disappear as AI  got better at answering questions. 
+Eventually we realized we weren't looking at better execution. We were looking at a different kind of content that didn't disappear as AI  got better at answering questions. 
 
-**We started calling it *durable demand.*** It occurs when the audience renews itself even if the topic doesn't. 
+**We started calling this *durable demand.*** It became the first layer of a broader framework for understanding why some content programs compound while others don't. 
 
 Every year, new practitioners enter a field and need to understand its foundational concepts for the first time. That audience replenishes continuously. Successful programs position their content to capture that demand as it arrives. 
 
@@ -167,6 +167,8 @@ For 20 years, the central question shaping organic growth was straightforward: h
 That question isn't obsolete. But it no longer covers the full problem.
 
 The companies that continued growing through AI search weren’t just better at ranking. They built [content that still required people to engage](https://schwartzmarketinglab.com/blog/why-evergreen-content-isnt-enough/) after AI could answer the initial question.
+
+That was the first pattern. The second was how those durable assets came together to create resilient content portfolios rather than concentrating growth in a handful of fragile pages.
 
 **With that in mind, we must now ask a new question: *what kind of content still requires a click after AI can provide the initial answer?***
 
