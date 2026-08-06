@@ -1,5 +1,5 @@
 # S.LAB Q3 Editorial Calendar
-*Last updated: July 30, 2026. Arc locked; specific publish dates flexible after Wave 1.*
+*Last updated: 2026-08-05. Arc locked; specific publish dates flexible after Wave 1.*
 
 ---
 
@@ -31,6 +31,8 @@ Every post should use S.LAB's proprietary vocabulary consistently. See `content-
 | 14 | When Recovering Your Organic Traffic Is the Wrong Move (Ch 8) | Diagnosis Before Prescription, Mechanism > Symptom | Ch 7 post, Five Mechanisms, Playbook | Differentiated POV. Strong opinion. Makes S.LAB feel like the only agency thinking about this correctly. |
 
 **SEO Content Strategy cornerstone (#80):** Planned for Q4 or late Q3 depending on pace. Stands alone — comprehensive strategic guide, different intent from the series posts. Links to everything.
+
+**The Four Content Durability Tiers (companion to Week 3):** A dedicated reference article for the content durability matrix (Figure 11.2 in the Playbook), which doesn't yet exist as a web resource. Distinct from the Week 8 growth patterns post — this is a classification guide, not a case study. The matrix (tier, AIO vulnerability, citation likelihood, durability signal, example companies) is exactly the format AI systems extract and cite, and practitioners will bookmark and return to it. Fits naturally between Week 3 (framework introduction) and Week 8 (what growth looks like), completing the hub: framework introduction → tiers classification → growth patterns → Playbook. Timing: flexible, but ideally before Week 8 so the Week 8 post can link to it. Briefs the Durable Demand Framework article to trim tier descriptions to a summary table and link here instead.
 
 ---
 

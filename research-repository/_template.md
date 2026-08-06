@@ -147,10 +147,13 @@ The Calculation Log is the verification source for all recomputable metrics — 
 
 ## Recovery
 
+*Two distinct questions: what caused recovery (Recovery Mechanism — external causal factors), and what the company did (Observed Company Response — deliberate actions). A passive recovery has a Recovery Mechanism but Company Response = "No intervention observed." Never conflate them.*
+
 | Field | Value |
 |-------|-------|
 | **Recovery Status** | *(Full / Partial / None / Not applicable — grew throughout / Too early to assess)* |
-| **Recovery Mechanism** | *(What appeared to drive it, if applicable)* |
+| **Recovery Mechanism** | *(External causal factor: what drove recovery — e.g., "Algorithmic reevaluation of existing content," "rising search demand," "competitor SERP losses." This is what happened, not what the company did.)* |
+| **Observed Company Response** | *(What deliberate actions by the company are observable in the data or public record — Wayback content changes, URL architecture changes, press releases, product launches. Values: `Content investment` / `Structural consolidation` / `Technical intervention` / `No intervention observed` / `Mixed` / `Unknown`. Include evidence basis in brackets: what supports the classification.)* |
 | **Recovery Confidence** | *(High / Medium / Low / Not applicable)* |
 | **Recovery Notes** | |
 
@@ -351,6 +354,8 @@ Complete before marking record Verified or Final.
 - [ ] Record Status and Migration Validation Stage both updated
 - [ ] Index row values match verified record values
 - [ ] AIO fields (Susceptibility, Presence Observed, Observed Effect) reflect observed evidence, not causal interpretation
+- [ ] Observed Company Response field populated — if Unknown, state what evidence would resolve it
+- [ ] Observed Company Response in index row matches record
 - [ ] Related Documents section populated (or explicitly marked None)
 
 **Research Contribution & Implications**

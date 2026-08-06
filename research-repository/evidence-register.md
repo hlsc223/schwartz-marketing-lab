@@ -171,6 +171,78 @@ Each entry uses the following structure:
 
 ---
 
+---
+
+### E-004 — Structured educational content at a high-DR domain held organic position and gained AIO citation simultaneously on a core keyword
+
+| Field | Value |
+|-------|-------|
+| **Evidence Strength** | Emerging |
+| **Strategic Importance** | Important |
+| **Framework Principle** | AIO Behavior — Favorable citation vs. displacement |
+| **Companies** | LaunchDarkly |
+| **Status** | Active |
+| **Added** | 2026-08-06 |
+| **Last Updated** | 2026-08-06 |
+
+**Observation:** On "deployment strategies" (US, Aug 2026), LaunchDarkly's /blog/deployment-strategies/ page held organic position 4 while simultaneously being cited as a primary source in the AI Overview with a thumbnail image. The page had not been materially rewritten between its previous traffic state (Nov 2025 Wayback snapshot) and the current state; the primary structural update before the pull date (Jul 31, 2026) was a KEY TAKEAWAYS summary box and an AI chat feature. Domain-level authority (DR 80) substantially exceeds page-level authority (UR 4, 10 referring domains).
+
+**Evidence source:** launchdarkly.md; SERP overview export (deployment strategies, US, 2026-08-06); page-level keyword comparison; Wayback Machine content comparison (Nov 2025 snapshot vs. live page).
+
+**Framework linkage:** Creates a candidate finding about the favorable AIO outcome: structured educational content ("6 types of X" format with discrete sections) on a high-authority domain may be extracted by AI Overviews as a cited source rather than displaced by them. If replicated, this would be a meaningful input to AEO/GEO recommendations — "write to be cited, not to survive citation."
+
+**Supporting cases:** None at Emerging stage.
+
+**Challenging cases:** None identified yet. A structured educational page on a comparably high-DR domain where AIO citation transitioned to displacement would be a meaningful boundary condition.
+
+**Known boundary conditions:** Single query tested, single point in time. AIO presence and citation behavior vary by query, geography, and time. The finding cannot be generalized from a single snapshot. Domain authority (DR 80) may be a prerequisite — the same content on a lower-DR domain might not be cited.
+
+**Open questions:**
+- Does AIO citation persist over time, or transition to displacement as AI Overviews mature on well-covered topics?
+- Is the KEY TAKEAWAYS summary box a contributing factor in citation? (Structured, extractable summary = easy AI source material)
+- Does this pattern hold across the related keyword cluster (canary deployment, blue/green deployment, etc.)?
+- At what DR threshold does AIO citation become likely for structured educational content?
+
+**Requires replication in:** Any developer tools or SaaS company with structured "6 types of X" educational content at position 3–6 on an AIO-bearing keyword, tested at multiple time points.
+
+---
+
+## Evidence-Backed Recommendations
+
+*Recommendations derived from accumulated evidence across multiple companies. Each recommendation cites the specific Evidence Register entries that support it and carries its own confidence level derived from those entries. See RESEARCH-CHARTER.md → Prescription Rule for the full confidence derivation table.*
+
+*A recommendation without Evidence Register citations is not a recommendation — it is an opinion. A recommendation's confidence may not exceed what the cited evidence supports. When a cited evidence entry is updated, promoted, challenged, or superseded, reassess the recommendation confidence immediately.*
+
+---
+
+### R-001 — Check external signals before recommending a content rewrite for pages in Algorithmic Reassessment
+
+| Field | Value |
+|-------|-------|
+| **Recommendation** | Before recommending a content rewrite for a page that declined during an Algorithmic Reassessment event, determine whether external signals — not content quality — are the binding constraint. A methodological or commercial evaluation page can recover rankings without a visible content change if the external signal environment changes. A rewrite is not always the primary lever, and may be unnecessary cost. |
+| **Confidence** | Emerging |
+| **Evidence Basis** | E-001, E-002 |
+| **Applies When** | Client has pages classified as Methodological or Commercial Evaluation that declined during an Algorithmic Reassessment event; page has historically ranked competitively; content quality is not the demonstrable problem |
+| **Does Not Apply When** | Content quality is verifiably the issue (thin content, factual errors, low depth relative to competitive SERP); the page has never ranked and is being built from scratch; the mechanism is AI Overview Interception rather than Algorithmic Reassessment (different dynamic) |
+| **Added** | 2026-08-06 |
+| **Last Updated** | 2026-08-06 |
+
+---
+
+### R-002 — Audit existing educational pages at positions 3–6 before recommending new content investment
+
+| Field | Value |
+|-------|-------|
+| **Recommendation** | For clients with high-domain-authority sites, identify long-standing educational pages already ranked at positions 3–6 on topics with observable demand growth before recommending new content creation. These pages may capture compounding traffic growth without editorial reinvestment as demand expands toward them. Content investment should follow evidence that the page cannot hold its position on its own — not precede it. |
+| **Confidence** | Emerging |
+| **Evidence Basis** | E-004 |
+| **Applies When** | Client has DR 60+; has existing educational content 3+ years old; topic shows observable demand growth (keyword volume trend rising); page ranks position 3–6 on a core query |
+| **Does Not Apply When** | Client domain authority is low (ranking at position 3–6 on a competitive topic requires strong domain signals; the pattern may not hold); page's topic demand is flat or declining; client's existing content is thin or low-quality relative to competitive SERPs; page has minimal page-level authority on a keyword where competitors are actively building links |
+| **Added** | 2026-08-06 |
+| **Last Updated** | 2026-08-06 |
+
+---
+
 ## Amendment Log
 
 *Append-only. Record evidence strength promotions, new company additions, challenges, and supersessions.*
@@ -179,3 +251,6 @@ Each entry uses the following structure:
 |------|-------------|--------|---------|
 | 2026-08-04 | E-001, E-002, E-003 | Created | Initial entries seeded from Gong pilot analysis. All Emerging. |
 | 2026-08-04 | E-001, E-002, E-003 | Recalibrated | E-001 title scoped to Gong specifically; "frequently" removed as cross-case claim. E-002 language corrected: "driven by external factors" removed; null hypothesis confidence softened; March 2026 timestamp claim softened. E-003 updated with branded-query / stable-ranking finding. Supporting/Challenging/Boundary fields added to all entries. |
+| 2026-08-06 | E-004 | Created | AIO citation + organic retention finding from LaunchDarkly deep dive. Emerging. |
+| 2026-08-06 | R-001 | Created | Emerging recommendation derived from E-001 + E-002: check external signals before recommending content rewrite in Algorithmic Reassessment context. |
+| 2026-08-06 | R-002 | Created | Emerging recommendation derived from E-004: audit existing educational pages at positions 3–6 before recommending new content investment on high-DR domains. |

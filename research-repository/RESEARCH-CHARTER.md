@@ -95,6 +95,24 @@ Observation → Evidence → Pattern → Prediction → Prescription
 
 ---
 
+## Prescription Rule — Evidence-Backed Recommendations
+
+Recommendations are an emergent output of accumulated evidence, not a property of any single case study. A recommendation derived from one company is a hypothesis. A recommendation derived from many is evidence-backed guidance.
+
+Recommendations carry their own confidence level derived from the strength of the underlying evidence:
+
+| Recommendation Confidence | Evidence Requirement | Practical meaning |
+|--------------------------|---------------------|-------------------|
+| **Emerging** | One or more Emerging evidence entries directly supporting the recommendation; no contradictory evidence | A working hypothesis — worth applying cautiously and flagging as preliminary |
+| **Moderate** | Two or more consistent evidence entries, at least one at Replicating strength, across different companies and architectures | Pattern is visible; applies reliably within stated conditions |
+| **Strong** | One or more entries at Established strength directly supporting the recommendation | Pattern is robust; high confidence within stated conditions |
+
+**Where recommendations live:** In the Evidence Register — not in company records. Company records document observations, evidence, and confidence. The Evidence Register synthesizes them. Recommendations that cannot cite specific Evidence Register IDs are not recommendations; they are opinions.
+
+**What prevents drift:** The confidence level of any recommendation is reassessed whenever the underlying evidence entries are updated. If a supporting evidence entry is challenged or superseded, the recommendation is immediately flagged for review. The evidence and the recommendation are co-located, so the derivation is always auditable.
+
+---
+
 ## North Star Questions
 
 Every company record, page analysis, portfolio comparison, and synthesis artifact should contribute to answering one or more of these four questions:
@@ -171,6 +189,23 @@ This repository is succeeding when:
 2. The client diagnostic workflow can match a presenting situation to historical evidence with stated confidence
 3. Probabilistic statements can be made about survival probability for specific content archetypes: "Based on N comparable pages across M companies, pages with this archetype historically survived at X%"
 4. The fragility diagnosis is reliable enough to deliver proactively — to growing clients, before decline occurs
+
+---
+
+## Four Evidence Dimensions
+
+Every completed company record should preserve evidence for these four dimensions wherever the evidence exists. Not every record will contain all four — some companies never responded; others have not had enough time for outcomes to emerge. Never speculate or fill gaps to complete the framework. The repository accumulates these dimensions across many independent companies; over time that enables evidence-backed prescriptions, not just historical explanation.
+
+| Dimension | Question | Primary template location |
+|-----------|----------|--------------------------|
+| **Diagnosis** | What caused the traffic movement? | Mechanism section (Primary Mechanism, Pathway, Confidence, Rationale, Disconfirming Evidence) |
+| **Response** | What did the company change, if anything? | Recovery section → Observed Company Response |
+| **Outcome** | What happened afterward? | Recovery section (Recovery Status, Recovery Mechanism) + Traffic Trajectory (Current Direction) |
+| **Applicability** | Under what conditions should another company consider the same approach? | Client Applicability section (Best-Fit Client Type, Relevance Conditions, Non-Comparable When, Primary Lesson) |
+
+**Why these dimensions matter together:** Diagnosis alone explains history. Diagnosis + Response + Outcome enables prescriptions. A record that documents a company recovering without any content intervention teaches a fundamentally different lesson from one where recovery followed a deliberate rewrite program — and the index must capture that distinction to make it retrievable.
+
+**The chain:** Diagnosis → Response → Outcome → Applicability. The Response dimension connects mechanism to recovery in a way the index can surface. Without it, "how have companies with this mechanism historically recovered?" is unanswerable from the data.
 
 ---
 
