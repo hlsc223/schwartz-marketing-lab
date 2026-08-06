@@ -166,7 +166,7 @@ For 20 years, the central question shaping organic growth was straightforward: h
 
 That question isn't obsolete. But it no longer covers the full problem.
 
-The companies that continued growing through AI search weren’t just better at ranking. They built content that still required people to engage after AI could answer the initial question.
+The companies that continued growing through AI search weren’t just better at ranking. They built [content that still required people to engage](https://schwartzmarketinglab.com/blog/why-evergreen-content-isnt-enough/) after AI could answer the initial question.
 
 **With that in mind, we must now ask a new question: *what kind of content still requires a click after AI can provide the initial answer?***
 
