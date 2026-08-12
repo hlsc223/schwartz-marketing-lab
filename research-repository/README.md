@@ -66,9 +66,31 @@ Keep these object types separate. Cross-reference via the Related Documents fiel
 
 ---
 
+## Evidence Hierarchy
+
+The repository has two levels of evidence and two corresponding retrieval layers:
+
+**Company-level evidence**
+- Authoritative source: `company-records/[company].md`
+- Retrieval layer: `_index.xlsx` → Index sheet
+
+**Page-level evidence**
+- Authoritative source: `portfolio-durability/[company].md` (PDA)
+- Retrieval layer: `_index.xlsx` → Page Evidence sheet
+
+**Cross-case findings**
+- `evidence-register.md` — synthesized from accumulated company and page-level evidence
+
+**Recommendations**
+- Evidence-backed recommendations synthesized from Evidence Register findings
+
 ## Source of Truth
 
-The company markdown record is authoritative. The index is a retrieval layer. When they conflict, correct the index from the verified record — unless source calculations prove the record itself is wrong, in which case correct both and note it in the Historical Amendments section.
+The company markdown record is authoritative for company-level data. The PDA is authoritative for page-level data. Both index sheets (`Index` and `Page Evidence`) are retrieval layers only.
+
+When an index sheet conflicts with its authoritative source, correct the index from the record — not the other way around, unless source calculations prove the record itself is wrong. If the record is corrected, note it in Historical Amendments.
+
+**Page Evidence source-of-truth rule:** Do not independently classify or reinterpret pages inside the Page Evidence sheet. Every classification (Archetype, AI Substitutability, Observed Page Response, etc.) must come from a completed PDA. If a PDA is amended, update the corresponding Page Evidence row. If a PDA does not exist, the company cannot have Page Evidence rows.
 
 ---
 
@@ -289,11 +311,11 @@ Directly reported source metrics (starting/ending traffic estimates, referring d
 
 ## Content Model vs. Content Type
 
-**Dominant Content Model** (header) — the site's overall organic strategy (e.g., Integration-led, Editorial-blog-led). How the site generates organic traffic strategically.
+**Dominant Content Model** (header) — the site's overall organic strategy. Allowed values: `Editorial / Programmatic / Glossary/Definitional / Tool/Template / Product/Support / Brand/Homepage / Mixed`. How the site generates organic traffic strategically.
 
-**Dominant Content Type** (Page & Content Analysis) — which page category produces the most traffic (e.g., Blog, Glossary, Integration page). What is actually ranking.
+**Dominant Content Type** (Page & Content Analysis) — which page category produces the most traffic (e.g., Blog, Glossary, Product page). What is actually ranking.
 
-A site can have an Integration-led content model but a Blog as its dominant content type. Capture both.
+A site can have a Programmatic content model but an Editorial blog as its dominant content type. Capture both. Model nuance (GRC focus, developer audience, subdomain consolidation, etc.) belongs in the company record prose, not encoded into the field value.
 
 ---
 
@@ -380,13 +402,39 @@ Do not maintain a separate mechanism list in this file. For approved values, def
 | V2.3 | 2026-07-28 | AI-mediated informational demand erosion added as new mechanism taxonomy value — for cases where AI displacement is the likely explanation but the specific mechanism (AI Overviews, answer engines, coding assistants, upstream substitution) cannot be confirmed. Single AI Overview Exposure field replaced with three-field AIO split: AIO Portfolio Susceptibility / AIO Presence Observed / AIO Observed Effect — preventing conflation of structural exposure, direct observation, and causal effect. Commercial Alignment field added to Client Applicability section — captures whether the site's organic footprint is topically connected to its commercial positioning; enables filtering by traffic-quality dimension rather than traffic-volume dimension alone. | GitHub: Primary Mechanism reclassified from AI Overview to AI-mediated informational demand erosion; AI Overview Exposure → 3-field AIO split (Susceptibility: High, Presence Observed: Not tested, Effect: No conclusion). Harness: AIO Exposure "None" corrected to 3-field split (Susceptibility: High, Presence Observed: Yes, Effect: Resistant — one tested query). CircleCI: AIO Exposure "Low" updated to 3-field split (Susceptibility: Medium, Presence Observed: Not tested, Effect: No conclusion). CloudBees: AIO Exposure "Low" updated to 3-field split (Susceptibility: High, Presence Observed: Not tested, Effect: No conclusion). Commercial Alignment added to all four Dev Tools records. Language fixes across all records and Dev Tools comparison brief. |
 | V2.4 | 2026-08-04 | **Required changes:** (1) Mechanism taxonomy centralized — `governance/mechanism-taxonomy.md` created as single authoritative source; mechanism list removed from README and replaced with a pointer; (2) Demand Expansion restored to approved values — was present V2.1–V2.3 and was inadvertently omitted from the V2.4 template draft; restored in taxonomy and template; (3) Mechanism vocabulary updated — AI Overview → AI Overview Interception; AI-mediated informational demand erosion → AI Cannibalization; Cannibalization → Contributing Mechanisms/narrative; Competition → Competitive Displacement; (4) Algorithmic Reassessment added as distinct value from Algorithm Update; (5) `portfolio-durability/` folder replaces `portfolio-reassessment/` — trigger broadened beyond Algorithmic Reassessment only; (6) `governance/ai-discoverability-methodology.md` replaces `_ai-discoverability-methodology.md`; (7) Page Archetype Taxonomy V1.0 added (`governance/page-archetype-taxonomy.md`); (8) Repository structure formalized: `archive/`, `source-analyses/`, `governance/` directories established; OPERATING-MODEL.md retired (active content migrated to README). **Optional:** Evidence Register link in Related Documents section; Portfolio Durability Analysis trigger language update in existing records. | All records: update Primary Mechanism to use new controlled vocabulary where legacy values were in use (AI Overview → AI Overview Interception; AI-mediated informational demand erosion → AI Cannibalization or Search Demand Shift; Competition → Competitive Displacement). Records with portfolio-reassessment path in Related Documents: update to portfolio-durability path. |
 
+| V2.5 | 2026-08-07 | **Intervention Level field added** to Recovery section, after Observed Company Response. Vocabulary: Page / Cluster/Portfolio / Site/Technical / Authority/External / No Intervention Indicated / Mixed / Unknown. The field captures the diagnostic implication of the evidence — what level of intervention was actually warranted — distinct from Observed Company Response (what the company did). Motivated by emerging passive recovery pattern across Gong, LaunchDarkly, and Salesloft, where pages recovered without content-level intervention. Full field definition and coding standard in README and `_template.md`. | New deep-dive records (Gong, LaunchDarkly, Salesloft): populate with evidence-based classification. Migrated cohort records: populate as Unknown (insufficient page-level evidence for most). New records going forward: field required. |
+
 *The repository methodology is intentionally flexible. When a field definition changes, increment the version, update this table, and flag affected records for revalidation.*
+
+---
+
+## Intervention Level Field
+
+**Intervention Level** — added V2.5. Placed in the Recovery section, after Observed Company Response.
+
+The field answers: *What level of intervention does the evidence suggest was actually warranted, given the mechanism and observed outcome?* It is assessed from evidence at study date — not from what the company chose to do. It complements rather than duplicates Observed Company Response: that field records what they did; Intervention Level records what the evidence suggests needed doing.
+
+**Controlled vocabulary:**
+
+| Value | Use when |
+|-------|----------|
+| **Page** | Evidence identifies the specific content asset as the mechanism constraint — intent mismatch, thin content, factual inaccuracy, or structural on-page problems. |
+| **Cluster/Portfolio** | Problem is broader than one URL — coverage gaps, cannibalization, content mix, pruning, internal relationships, topic authority distribution. |
+| **Site/Technical** | Architectural-level cause — crawlability, migrations, redirects, indexation, Core Web Vitals, template issues. |
+| **Authority/External** | External signal constraint — competitive authority, link profile, brand/entity recognition, market position. |
+| **No Intervention Indicated** | Positive evidence that the asset(s) didn't require intervention. Requires: (1) mechanism type inconsistent with a page-level defect (Algorithmic Reassessment reversal, Demand Expansion, SERP environment change, competitor movement), AND/OR (2) Wayback confirms page unchanged through the recovery window and the page recovered. Absence of observed company action alone does not qualify — use Unknown in that case. |
+| **Mixed** | Multiple levels apply simultaneously; document which level applies to which part of the portfolio and why. |
+| **Unknown** | Evidence insufficient to assess. Default for migrated records without page-level analysis. Do not use as a shorthand for "we couldn't find anything." |
+
+**Why this field matters:** The standard SEO workflow assumes traffic declined → page needs fixing. The repository now tracks enough passive recovery cases to test this assumption. At scale, filtering on Intervention Level alongside Mechanism and Observed Company Response will let the repository answer: "In Algorithmic Reassessment cases where No Intervention Indicated and none observed, what fraction recovered?" That is the difference between a pattern library and a diagnostic tool.
+
+**Coding note:** "No Intervention Indicated" is evidence-based, not a residual category. A company that didn't intervene and recovered is not automatically coded here — mechanism must support the classification. Survivorship bias risk: a company that didn't intervene and recovered might have needed an intervention that simply wasn't the binding constraint.
 
 ---
 
 ## Future Schema Design Note
 
-**Observed Mechanism vs. Strategic Interpretation split (planned for V2.5+):** As the repository grows, a meaningful design improvement would be separating the factual record of what was observed (rankings improved, specific pages gained, no backlink inflection, AIO present) from the interpretive layer (mechanism classification, pattern attribution). Observations are stable; interpretations evolve with the taxonomy. Keeping them merged means reclassifying a mechanism requires rewriting the factual record — an unnecessary cost at scale. This split is not implemented in V2.4 but should be considered before the corpus exceeds 30–40 records.
+**Observed Mechanism vs. Strategic Interpretation split (planned for future version):** As the repository grows, a meaningful design improvement would be separating the factual record of what was observed (rankings improved, specific pages gained, no backlink inflection, AIO present) from the interpretive layer (mechanism classification, pattern attribution). Observations are stable; interpretations evolve with the taxonomy. Keeping them merged means reclassifying a mechanism requires rewriting the factual record — an unnecessary cost at scale. This split is not implemented in V2.5 but should be considered before the corpus exceeds 30–40 records.
 
 ---
 

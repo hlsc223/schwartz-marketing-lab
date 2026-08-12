@@ -97,8 +97,8 @@ By the end of the historical trajectory window (Aug 2026), traffic had pulled ba
 | **Disconfirming Evidence** | Cognism (closest direct category peer) remained broadly stable (−1.5%) over the same historical window, indicating the decline was not universal across all similar vendors. However, the content architectures of the two properties may differ enough to make direct inference difficult. |
 | **Algorithm Alignment** | Moderate — content type and loss pattern are compatible with algorithmic reassessment of programmatic database pages; inflection timing not formally mapped to known Google update dates |
 | **AIO Portfolio Susceptibility** | Medium — a substantial share of keyword export traffic carries informational intent classification, but much of this is branded or navigational traffic in international markets rather than genuinely informational commercial queries |
-| **AIO Presence Observed** | Not tested |
-| **AIO Observed Effect** | Not tested |
+| **AIO Presence Observed** | Yes — 774 AIO position kind citations in the keywords export (Aug 2026 snapshot); dominated by branded and brand-variant queries; AIO confirmed on "apollo" US (180K vol) and "apollo ai" (19K vol) via PDA analysis 2026-08-11 |
+| **AIO Observed Effect** | No conclusion — AIO citation is confirmed on brand and brand-variant navigational queries ("apollo" US 180K vol, "apollo ai" 19K vol); these citations are additive, not interceptive, on branded demand. However, this does not establish portfolio-level AIO Observed Effect as Resistant. The programmatic content model (/companies/, /people/) that accounts for the majority of observed gross loss (85.5%) was not meaningfully tested for AIO effect in the available exports — the programmatic query population is too sparse in the keyword export to draw conclusions. AIO citation on one dominant branded query does not characterize the AIO relationship across the organic portfolio. The relevant informational-query population cannot be separated from branded/navigational traffic in this export. Narrower finding: AIO citation on branded navigational queries appears additive (documented in apollo-io PDA and E-006 evidence register). Corrected from "Resistant" 2026-08-11 per repository review. |
 
 ---
 
@@ -147,7 +147,7 @@ By the end of the historical trajectory window (Aug 2026), traffic had pulled ba
 | Field | Value |
 |-------|-------|
 | **Recovery Status** | Partial |
-| **Recovery Mechanism** | Replacement growth outside the lost programmatic URL population — approximately half from 565 new URLs (68,530 gross gain, 51.8%) and half from improving continuing URLs (63,696 gross gain, 48.2%). Leading gain categories include the homepage and navigational surfaces, Chrome extension and app pages, localized pages, and selected product or editorial content. The lost /companies/ and /people/ URLs were not contributing estimated traffic at the end of the URL comparison window. |
+| **Recovery Mechanism** | Branded/Geographic Expansion — brand query surge on "apollo" (US, 180K vol, pos 2→1 with AIO citation) generated +61,418 traffic from a single keyword; homepage gained +123,622 total, accounting for 62% of all gross gain. International expansion via new /es, /pt, /fr pages contributed +24K. Product pages (Chrome extension, /ai, /sign-up, /pricing) added secondary gains. The new-URL/continuing-URL split (51.8% / 48.2%) describes composition, not mechanism — both categories are dominated by brand and product demand, not recovery of the AR-affected programmatic population. The /companies/ and /people/ URLs show zero traffic recovery across the full two-year window. [Updated from "Replacement growth outside the lost programmatic URL population" via PDA analysis 2026-08-11] |
 | **Recovery Confidence** | Medium |
 | **Recovery Notes** | The recovery from Feb 2025 trough (+53.7% to May 2026) briefly exceeded the historical trajectory window starting point, reaching 383,046 in May 2026 vs 362,903 in July 2024. Traffic has since pulled back to 303,142 (Aug 2026). The current 3-month pullback from peak is too short to characterize as seasonal or structural. The non-branded traffic reading for June 2026 (142,538) pulled back sharply to 73,326 by August 2026, adding uncertainty to the recovery narrative. |
 
@@ -200,6 +200,7 @@ By the end of the historical trajectory window (Aug 2026), traffic had pulled ba
 - Comparison briefs: None
 - Synthesis documents: None
 - Studies: None
+- Portfolio durability: `portfolio-durability/apollo-io.md` (2026-08-11)
 - Report references: Research Repository V2.3
 
 ---
@@ -364,7 +365,7 @@ This record is most applicable to prospects or clients who have built or are con
 - [ ] All controlled-vocabulary fields verified against approved values — **taxonomy note:** "Algorithmic Reassessment" approved as a controlled-vocabulary value (2026-08-03). Use when visibility changed selectively across a page type or content model but the responsible update or system cannot be isolated. Requires evidence of a systematic portfolio-level pattern (concentrated URL-class losses, contrasting performance in unaffected page types, evidence against link loss or broad demand contraction). Distinct from "Algorithm Update," which requires the inflection to align clearly with a named update.
 - [ ] Record Status and Migration Validation Stage both confirmed
 - [ ] Index row values match verified record values (requires index update)
-- [ ] AIO fields reflect observed evidence only
+- [x] AIO fields reflect observed evidence only — AIO Presence Observed = Yes; AIO Observed Effect = No conclusion [corrected from Resistant 2026-08-11 per repository review — brand-navigational AIO citation does not establish portfolio-level Resistant classification]
 - [ ] Related Documents section confirmed current
 
 ---
@@ -389,4 +390,18 @@ This record is most applicable to prospects or clients who have built or are con
 
 ---
 
-*Record created: 2026-08-03 | Last verified: 2026-08-03*
+**2026-08-11 (v0.3)**
+- **Reason:** Portfolio Durability Analysis completed — new keyword export evidence on AIO
+- **Sections updated:** Mechanism (AIO fields), Related Documents, Verification Checklist
+- **Summary:** AIO Presence Observed updated from "Not tested" to "Yes." AIO Observed Effect updated from "Not tested" to "Resistant." Evidence basis: keywords comparison export (Aug 2026 snapshot) shows 774 AIO position kind citations dominated by brand queries; "apollo" US (180K vol, pos 2→1) gains +61,418 with AIO citation; SPC/AIO non-branded signal negligible (26 keywords, −2,327 traffic). Brand demand surge identified as Apollo's recovery mechanism — not AR content restoration. New finding: Brand Demand Recovery is a distinct recovery pathway from Content Quality recovery. PDA document: `portfolio-durability/apollo-io.md`.
+
+---
+
+**2026-08-11 (v0.4)**
+- **Reason:** AIO Observed Effect reclassified following repository-level review
+- **Sections updated:** Mechanism (AIO Observed Effect), Verification Checklist
+- **Summary:** AIO Observed Effect corrected from "Resistant" to "No conclusion." Rationale: AIO citation was confirmed on brand and brand-variant navigational queries ("apollo" US 180K vol, additive); this is a narrower finding than portfolio-level Resistant classification. The programmatic content model (/companies/, /people/) that accounts for 85.5% of observed gross loss was not meaningfully tested for AIO effect — the keyword export does not provide sufficient informational-query coverage to establish whether those pages experienced interception. Promotion of a positive observation on one dominant branded query to a portfolio-level classification was methodologically inconsistent with the schema. Narrower finding preserved in PDA and E-006 evidence register.
+
+---
+
+*Record created: 2026-08-03 | Last verified: 2026-08-11*

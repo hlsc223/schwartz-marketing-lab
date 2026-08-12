@@ -61,7 +61,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Primary Mechanism** | AI-mediated informational demand erosion |
+| **Primary Mechanism** | AI Overview Interception |
 | **Mechanism Pathway** | Template and script content structurally exposed to search-result satisfaction → impressions grow while CTR declines as users resolve queries without clicking → property-level visibility holds while clicks erode; AI Overview interception is the plausible contributing pathway, not yet directly confirmed |
 | **Contributing Mechanisms** | Domain Migration (constrains baseline; not established as causal for post-peak decline) |
 | **Mechanism Confidence** | Medium |
@@ -356,5 +356,10 @@ The commercial misalignment observation is independently useful: the highest-imp
 - **Summary:** Changed "primary observed driver" to "primary inferred driver" in Mechanism narrative — preserves approved mechanism label while correctly distinguishing inference from observation. Simplified migration-ramp sentence in Traffic Trajectory narrative to remove specific mechanism claims not supported by data. Simplified Commercial Alignment field to "Low"; elaboration on organic channel key-event contribution retained in Page & Content Analysis notable patterns and narrative. Marked Chart.csv verification complete; removed fresh-download requirement from finalization conditions. Record Status updated to Final.
 
 ---
+
+**2026-08-07 (V2.4 mechanism vocabulary migration)**
+- **Reason:** Taxonomy migration — "AI-mediated informational demand erosion" is a legacy V2.3 value superseded in V2.4
+- **Sections updated:** Mechanism (Primary Mechanism)
+- **Summary:** Primary Mechanism migrated from "AI-mediated informational demand erosion" → "AI Overview Interception." Rationale: Gladly's pattern (impressions growing, clicks declining) is SERP-level interception, not pre-query demand reduction — Search Demand Shift requires search volume declining, which is not what the evidence shows. AI Overview Interception is the correct V2.4 value at existing Medium confidence; AIO Presence = Not tested remains the stated evidence limitation. Contributing Mechanisms field retains "Domain Migration (constrains baseline...)" notation — this is not controlled-vocabulary; flagged for revalidation to determine whether to reclassify as Technical or remove as non-causal context. Index row updated to match.
 
 *Record finalized: 2026-07-31 | Last verified: 2026-07-31*

@@ -1,5 +1,5 @@
 # S.LAB Q3 Editorial Calendar
-*Last updated: 2026-08-05. Arc locked; specific publish dates flexible after Wave 1.*
+*Last updated: 2026-08-12. Wave 1 arc locked. Wave 2 added from repository findings.*
 
 ---
 
@@ -36,6 +36,29 @@ Every post should use S.LAB's proprietary vocabulary consistently. See `content-
 
 ---
 
+## Wave 2 (post-Week 14, repository-driven)
+
+These posts emerge directly from the research repository — they do not exist in the Playbook and cannot be written by a competitor without the underlying data. Each requires multi-case evidence before publishing. Sequencing is flexible but logical order is shown.
+
+| # | Post | Evidence Source | Primary Job | Readiness |
+|---|------|----------------|-------------|-----------|
+| 15 | Your SEO Traffic Can Recover Without the Content That Lost It Ever Recovering | Apollo (AR — programmatic dead, company recovered via brand), LogRocket (Phase 2 branded surge while non-branded flat) | Signature S.LAB idea. Commercial intent — people running recovery programs. Reframes what "recovered" means. | Ready. Multi-case. |
+| 16 | Is Your Organic Portfolio Structurally Durable? (Portfolio-Level Companion to Durable Demand) | Full cohort (24 companies); offset rate as centerpiece + gain concentration, new vs. existing URL contribution, recovery behavior by mechanism | Explicit portfolio-level companion to the Week 3 content-level post. Completes the two-level Durable Demand Framework. Opens with: "Content durability asks whether an individual page can sustain demand. Portfolio durability asks whether your program as a whole can." Covers full signal set at depth proportional to evidence — offset rate gets the most space. No sub-series commitment; individual signals get future posts only if new evidence warrants it. | Ready. Frame offset rate as "a metric we're testing" — SPC is a useful honest challenging case. |
+| 17 | AIO Citation Is a Page-Level Outcome, Not a Domain-Level Trait | Vanta within-domain finding (same site, same topic: /collection/ cited, /glossary/ intercepted); full AIO cohort showing simultaneous cited + intercepted + neutral content | AEO thought leadership. Earns practitioner citations. Corrects the most common unit-of-analysis error in AIO discussions. | Ready. Vanta within-domain evidence is unusually clean. |
+
+**Hold until evidence base grows (currently one or two cases):**
+
+- *AI substitution risk is a function of training data density, not content type alone* — LogRocket niche vs. mature library finding. Strong hypothesis; needs corroboration before publishing as a finding.
+- *Ranking footprint collapse ≠ traffic collapse: what position compression signals* — LogRocket: −84.6% positions, −24.6% traffic, 90.8% of survivors in positions 1–10. Interesting mechanism; needs a second case.
+- *How brand demand can make a deteriorating content portfolio look healthy* — Gong and LogRocket both show branded surge masking non-branded stagnation. Two cases — publishable when a third appears.
+- *Durable demand vs. durable distribution* — SPC mlv entity capture signals this distinction. Still one case; hold.
+
+**Recurring format (cadence TBD):**
+
+*What [N] Companies Are Teaching Me About SEO in the AI Era* — meta-research update. Covers strongest replicated findings, honest challenging cases, and what's being tested next. Explicitly distinguishes established patterns from emerging hypotheses. Publish when the repository hits a meaningful milestone (30 companies, a new pattern confirmed, a pattern broken).
+
+---
+
 ## Notes on evaluation
 
 **Don't evaluate all posts by the same metric.** Each post has a primary job:
@@ -59,6 +82,8 @@ Questions to ask after every 10–20 company migrations:
 - Is there a mechanism interaction we haven't written about?
 
 If yes to any: that's the next blog.
+
+**Promotion triggers for held Wave 2 topics:** When any held topic accumulates 3+ consistent cases, it moves to Wave 2 scheduling. When the repository hits 30 companies, run the recurring meta-research update.
 
 ---
 

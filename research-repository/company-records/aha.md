@@ -14,7 +14,7 @@
 | **Business Model** | B2B SaaS |
 | **Dominant Content Model** | Editorial-blog-led |
 | **Company Size** | Mid-Market |
-| **Study Window** | 2025-01 to 2026-06 |
+| **Study Window** | 2024-08 to 2026-08 |
 | **Analysis Date** | 2026-06-30 |
 | **Record Finalized Date** | 2026-07-11 |
 | **Last Verified Date** | — |
@@ -40,15 +40,15 @@
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| Starting Traffic Estimate | Not available — not stated in source brief | Ahrefs Pass 2 (pull during revalidation) |
-| Ending Traffic Estimate | Not available — not stated in source brief | Ahrefs Pass 2 (pull during revalidation) |
-| Traffic Change % | −42.4% | Ahrefs Pass 2 (Carried) |
-| Outcome Classification | Declined | ±10% threshold |
-| Net Traffic Change (Top Pages) | −40,613 | Calculation Log — Top Pages export, 2,200 rows (described as "consistent with Pass 2 −42.4%") |
-| Traffic Value Change | Not available — "[to be verified against Pass 2 field]" in source brief | Pull during revalidation |
-| Referring Domains Change | Not available — "[to be verified against Pass 2 field]" in source brief | Pull during revalidation |
+| Starting Traffic Estimate | ~115,963 (Aug 2024, from Performance History) | Ahrefs Performance History export (2026-08-10 reanalysis) |
+| Ending Traffic Estimate | ~70,582 (Aug 2026, from Performance History) | Ahrefs Performance History export (2026-08-10 reanalysis) |
+| Traffic Change % | −39.2% (window: 2024-08 → 2026-08) | Ahrefs Performance History export (Recomputed 2026-08-10) |
+| Outcome Classification | Declined (with partial recovery from Dec 2025/Jan 2026 trough) | ±10% threshold; see trajectory note |
+| Net Traffic Change (Top Pages) | −42,670 | Calculation Log — Top Pages export, 2,455 rows (2024-08 → 2026-08 window, Recomputed 2026-08-10) |
+| Traffic Value Change | −45.3% ($132,271 → $72,302) | Ahrefs Top Pages export (2026-08-10 reanalysis) |
+| Referring Domains Change | Not available — not pulled in source brief | Pull during revalidation |
 
-**Source document note:** This record was migrated from a Comparison Brief format, which does not include the full Pass 2 snapshot table. Starting/ending traffic estimates, Traffic Value, and Referring Domains figures must be added from Ahrefs Pass 2 data before this record can be marked Verified.
+**Source document note:** Starting/ending traffic estimates and Traffic Value updated 2026-08-10 from actual Ahrefs Performance History and Top Pages exports. These supersede the "Not available" placeholders from the original Comparison Brief migration. Referring Domains remains unavailable — not pulled in source brief or 2026-08-10 reanalysis. Study window updated to 2024-08 → 2026-08 to match actual export dates confirmed from keyword timestamp fields (Previous ≈ Aug 2024, Current ≈ Aug 2026). Original company record used Jan 2025 → Jun 2026; window extended in 2026-08-10 reanalysis to capture the full decline-and-recovery arc visible in Performance History.
 
 ---
 
@@ -56,17 +56,30 @@
 
 | Field | Value |
 |-------|-------|
-| **Traffic Trajectory** | Steady Decline |
-| **Peak Month** | 2025-01 (window open — trajectory is continuous decline from start; no pre-window historical data available in source brief) |
-| **Peak Traffic Estimate** | Not available — starting traffic estimate absent from source brief |
-| **Trough Month** | 2026-06 (window end — still declining at close of study window) |
-| **Trough Traffic Estimate** | Not available — ending traffic estimate absent from source brief |
-| **Primary Inflection Date** | Not established from available data |
-| **Current Direction** | Declining |
+| **Traffic Trajectory** | Decline then Recovery |
+| **Peak Month** | 2024-04 |
+| **Peak Traffic Estimate** | 169,726 |
+| **Trough Month** | 2025-12 / 2026-01 |
+| **Trough Traffic Estimate** | ~45,000 (45,427 Dec 2025 / 45,830 Jan 2026) |
+| **Primary Inflection Date** | Not established precisely — decline began before Aug 2024 window open; acceleration timing mid-window consistent with AI Mode rollout June 2025 but unconfirmed |
+| **Current Direction** | Recovering |
 
-**Note on pre-window context:** Aha! was founded in 2013. The guide library (aha.io/roadmapping/guide/) predates the study window and has been the site's primary organic asset historically. No pre-window historical peak data was available in the source brief. The decline pattern is described as steady throughout the window — no prior peak to recover from within the analysis period.
+**Trajectory note (2026-08-10 update):** The original company record classified Aha!'s trajectory as "Steady Decline" based on the Jan 2025 → Jun 2026 Comparison Brief window, which showed continuous decline. The Performance History export (pulled 2026-08-10) reveals the full arc: Peak April 2024 (169,726) → decline → Trough Dec 2025/Jan 2026 (~45,000) → partial recovery through Aug 2026 (70,582). From the trough, Aha! recovered +55.4% over approximately 7–8 months. The recovery is real and material but the site has not returned to pre-decline levels — classified as Partial Recovery. The study window has been updated to Aug 2024 → Aug 2026 to capture this arc. The Jan 2025 → Jun 2026 window obscured the recovery phase because it ended at the beginning of the rebound.
 
-**Note on Primary Inflection Date:** No intermediate monthly data was available in the source brief to confirm when the decline accelerated. External event alignment: AI Mode full US rollout on June 27, 2025 is timing-consistent with an AIO interception acceleration mid-window, but this cannot be confirmed as the observed inflection date without monthly traffic data.
+**Performance History milestones (from Ahrefs monthly export):**
+
+| Date | Avg monthly traffic |
+|---|---|
+| 2024-04 | 169,726 (peak) |
+| 2024-08 | 115,963 (window start) |
+| 2025-01 | 107,367 |
+| 2025-06 | 76,556 |
+| 2025-12 | 45,427 (trough) |
+| 2026-01 | 45,830 (trough) |
+| 2026-07 | 65,995 |
+| 2026-08 | 70,582 (window end) |
+
+**Note on Primary Inflection Date:** No precise inflection confirmed. External event alignment: AI Mode full US rollout June 27, 2025 is timing-consistent with AIO interception acceleration mid-window, but acceleration relative to that date cannot be confirmed from monthly averages alone.
 
 ---
 
@@ -74,9 +87,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Primary Mechanism** | AI Overview |
+| **Primary Mechanism** | AI Overview Interception |
 | **Mechanism Pathway** | Sustained product-market relevance decline for roadmapping and PM tooling categories → broad non-branded ranking losses across PM/roadmapping content → multi-year steady traffic decline continuing through the study window (-42.4%) |
-| **Contributing Mechanisms** | Search Demand Shift, Competition |
+| **Contributing Mechanisms** | Search Demand Shift, Competitive Displacement |
 | **Mechanism Confidence** | Medium |
 | **Confidence Rationale** | Three distinct mechanisms are assessed at different confidence levels. **Primary — AI Overview click-through interception (Medium):** The same-position estimated traffic decline pattern is strongly consistent with AIO click-through interception across 20+ keyword examples — including three cases where estimated ranking improved (3→1) while estimated traffic fell 79–93%. A keyword whose Ahrefs-estimated ranking improves from position 3 to position 1 while its estimated traffic falls 93% is strongly consistent with AI Overview click interception, not competitive displacement. 59.8% of measured keyword-level losses occurred on AIO-exposed queries (−14,688 estimated traffic, 1,641 keywords). Timing aligns with AI Mode full US rollout June 27, 2025, mid-window. Confidence is Medium rather than High because (1) Ahrefs figures are estimated traffic and rankings, not observed GSC clicks or CTR; (2) no monthly time-series data confirms when the decline accelerated relative to the AI Mode rollout; (3) the keyword export cap (30,000 rows) was hit, so the full population is unconfirmed. Would upgrade to High with GSC click and impression data or a monthly traffic series confirming acceleration around June 2025. **Contributing — Search Demand Shift for template content (Medium-High):** 154 template pages collectively lost −13,552 estimated traffic (−60.3%), with some pages losing 88–97%. The losses are consistent across all template types. Mechanism likely involves a shift in how users satisfy template needs: users who previously searched for "competitive analysis template" to download a file can now prompt ChatGPT or Claude to generate one directly, meaning the search may no longer be initiated. Whether this is SERP click interception (search happens, click doesn't) or upstream demand shift (search no longer happens) cannot be confirmed without search-volume trend data — and the strategic distinction matters. The record explicitly says this is not a topic-by-topic content quality failure. **Contributing — Competitive displacement on commoditized content (Medium):** Strategy/marketing pages (−78.0%) and role/career pages (−59.1%) are the most competitively contested topics in B2B software. Position drops (not same-position estimated traffic decline) on most of these terms suggest competitive displacement rather than AIO interception specifically. |
 | **Strongest Competing Explanation** | Brand-naming vulnerability: The literal keyword "aha" (volume 59,000) appears to have been substantially redirected by Google — either through disambiguation toward the common English exclamation, or through changing navigational-intent interpretation. The homepage lost 7,125 → 1,253 (−82.4%); the previous top homepage keyword was "aha" at position 2; the current top homepage keyword is "aha product management" (volume 350, position 2). This explains the disproportionately fast branded decline (−57.2% vs. non-branded −32.8%) but does not explain the template-content or strategy-content losses, which are distributed across non-branded queries. |
@@ -140,10 +153,10 @@
 
 | Field | Value |
 |-------|-------|
-| **Recovery Status** | None |
-| **Recovery Mechanism** | N/A |
-| **Recovery Confidence** | Not applicable |
-| **Recovery Notes** | Steady Decline throughout. No recovery signals observed. Still declining at the close of the study window (June 2026). |
+| **Recovery Status** | Partial |
+| **Recovery Mechanism** | Unknown — see PDA agile-transformation analysis for leading mechanism hypothesis |
+| **Recovery Confidence** | Medium — trajectory confirmed from Performance History; mechanism uncertain |
+| **Recovery Notes** | Trough Dec 2025 / Jan 2026 (~45,000). Recovery to 70,582 by Aug 2026 (+55.4% from trough). Does not approach Apr 2024 peak (169,726). The original Comparison Brief window (Jan 2025 → Jun 2026) ended before the recovery was visible — the "Steady Decline / None" classification was accurate for that window but does not reflect the full arc. PDA analysis (portfolio-durability/aha.md) identifies the agile-transformation page (+18,791) as the largest single-page contributor to the recovery, but the mechanism is international SERP composition change rather than content investment. The recovery driver at the portfolio level is not confirmed. |
 
 ---
 
@@ -192,8 +205,9 @@
 
 ## Related Documents
 
+- Portfolio Durability Analysis: `portfolio-durability/aha.md` (2026-08-10, Draft) — page-level cohort analysis; covers template vs. definitional vs. methodology performance split; includes SERP replacement analysis and candidate durability principles
 - Comparison briefs: None (this record was itself migrated from a Comparison Brief section in the source document, but no separate cross-company pattern brief covers Aha! as of this record date)
-- Synthesis documents: —
+- Synthesis documents: `synthesis-2026-08-07.md` — Aha! is PDA Priority #1; Intercepted status cited in cross-cohort AIO pattern
 - Studies: —
 - Report references: Comparison Brief section in `phase3-deep-dives.md` (line 2831); original 118-company report cohort, Product Analytics / Product Management category
 
@@ -386,4 +400,14 @@ This record is most useful for three client conversations:
 - **Sections updated:** Mechanism, Client Applicability, Verification Checklist
 - **Summary:** AI Overview Exposure single field replaced with three-field AIO split per V2.3 standard: AIO Portfolio Susceptibility = High, AIO Presence Observed = Yes (keyword export AIO flag on 1,641 losing and 1,816 gaining queries), AIO Observed Effect = Intercepted (same-position estimated traffic decline pattern across multiple keywords). Commercial Alignment field added to Client Applicability: Mixed (methodology/PM content aligned; template and commodity content only tangentially connected to buyer intent). Verification Checklist updated to V2.3 AIO field language.
 
-*Record finalized: 2026-07-11 | Last verified: —*
+**2026-08-07 (V2.4 mechanism vocabulary migration)**
+- **Reason:** Taxonomy migration — "AI Overview" and "Competition" are legacy values superseded in V2.4
+- **Sections updated:** Mechanism (Primary Mechanism, Contributing Mechanisms)
+- **Summary:** Primary Mechanism migrated from "AI Overview" → "AI Overview Interception" per V2.4 migration rule (direct rename; AIO Observed Effect = Intercepted confirms the evidence standard is met). Contributing Mechanisms migrated: "Competition" → "Competitive Displacement" (direct V2.4 rename). "Search Demand Shift" retained as Contributing (valid V2.4 value). Index row updated to match.
+
+**2026-08-10 (full reanalysis from actual exports)**
+- **Reason:** Prior record used a Comparison Brief as source with missing Pass 2 figures and an incorrect study window. Actual Ahrefs exports (Performance History, Top Pages, Keywords, Positions) pulled and analyzed for the first time.
+- **Sections updated:** Header (Study Window), Outcome Summary (Starting/Ending traffic, Traffic Change, Traffic Value), Traffic Trajectory (all fields — trajectory revised from Steady Decline → Decline then Recovery; peak/trough dates and estimates populated), Recovery (Status: None → Partial; full recovery narrative), Related Documents
+- **Summary:** Performance History export confirmed Aha!'s actual trajectory: Peak Apr 2024 (169,726) → Trough Dec 2025/Jan 2026 (~45,000) → Partial Recovery Aug 2026 (70,582, +55.4% from trough). Study window updated to Aug 2024 → Aug 2026 (confirmed from keyword export Previous/Current date fields — original brief window Jan 2025 → Jun 2026 was incorrect and ended before the recovery was visible). Starting Traffic Estimate: 115,963; Ending: 70,582; Traffic Change: −39.2%; Traffic Value: −45.3% ($132,271 → $72,302). Top Pages export (2,455 rows, Aug 2024 → Aug 2026): Gross Gain 36,261 / Gross Loss 78,931 / Net −42,670 / Offset Rate 217.7% — note these figures differ from prior record (21,770 / 62,383 / 286.6%) because both the export and the window differ. Portfolio Durability Analysis written from real data and saved to portfolio-durability/aha.md. Gross-Loss Offset Analysis in this record retains prior figures from the original 2,200-row Jan 2025 → Jun 2026 export with a note; the new figures are in the PDA. archive.org blocked in analysis environment; Wayback checks for PDA performed via Claude in Chrome by Quinn.
+
+*Record finalized: 2026-07-11 | Last verified: 2026-08-10 (partial — trajectory, recovery, and study window fields recomputed from actual exports; Gross-Loss Offset Analysis, Mechanism section, and Narrative carried from prior analysis)*

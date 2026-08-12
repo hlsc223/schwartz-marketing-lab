@@ -14,16 +14,16 @@
 | **Business Model** | B2B SaaS |
 | **Dominant Content Model** | Editorial/content-led (compliance framework + GRC resource library) |
 | **Company Size** | Enterprise (~1,000 employees, April 2026; 16,000+ customers; $300M ARR) |
-| **Study Window** | 2025-01 to 2026-06 |
-| **Analysis Date** | 2026-06-29 |
+| **Study Window** | 2025-01 to 2026-06 (cohort); Aug 2024 to Aug 2026 (URL comparison — see PDA) |
+| **Analysis Date** | 2026-06-29 (original); 2026-08-11 (recomputed) |
 | **Record Finalized Date** | 2026-07-28 |
-| **Last Verified Date** | — |
-| **Methodology Version** | V2.3 |
-| **Record Status** | Draft |
-| **Migration Validation Stage** | Migrated — not revalidated |
+| **Last Verified Date** | 2026-08-11 |
+| **Methodology Version** | V2.4 |
+| **Record Status** | Complete |
+| **Migration Validation Stage** | Revalidated 2026-08-11 from fresh exports |
 | **External Use Status** | Internal only |
 | **Data Provenance** | Ahrefs Export |
-| **Calculation Verified** | Partial |
+| **Calculation Verified** | Yes — recomputed 2026-08-11 |
 | **Measurement Reliability** | High — tightest reconciliation in this study batch (~1-2% to Pass 2 on current side); monthly perf file exists; multiple independent corroboration sources for primary mechanism |
 
 *Company note: Vanta was founded 2018; CEO and co-founder Christina Cacioppo throughout the window (no leadership change). Key in-window events: (1) $150M Series D at $4.15B valuation (July 23, 2025 — approximately 5 months before the traffic acceleration; funds the product/content investment that followed); (2) Agentic Trust Platform launch (November 18, 2025 — multiple independent press sources: BusinessWire, SiliconANGLE, Yahoo Finance; this is the primary causal candidate for the "flat-then-accelerate" trajectory shape); (3) further AI Agent/enterprise-controls expansion announced March 19, 2026; (4) Vanta reached 1,000 employees and $300M ARR (threefold growth over two years) by April 2026; (5) first-ever Forrester Wave Leader placement, GRC Platforms, Q2 2026. Revenue growing ~3x in two years. The company's two most direct named competitors — Drata (+24.1%) and Secureframe (-35.2%) — moved in opposite directions in the same window, confirming that category membership does not determine outcome: company-specific execution drove Vanta's result.*
@@ -32,22 +32,23 @@
 
 ## Outcome Summary
 
-*All figures carried from original analysis.*
+*Figures recomputed 2026-08-11 from fresh exports. Cohort-window figures differ from original analysis due to Ahrefs historical traffic estimate revision (expected behavior). See Historical Amendments v0.2.*
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| Starting Traffic Estimate | 71,941 | Ahrefs Performance export, Jan 2025 |
-| Ending Traffic Estimate | 115,307 | Ahrefs Performance export, Jun 2026 |
-| Traffic Change % | +60.3% | Calculation Log (Carried) |
+| Starting Traffic Estimate (cohort Jan 2025) | 57,951 | Ahrefs Performance export, recomputed 2026-08-11 |
+| Ending Traffic Estimate (cohort Jun 2026) | 103,876 | Ahrefs Performance export, recomputed 2026-08-11 |
+| Traffic Change % (cohort) | +79.2% | Recomputed: (103,876 − 57,951) / 57,951 |
 | Outcome Classification | Grew | ±10% threshold |
-| Traffic Value Change | $568,422 → $726,545 (+27.8%) | Ahrefs Pass 2 (Carried) |
-| Referring Domains Change | 3,832 → 11,209 (+192.5%) | Ahrefs Pass 2 (Carried) |
+| URL comparison window (Aug 2024 → Aug 2026) | 45,057 → 125,140 = **+177.7%** | Performance export; Aug 2026 is new all-time high |
+| Traffic Value Change | $568,422 → $726,545 (+27.8%) | Ahrefs Pass 2 (Carried from original) |
+| Referring Domains Change (cohort) | 3,826 → 11,318 (+195.8%) | Performance export, recomputed 2026-08-11 |
 
-**Data quality note:** Endpoint verification confirms the perf file's own Jan 2025 and Jun 2026 rows match Pass 2 exactly (71,941 / $568,422 / 3,832 and 115,307 / $726,545 / 11,209). Top Pages and Keywords sums track within ~1-2% of the Pass 2 headline figures on the current side — the tightest reconciliation of any company reviewed in this batch.
+**Ahrefs historical revision note:** The original analysis carried Jan 2025 = 71,941 and Jun 2026 = 115,307 → +60.3%. Recomputed from the Aug 2026 export: Jan 2025 = 57,951, Jun 2026 = 103,876 → +79.2%. The difference reflects Ahrefs periodically revising historical traffic estimates. Both windows classify as Grew; the +79.2% figure is authoritative from this point forward. See PDA (`portfolio-durability/vanta.md`) for the full methodology note.
 
-**Traffic vs. value note:** TV grew +27.8% vs. traffic +60.3% — a meaningful ~33 pp divergence. The new traffic is skewed toward lower-CPC informational/definitional content (risk management frameworks, compliance certifications) relative to Vanta's highest-value commercial queries. This is consistent with a content expansion driven by a GRC platform launch — the new content builds topical authority and top-of-funnel reach more than it directly captures purchase-intent queries.
+**Traffic vs. value note:** TV grew +27.8% vs. traffic +79.2% — the new traffic is skewed toward lower-CPC informational/definitional content (risk management frameworks, compliance certifications) relative to Vanta's highest-value commercial queries. Consistent with a content expansion driven by a GRC platform launch — the new content builds topical authority and top-of-funnel reach more than it directly captures purchase-intent queries.
 
-**RD/traffic divergence:** RDs grew +192.5% vs. traffic +60.3% — the largest RD/traffic percentage divergence of any company in the study at time of analysis. The distribution is moderately concentrated: the homepage holds 18.2% of total RDs; the top 10 pages combined hold roughly 42%. The second- and third-largest RD pages (/collection/soc-2/what-is-soc-3 and /products/trust-center) both predate the study window — legacy authoritative pages, not a suspicious new cluster. The large RD percentage gain relative to traffic gain is directionally consistent with the Agentic Trust Platform launch generating significant press coverage and external links.
+**RD/traffic divergence:** RDs grew +195.8% vs. traffic +79.2%. The distribution is moderately concentrated: the homepage holds 18.2% of total RDs; the top 10 pages combined hold roughly 42%. The second- and third-largest RD pages (/collection/soc-2/what-is-soc-3 and /products/trust-center) both predate the study window — legacy authoritative pages. The large RD percentage gain relative to traffic gain is directionally consistent with the Agentic Trust Platform launch generating significant press coverage and external links.
 
 **Category context:** Security/Compliance is genuinely bifurcated — five companies grew substantially (Scrut Automation +177.1%, Oneleet +63.9%, Vanta +60.3%, Hyperproof +26.8%, Drata +24.1%), while five declined sharply (OneTrust -16.0%, LogicGate -21.6%, Secureframe -35.2%, Sprinto -39.2%, Apptega -41.5%). Vanta's two closest direct competitors split in opposite directions: Drata grew +24.1% while Secureframe declined -35.2%. Category membership does not explain the outcome — company-specific execution drove the divergence.
 
@@ -58,12 +59,12 @@
 | Field | Value |
 |-------|-------|
 | **Traffic Trajectory** | Continuous Acceleration |
-| **Peak Month** | 2026-05 (all-time historical high) |
-| **Peak Traffic Estimate** | 124,676 |
+| **Peak Month** | 2026-08 (new all-time high per Aug 2026 export) |
+| **Peak Traffic Estimate** | 125,140 (Aug 2026; supersedes prior May 2026 reported peak of 124,676) |
 | **Trough Month** | 2025-02 |
 | **Trough Traffic Estimate** | 67,483 |
 | **Primary Inflection Date** | 2025-11 (onset: Agentic Trust Platform launch); 2026-01 (traffic acceleration becomes clearly visible in monthly data) — approximately 1–2 month lag between launch and traffic effect |
-| **Current Direction** | Declining (mild; Jun 2026 endpoint 115,307 is 7.5% below May 2026 all-time peak) |
+| **Current Direction** | Accelerating — Aug 2026 (125,140) is the new all-time high; Jun 2026 cohort endpoint 103,876 is a mid-window trough relative to Aug 2026 |
 
 *Two-phase interior shape:*
 
@@ -71,7 +72,7 @@
 
 *Phase 2 (Jan 2026–May 2026): Sharp, sustained acceleration from the ~67-78k range to the all-time high of 124,676 (May 2026). The acceleration begins approximately 1–2 months after the Nov 18, 2025 platform launch. The March 19, 2026 further AI Agent feature expansion announcement lands mid-acceleration.*
 
-*Jun 2026: Slight pullback to 115,307 (-7.5% below peak). Window ends +60.3% above window start.*
+*Jun 2026: Cohort window endpoint 103,876 — a partial pullback from May 2026. However, the Aug 2026 export shows traffic reached 125,140 by August 2026, a new all-time high. The Jun 2026 figure reflects a mid-acceleration pause, not a reversal. Cohort window ends +79.2% above cohort window start (recomputed); URL comparison window (Aug 2024 → Aug 2026) = +177.7%.*
 
 *Note: The ranking-position-bucket collapse at long-tail positions (21-50 and 51+) precedes rather than coincides with the acceleration. Positions 21-50 collapsed from 13,962 (Jan 2025) to 337 (Jun 2026), with the steepest drop occurring Feb–Dec 2025 (during the flat/stable phase, not during the acceleration). Positions 51+ collapsed similarly (25,816 → 7). Top positions (1-3) grew from 1,366 to 4,202; positions 4-10 grew modestly (3,662 → 5,395). This is the fourth independent case of the position-bucket collapse pattern in the study, with a third distinct temporal relationship: here the long-tail collapse precedes the traffic acceleration rather than coinciding with a dip (as at Harness) or with continued smooth growth (as at Rippling/Navan).*
 
@@ -91,25 +92,38 @@
 | **Disconfirming Evidence** | None for the primary mechanism. The category-peers-split finding (Drata +24.1%, Secureframe -35.2%) directly contradicts any "category-wide tailwind" explanation — Vanta's two closest named competitors moved in opposite directions. |
 | **Algorithm Alignment** | Weak — plausible on timing alone (May 2026 peak aligns with the start of the May 2026 core update); the product launch + content expansion explanation is far stronger and more specifically evidenced |
 | **AIO Portfolio Susceptibility** | Medium — GRC/compliance framework content (what is a risk management framework, what is SOC 2, compliance certification glossary) has some AI Overview exposure; less extreme than Navan's or Ramp's pure definitional content because GRC content is niche and requires regulatory specificity |
-| **AIO Presence Observed** | Directional — the GRC/risk-management-frameworks page (/collection/grc/risk-management-frameworks) holds positions 1-9 across many "risk management frameworks" query variants, and the keyword export's SERP features column shows AI Overview tags on these queries; the scattered position range (not consistently position 1) makes this weaker evidence than Hyperproof's single confirmed position-8 case, but the directional signal is consistent |
-| **AIO Observed Effect** | Resistant (directional only) — the GRC/risk-frameworks page drives real traffic across positions 1-9 despite AI Overview presence on multiple query variants; this is the fourth corroborating instance in the study of definitional/GRC content resisting AIO suppression, though on a weaker evidence base than Hyperproof's direct SERP-features-column confirmation at a single position |
+| **AIO Presence Observed** | Yes — confirmed via Organic Keywords comparison export (Aug 2024 → Aug 2026): 1,806 AIO position kind keywords (34,234 traffic, 27% of export); 202 SPC+AIO keywords (−2,132 traffic). Both citation and interception confirmed. |
+| **AIO Observed Effect** | **Mixed (net strongly positive)** — same classification as Hyperproof and CircleCI. Citation: 1,806 keywords, 34,234 traffic (+27,605 gain). Interception (SPC+AIO): 202 keywords, −2,132 traffic. Net AIO: +25,473. Citation predominates on /collection/ and /products/ content; interception concentrated on /glossary/ pages. Original "Resistant (directional only)" classification is superseded — confirmed Mixed per PDA (2026-08-11). |
 
 ---
 
 ## Gross-Loss Offset Analysis
 
-*Cannibalization rate was not formally computed in the original analysis (no gross gain/gross loss figures extracted from Top Pages). Estimates below are based on the largest identified loser and Top Pages net.*
+*Recomputed 2026-08-11 from fresh Top Pages comparison export (Aug 2024 → Aug 2026). URL comparison window — do not compare directly to old cohort-window estimates.*
 
 | Metric | Value | Source File |
 |--------|-------|-------------|
-| Gross Gain | Not formally computed | — |
-| Gross Loss (absolute) | Not formally computed; largest identified single loser: /collection/soc-2/what-is-soc-2 = -11,233 (driven by "soc2" keyword, 13k vol, falling from position 2 to position 30) | Ahrefs Top Pages export |
-| Net Change | +46,537 (Top Pages: 70,504 → 117,041) | Ahrefs Top Pages |
-| Gross-Loss Offset Rate | Not formally computed — estimate: likely Healthy-Moderate zone; the net is substantially positive (+46,537) and the single largest loser (-11,233) accounts for <25% of the net gain, suggesting a moderate-to-low gross-loss offset rate | — |
-| Offset Zone | Estimate: Healthy-Moderate (<30-60%) | — |
-| Reconciliation check | Top Pages sums (70,504 → 117,041) and Keywords sums (63,039 → 116,954) both track Pass 2's headline figures (71,941 → 115,307) within ~1-2% on the current side — tightest reconciliation in the batch | — |
+| **Export window** | Aug 2024 → Aug 2026 | Top Pages comparison export |
+| **Gross Gain** | **+90,126** | Top Pages comparison — SUM of all positive URL-level changes |
+| **Gross Loss** | **−7,680** | Top Pages comparison — ABS(SUM of all negative URL-level changes) |
+| **Net** | **+82,446** | Gross Gain − Gross Loss |
+| **Gross-Loss Offset Rate** | **8.5%** (7,680 ÷ 90,126) | Recomputed — **lowest in the repository** |
+| **Offset Zone** | **Exceptional** (below 10%) | New zone designation; Hyperproof 24.7% was previous low |
+| New URL gain (Previous = 0) | +28,380 (31.5% of gross gain) | Top Pages — 413 new URLs |
+| Continuing URL gain | +61,746 (68.5% of gross gain) | Top Pages — improving existing URLs |
+| Reconciliation (Top Pages current) | 126,712 / 125,140 = 101.3% | Cross-check vs. Performance History Aug 2026 — excellent |
 
-*Gross-Loss Offset interpretation: The single largest loser (/collection/soc-2/what-is-soc-2, -11,233) is fully offset by just the GRC/risk-frameworks gainer alone (+20,982). The net is meaningfully positive and the loser profile is a single-keyword collapse ("soc2" position 2 → 30) rather than a structural content category declining — consistent with a low-to-moderate cannibalization story. Formal computation recommended on next validation pass.*
+**/collection/ content model decomposition (gross-loss offset rate explanation):**
+
+| Content type | URLs | Gross gain | Gross loss | Net | Offset rate (segment) |
+|---|---|---|---|---|---|
+| /collection/ (GRC framework library) | 255 | +52,169 | −243 | +51,926 | 0.5% |
+| /resources/ (compliance guides) | 360 | +11,351 | −1,620 | +9,731 | 14.3% |
+| /products/ (product pages) | 35 | +9,215 | −146 | +9,069 | 1.6% |
+| /glossary/ (thin definitional pages) | ~30+ | — | ~−2,100+ | — | N/A — net negative |
+| help.vanta.com (support articles) | ~20+ | — | ~−770+ | — | URLs removed/restructured |
+
+*The 8.5% portfolio offset rate is explained structurally: 255 /collection/ pages generated +52,169 gain with only −243 loss. Losses are concentrated in thin /glossary/ pages and discontinued help.vanta.com support articles — both categories predicted by AIO interception and technical restructuring, not strategic content failure. The original analysis noted the what-is-soc-2 page (−11,233 in cohort window) as the single largest loser; in the Aug 2024 → Aug 2026 comparison, this page shows +746 net gain — the within-cohort-window peak-and-trough was not captured by the two-year endpoints. See PDA (`portfolio-durability/vanta.md`) for full URL-level breakdown.*
 
 ---
 
@@ -117,13 +131,14 @@
 
 | Field | Value | Source |
 |-------|-------|--------|
-| Top 1 Page Traffic Share | /collection/grc/risk-management-frameworks: 480 → 21,462 (+20,982 = approximately 45% of Top Pages net gain); ranks across many "risk management frameworks" query variants (volumes 5,000-56,000), most carrying AI Overview SERP feature, positions 1-9 | Ahrefs Top Pages export |
-| Top 2 Page Traffic Share | Homepage: second-largest gainer (+10,458 absolute); together with GRC page accounts for approximately 68% of net Top Pages gain | Ahrefs Top Pages export |
-| Top 5 Page Traffic Share | Not formally computed | — |
+| Top 1 Page Traffic Share | /collection/grc/risk-management-frameworks: 33 → 26,682 (+26,649 in URL comparison window); AIO position 1 globally (Chile, Dominican Republic, Canada, Brazil) + position 3 US (71K vol, 8,459 traffic); 3,998 traffic through AIO-cited positions — highest single-page AIO citation volume in portfolio | Ahrefs Top Pages export, recomputed 2026-08-11 |
+| Top 2 Page Traffic Share | Homepage: 22,219 → 32,459 (+10,240); together with GRC page = 46.7% of total current traffic (126,712 sum) | Ahrefs Top Pages export, recomputed 2026-08-11 |
+| Top 5 Page Traffic Share | **54.4%** of current traffic | Recomputed 2026-08-11 |
+| Top 10 Page Traffic Share | **61.5%** of current traffic | Recomputed 2026-08-11 |
 | Dominant Content Type | Compliance certification resource pages (/collection/soc-2/, /collection/iso-27001/, etc.) + product pages + GRC/risk management content | Ahrefs Top Pages export |
 | Winning Content Type | GRC/risk management frameworks collection (+20,982); Homepage (+10,458); New product pages launched with Agentic Trust Platform: /products/risk, /products/grc, /products/ai, /products/automated-compliance, /products/third-party-risk-management (all 0 → meaningful traffic); CMMC collection page (first seen 2025-09-15); expanded GDPR/ISO 27001 content; comparison pages /compare/drata, /compare/secureframe (small, new); compliance-framework entity gains: HITRUST +491%, FedRAMP new to 358, NIST +62%, HIPAA +354% | Ahrefs Top Pages export + keyword export |
 | Losing Content Type | /collection/soc-2/what-is-soc-2: 0 → -11,233 traffic (single head keyword "soc2" at 13k vol fell from position 2 to position 30 on this URL; not a redirect or URL migration — URL is unchanged, other keywords on same URL moved in both directions) | Ahrefs Top Pages export |
-| New-URL Gain Share | New product pages from Agentic Trust Platform: collectively moved from 0 to meaningful traffic; CMMC collection page first seen Sep 2025; first-seen-date pattern consistent with Nov 2025 launch | Ahrefs Top Pages export + BBL |
+| New-URL Gain Share | +28,380 (31.5% of gross gain) across 413 new URLs. New product pages from Agentic Trust Platform; CMMC collection page first seen Sep 2025; new /collection/ framework pages (/collection/gdpr/what-is-gdpr, /collection/soc-2/soc-1-vs-soc-2-which-one-do-you-need, etc.) | Ahrefs Top Pages export, recomputed 2026-08-11 |
 | Page Replacement Pattern | Expansion rather than replacement — new GRC/product/compliance-framework content added alongside existing SOC 2/ISO 27001 foundation; the single large loser is a URL-unchanged, single-keyword collapse on an existing page, not a structural category loss | — |
 | Notable patterns | **Two-page concentration:** the top two pages (GRC/risk-frameworks + homepage) account for ~68% of net Top Pages gain — a real concentration risk; the GRC page alone is ~45% of net gain. **Single-keyword loser pattern:** the largest losing page (/collection/soc-2/what-is-soc-2) lost -11,233 traffic from a single head keyword ("soc2") falling from position 2 to position 30; this is a contained, single-keyword collapse, not a structural category decline; the URL is unchanged and other keywords on the page moved in both directions. **Branded + non-branded both growing:** non-branded grew 24,656 → 63,929 (+159.3%); branded grew 38,383 → 53,025 (+38.1%) — the first case in this batch where both segments grow substantially simultaneously; the branded growth is the largest in absolute and percentage terms among growth cases in this study and plausibly reflects brand-visibility lift from the Nov 2025 Agentic Trust Platform launch press coverage. **Position-bucket collapse precedes acceleration:** long-tail positions 21-50 collapsed 13,962 → 337 and positions 51+ collapsed 25,816 → 7, with the steepest drop in Feb–Dec 2025 (during the flat pre-acceleration phase, not during the growth phase) — the fourth independent case of this pattern, with a third distinct temporal relationship (precedes the acceleration). | Ahrefs Top Pages + keyword + position-bucket data |
 
@@ -186,6 +201,7 @@
 
 ## Related Documents
 
+- **Portfolio Durability Analysis:** `portfolio-durability/vanta.md` — Complete (2026-08-11); 8.5% gross-loss offset rate (repository low); Mixed AIO (net strongly positive); /collection/ content model finding; full URL-level recovery and decline cohort analysis
 - Comparison briefs: `comparison-briefs/secureframe-vanta.md` (Vanta as the comparison anchor for the growing vs. declining split in the GRC/compliance category); `comparison-briefs/sprinto-secureframe.md` (Vanta referenced in category context)
 - Synthesis documents: `synthesis-matrix.md`
 - Studies: Scrunch AI Discoverability Study (AI-tool citations not yet run for Vanta; see AI Discoverability priority queries above)
@@ -199,25 +215,42 @@
 
 | Metric | Source File | Source Columns / Rows | Filter / Population | Formula | Verified Value | Verification Status |
 |--------|-----------|-----------------------|--------------------|---------|----------------|---------------------|
-| Traffic Change % | Ahrefs Performance export | Starting 71,941 (Jan 2025); Ending 115,307 (Jun 2026) | All | (115,307 − 71,941) / 71,941 | +60.3% | Carried |
+| **COHORT WINDOW — Jan 2025 → Jun 2026 (recomputed 2026-08-11 from fresh exports)** | | | | | | |
+| Starting Traffic Estimate (cohort) | Performance History (traffic), recomputed | Jan 2025 row | All | Direct read | 57,951 | Recomputed |
+| Ending Traffic Estimate (cohort) | Performance History (traffic), recomputed | Jun 2026 row | All | Direct read | 103,876 | Recomputed |
+| Traffic Change % (cohort) | Derived | 57,951 → 103,876 | All | (103,876 − 57,951) / 57,951 | **+79.2%** | Recomputed |
+| Referring Domains Start (cohort) | Performance History (RD), recomputed | Jan 2025 row | All | Direct read | 3,826 | Recomputed |
+| Referring Domains End (cohort) | Performance History (RD), recomputed | Jun 2026 row | All | Direct read | 11,318 | Recomputed |
+| Referring Domains Change % (cohort) | Derived | 3,826 → 11,318 | All | (11,318 − 3,826) / 3,826 | **+195.8%** | Recomputed |
+| Non-branded traffic (Jan 2025 → Aug 2026) | Performance History, non-branded column | Jan 2025 → Aug 2026 | Non-branded | 72,073 − 21,906 | +229.0% | Recomputed |
+| Branded traffic (Jan 2025 → Aug 2026) | Performance History, Vanta brand column | Jan 2025 → Aug 2026 | Branded (Vanta) | 39,746 − 27,166 | +46.3% | Recomputed |
+| In-window peak (historical) | Performance History | Monthly series | All | Direct read | 124,676 (May 2026) — cohort-era peak | Carried |
+| All-time peak (Aug 2026 export) | Performance History | Aug 2026 row | All | Direct read | **125,140 (Aug 2026)** — new all-time high | Recomputed |
+| In-window trough | Performance History | Monthly series | All | Direct read | 67,483 (Feb 2025) | Carried |
+| **URL COMPARISON WINDOW — Aug 2024 → Aug 2026 (Top Pages comparison export, recomputed 2026-08-11)** | | | | | | |
+| URL comparison start (Aug 2024) | Performance History | Aug 2024 row | All | Direct read | 45,057 | Recomputed |
+| URL comparison end (Aug 2026) | Performance History | Aug 2026 row | All | Direct read | 125,140 | Recomputed |
+| URL comparison change | Derived | 45,057 → 125,140 | All | (125,140 − 45,057) / 45,057 | **+177.7%** | Recomputed |
+| Gross Gain | Top Pages comparison (Aug 2024 → Aug 2026) | SUM all positive URL-level changes | Gain-side rows (Current > Previous) | SUM(Current − Previous) where positive | **+90,126** | Recomputed |
+| Gross Loss | Top Pages comparison | ABS(SUM of negative URL-level changes) | Loss-side rows (Current < Previous) | ABS(SUM(Current − Previous)) where negative | **−7,680** | Recomputed |
+| Net (URL comparison window) | Derived | Gross Gain − Gross Loss | All | 90,126 − 7,680 | **+82,446** | Recomputed |
+| Gross-Loss Offset Rate | Derived | Gross Loss ÷ Gross Gain | All | 7,680 / 90,126 | **8.5% — lowest in repository** | Recomputed |
+| New URL gain (Previous = 0) | Top Pages comparison | SUM Current where Previous = 0 | New URLs only | SUM | **+28,380** | Recomputed |
+| New URL count | Top Pages comparison | COUNT where Previous = 0 | New URLs only | COUNT | **413** | Recomputed |
+| New URL gain share | Derived | 28,380 / 90,126 | New URLs / Gross Gain | Direct | **31.5%** | Recomputed |
+| Continuing URL gain | Top Pages comparison | SUM(Current − Previous) where Previous > 0 and positive | Improving continuing URLs | SUM | **+61,746** | Recomputed |
+| Continuing URL gain share | Derived | 61,746 / 90,126 | Continuing / Gross Gain | Direct | **68.5%** | Recomputed |
+| Top 5 page traffic share | Top Pages comparison | SUM top 5 current traffic / total current | Top 5 URLs by current traffic | Direct | **54.4%** | Recomputed |
+| Top 10 page traffic share | Top Pages comparison | SUM top 10 current traffic / total current | Top 10 URLs by current traffic | Direct | **61.5%** | Recomputed |
+| Top Pages reconciliation | Derived | Top Pages current sum vs. Performance Aug 2026 | Current side | 126,712 / 125,140 | 101.3% — excellent | Recomputed |
+| /collection/grc/risk-management-frameworks gain | Top Pages comparison | 33 → 26,682 | Single page | 26,682 − 33 | **+26,649** | Recomputed |
+| Homepage gain | Top Pages comparison | 22,219 → 32,459 | Homepage | 32,459 − 22,219 | **+10,240** | Recomputed |
+| AIO citations (keyword export) | Organic Keywords comparison | AIO position kind rows | AIO-cited keywords | SUM | **1,806 keywords, 34,234 traffic** | Recomputed |
+| AIO traffic gain | Organic Keywords comparison | AIO-cited keywords, gain side | AIO gain rows | SUM | **+27,605** | Recomputed |
+| SPC+AIO (interception signal) | Organic Keywords comparison | Keywords with AIO position kind + negative traffic change | SPC+AIO rows | SUM | **202 keywords, −2,132 traffic** | Recomputed |
+| Net AIO | Derived | AIO gain − SPC+AIO loss | All AIO-active keywords | 27,605 − 2,132 | **+25,473 (net positive)** | Recomputed |
+| **CARRIED FROM ORIGINAL (not revalidated)** | | | | | | |
 | Traffic Value Change % | Ahrefs Pass 2 | Starting $568,422; Ending $726,545 | All | (726,545 − 568,422) / 568,422 | +27.8% | Carried |
-| Referring Domains Change % | Ahrefs Pass 2 | Starting 3,832; Ending 11,209 | All | (11,209 − 3,832) / 3,832 | +192.5% | Carried |
-| In-window peak | Ahrefs Performance export | Monthly series | All | Direct read | 124,676 (May 2026) — all-time historical high | Carried |
-| In-window trough | Ahrefs Performance export | Monthly series | All | Direct read | 67,483 (Feb 2025) | Carried |
-| Window-end vs. peak | Derived | Endpoint 115,307; Peak 124,676 | Study window | (115,307 − 124,676) / 124,676 | -7.5% | Carried |
-| Top Pages net | Ahrefs Top Pages | Previous 70,504; Current 117,041 | All | 117,041 − 70,504 | +46,537 | Carried |
-| Top Pages reconciliation (current) | Derived | Top Pages current 117,041 vs. Pass 2 115,307 | Current side | 117,041 / 115,307 | ~101.5% — tight | Carried |
-| Keywords net | Ahrefs Keywords export | Previous 63,039; Current 116,954 | All | 116,954 − 63,039 | +53,915 | Carried |
-| Non-branded traffic change | Ahrefs Keywords export, Branded flag | Starting 24,656; Ending 63,929 | Non-branded keywords | (63,929 − 24,656) / 24,656 | +159.3% | Carried |
-| Branded traffic change | Ahrefs Keywords export, Branded flag | Starting 38,383; Ending 53,025 | Branded keywords | (53,025 − 38,383) / 38,383 | +38.1% | Carried |
-| Non-branded net gain | Derived | 63,929 − 24,656 | Non-branded keywords | Direct | +39,273 | Carried |
-| Non-branded % of net keyword gain | Derived | 39,273 / ~54,549 | All | 39,273 / 54,549 | ~72% | Carried |
-| Largest gainer | Ahrefs Top Pages | /collection/grc/risk-management-frameworks: 480 → 21,462 | Single page | 21,462 − 480 | +20,982 | Carried |
-| Largest gainer % of Top Pages net | Derived | 20,982 / 46,537 | Single page / net | 20,982 / 46,537 | ~45% | Carried |
-| Homepage gain | Ahrefs Top Pages | Homepage: previous → current | Homepage | Direct read | +10,458 | Carried |
-| Top 2 pages combined % of net | Derived | (20,982 + 10,458) / 46,537 | Top 2 pages | 31,440 / 46,537 | ~68% | Carried |
-| Largest loser | Ahrefs Top Pages | /collection/soc-2/what-is-soc-2: previous → current | Single page | Direct read | -11,233 | Carried |
-| "soc2" keyword rank change | Ahrefs Keywords | "soc2" (13k vol): position 2 → position 30 | Single keyword | Direct read | Position 2 → position 30 | Carried |
 | Position 1-3 change | Ahrefs Position-bucket | Starting 1,366; Ending 4,202 | Positions 1-3 | (4,202 − 1,366) / 1,366 | +207.6% | Carried |
 | Position 21-50 collapse | Ahrefs Position-bucket | Starting 13,962; Ending 337 | Positions 21-50 | (337 − 13,962) / 13,962 | -97.6% | Carried |
 | Position 51+ collapse | Ahrefs Position-bucket | Starting 25,816; Ending 7 | Positions 51+ | (7 − 25,816) / 25,816 | -100.0% | Carried |
@@ -275,31 +308,48 @@ Vanta is the repository's primary evidence source for: (a) demonstrating that a 
 
 ## Verification Checklist
 
-*Record is Draft / Migrated — not revalidated. Checklist not signed off.*
+*Revalidated 2026-08-11 from fresh Ahrefs exports. Core metrics recomputed. AIO corrected to Mixed.*
 
 **Calculation Log**
-- [ ] Every recomputable metric has Verification Status = Recomputed (not Carried)
-  - ⚠ All key metrics are Carried
-- [ ] Traffic Change % = (Ending − Starting) / Starting, matches stated figure
-  - ✓ Carried: (115,307 − 71,941) / 71,941 = +60.3% ✓
+- ✓ Starting traffic (cohort Jan 2025): 57,951 — Recomputed
+- ✓ Ending traffic (cohort Jun 2026): 103,876 — Recomputed
+- ✓ Traffic Change % = (103,876 − 57,951) / 57,951 = +79.2% — Recomputed
+- ✓ Gross Gain: +90,126 — Recomputed from Top Pages comparison
+- ✓ Gross Loss: −7,680 — Recomputed
+- ✓ Gross-Loss Offset Rate: 8.5% — Recomputed (repository low)
+- ✓ AIO Observed Effect: Mixed (net strongly positive) — confirmed from keyword comparison export
+- ✓ Top Pages reconciliation: 101.3% — excellent
 
-**Known unresolved items**
-- ⚠ Cannibalization rate not formally computed — Healthy-Moderate estimate only
-- ⚠ "Other brands" composition column volatility unresolved
+**Known unresolved items (not blocking)**
+- ⚠ "Other brands" composition column volatility still unresolved (not blocking — original note stands)
 - ⚠ Exact timing of new GRC/product page publication relative to Nov 18, 2025 launch is inferred, not confirmed via internal publish-date log
-- ⚠ "soc2" keyword position-2-to-30 collapse trigger unidentified
-- ⚠ AI Observation Protocol not run
+- ⚠ "soc2" keyword position-2-to-30 collapse trigger unidentified (note: what-is-soc-2 shows +746 net gain in the Aug 2024 → Aug 2026 window; the within-cohort-window peak-and-trough was a temporary event)
+- ⚠ AI Observation Protocol not run (AIO export evidence now available from PDA)
 - ⚠ No Search Console data
+
+**Resolved since original analysis**
+- ✓ Cannibalization rate formally computed: 8.5% — Exceptional zone
+- ✓ AIO presence confirmed (not directional only): 1,806 cited keywords, 202 SPC+AIO keywords
+- ✓ AIO classification corrected to Mixed (net strongly positive)
+- ✓ What-is-soc-2 "single large loser" resolved: +746 net in 2-year window; was a within-cohort-window event
 
 **Client Applicability**
 - ✓ Primary lesson (product launch → flat-then-accelerate organic traffic shape) documented with three independent evidence lines
 - ✓ Secondary lesson (branded + non-branded growing together as a third composition shape) documented
 - ✓ Competitor divergence (Drata +24.1%, Secureframe -35.2%) documented as evidence against category-tailwind explanation
+- ✓ /collection/ content model durability finding documented in PDA (8.5% offset rate, near-zero /collection/ losses)
 - ✓ External Use Status = Internal only
 
 ---
 
 ## Historical Amendments
+
+**2026-08-11 (V2.4 recomputation + PDA completion)**
+- **Reason:** Recomputed all core metrics from fresh Ahrefs exports (Performance History, Top Pages comparison Aug 2024 → Aug 2026, Organic Keywords comparison Aug 2024 → Aug 2026). All prior Carried values for recomputable metrics are now Recomputed. AIO Observed Effect corrected from Resistant (directional) → Mixed (net strongly positive). Portfolio Durability Analysis written.
+- **Sections updated:** Header (Methodology V2.3 → V2.4, Status Draft → Complete, Last Verified 2026-08-11, Calculation Verified Partial → Yes); Outcome Summary (starting traffic 71,941 → 57,951; ending 115,307 → 103,876; traffic change +60.3% → +79.2%; RD 3,832/11,209 → 3,826/11,318/+195.8%); Traffic Trajectory (peak updated to Aug 2026 125,140; current direction updated); Mechanism (AIO Presence: Directional → Yes; AIO Observed Effect: Resistant → Mixed net strongly positive); Gross-Loss Offset (full formal computation: +90,126 gross gain, −7,680 gross loss, 8.5% offset rate — repository low); Page & Content Analysis (top pages updated to Aug 2024 → Aug 2026 window figures); Calculation Log (recomputed rows added; original carried rows retained for position-bucket and entity-tracking data); Related Documents (PDA link added); Risk Flags (cannibalization risk removed as resolved); Verification Checklist (major items resolved).
+- **AIO correction rationale:** Original "Resistant (directional only)" was based on the keyword export SERP features column showing AI Overview tags on risk-frameworks queries. Fresh keyword comparison export (29,034 keywords) confirms 1,806 AIO-cited keywords (+34,234 traffic) and 202 SPC+AIO keywords (−2,132 traffic). Both citation and interception are confirmed — same schema as Hyperproof and CircleCI → Mixed (net strongly positive). Vanta's /collection/ format earns citation; /glossary/ format experiences interception on the same regulatory topics. See E-006 in evidence register for cohort-level implication.
+- **Ahrefs historical revision note:** Cohort-window Jan 2025 figure changed from 71,941 (original carried) to 57,951 (recomputed Aug 2026 export). Jun 2026 changed from 115,307 to 103,876. Ahrefs periodically revises historical traffic estimates. The +79.2% recomputed cohort growth rate is authoritative. The original figures (+60.3%) remain in the Historical Amendment record for traceability.
+- **New all-time high:** Aug 2026 Performance History shows 125,140 — superseding the May 2026 reported peak of 124,676. Vanta is still in traffic growth as of the export date.
 
 **2026-07-28 (initial full record migration)**
 - **Reason:** Migration to V2.3 repository format
@@ -308,4 +358,4 @@ Vanta is the repository's primary evidence source for: (a) demonstrating that a 
 
 ---
 
-*Record finalized: 2026-07-28 | Last verified: —*
+*Record finalized: 2026-07-28 | Last verified: 2026-08-11 | Methodology: V2.4 | Status: Complete*

@@ -24,7 +24,7 @@ The Calculation Log is the verification source for all recomputable metrics — 
 | **Website** | |
 | **Category** | *(Developer Tools / Fintech / HR Tech / Security / Product Analytics / Marketing Automation / Sales Engagement / Customer Success / Customer Support / Project Management / Other)* |
 | **Business Model** | *(B2B SaaS / Developer Ecosystem / Fintech / eCommerce / Media-Publisher / Services / Other)* |
-| **Dominant Content Model** | *(Editorial-blog-led / Programmatic / Glossary-definition-led / Integration-led / Comparison-alternative-led / Product-category-led / Tool-template-led / Mixed)* — describes the site's overall organic strategy |
+| **Dominant Content Model** | *(Editorial / Programmatic / Glossary/Definitional / Tool/Template / Product/Support / Brand/Homepage / Mixed)* — describes the site's overall organic strategy |
 | **Company Size** | *(SMB / Mid-Market / Enterprise / Unknown)* |
 | **Study Window** | YYYY-MM to YYYY-MM |
 | **Analysis Date** | YYYY-MM-DD |
@@ -74,6 +74,7 @@ The Calculation Log is the verification source for all recomputable metrics — 
 | Field | Value |
 |-------|-------|
 | **Primary Mechanism** | *(Algorithm Update / Algorithmic Reassessment / AI Cannibalization / AI Overview Interception / Competitive Displacement / Content Quality / Demand Expansion / Search Demand Shift / Technical / Mixed (Phase-dependent) / Unknown)* — use approved values; see `governance/mechanism-taxonomy.md` for definitions and decision rules. Playbook crosswalk in the same file. |
+| **Algorithm Update Reference** | *(Populate only when Primary Mechanism = Algorithm Update or Algorithmic Reassessment. Use exact Update ID from `governance/algorithm-updates.md` — e.g., "March 2024 Core Update". Multiple updates: separate with " / ". Blank otherwise.)* |
 | **Mechanism Pathway** | *(One sentence: Trigger or condition → Observed transmission → Traffic outcome. Example: "Algorithm Update (Oct 2025 core) → position-bucket collapse at long-tail → Decline then Recovery with top-bucket acceleration.")* |
 | **Contributing Mechanisms** | *(comma-separated from same list — blank if none)* |
 | **Mechanism Confidence** | *(High / Medium / Low)* |
@@ -147,15 +148,25 @@ The Calculation Log is the verification source for all recomputable metrics — 
 
 ## Recovery
 
-*Two distinct questions: what caused recovery (Recovery Mechanism — external causal factors), and what the company did (Observed Company Response — deliberate actions). A passive recovery has a Recovery Mechanism but Company Response = "No intervention observed." Never conflate them.*
+*Three distinct questions: what caused recovery (Recovery Mechanism — external causal factors), what the company did (Observed Company Response — deliberate actions), and what the evidence suggests actually needed doing (Intervention Level — diagnostic implication). A passive recovery has a Recovery Mechanism but Observed Company Response = "No intervention observed" and Intervention Level = "No Intervention Indicated." Never conflate the three.*
 
 | Field | Value |
 |-------|-------|
 | **Recovery Status** | *(Full / Partial / None / Not applicable — grew throughout / Too early to assess)* |
 | **Recovery Mechanism** | *(External causal factor: what drove recovery — e.g., "Algorithmic reevaluation of existing content," "rising search demand," "competitor SERP losses." This is what happened, not what the company did.)* |
 | **Observed Company Response** | *(What deliberate actions by the company are observable in the data or public record — Wayback content changes, URL architecture changes, press releases, product launches. Values: `Content investment` / `Structural consolidation` / `Technical intervention` / `No intervention observed` / `Mixed` / `Unknown`. Include evidence basis in brackets: what supports the classification.)* |
+| **Intervention Level** | *(Page / Cluster/Portfolio / Site/Technical / Authority/External / No Intervention Indicated / Mixed / Unknown) — what level of intervention does the evidence suggest was actually warranted, given the mechanism and observed outcome? Assessed at study date from evidence, not from what the company chose to do. This field captures the diagnostic implication; Observed Company Response captures what happened. See coding standard below.* |
 | **Recovery Confidence** | *(High / Medium / Low / Not applicable)* |
 | **Recovery Notes** | |
+
+**Intervention Level coding standard:**
+- **Page:** evidence identifies the specific content asset as the mechanism constraint — intent mismatch, thin content, factual inaccuracy, or structural on-page problems.
+- **Cluster/Portfolio:** problem is broader than one URL — coverage gaps, cannibalization, content mix, pruning, internal relationships, topic authority distribution.
+- **Site/Technical:** architectural-level cause — crawlability, migrations, redirects, indexation, Core Web Vitals, template issues.
+- **Authority/External:** external signal constraint — competitive authority, link profile, brand/entity recognition, market position.
+- **No Intervention Indicated:** positive evidence that the asset(s) didn't require intervention. Requires: (1) mechanism type inconsistent with a page-level defect (Algorithmic Reassessment reversal, Demand Expansion, SERP environment change, competitor movement), AND/OR (2) Wayback evidence confirms page was unchanged through the recovery window, AND the page recovered. Absence of observed company action alone does not qualify — use Unknown in that case.
+- **Mixed:** multiple levels apply simultaneously; document which level applies to which part of the portfolio and why.
+- **Unknown:** evidence insufficient to assess. Use for migrated records without page-level analysis, and for cases where page defect vs. external signal causality cannot be distinguished. Do not use as a default for "we couldn't find anything."
 
 ---
 
@@ -357,6 +368,7 @@ Complete before marking record Verified or Final.
 - [ ] AIO fields (Susceptibility, Presence Observed, Observed Effect) reflect observed evidence, not causal interpretation
 - [ ] Observed Company Response field populated — if Unknown, state what evidence would resolve it
 - [ ] Observed Company Response in index row matches record
+- [ ] Intervention Level field populated — if Unknown, state what evidence would resolve it; "No Intervention Indicated" requires positive evidence basis, not just absence of observed action
 - [ ] Related Documents section populated (or explicitly marked None)
 
 **Research Contribution & Implications**
@@ -364,6 +376,35 @@ Complete before marking record Verified or Final.
 - [ ] Evidence Register IDs listed (Strengthens / Challenges / Creates — "None" is acceptable if no register-level contribution)
 - [ ] If new Evidence Register entries were created, they are added to `evidence-register.md` before this record is marked Verified
 - [ ] At least one answer to "How should this change future client recommendations?" stated concretely (even if the answer is "No change to current recommendations")
+
+---
+
+## Analysis History
+
+*(This is the living record of how our understanding of this company evolves over time. Each new observation appends here — it does not overwrite the original study window findings. The baseline study window named in the Header is one observation in this history, not a permanent reference point everything is measured against forever. When you revisit a company, add a new Latest Observation block and move the previous one into Prior Analyses.)*
+
+*Rule: new observations append. They never overwrite prior time-bound findings. The analysis period expands; the original finding is preserved.*
+
+### Latest Observation
+
+| Field | Value |
+|-------|-------|
+| **Observation Date** | YYYY-MM-DD |
+| **Data Through** | YYYY-MM |
+| **Analysis Period** | YYYY-MM – YYYY-MM *(cumulative from baseline study window start)* |
+| **Latest Traffic Estimate** | |
+| **Change Since Prior Observation** | *(+X% or −X% from [prior observation endpoint] of [prior value])* |
+| **Latest Direction** | *(Growing / Flat / Declining / Volatile)* |
+| **Current Signal** | *(Continuation / Acceleration / Deceleration / Reversal — relative to prior observation)* |
+| **Mechanism Status** | *(Supported / Complicated / Changed / Insufficient evidence — does the new data change the prior mechanism assessment?)* |
+
+*Current interpretation: [What has changed since the prior observation and whether it affects the existing mechanism assessment. If unchanged, state that explicitly.]*
+
+### Prior Analyses
+
+| Date | Analysis Period | Traffic at Close | Signal | Notes |
+|------|-----------------|-----------------|--------|-------|
+| *(baseline)* | | | | |
 
 ---
 

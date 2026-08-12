@@ -6,3 +6,6 @@ dist/
 *.bak
 dist_old*/
 .DS_Store
+
+# Research repository — local only, not for version control
+research-repository/

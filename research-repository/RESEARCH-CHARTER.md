@@ -209,6 +209,86 @@ Every completed company record should preserve evidence for these four dimension
 
 ---
 
+## Next Study Selection
+
+When asked what to study next, inspect the current repository state and identify the most important evidence gap. Do not default to the most interesting, dramatic, or convenient company. Study selection should progressively improve the breadth, balance, falsifiability, and quantitative usefulness of the repository.
+
+### What to inspect
+
+Before recommending a next study, consider the current distribution across:
+
+- Outcome classification (Grew / Flat / Declined)
+- Primary Mechanism (Algorithm Update / Algorithmic Reassessment / Demand Expansion / etc.)
+- Vertical / category
+- Company size (SMB / Mid-Market / Enterprise)
+- Dominant content model
+- Traffic Trajectory (which trajectories are underrepresented)
+- Page Archetype coverage in existing PDAs
+- AI Substitutability distribution in existing PDAs
+- Intervention Level coverage (what intervention types have few observations)
+- Observed Page Response coverage (what page-level behaviors are underdocumented)
+- AIO exposure and effect (what AIO outcome states need more cases)
+- Rate Eligible page observations — how many `Observation Unit = Page, Rate Eligibility = Yes` rows exist and what archetypes/mechanisms are underrepresented in that subset
+- Evidence Register findings with few supporting cases
+- Evidence Register findings that have not yet faced a challenging/disconfirming case
+
+### Governing principle
+
+Recommend the next study that most reduces an important uncertainty, imbalance, or evidence gap — not simply another interesting case.
+
+More companies alone do not guarantee a less biased dataset. If existing companies cluster around recovery cases in one vertical, another recovery case in the same vertical adds less than a declining company, a stable company, or a company from an underrepresented category.
+
+Be willing to recommend:
+- A boring or stable company
+- A declining company with no recovery
+- A counterexample to an emerging hypothesis
+- A company from an underrepresented vertical or size band
+- A company with a content model the repository has not yet studied
+- A company with confirmed intervention (to test intervention effectiveness)
+- A company with no observed intervention (to test whether intervention is necessary)
+- A company that could contribute Rate Eligible page observations in an underrepresented archetype
+- A specific study type or mechanism rather than a named company, when the evidence gap is structural rather than company-specific
+
+### Falsification
+
+Existing hypotheses should actively generate searches for disconfirming evidence, not only supporting evidence.
+
+If an Evidence Register finding has multiple supporting cases but few or no challenging cases, the most valuable next study may be one capable of bounding or disproving that finding — not one that adds another supporting case.
+
+Example: if Methodological pages repeatedly appear resilient, a declining company with a substantial Methodological page population is a stronger next test than another successful Methodological page from another recovery case.
+
+### Rate Eligibility and Sampling Frame
+
+As the repository matures, consider whether the next study can contribute Rate Eligible observations (`Observation Unit = Page, Rate Eligibility = Yes`) in Page Archetype or AI Substitutability categories that are currently underrepresented. A PDA that establishes a complete and defined sampling frame — not just top-N selections — contributes more to eventual quantitative analysis.
+
+**Governing rule:** Rate Eligibility establishes whether an observation may participate in denominator-based analysis. Sampling Frame establishes which denominator it belongs to. Cross-company page-level rates may only combine observations drawn from compatible sampling frames or from a common inclusion rule applied consistently across all included companies.
+
+Incompatible sampling frames — for example, "top 20% by traffic gain" from one PDA pooled with "top 5 by absolute gain" from another — must not be combined into a single rate calculation. When building cross-company rates, confirm that the inclusion rules are equivalent before pooling.
+
+Do not select companies solely to manufacture a desired quantitative result. The objective is a more defensible denominator, not a particular outcome.
+
+### Recommendation format
+
+When asked what to study next, return:
+
+**Recommended next study:** Specific company if justified, otherwise the type of company or case to find.
+
+**Why this is the highest-value addition:** The imbalance, uncertainty, or evidence gap it addresses.
+
+**What it tests:** Relevant Evidence Register finding, hypothesis, mechanism, archetype, or open question.
+
+**What would strengthen the current finding:** State the observable result.
+
+**What would weaken or challenge it:** State the observable result.
+
+**Dataset contribution:** New coverage added, including whether it could contribute Rate Eligible observations and in which categories.
+
+**Priority:** High / Medium / Low.
+
+Do not force a named company if the repository only supports recommending a study profile. In that case, describe the type of candidate to look for.
+
+---
+
 ## The Tests
 
 Apply these as filters whenever evaluating whether something belongs in the repository:

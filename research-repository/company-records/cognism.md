@@ -94,7 +94,7 @@ Three date windows apply to this record. Metrics must not be mixed across window
 | **Algorithm Alignment** | Moderate — two inflection events are visible and consistent with algorithm-driven reassessment of content-type quality; inflection dates have not been formally mapped to known Google update dates |
 | **AIO Portfolio Susceptibility** | High — definitional and educational content ("what is X" queries) dominates the portfolio; AIO present on all 7 sampled queries via targeted Ahrefs SERP Overview validation; 5,868 keywords in the current Organic Keywords export carry AI Overview SERP features, representing ~56,728 estimated visits (~52.6% of export current total) |
 | **AIO Presence Observed** | Yes — AIO confirmed on all 7 queries via targeted Ahrefs SERP Overview validation (2026-08-03) |
-| **AIO Observed Effect** | Not tested — current citation and ranking status observed via targeted SERP validation, but no historical CTR or traffic evidence isolates AIO's traffic effect |
+| **AIO Observed Effect** | No conclusion — AIO presence confirmed via SERP features column (positions export) and targeted SERP validation; however, keyword disappearance accounts for 73.9% of non-branded gross loss (12,008 keywords with no current position, only 1 with AIO SERP feature); SPC/AIO traffic loss is 0.46% of total non-branded loss; Cognism has 0 "AI Overview" position kinds in positions export (not cited as AIO source). AIO fires on queries where Cognism has lost rankings but Cognism is absent from both organic and AIO — consistent with ranking loss, not click diversion. Updated from "Not tested" via PDA analysis 2026-08-11. |
 | **Current AIO Citation Outcome** | Mixed — cited in AIO on 3/7 sampled queries where organic rankings remain strong ("what is b2b sales" pos. 4; "what is prospecting" pos. 8; "what is b2b lead generation" pos. 3); organic-only at pos. 11–12 on "what is revenue operations" (1/7); absent from both AIO and organic results on 3/7 ("what is lead generation", "what is b2b marketing", "what is a go-to-market strategy") |
 
 ---
@@ -209,6 +209,7 @@ Cognism's AIO citation tracks organic rank strength. On queries where it still h
 ## Related Documents
 
 - Comparison briefs: `comparison-briefs/cognism-zoominfo.md`
+- Portfolio Durability Analysis: `portfolio-durability/cognism.md` (2026-08-11)
 - Synthesis documents: `synthesis-matrix.md`
 - Studies: None
 - Report references: None confirmed
@@ -371,7 +372,7 @@ The AIO finding adds a nuanced secondary insight. In this seven-query sample, Co
 **Fields & index**
 - [x] All controlled-vocabulary fields use approved values
 - [x] Record Status = Draft; Migration Validation Stage = N/A — new record
-- [x] AIO fields (Susceptibility: High; Presence Observed: Yes; Observed Effect: Not tested; Current AIO Citation Outcome: Mixed) reflect observed evidence from targeted Ahrefs SERP Overview validation
+- [x] AIO fields (Susceptibility: High; Presence Observed: Yes; Observed Effect: No conclusion [updated 2026-08-11 via PDA]; Current AIO Citation Outcome: Mixed) reflect observed evidence from targeted SERP validation and positions export analysis
 - [x] Related Documents section populated with cognism-zoominfo comparison brief
 
 ---

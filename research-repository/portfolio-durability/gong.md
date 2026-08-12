@@ -31,10 +31,11 @@ Optimize for structured fields. Every time you want to write a paragraph, ask: c
 | **Window Start** | 2025-01 |
 | **Window End** | 2026-07 |
 | **Window Identification Method** | Performance History cohort window — aligns with 118-company study endpoints |
-| **Top Pages Export Dates** | Previous: 2025-01 (inferred) / Current: 2026-07 (inferred from performance history match: top pages current total 57,739 ≈ Aug 2026 perf history 57,755) |
+| **Top Pages Export Dates (cohort analysis)** | Previous: 2025-01 (inferred) / Current: 2026-07 (inferred from performance history match: top pages current total 57,739 ≈ Aug 2026 perf history 57,755) — window used for recovery/decline/stable cohort classification, page-level analysis, and the 112-page recovery cohort |
+| **Top Pages Export Dates (offset rate)** | Previous: Aug 12, 2024 (confirmed) / Current: Aug 12, 2026 (confirmed) — fresh export used exclusively for Gross Gain/Loss/Offset Rate calculation; differs from cohort-analysis window |
 | **Keywords Export Dates** | Not used in this analysis |
-| **Trailing-Slash Normalization Applied** | Yes — 2,880 raw rows collapsed to 2,648 unique normalized URLs (232 URL pairs merged) |
-| **Window caveats** | Export comparison period dates are inferred from performance history alignment, not confirmed from Ahrefs date filter settings. Top Pages previous total (53,997) does not precisely match performance history Jan 2025 (46,654) — expected discrepancy from different methodologies; Performance History used for endpoint totals. HTTP variants normalized to HTTPS. Two Top Pages exports were available; the 2,880-row export (07:32 UTC) was used as primary — the 1,526-row export (09:05 UTC) is likely a narrower filter and was set aside. |
+| **Trailing-Slash Normalization Applied** | Yes — cohort analysis: 2,880 raw rows collapsed to 2,648 unique normalized URLs (232 URL pairs merged); offset-rate export: 2,934 raw rows, 231 pairs merged, 2,703 normalized URLs |
+| **Window caveats** | Cohort-analysis Top Pages window (Jan 2025 → Jun/Jul 2026) and offset-rate Top Pages window (Aug 2024 → Aug 2026) are different exports covering different periods — do not compare URL-level cohort metrics with offset-rate figures as if they were from the same population. Cohort-analysis export Previous total (53,997) does not precisely match Performance History Jan 2025 (44,884 revised) — expected discrepancy; Performance History used for endpoint totals. HTTP variants normalized to HTTPS. |
 
 ---
 
@@ -42,8 +43,8 @@ Optimize for structured fields. Every time you want to write a paragraph, ask: c
 
 | Metric | Value |
 |--------|-------|
-| Total pages in export (normalized) | 2,648 |
-| Recovery cohort size | 112 pages |
+| Total pages in export (normalized) | 2,703 (Aug 2024 → Aug 2026 export); 2,648 (Jan 2025 → Jun 2026 original) |
+| Recovery cohort size | 112 pages (original export — cohort analysis not re-run on new window) |
 | Decline cohort size | 101 pages |
 | Lost cohort size (prev > 0, curr = 0) | 479 pages |
 | New URL cohort size (prev = 0, curr > 0) | 252 pages |
@@ -54,15 +55,18 @@ Optimize for structured fields. Every time you want to write a paragraph, ask: c
 | Archetypes observed (recovery) | Conceptual, Methodological, Commercial Evaluation, Homepage |
 | Archetypes observed (decline) | Conceptual, Commercial Evaluation, Programmatic, Utility |
 | Archetypes observed (stable) | Homepage, Methodological, Commercial Evaluation |
-| **Gross Gain (normalized)** | 15,623 |
-| **Gross Loss (normalized)** | 11,881 |
-| **Net Change (URL-level)** | +3,742 |
-| **Offset Rate** | 0.760 |
-| **Top 5 page traffic share** | 62.7% |
-| **Top 10 page traffic share** | 69.4% |
-| **Homepage share (current)** | 51.3% |
-| **Gain decomposition: new URLs** | 6,531 (41.8% of gross gain) |
-| **Gain decomposition: continuing URL improvement** | 9,092 (58.2% of gross gain) |
+| **Gross Gain (corrected)** | 22,011 *(Aug 2024 → Aug 2026 window, 231 normalization pairs merged — supersedes 15,623)* |
+| **Gross Loss (corrected)** | 11,306 *(supersedes 11,881)* |
+| **Net Change (URL-level)** | +10,705 *(supersedes +3,742)* |
+| **Offset Rate** | **0.514 (51.4%)** *(corrected 2026-08-12 — supersedes unreliable 0.760)* |
+| **Offset Zone** | High (30–100%) |
+| **Top 5 page traffic share** | 64.2% (Aug 2026) |
+| **Top 10 page traffic share** | 70.2% |
+| **Homepage share (current)** | 53.0% (gong.io/: 30,842 of 58,206) |
+| **Gain decomposition: new URLs** | 6,460 (29.3% of gross gain) |
+| **Gain decomposition: continuing URL improvement** | 15,551 (70.7% of gross gain) |
+
+*Offset Rate methodology note (2026-08-12): The original offset rate (0.760) was computed from a Jan 2025 → Jun 2026 export that was severely affected by URL normalization distortion (trailing-slash canonicalization in progress). The corrected figure (0.514) comes from a fresh Aug 2024 → Aug 2026 export with 231 normalization pairs merged programmatically. Cross-source reconciliation: Top Pages Current 58,206 vs. Performance History Aug 2026 58,047 = 0.3% (expected). The window difference (Aug 2024 → Aug 2026 vs. cohort window Jan 2025 → Jun 2026) means the gain/loss figures capture a broader set of URL-level movements, but the offset rate is the best available estimate for Pattern D classification purposes.*
 
 ---
 

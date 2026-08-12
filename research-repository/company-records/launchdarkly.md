@@ -16,7 +16,7 @@
 | **Analysis Date** | 2026-08-06 |
 | **Record Finalized Date** | 2026-08-06 |
 | **Last Verified Date** | 2026-08-06 |
-| **Methodology Version** | V2.4 |
+| **Methodology Version** | V2.5 |
 | **Record Status** | Draft |
 | **Migration Validation Stage** | N/A — new record |
 | **External Use Status** | Internal only |
@@ -135,6 +135,7 @@
 | **Recovery Status** | Partial — real decline-and-recovery phase present within an overall growth outcome |
 | **Recovery Mechanism** | Rising search demand on "deployment strategies" and its keyword cluster absorbed by an existing page already at position 5; traffic recovered and accelerated without any change in rankings, content, or link acquisition to that page |
 | **Observed Company Response** | No intervention observed [Wayback: Nov 2025 snapshot vs. live page confirms no material content change during the growth period; position improvement was one rank (5→4); keyword count +8 only; no link acquisition to the page] |
+| **Intervention Level** | No Intervention Indicated — Demand Expansion mechanism; recovery was driven by rising search volume on queries the page already held, not by any company action. The page was not broken; the underlying demand compressed then expanded. Page-level intervention was not the variable and was not required. |
 | **Recovery Confidence** | Medium — the pullback and recovery are observable in Performance History; the mechanism driving each phase is inferred, not confirmed |
 | **Recovery Notes** | The study-window absolute trough (Dec 2024, 46,135) was essentially flat from the start and is not the operationally meaningful low point. The pre-breakout local trough (Dec 2025, ~49,250) represents a −15% pullback from the Aug 2025 local peak (~57,700), coinciding with the page count collapse. Traffic then recovered and accelerated through 2026 to the study-window high. The overall study-window outcome is growth (+102.6%), but the trajectory contains a real decline-and-recovery phase in late 2025 that the trajectory table and narrative must reflect. |
 
@@ -427,6 +428,11 @@ Before recommending a content audit focused on volume-optimized new posts for a 
 - **Reason:** Four methodological corrections from reviewer
 - **Sections updated:** Traffic Trajectory, Recovery, Mechanism (Disconfirming Evidence, AIO Observed Effect), Page & Content Analysis, AI Discoverability, all Narrative sections, Research Contribution, Risk Flags, Client Applicability
 - **Summary:** (1) Corrected trajectory to reflect real late-2025 pullback (−15% from Aug to Dec 2025) and sequential nature of collapse vs. 2026 acceleration — these were not concurrent. (2) Recovery Status updated from N/A to Partial — real decline-and-recovery phase documented. (3) "Traffic grew through both collapse events" removed — this was factually wrong; traffic declined alongside the page collapse. (4) AIO Observed Effect retained as Resistant with clarified rationale — dual presence confirmed, click-suppression effect not separately assessed; "deliberate" removed from page collapse description (no intent implied); "breakout" replaced with "acceleration" in structured fields. (5) Domain authority overclaims softened throughout to inference framing.
+
+**2026-08-07 — V2.5 field addition**
+- **Reason:** Intervention Level field added to methodology (V2.5)
+- **Sections updated:** Recovery
+- **Summary:** Intervention Level added: No Intervention Indicated — Demand Expansion mechanism; recovery driven by rising search volume absorbed by an existing page; page was not broken, demand compressed then expanded. Page-level intervention was not the variable and was not required.
 
 ---
 

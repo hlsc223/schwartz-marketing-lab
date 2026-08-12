@@ -17,10 +17,10 @@
 | **Study Window** | 2025-01 to 2026-06 |
 | **Analysis Date** | 2026-06-30 |
 | **Record Finalized Date** | 2026-07-28 |
-| **Last Verified Date** | — |
-| **Methodology Version** | V2.3 |
+| **Last Verified Date** | 2026-08-11 |
+| **Methodology Version** | V2.4 |
 | **Record Status** | Draft |
-| **Migration Validation Stage** | Migrated — not revalidated |
+| **Migration Validation Stage** | PDA completed 2026-08-11 — partial revalidation (Gross-Loss recomputed from new exports; AIO fields updated)
 | **External Use Status** | Internal only |
 | **Data Provenance** | Ahrefs Export |
 | **Calculation Verified** | Partial |
@@ -87,10 +87,10 @@
 | **Disconfirming Evidence** | Backlinks grew continuously from 1,160 to 2,540 RDs across the window (including during the collapse) — backlink decay is definitively ruled out as a cause. The Hyperproof AI launch and Expent acquisition generated new backlinks (TPRM product page: 176 RDs; AI content: 111 RDs) during the same period as the collapse — a competing signal that the company's off-content activity was positive, not negative. |
 | **Algorithm Alignment** | Moderate — Oct-Nov 2025 collapse aligns with Aug 2025 spam update tail or Oct 2025 core update activity; specific update not definitively identified; no Search Console data to confirm at query level |
 | **AIO Portfolio Susceptibility** | Medium — GRC/compliance content (what is a risk management framework, what is CUI, what is PII, segregation of duties) has some AI Overview exposure; less extreme than Navan's or Ramp's pure definitional content because GRC content is more niche and requires regulatory specificity |
-| **AIO Presence Observed** | Yes — the IT Risk Management Framework page (/resource/it-risk-management-framework/) ranks at position 8 for "risk management frameworks" (56,000 monthly volume); the keyword export's SERP features column explicitly lists "AI Overview, Thumbnail, People also ask, Video preview" for this query, confirming an AI Overview is active on the query where the page ranks and drives 2,167 traffic |
-| **AIO Observed Effect** | Resistant — one directly tested query ("risk management frameworks"): page ranks position 8, drives 2,167 traffic, AI Overview is confirmed present; page is generating substantial traffic despite AI Overview presence. Other top-ranking definitional pages (what is CUI at position 1, cyber risk at position 1, risk management strategies at position 1) are likely also AI Overview-exposed given their query types, and they continue to drive traffic — directional resistance across the portfolio, though only one query directly confirmed |
+| **AIO Presence Observed** | Yes — confirmed at portfolio scale in Aug 2026 keywords export: 2,149 keywords carry AIO position kind; the IT Risk Management Framework page confirms AIO via SERP features on "risk management frameworks" (71K vol, US) as previously noted; additional confirmed AIO-cited queries: "incident response plans" (IN 69K, GB 18K, US 57K), "security compliance" (US 4.2K), "what is cui basic" (US 9.9K), "segregation of duties" (US 1.9K) |
+| **AIO Observed Effect** | Mixed — two AIO outcomes observed simultaneously across different query types. Citation component: 2,149 AIO position kind keywords, ~26,879 traffic (~56% of current estimated organic traffic) through AIO-cited positions on non-branded definitional and methodological GRC queries ("incident response plans," "risk management frameworks," "security compliance," etc.); net traffic and portfolio reach all-time high as AIO expands. Interception component: 382 SPC keywords with AIO in SERP features (−6,095 traffic) show query-level interception on processual GRC content ("cybersecurity risk management," "it security assessment"); position held, traffic declined. Net AIO impact is strongly positive overall, but both citation and interception are confirmed across different query types. See PDA 2026-08-11 for full analysis. |
 
-*AIO note: This is the first case in the study where AIO Presence Observed = Yes with direct SERP-features-column evidence (not inference from portfolio growth during the AIO expansion period). The evidential strength is higher than prior cases but lower than a direct CTR comparison would provide. The AI Observation Protocol should be run to confirm current AIO presence on additional queries.*
+*AIO note (2026-08-11): Classified as Mixed because both AIO citation (positive) and AIO interception (negative) are confirmed at scale from the same keyword export. The net portfolio effect is strongly positive — ~56% of estimated organic traffic flows through AIO-cited positions — but Mixed is the correct schema classification when both outcomes coexist. The citation pattern (informational GRC queries) and interception pattern (processual GRC queries) operate at the query level, not the domain level.*
 
 ---
 
@@ -100,16 +100,22 @@
 
 | Metric | Value | Source File |
 |--------|-------|-------------|
-| Gross Gain | +16,713 (173 pages) | Ahrefs Top Pages export |
-| Gross Loss (absolute) | -8,737 (138 pages) | Ahrefs Top Pages export |
-| Net Change | +7,976 (Top Pages level) | Derived |
-| Gross-Loss Offset Rate | 52.3% (8,737 / 16,713) | Ahrefs Top Pages export |
+| Gross Gain | +16,713 (173 pages) | Ahrefs Top Pages export — Jan 2025 → Jun 2026 window (Carried) |
+| Gross Loss (absolute) | -8,737 (138 pages) | Ahrefs Top Pages export — Jan 2025 → Jun 2026 window (Carried) |
+| Net Change | +7,976 (Top Pages level) | Derived (Carried) |
+| Gross-Loss Offset Rate | 52.3% (8,737 / 16,713) | Jan 2025 → Jun 2026 window (Carried) |
 | Offset Zone | Moderate (30-60%) | — |
-| Reconciliation check | Top Pages net (+7,976) vs. perf file net (+9,712) = 82.1% reconciliation; gap within normal sampling variance | — |
+| Reconciliation check | Top Pages net (+7,976) vs. perf file net (+9,712) = 82.1% reconciliation (Carried) | — |
+| **Gross Gain (recomputed, Aug 2024 → Aug 2026)** | **+30,534 (662 pages, no cap hit)** | **Ahrefs Top Pages export Aug 2026 — Recomputed** |
+| **Gross Loss (recomputed, Aug 2024 → Aug 2026)** | **−7,541** | **Ahrefs Top Pages export Aug 2026 — Recomputed** |
+| **Net (recomputed, Aug 2024 → Aug 2026)** | **+22,993** | **Derived — Recomputed** |
+| **Gross-Loss Offset Rate (recomputed)** | **24.7% (7,541 / 30,534)** | **Aug 2024 → Aug 2026 window — Recomputed** |
+| **Offset Zone (recomputed)** | **Low (below 30%)** | — |
+| **Reconciliation (recomputed)** | **Top Pages current sum (48,019) vs. Performance History Aug 2026 (48,155) = 99.7% reconciliation — excellent** | — |
 
-*Gross-Loss Offset interpretation: 52.3% is substantially higher than the minimal-cannibalization cases (Braze, Navan, Gainsight, Harness) but meaningfully lower than a pure shuffle/churn story (which would approach 100%). The net is meaningfully positive and the loser profile is concentrated in peripheral/topical content rather than foundational pages — this is the key finding: the cannibalization is happening in the right places (topical content losing) rather than the worst place (foundational content losing).*
+**Window note:** The 52.3% figure (Carried) covers the Jan 2025 → Jun 2026 cohort window. The 24.7% figure (Recomputed) covers the Aug 2024 → Aug 2026 URL comparison window from new Aug 2026 exports. These measure different periods and are not directly comparable. The 24.7% figure is authoritative for the PDA analysis. Both are documented to prevent confusion. The lower offset rate in the Aug 2024 → Aug 2026 window reflects a longer study horizon that captures more of the recovery trajectory.
 
-*Loser profile: event-driven content (Change Healthcare breach, EO 14028, NIST CSF 2.0 update) whose traffic naturally fades; narrower regulatory niches (FedRAMP, DevSecOps, FinTech compliance); cybersecurity-specific content (incident response, cybersecurity risk management) distinct from Hyperproof's primary GRC/risk-framework positioning. Notably absent from losers: Hyperproof's foundational GRC definitional content — the equivalent of the SOC 2/ISO 27001/HIPAA pages that Secureframe lost.*
+*Gross-Loss Offset interpretation (updated 2026-08-11): 24.7% is the lowest gross-loss offset rate computed from a full URL comparison window in the repository. For every dollar of traffic lost, Hyperproof gained approximately $4. Decline is concentrated in event-driven content (change healthcare breach, event-decay) and modest AIO interception on processual GRC content. Gain is concentrated in definitional/methodological content earning AIO citation on high-volume queries. The portfolio composition is structurally sound: losses are in low-durability content; gains are in renewable, commercially aligned content.*
 
 ---
 
@@ -184,8 +190,9 @@
 
 ## Related Documents
 
+- Portfolio Durability Analysis: `portfolio-durability/hyperproof.md` (2026-08-11)
 - Comparison briefs: See `comparison-briefs/secureframe-vanta.md` and `comparison-briefs/sprinto-secureframe.md` (Hyperproof's Secureframe/Sprinto contrast is discussed within those briefs' category context)
-- Synthesis documents: `synthesis-matrix.md`
+- Synthesis documents: `synthesis-2026-08-07.md`
 - Studies: —
 - Report references: Phase 3 deep dive in `phase3-deep-dives.md` (supplemental Q3 case, lines 2464–2643); Security/Compliance category; Vanta deep dive (category baseline table)
 
@@ -219,6 +226,25 @@
 | Top Pages net | Ahrefs Top Pages | 33,404 (prev) / 41,380 (cur) | Sample | 41,380 − 33,404 | +7,976 | Carried |
 | Top Pages vs. perf file reconciliation | Derived | Top Pages net +7,976 vs. perf net +9,712 | Study window | 7,976 / 9,712 | 82.1% | Carried |
 | TPRM product page RDs (acquisition-event) | Ahrefs BBL | /product/third-party-risk-management | Single page | Direct read | 176 RDs (first seen Nov 15, 2025) | Carried |
+| Gross Gain (Aug 2024 → Aug 2026) | Ahrefs Top Pages export (Aug 2026 pull) | 662 rows; rows where Traffic change > 0 | All URLs with positive traffic change | SUM(Traffic change > 0) | +30,534 | Recomputed |
+| Gross Loss (Aug 2024 → Aug 2026) | Ahrefs Top Pages export (Aug 2026 pull) | 662 rows; rows where Traffic change < 0 | All URLs with negative traffic change | ABS(SUM(Traffic change < 0)) | 7,541 | Recomputed |
+| Net (Aug 2024 → Aug 2026) | Ahrefs Top Pages export (Aug 2026 pull) | Gross Gain − Gross Loss | All | 30,534 − 7,541 | +22,993 | Recomputed |
+| Gross-Loss Offset Rate (Aug 2024 → Aug 2026) | Derived | Gross Loss ÷ Gross Gain | Aug 2024 → Aug 2026 window | 7,541 / 30,534 | 24.7% | Recomputed |
+| Top Pages sum reconciliation (Aug 2026) | Ahrefs Top Pages export (Aug 2026 pull) | SUM(Current traffic) | All 662 rows | SUM(Current traffic) | 48,019 | Recomputed |
+| Performance History, Jan 2025 (new pull) | Ahrefs Performance History export (Aug 2026 pull) | Jan 2025 data row | All traffic | Direct read | 34,198 | Recomputed |
+| Performance History, Jun 2026 (new pull) | Ahrefs Performance History export (Aug 2026 pull) | Jun 2026 data row | All traffic | Direct read | 42,814 | Recomputed |
+| Performance History, Aug 2026 peak | Ahrefs Performance History export (Aug 2026 pull) | Aug 2026 data row | All traffic | Direct read | 48,155 | Recomputed |
+| Reconciliation: Top Pages current vs. Aug 2026 peak | Derived | Top Pages sum 48,019 vs. Perf History Aug 2026 48,155 | — | 48,019 / 48,155 | 99.7% | Recomputed |
+| Branded traffic, current (new pull) | Ahrefs Organic Keywords export (Aug 2026 pull) | Branded = True, SUM(Current organic traffic) | Branded keywords | SUM | 6,445 (13.5% of kw export total) | Recomputed |
+| Non-branded traffic, current (new pull) | Ahrefs Organic Keywords export (Aug 2026 pull) | Branded = False, SUM(Current organic traffic) | Non-branded keywords | SUM | 41,425 (86.5% of kw export total) | Recomputed |
+| AIO-cited keywords count | Ahrefs Organic Keywords export (Aug 2026 pull) | Current position kind = "AI Overview" | AIO position kind only | COUNT | 2,149 keywords | Recomputed |
+| AIO-cited traffic | Ahrefs Organic Keywords export (Aug 2026 pull) | Current position kind = "AI Overview", SUM(Current organic traffic) | AIO position kind only | SUM | 26,879 (56.1% of kw export total) | Recomputed |
+| New URL gain | Ahrefs Top Pages export (Aug 2026 pull) | Previous traffic = 0 or NaN, Traffic change > 0 | New URLs only | SUM(Traffic change) | +6,175 (20.2% of gross gain) | Recomputed |
+| New URL count | Ahrefs Top Pages export (Aug 2026 pull) | Previous traffic = 0 or NaN, Traffic change > 0 | New URLs only | COUNT | 99 pages | Recomputed |
+| Continuing URL gain | Ahrefs Top Pages export (Aug 2026 pull) | Previous traffic > 0, Traffic change > 0 | Continuing gaining URLs | SUM(Traffic change) | +24,359 (79.8% of gross gain) | Recomputed |
+| SPC keyword count | Ahrefs Organic Keywords export (Aug 2026 pull) | Prev traffic > 0, Curr traffic < Prev traffic, Current position ≤ Previous position | SPC candidates | COUNT | 559 keywords | Recomputed |
+| SPC traffic loss | Ahrefs Organic Keywords export (Aug 2026 pull) | SPC candidates | SPC candidates | ABS(SUM(Organic traffic change)) | 7,468 | Recomputed |
+| SPC + AIO traffic loss | Ahrefs Organic Keywords export (Aug 2026 pull) | SPC candidates + AIO in SERP features | SPC + AIO | ABS(SUM(Organic traffic change)) | 6,095 (80.8% of Top Pages gross loss) | Recomputed |
 
 ---
 
@@ -277,8 +303,8 @@ The secondary use case is demonstrating that corporate events (product launches,
 **Known unresolved items**
 - ⚠ "Risk management frameworks" breakthrough mechanism not confirmed
 - ⚠ Specific algorithm update (Aug 2025 spam update tail vs. Oct 2025 core update) not definitively identified
-- ⚠ AI Observation Protocol not run
-- ⚠ Branded/non-branded split from intent data only (keyword export issue)
+- ✓ AIO now confirmed at portfolio scale — 2,149 keywords, 26,879 traffic (56.1%) through AIO-cited positions (PDA 2026-08-11)
+- ✓ Branded/non-branded split recomputed from new keyword export: 13.5% branded (6,445), 86.5% non-branded (41,425) — prior "0 branded keywords" issue was a filter artifact in earlier export; resolved in Aug 2026 pull
 - ⚠ No Search Console data
 
 **Client Applicability**
@@ -288,6 +314,11 @@ The secondary use case is demonstrating that corporate events (product launches,
 ---
 
 ## Historical Amendments
+
+**2026-08-11 (PDA completion — V0.2)**
+- **Reason:** Portfolio Durability Analysis completed from new Aug 2026 exports (Top Pages, Performance History, Organic Keywords — all three exports)
+- **Sections updated:** AIO fields (Presence, Effect), Gross-Loss Offset Analysis, Calculation Log (recomputed metrics added), Related Documents, Methodology Version (V2.3 → V2.4), Migration Validation Stage
+- **Summary:** AIO Observed Effect upgraded from single-query confirmation to portfolio-scale quantification — 2,149 AIO-cited keywords, 26,879 traffic (56.1% of all traffic) through AIO-cited positions; Hyperproof is AIO Cited + Resistant simultaneously. Gross-Loss Offset Rate recomputed from new exports (Aug 2024 → Aug 2026 window): 24.7% — lowest in repository from full URL comparison window. New URL export shows 662 rows (no 30K cap), +30,534 gross gain, −7,541 gross loss. Performance History recomputed: Jan 2025 = 34,198, Jun 2026 = 42,814, Aug 2026 peak = 48,155 (all-time high). SPC analysis: 559 SPC keywords (−7,468 traffic); 382 with AIO (−6,095) — event-decay on change healthcare accounts for 27.2% of gross loss. Branded traffic: 13.5% (6,445). PDA file: portfolio-durability/hyperproof.md.
 
 **2026-07-28 (initial full record migration)**
 - **Reason:** Migration to V2.3 repository format

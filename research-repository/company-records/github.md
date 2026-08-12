@@ -69,9 +69,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Primary Mechanism** | AI-mediated informational demand erosion |
+| **Primary Mechanism** | Search Demand Shift |
 | **Mechanism Pathway** | Algorithm or relevance reassessment (likely 2024 broad core updates — Medium-High confidence) → widespread position losses across developer documentation, tutorial, and repository-discovery content → large-scale traffic decline continuing a post-2022-peak trajectory, with mild partial recovery in the study window (-72.0% net) |
-| **Contributing Mechanisms** | Search Demand Shift |
+| **Contributing Mechanisms** | AI Overview Interception |
 | **Mechanism Confidence** | Medium |
 | **Confidence Rationale** | The traffic-value divergence (traffic −72.0%, value −43.6%) is consistent with disproportionate loss of low-commercial-value informational queries — the query type most susceptible to AI Overview click-through interception. The continuous, gradual shape of the decline (no discrete cliff-edge) is less consistent with a single algorithm update and more consistent with an expanding AI Overview footprint progressively intercepting more queries over time. The same-position CTR collapse signature (positions holding or improving while estimated traffic falls sharply) was the operating hypothesis during the original analysis; no live keyword-level AI Overview spot-check was run to confirm this directly. Confidence is Medium rather than High because: (1) no direct query-level AI Overview exposure verification was performed; (2) Search Demand Shift (developers using AI coding tools and chat systems upstream instead of searching at all) cannot be separated from AI Overview interception with available data; (3) GitHub's unique platform nature (third-party repository traffic dominates the page-level footprint) means the normal page-content mechanism for diagnosing AI Overview impact doesn't apply directly. |
 | **Strongest Competing Explanation** | Competitive displacement: AI coding platforms (GitHub Copilot, ChatGPT, etc.) creating a direct substitute for GitHub repository browsing as a developer workflow. This is conceptually the same as Search Demand Shift and is the most plausible upstream mechanism, but it produces declining search volume rather than declining CTR from existing searches — impossible to distinguish from AI Overview interception with Ahrefs data alone. |
@@ -325,5 +325,10 @@ This record is primarily useful as a cautionary case for two distinct client con
 - **Summary:** Primary Mechanism reclassified from "AI Overview" to "AI-mediated informational demand erosion" — "AI Overview" was too specific given that no query-level spot-check was performed and multiple AI displacement mechanisms are plausible. AIO Exposure → 3-field split (Susceptibility: High, Presence: Not tested, Effect: No conclusion). Commercial Alignment: Low added. Language fixes: "no meaningful owned content surface" → corrected to acknowledge GitHub does publish owned content surfaces but these are a small fraction of total footprint; "AI Overview interception" → "AI-mediated displacement/interception"; "not recoverable through content investment" → "unlikely to be recoverable at scale through conventional editorial-content response."
 
 ---
+
+**2026-08-07 (V2.4 mechanism vocabulary migration)**
+- **Reason:** Taxonomy migration — "AI-mediated informational demand erosion" is a legacy V2.3 value superseded in V2.4
+- **Sections updated:** Mechanism (Primary Mechanism, Contributing Mechanisms)
+- **Summary:** Primary Mechanism migrated from "AI-mediated informational demand erosion" → "Search Demand Shift" per V2.4 migration rule (specific mechanism cannot be confirmed without search-volume trend data; umbrella Search Demand Shift is the correct V2.4 value). Contributing Mechanism updated from "Search Demand Shift" (now redundant with Primary) → "AI Overview Interception" (the SERP-level alternative hypothesis identified in the Confidence Rationale). Index row updated to match.
 
 *Record finalized: 2026-07-28 | Last verified: —*

@@ -1,6 +1,10 @@
 # LogRocket
 
-<!-- Migrated from phase3-deep-dives.md on 2026-07-28. Original analysis date: 2026-06-30. Key interpretive cautions: (1) NO monthly performance file available for LogRocket — this is the most significant data limitation in the record; position-bucket analysis, exact algorithm-update timing attribution, and branded/non-branded trend within-window are all blocked by this gap; (2) the branded/non-branded keyword export split is unreliable — Ahrefs classified library names (swiper slider, nivo charts, barba.js) as "branded" keywords, making the 17,562/30,000 "branded" label untrustworthy; the LogRocket core keyword (logrocket) is used instead; (3) the window opens 71.9% below the company's Aug 2023 historical peak (368,021); the +19.85% within-window net growth reflects a partial recovery from a far deeper structural decline that predates the study window; (4) the primary AI-displacement mechanism here is NOT AI Overviews at the SERP level — it is Search Demand Shift, where developers use AI coding assistants (Copilot, Cursor) directly instead of searching Google; this is a distinct mechanism from the AIO cannibalization affecting other records; (5) winning blog articles in the keyword export show NO AI Overview SERP feature tag — possibly because niche/emerging library queries don't trigger AI Overviews, or because the export captures only Google AIO presence and AI displacement is happening at a different point in the developer workflow. Do not upgrade Record Status without recomputing from source exports. -->
+<!-- Migrated from phase3-deep-dives.md on 2026-07-28. Original analysis date: 2026-06-30.
+
+AMENDED 2026-08-12: Fresh PH and Top Pages exports pulled. Key revisions: (1) Ahrefs revised historical estimates substantially between Jun and Aug 2026 exports — Jan 2025 traffic revised from 103,495 → 130,185 (+26%); Jun 2026 traffic revised from 124,037 → 98,149 (−21%); historical peak (Aug 2023) revised from 368,021 → 575,302 (+56%). These revisions change the cohort-window net outcome from +19.85% (Grew) to −24.6% (Declined). (2) Monthly performance file gap is RESOLVED — fresh PH from Aug 12 covers through Aug 2026 including monthly branded/non-branded split and position buckets. (3) Portfolio Durability Analysis written — see portfolio-durability/logrocket.md. All amended figures are from the Aug 12 PH export.
+
+Original key interpretive cautions (still applicable unless superseded above): (a) the branded/non-branded keyword export split is unreliable — Ahrefs classified library names (swiper slider, nivo charts, barba.js) as "branded" keywords; the LogRocket core keyword (logrocket) is used instead; (b) the primary AI-displacement mechanism is NOT AI Overviews at the SERP level — it is Search Demand Shift where developers use AI coding assistants directly instead of searching Google; (c) winning blog articles show NO AI Overview SERP feature tag — likely because niche/emerging library queries don't trigger AI Overviews. Do not upgrade Record Status without recomputing from source exports. -->
 
 ---
 
@@ -32,20 +36,20 @@
 
 ## Outcome Summary
 
-*All figures carried from original analysis.*
+*Figures updated 2026-08-12 with fresh PH export. Original carried figures superseded by Ahrefs estimate revision — see amendment note in comment block.*
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| Starting Traffic Estimate | 103,495 | Ahrefs Performance export, Jan 2025 |
-| Ending Traffic Estimate | 124,037 | Ahrefs Performance export, Jun 2026 |
-| Traffic Change % | +19.85% | Calculation Log (Carried) |
-| Outcome Classification | Grew | ±10% threshold |
+| Starting Traffic Estimate | 130,185 | Ahrefs Performance History, Aug 12 export, Jan 2025 row *(revised from 103,495 — Ahrefs estimate revision)* |
+| Ending Traffic Estimate | 98,149 | Ahrefs Performance History, Aug 12 export, Jun 2026 row *(revised from 124,037 — Ahrefs estimate revision)* |
+| Traffic Change % | −24.6% | Calculation Log *(revised from +19.85%)* |
+| Outcome Classification | **Declined (Partial recovery)** | ±10% threshold *(revised from Grew — see PDA logrocket.md)* |
 | Traffic Value Change | $65,864 → $66,216 (+0.53%) | Ahrefs Pass 2 (Carried) |
 | Referring Domains Change | 10,201 → 13,472 (+32.1%) | Ahrefs Pass 2 (Carried) |
 
 **Traffic vs. value note (most extreme TV divergence in study):** +0.53% TV against +19.85% traffic = the largest TV/traffic divergence in the entire growth cohort. The new traffic is highly concentrated in low-CPC developer tutorial content. This directly reflects the LogRocket business model: the blog functions as top-of-funnel developer awareness content with low direct commercial intent; the homepage and product pages carry commercial value. The +0.53% TV growth against +19.85% traffic growth means additional visitors are not covering queries that would have high CPC equivalents in the advertising market — consistent with niche/emerging library tutorials and international branded searches generating traffic but not commercial-equivalent value.
 
-**Historical context (mandatory for interpretation):** The window opens 71.9% below the Aug 2023 historical peak (368,021). This is not a standard "within-window trajectory" story — the company was recovering from a structural multi-year decline that had been underway since Aug 2023 before the study window opened. The +19.85% within-window growth is a partial recovery from the bottom of that decline. The Jun 2026 endpoint (124,037) remains 66.3% below the Aug 2023 peak.
+**Historical context (mandatory for interpretation):** The window opens significantly below the Aug 2023 historical peak. Per new PH (Aug 12): Jan 2025 = 130,185, Aug 2023 peak = 575,302 — window opens 77.4% below peak. *(Old PH showed 368,021 peak and 71.9% below — Ahrefs revised both figures significantly between Jun and Aug 2026 exports.)* The −24.6% within-window net reflects a partial recovery that has not yet returned to Jan 2025 starting levels. By Aug 2026 (post-window): 121,083 = still −7.0% below Jan 2025. The Jun 2026 endpoint (98,149) remains 83.0% below the revised Aug 2023 peak.
 
 ---
 
@@ -54,18 +58,18 @@
 | Field | Value |
 |-------|-------|
 | **Traffic Trajectory** | Decline then Recovery |
-| **Peak Month** | 2026-06 (window close — rising at window end) |
-| **Peak Traffic Estimate** | 124,037 |
+| **Peak Month** | 2026-08 (post-window; within-window peak = Jun 2026) |
+| **Peak Traffic Estimate** | 121,083 (Aug 2026, post-window) / 98,149 (Jun 2026, within-window) *(revised from 124,037 — Ahrefs estimate revision)* |
 | **Trough Month** | 2025-11 |
-| **Trough Traffic Estimate** | 64,962 |
+| **Trough Traffic Estimate** | 67,911 *(revised from 64,962 — Ahrefs estimate revision)* |
 | **Primary Inflection Date** | 2025-11 (trough); 2025-12 (recovery onset) |
-| **Current Direction** | Rising (Jun 2026 is the highest point in the study window) |
+| **Current Direction** | Rising (post-window: Jul 2026 = 110,504; Aug 2026 = 121,083; −7.0% below Jan 2025 start) |
 
-*Two-phase interior shape (note: no monthly perf file; shape derived from keyword export and Top Pages temporal data):*
+*Two-phase interior shape (monthly perf file now available — Aug 12 PH; shape confirmed directly):*
 
-*Phase 1 (Jan–Nov 2025): Decline. Traffic fell from 103,495 (Jan) to 64,962 (Nov) = -37.2% over 10 months. The decline is the continuation of a structural trend that predates the study window — the blog had been losing developer tutorial traffic since its Aug 2023 peak. Two factors: (a) mature/well-documented library tutorial content declining as developers use AI coding assistants for these queries instead of searching Google (structural AI-substitution); (b) algorithm updates (Aug-Nov 2025) potentially accelerating or deepening the decline. Cannot separate these factors without monthly perf file.*
+*Phase 1 (Jan–Nov 2025): Decline. Traffic fell from 130,185 (Jan) to 67,911 (Nov) = −47.8% over 10 months. *(Old carried figures: 103,495 → 64,962 = −37.2%; both revised by Ahrefs estimate update.)* The decline continues a structural trend that predates the study window. Two factors: (a) mature/well-documented library tutorial content declining as developers use AI coding assistants for these queries instead of searching Google (structural AI-substitution); (b) algorithm updates (Aug–Nov 2025) potentially accelerating or deepening the decline. Mechanisms not yet separated.*
 
-*Phase 2 (Nov 2025–Jun 2026): Recovery. Traffic rose from 64,962 (Nov 2025) to 124,037 (Jun 2026) = +90.9% in 7 months. Recovery is driven by: (a) branded keyword expansion — "logrocket" keyword increased from 8,809 (Jan 2025) to 25,635 (Jun 2026), +191%; international branded search expansion contributed; (b) new niche/emerging blog tutorial content winning positions on queries for less-documented frameworks and libraries (Next.js partial pre-rendering, Swiper.js, Nivo charts, Barba.js, Angular vs React vs Vue). The two mechanisms are complementary and both operating simultaneously.*
+*Phase 2 (Nov 2025–Jun 2026): Recovery. Traffic rose from 67,911 (Nov 2025) to 98,149 (Jun 2026) = +44.5% in 7 months. *(Old carried figures: +90.9%; revised per Ahrefs estimate update.)* Recovery driven by: (a) branded expansion — branded traffic rose from 12,859 (Nov 2025) to 34,800 (Jun 2026) = +170%; "logrocket" keyword +191% from Jan 2025; (b) new niche/emerging blog tutorial content. Note: the net cohort window outcome is still −24.6% (not recovered to Jan 2025 levels). Post-window continuation: Aug 2026 = 121,083 (−7.0% below Jan 2025 start).*
 
 ---
 
@@ -126,7 +130,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Recovery Status** | Partial — within-window recovery to 124,037 (Jun 2026 = window close) = +90.9% above the trough (64,962, Nov 2025) and +19.85% above window start; still 66.3% below the Aug 2023 historical peak (368,021) |
+| **Recovery Status** | Partial — within-window: Jun 2026 (98,149) = +44.5% above trough (67,911, Nov 2025) but −24.6% below window start (130,185, Jan 2025). Post-window: Aug 2026 (121,083) = +78.3% above trough but −7.0% below window start. Recovery is real and continuing but has not yet returned to Jan 2025 starting levels. *(All figures from new PH, Aug 12 — revised from old carried figures)* |
 | **Recovery Mechanism** | Branded/geographic demand expansion (+191% on "logrocket" keyword; international expansion; homepage traffic +179%); new niche/emerging library tutorial content winning positions on underserved queries (not available from AI coding tools) |
 | **Recovery Confidence** | High — both recovery mechanisms are directly evidenced (branded keyword data; specific new content pages with position and traffic data); the two mechanisms are independently operating and cumulatively explain the +90.9% trough-to-end recovery |
 | **Recovery Notes** | The recovery did NOT come from winning back mature library tutorial positions — those pages remain suppressed and 3,150+ remain at near-zero. The recovery came from additive new traffic types (branded + niche content), not from reversing the AI-substitution losses. This has implications for long-term trajectory: the recovery is structurally different from the loss, and the AI-substitution pattern in mature library tutorials is not treated as reversible by this record. |
@@ -166,10 +170,10 @@
 
 ## Risk Flags
 
-- **No monthly performance file:** This is the record's most significant data limitation. Position-bucket analysis, algorithm-update timing attribution, and branded/non-branded trend within-window are all blocked. The two-phase interior shape (decline through Nov 2025, recovery from Dec 2025) is derived from keyword export temporal data and Top Pages, not a direct monthly series. Do not interpret the trajectory phasing with the same confidence as records with a monthly perf file.
+- **~~No monthly performance file~~** *(RESOLVED 2026-08-12):* Fresh PH export pulled Aug 12, 2026, covering through Aug 2026. Monthly trajectory, branded/non-branded split, and position bucket analysis are now available. See portfolio-durability/logrocket.md for full analysis. The prior limitation no longer applies.
 - **Branded/non-branded keyword export split unreliable:** Ahrefs labeled ~17,562 of approximately 30,000 keywords as "branded" — including library names (swiper slider, nivo, barba.js). The standard branded/non-branded split is not used for LogRocket. The "logrocket" keyword itself (8,809 → 25,635) is the clean branded proxy.
 - **AI substitution vs. Algorithm Update not separable:** Without monthly perf file, the relative contribution of structural AI-substitution demand shift vs. Aug-Nov 2025 algorithm updates to the Phase 1 decline cannot be precisely measured. Both may be operating simultaneously.
-- **Pre-window historical context essential:** The +19.85% within-window growth can be misleadingly positive without context: the company was recovering from a -71.9% peak-to-window-open decline. Any use of this record must include the historical peak context to avoid misrepresenting the overall traffic trajectory.
+- **Historical context essential + Ahrefs estimate revision:** The within-window outcome (now −24.6% per new PH, revised from +19.85%) still requires historical framing: the window opens with traffic already significantly below the Aug 2023 peak. Additionally, Ahrefs substantially revised estimates between Jun and Aug 2026 exports (Jan 2025: +26%; Jun 2026: −21%; peak: +56%). All figures in this record from the Aug 12 PH reflect revised estimates. Cross-referencing with the Jun 30 export requires attention to this revision.
 - **AI Observation Protocol not run:** No AI-tool citations checked. The relevant protocol for LogRocket differs from standard (see AI Discoverability section note).
 - **No Search Console data:** No CTR data, no impression data, no position confirmation at the query level.
 - **Revenue decoupling interpretation:** The revenue-traffic decoupling is directionally clear (+22% ARR while traffic declined), but the causal story between blog traffic and pipeline in this business model was not formally studied. The decoupling may reflect a maturing business model, a salesforce-assisted revenue motion, a product-led-growth conversion that doesn't depend on blog entries, or all three — the record documents the decoupling but does not resolve its cause.
@@ -178,10 +182,21 @@
 
 ## Related Documents
 
+- **Portfolio Durability Analysis:** `portfolio-durability/logrocket.md` (completed 2026-08-12 — source of truth for offset rate, URL-level gain/loss decomposition, branded split, position compression analysis)
 - Comparison briefs: `comparison-briefs/userpilot-posthog.md` (PostHog referenced for category context; LogRocket's developer-blog model contrasts with PostHog's product-led growth model)
-- Synthesis documents: `synthesis-matrix.md`
+- Synthesis documents: `synthesis-2026-08-11.md` (V2, amended 2026-08-12 — LogRocket reclassified from Grew to Declined)
 - Studies: Scrunch AI Discoverability Study (methodology locked, not yet run; LogRocket's niche/emerging library finding is a primary motivation for the developer-content arm of that study)
 - Report references: Phase 3 deep dive in `phase3-deep-dives.md` (supplemental Q3 case, lines 2645–2829); Product Analytics / Developer Tools category
+
+---
+
+## Analysis History
+
+| Date | Event | Key Finding |
+|------|-------|-------------|
+| 2026-06-30 | Original analysis | All figures carried from phase3-deep-dives.md. Starting 103,495 / Ending 124,037 / +19.85% (old PH estimates). No monthly perf file. Outcome = Grew. |
+| 2026-07-28 | Record migrated | Standalone company record created from phase3-deep-dives.md. Status: Draft. |
+| 2026-08-12 | Fresh exports + PDA | New PH (Aug 12) and Top Pages exports pulled. Ahrefs revised estimates substantially: Jan 2025 103K→130K, Jun 2026 124K→98K, peak 368K→575K. Net outcome revised from +19.85% to −24.6%. Monthly perf file gap resolved. Portfolio Durability Analysis completed. Outcome reclassified: Grew → Declined (Partial recovery). Branded traffic +103% from Jan 2025 to Jun 2026 identified as primary recovery mechanism. Position compression: −84.6% of ranked positions eliminated. Post-window recovery continuing: Aug 2026 = 121,083 (−7.0% below Jan 2025 start). |
 
 ---
 
@@ -191,15 +206,21 @@
 
 | Metric | Source File | Source Columns / Rows | Filter / Population | Formula | Verified Value | Verification Status |
 |--------|-----------|-----------------------|--------------------|---------|----------------|---------------------|
-| Traffic Change % | Ahrefs Performance export | Starting 103,495 (Jan 2025); Ending 124,037 (Jun 2026) | All | (124,037 − 103,495) / 103,495 | +19.85% | Carried |
+| Starting Traffic (revised) | Ahrefs PH, Aug 12 2026 export | Jan 2025 row | All | Direct read | 130,185 | Recomputed 2026-08-12 |
+| Ending Traffic (revised) | Ahrefs PH, Aug 12 2026 export | Jun 2026 row | All | Direct read | 98,149 | Recomputed 2026-08-12 |
+| Traffic Change % (revised) | Derived | 130,185 (Jan 2025) → 98,149 (Jun 2026) | All | (98,149 − 130,185) / 130,185 | −24.6% | Recomputed 2026-08-12 |
+| Traffic Change % (original, superseded) | Ahrefs Performance export | Starting 103,495 (Jan 2025); Ending 124,037 (Jun 2026) | All | (124,037 − 103,495) / 103,495 | +19.85% | Carried — superseded by Ahrefs revision |
 | Traffic Value Change % | Ahrefs Pass 2 | Starting $65,864; Ending $66,216 | All | (66,216 − 65,864) / 65,864 | +0.53% | Carried |
 | Referring Domains Change % | Ahrefs Pass 2 | Starting 10,201; Ending 13,472 | All | (13,472 − 10,201) / 10,201 | +32.1% | Carried |
-| Historical peak | Ahrefs historical data | August 2023 value | Historical | Direct read | 368,021 | Carried |
-| Window-open vs. historical peak | Derived | Historical peak 368,021; Window open 103,495 | Historical | (103,495 − 368,021) / 368,021 | -71.9% | Carried |
-| Window-end vs. historical peak | Derived | Historical peak 368,021; Window end 124,037 | Historical | (124,037 − 368,021) / 368,021 | -66.3% | Carried |
-| In-window trough | Ahrefs keyword export / Top Pages temporal data | Nov 2025 | All | Direct read (no monthly perf file) | 64,962 | Carried |
-| Phase 1 decline % | Derived | 103,495 (Jan 2025) → 64,962 (Nov 2025) | Study window | (64,962 − 103,495) / 103,495 | -37.2% | Carried |
-| Phase 2 recovery % | Derived | 64,962 (Nov 2025) → 124,037 (Jun 2026) | Study window | (124,037 − 64,962) / 64,962 | +90.9% | Carried |
+| Historical peak (revised) | Ahrefs PH, Aug 12 2026 | Aug 2023 row | Historical | Direct read | 575,302 | Recomputed 2026-08-12 |
+| Historical peak (original, superseded) | Ahrefs historical data | August 2023 value | Historical | Direct read | 368,021 | Carried — superseded by Ahrefs revision |
+| Window-open vs. historical peak (revised) | Derived | Peak 575,302; Window open 130,185 | Historical | (130,185 − 575,302) / 575,302 | −77.4% | Recomputed 2026-08-12 |
+| Window-end vs. historical peak (revised) | Derived | Peak 575,302; Window end 98,149 | Historical | (98,149 − 575,302) / 575,302 | −83.0% | Recomputed 2026-08-12 |
+| In-window trough (revised) | Ahrefs PH, Aug 12 2026 | Nov 2025 row | Study window | Direct read | 67,911 | Recomputed 2026-08-12 |
+| Phase 1 decline % (revised) | Derived | 130,185 (Jan 2025) → 67,911 (Nov 2025) | Study window | (67,911 − 130,185) / 130,185 | −47.8% | Recomputed 2026-08-12 |
+| Phase 2 recovery % (revised) | Derived | 67,911 (Nov 2025) → 98,149 (Jun 2026) | Study window | (98,149 − 67,911) / 67,911 | +44.5% | Recomputed 2026-08-12 |
+| Post-window Jul 2026 | Ahrefs PH, Aug 12 2026 | Jul 2026 row | Post-window | Direct read | 110,504 | Recomputed 2026-08-12 |
+| Post-window Aug 2026 | Ahrefs PH, Aug 12 2026 | Aug 2026 row | Post-window | Direct read | 121,083 | Recomputed 2026-08-12 |
 | Blog net change | Ahrefs Top Pages | Blog.logrocket.com: 90,040 (prev) → 92,664 (cur) | blog.logrocket.com | 92,664 − 90,040 | +2,624 (+2.9%) | Carried |
 | Main site net change | Ahrefs Top Pages | logrocket.com + docs: 10,331 (prev) → 27,206 (cur) | logrocket.com | 27,206 − 10,331 | +16,875 (+163.3%) | Carried |
 | Homepage traffic change | Ahrefs Top Pages | Homepage: 8,407 (prev) → 23,521 (cur) | logrocket.com homepage | 23,521 − 8,407 | +15,114 | Carried |

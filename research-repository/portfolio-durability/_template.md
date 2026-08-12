@@ -77,17 +77,21 @@ Optimize for structured fields. Every time you want to write a paragraph, ask: c
 
 **Recovery Potential (decline cohort only):** High / Medium / Low / Unknown
 
+**Observed Page Response:** No material change / Minor refresh / Substantive rewrite / Structural / URL change / New page / asset / Mixed / Unknown — what visibly changed on the individual page during the relevant window. Assessed from Wayback Machine comparison when available. "No material change" requires Wayback confirmation. "Unknown" when Wayback was not checked. Distinct from company-level Observed Company Response.
+
+**Intervention Level (page-level):** Page / Cluster/Portfolio / Site/Technical / Authority/External / No Intervention Indicated / Mixed / Unknown — same vocabulary as the company-level field, applied to the individual page. "No Intervention Indicated" requires: Wayback confirms no material change AND the recovery or stable outcome was observed. Do not assign without positive evidence.
+
 ---
 
 ## Recovery Cohort
 
 *Pages that gained meaningful traffic during the reassessment window. Classify each page using the controlled vocabularies above.*
 
-*AIO note: if a recovery page also shows AIO presence on its top query, note it — AIO resistance is a meaningful signal.*
+*AIO note: distinguish AIO outcome type. Three meaningfully different findings: (1) AIO Resistant — page holds traffic despite AIO presence on its query (AIO does not displace it); (2) AIO Cited — page appears as a cited source inside the AI Overview box, driving traffic to the page; (3) AIO Intercepted — AIO presence coincides with traffic loss on the query. A page can be Cited and Resistant simultaneously. "AIO present" without this distinction is diagnostic noise.*
 
-| # | URL | Traffic Δ | Archetype | AI Sub. | Primary Query Type | Recovery Pattern | Candidate Driver | Conf. | Wayback | Durable Demand Signals | Outcome |
-|---|-----|-----------|-----------|---------|-------------------|-----------------|-----------------|-------|---------|----------------------|---------|
-| 1 | | | | | | | | H/M/L | Checked / No / N/A | | Promote |
+| # | URL | Traffic Δ | Archetype | AI Sub. | Primary Query Type | Recovery Pattern | Candidate Driver | Conf. | Wayback | Obs. Page Response | Intervention Level | Durable Demand Signals | Outcome |
+|---|-----|-----------|-----------|---------|-------------------|-----------------|-----------------|-------|---------|-------------------|-------------------|----------------------|---------|
+| 1 | | | | | | | | H/M/L | Yes / No / N/A | No material change / Unknown | No Intervention Indicated / Unknown | | Promote |
 | 2 | | | | | | | | | | | |
 | 3 | | | | | | | | | | | |
 | 4 | | | | | | | | | | | |
@@ -99,9 +103,9 @@ Optimize for structured fields. Every time you want to write a paragraph, ask: c
 
 *For each page where a Wayback comparison was completed. Summarizes what was eliminated, what survives as a candidate explanation.*
 
-| URL | Rewrite? | AIO present? | Links changed? | SERP replaced? | Eliminated | Surviving candidates |
+| URL | Rewrite? | AIO outcome | Links changed? | SERP replaced? | Eliminated | Surviving candidates |
 |-----|----------|-------------|----------------|----------------|------------|---------------------|
-| | Yes/No/Unknown | Yes/No/Not tested | Yes/No/Not tested | Yes/No/Not tested | | |
+| | Yes/No/Unknown | Cited / Resistant / Intercepted / Not tested | Yes/No/Not tested | Yes/No/Not tested | | |
 
 ---
 
@@ -111,9 +115,9 @@ Optimize for structured fields. Every time you want to write a paragraph, ask: c
 
 *Decline attribution is methodologically harder than recovery attribution. Distinguish observable patterns from candidate drivers. AIO susceptibility check required for every page.*
 
-| # | URL | Traffic Δ | Archetype | AI Sub. | Primary Query Type | Decline Pattern | Candidate Driver | Conf. | AIO Check | Durable Demand Signals | Recovery Potential | Outcome |
-|---|-----|-----------|-----------|---------|-------------------|----------------|-----------------|-------|-----------|----------------------|-------------------|---------|
-| 1 | | | | | | | | H/M/L | Yes/No/Not tested | | H/M/L/Unknown | Abandon |
+| # | URL | Traffic Δ | Archetype | AI Sub. | Primary Query Type | Decline Pattern | Candidate Driver | Conf. | AIO Check | Obs. Page Response | Intervention Level | Durable Demand Signals | Recovery Potential | Outcome |
+|---|-----|-----------|-----------|---------|-------------------|----------------|-----------------|-------|-----------|-------------------|-------------------|----------------------|-------------------|---------|
+| 1 | | | | | | | | H/M/L | Yes/No/Not tested | Unknown | Unknown | | H/M/L/Unknown | Abandon |
 | 2 | | | | | | | | | | | | |
 | 3 | | | | | | | | | | | | |
 | 4 | | | | | | | | | | | | |
@@ -137,10 +141,10 @@ Optimize for structured fields. Every time you want to write a paragraph, ask: c
 
 *Complete this cohort when the stable threshold has been formally defined and the data supports it.*
 
-| # | URL | Traffic Δ | Archetype | AI Sub. | Primary Query Type | Durable Demand Signals | Outcome |
-|---|-----|-----------|-----------|---------|-------------------|----------------------|---------|
-| 1 | | | | | | | Preserve |
-| 2 | | | | | | | Preserve |
+| # | URL | Traffic Δ | Archetype | AI Sub. | Primary Query Type | Obs. Page Response | Intervention Level | Durable Demand Signals | Outcome |
+|---|-----|-----------|-----------|---------|-------------------|-------------------|-------------------|----------------------|---------|
+| 1 | | | | | | Unknown | Unknown | | Preserve |
+| 2 | | | | | | Unknown | Unknown | | Preserve |
 
 ---
 
