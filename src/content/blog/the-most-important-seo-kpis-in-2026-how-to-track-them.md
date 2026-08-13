@@ -66,7 +66,7 @@ We saw more extreme versions of the same disconnect in our [study of 118 B2B Saa
 
 These were informational pages, where AI Overviews and other search features increasingly answer the question before users click. The pattern was consistent: rankings held or improved while traffic fell sharply. 
 
-That changes how we should use rankings as an SEO KPI. For years, a higher ranking generally meant more traffic. That relationship is no longer as reliable. Rankings still measure visibility, but we need to measure the traffic they produce separately.
+That changes how we should use rankings as an SEO KPI. For years, a higher ranking generally meant more traffic. That relationship is no longer as reliable. Rankings still measure visibility, but we need to measure the traffic they produce separately. When rankings and traffic diverge, the next step is diagnosing [which mechanism caused the decline](https://schwartzmarketinglab.com/blog/organic-traffic-drop-mechanisms/). 
 
 ## Traffic Volume Measures Visits. It Doesn’t Measure Value.
 
@@ -110,8 +110,6 @@ A complete SEO measurement framework needs to answer four different questions:
 | Is that visibility producing visits? | Organic traffic, CTR                                | Visits           |
 | Is organic producing business value? | Qualified demand, pipeline contribution             | Business value   |
 | Is the portfolio structurally sound? | Gains and losses, concentration, content durability | Portfolio health |
-
-
 
 Most SEO reporting does a good job measuring the first two. The last two are where the bigger gaps tend to be.
 
