@@ -7,7 +7,7 @@ description: The most important SEO KPIs measure visibility, visits, business
 excerpt: Most SEO reporting measures visibility and traffic. Here’s how to
   measure the business value and portfolio health those metrics miss.
 pubDate: 2026-08-13T10:49:00.000-07:00
-draft: true
+draft: false
 tags:
   - Research
   - B2B SaaS
